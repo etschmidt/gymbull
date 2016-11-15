@@ -17,7 +17,9 @@ User.create!(name:  "Ethan T Schmidt",
              goals:  "Win",
              prs:  "Won",
              quals:  "Winner",
-             admin: true)
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
 
 99.times do |n|
   name  = Faker::Name.name
@@ -40,5 +42,7 @@ User.create!(name:  "Ethan T Schmidt",
                weight:  weight,
                goals:  goals,
                prs:  prs,
-               quals:  quals)
+               quals:  quals,
+               activated: true,
+               activated_at: Time.zone.now)
 end
