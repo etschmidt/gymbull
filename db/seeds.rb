@@ -10,14 +10,35 @@ User.create!(name:  "Ethan T Schmidt",
              email: "ethan.t.schmidt@gmail.com",
              password:              "foobar",
              password_confirmation: "foobar",
-             )
+             location:  "San Diego",
+             about:  "I'm me",
+             height:  69,
+             weight:  190,
+             goals:  "Win",
+             prs:  "Won",
+             quals:  "Winner",
+             admin: true)
 
 99.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
+  email = "example-#{n+1}@gymgoat.com"
   password = "password"
+  location = Faker::Address.city
+  about =  Faker::Lorem.paragraph(2)
+  height = Faker::Number.between(48, 90)
+  weight = Faker::Number.between(100, 400)
+  goals = Faker::Lorem.sentence(8)
+  prs = Faker::Lorem.sentence(10)
+  quals = Faker::Lorem.sentence(6)
   User.create!(name:  name,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+               location:  location,
+               about:  about,
+               height:  height,
+               weight:  weight,
+               goals:  goals,
+               prs:  prs,
+               quals:  quals)
 end
