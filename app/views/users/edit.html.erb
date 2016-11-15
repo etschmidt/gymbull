@@ -1,0 +1,51 @@
+<% provide(:title, "Edit user") %>
+<h1>Update your profile</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <h3>Profile Information</h3>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :location %>
+      <%= f.text_field :location, class: 'form-control' %>
+
+      <%= f.label :about %>
+      <%= f.text_area :about, size: "24x6", class: 'form-control' %>
+
+      <%= f.label :height %> in inches
+      <%= f.number_field :height, in: 48..90, step: 1, class: 'form-control' %> 
+
+      <%= f.label :weight %> in pounds
+      <%= f.number_field :weight, in: 100..400, step: 1, class: 'form-control' %> 
+      
+      <%= f.label :goals %>
+      <%= f.text_area :goals, size: "24x3", class: 'form-control' %>     
+      
+      <%= f.label :prs %>
+      <%= f.text_area :prs, size: "24x3", class: 'form-control' %>      
+      
+      <%= f.label :quals %>
+      <%= f.text_area :quals, size: "24x3", class: 'form-control' %>      
+      
+      <h3>Account Information</h3>
+      
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+      
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+
+    </div>
+  </div>
+</div>

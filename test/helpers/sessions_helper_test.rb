@@ -1,4 +1,5 @@
-=begin
+=begin I have no idea why this test fails
+
 require 'test_helper'
 
 class SessionsHelperTest < ActionView::TestCase
