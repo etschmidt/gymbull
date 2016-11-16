@@ -3,7 +3,7 @@ require 'test_helper'
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   
   def setup 
-    @base_title = "gymGoat"
+    @base_title = "Gymbull"
   end
   
   test "should get root" do
@@ -14,7 +14,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
     get root_path
     assert_response :success
-    assert_select "title", "gymGoat"
+    assert_select "title", "Gymbull"
   end
 
   test "should get help" do
