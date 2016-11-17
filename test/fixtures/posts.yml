@@ -1,0 +1,19 @@
+meal:
+  post_type: "meal"
+  content: "salad"
+  created_at: <%= 10.minutes.ago %>
+
+workout:
+  post_type: "workout"
+  content: "bicep curls"
+  created_at: <%= 3.years.ago %>
+
+post:
+  post_type: "post"
+  content: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
+  created_at: <%= 2.hours.ago %>
+
+most_recent:
+  post_type: "workout"
+  content: "Writing a short test"
+  created_at: <%= Time.zone.now %>
