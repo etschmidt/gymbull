@@ -1,19 +1,31 @@
+
+post:
+  post_type: "post"
+  content: "Sad cats are sad"
+  created_at: <%= 2.hours.ago %>
+  user: paul
+  
 meal:
   post_type: "meal"
   content: "salad"
   created_at: <%= 10.minutes.ago %>
+  user: gurney
 
 workout:
   post_type: "workout"
   content: "bicep curls"
   created_at: <%= 3.years.ago %>
-
-post:
-  post_type: "post"
-  content: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
-  created_at: <%= 2.hours.ago %>
-
+  user: duncan
+  
 most_recent:
   post_type: "workout"
   content: "Writing a short test"
   created_at: <%= Time.zone.now %>
+  user: paul
+  
+<% 30.times do |n| %>
+post_<%= n %>:
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 42.days.ago %>
+  user: paul
+<% end %>

@@ -1,4 +1,4 @@
-class ChangeDtatTypeForFieldname < ActiveRecord::Migration[5.0]
+class ChangeDataTypeForFieldname < ActiveRecord::Migration[5.0]
     def self.up
     change_table :posts do |t|
       t.change :duration, :integer

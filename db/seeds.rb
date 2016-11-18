@@ -20,6 +20,13 @@ User.create!(name:  "Ethan T Schmidt",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
+             
+users = User.order(:created_at).take(6)
+50.times do\
+  post_type = "post"
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.posts.create!(post_type: post_type, content: content) }
+end
 
 99.times do |n|
   name  = Faker::Name.name

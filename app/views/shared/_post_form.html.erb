@@ -1,0 +1,15 @@
+<%= form_for(@post) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <div class="form-check-inline">
+      <%= f.radio_button(:post_type, "post") %>
+      <%= label_tag(:post_type_post, "Post") %>
+      <%= f.radio_button(:post_type, "workout") %>
+      <%= label_tag(:post_type_workout, "Workout") %>
+      <%= f.radio_button(:post_type, "meal") %>
+      <%= label_tag(:post_type_meal, "Meal") %>
+    </div>
+    <%= f.text_area :content, placeholder: "Start typin'..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
