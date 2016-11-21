@@ -9,11 +9,32 @@
       <%= f.radio_button(:post_type, "meal") %>
       <%= label_tag(:post_type_meal, "Meal") %>
     </div>
-    <%= f.text_area :content, placeholder: "Start typin'..." %>
-  </div>
-  <span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
+    
+    <div class="workout">
+      <%= f.text_field :title, placeholder: "eg. Zyzz no.1" %>
+      <%= f.text_field :body_parts, placeholder: "eg. chest/biceps" %>
+      <%= f.number_field(:duration, in:0..240, step:15, placeholder: "eg. 15") %>
+      <%= f.text_field :equipment, placeholder: "eg. dumbbells, adjustable bench, EZ curl bar" %>
+      <%= f.text_area :content, placeholder: "eg. 4 sets of Incline Dumbbell Press, 8-10 reps..." %>
+    </div>
+    
+    <div class="meal">
+      <%= f.text_field :title, placeholder: "eg. morning meal 3" %>
+      <%= f.number_field :calories, placeholder: "936 calories" %>
+      <%= f.number_field :protein, placeholder: "85g" %>
+      <%= f.number_field :carbs, placeholder: "55g" %>
+      <%= f.number_field :fat, placeholder: "40g" %>
+      <%= f.text_field :ingredients, placeholder: "eg. chicken breast, broccoli, brown rice" %>
+      <%= f.text_area :content, placeholder: "eg. boil checken, steam brocolli..." %>
+    </div>
+    
+    <div class="regular">
+      <%= f.text_area :content, placeholder: "Start typin'..." %>
+      <span class="picture">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+      </span>
+    </div>
+  
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
 
