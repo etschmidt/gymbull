@@ -1,6 +1,41 @@
-<button>Post</button>
+<button id="post-button">Post</button>
+<button id="workout-button">Workout</button>
+<button id="meal-button">Meal</button>
 
-<div id="post-form"><%= render 'posts/form_post' %></div>
+<li id="post-form" class="no-bullets"><%= render 'posts/form_post' %></li>
+<li id="workout-form" class="no-bullets"><%= render 'posts/form_workout' %></li>
+<li id="meal-form" class="no-bullets"><%= render 'posts/form_meal' %></li>
+
+<script>
+
+/* I'm sure ther's a better way to do this...*/
+
+$(document).ready(function(){
+  
+  $("#post-form").show();
+  $("#workout-form").hide();
+  $("#meal-form").hide();
+  
+  $("#post-button").click(function(){
+      $("#post-form").show()
+      $("#workout-form").hide()
+      $("#meal-form").hide();
+  });
+  
+  $("#workout-button").click(function(){
+      $("#workout-form").show();
+      $("#meal-form").hide();
+      $("#post-form").hide();
+  });
+  
+  $("#meal-button").click(function(){
+      $("#meal-form").show();
+      $("#post-form").hide();
+      $("#workout-form").hide();
+  });
+  
+});
+</script>
 
 <script type="text/javascript">
   $('#micropost_picture').bind('change', function() {
@@ -9,12 +44,4 @@
       alert('Woah, buddy! That\'s too BIG!');
     }
   });
-</script>
-
-<script>
-$(document).ready(function(){
-    $("button").click(function(){
-        $("#post-form").toggle();
-    });
-});
 </script>
