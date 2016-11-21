@@ -1,0 +1,15 @@
+<%= form_for(@post, html: { multipart: true }) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <div class="meal">
+      <%= hidden_field_tag :post_type, "meal" %>
+      <%= f.text_field :title, placeholder: "eg. morning meal 3" %>
+      <%= f.number_field :calories, placeholder: "936 calories" %>
+      <%= f.number_field :protein, placeholder: "85g" %>
+      <%= f.number_field :carbs, placeholder: "55g" %>
+      <%= f.number_field :fat, placeholder: "40g" %>
+      <%= f.text_field :ingredients, placeholder: "eg. chicken breast, broccoli, brown rice" %>
+      <%= f.text_area :content, placeholder: "eg. boil checken, steam brocolli..." %>
+    </div>
+<%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

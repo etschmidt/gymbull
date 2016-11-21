@@ -24,8 +24,8 @@ class PostsController < ApplicationController
    
    def post_params
      params.require(:post).permit(:post_type, :content, :picture, :body_parts,
-                                  :duration, :equipment, :exercises, :calories,
-                                  :macros, :ingredients, :recipe )
+                                  :duration, :equipment, :calories, :protein,
+                                  :fat, :carbs, :ingredients )
    end
    
    def correct_user
