@@ -20,14 +20,8 @@ User.create!(name:  "Ethan T Schmidt",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
-             
-users = User.order(:created_at).take(6)
-50.times do\
-  post_type = "post"
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.posts.create!(post_type: post_type, content: content) }
-end
 
+# Users
 99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@gymgoat.com"
@@ -52,4 +46,43 @@ end
                quals:  quals,
                activated: true,
                activated_at: Time.zone.now)
+end
+
+# Posts
+users = User.order(:created_at).take(6)
+5.times do\
+  post_type = "post"
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.posts.create!(post_type: post_type, content: content) }
+end
+
+# Workouts
+users = User.order(:created_at).take(6)
+5.times do\
+  post_type = "workout"
+  title = Faker::Superhero.name
+  body_parts = Faker::Lorem.sentence(2)
+  duration = Faker::Number.between(5, 240)
+  equipment = Faker::Lorem.sentence(4)
+  content = Faker::Lorem.paragraph(3)
+  users.each { |user| user.posts.create!(post_type: post_type, title: title, 
+                                         body_parts: body_parts, duration: duration,
+                                         equipment: equipment, content: content) }
+end
+
+# Posts
+users = User.order(:created_at).take(6)
+5.times do\
+  post_type = "meal"
+  title = Faker::Pokemon.name
+  calories = Faker::Number.between(5, 240)
+  protein = Faker::Number.between(5, 240)
+  carbs = Faker::Number.between(5, 240)
+  fat = Faker::Number.between(5, 240)
+  ingredients = Faker::Lorem.sentence(4)
+  content = Faker::Lorem.paragraph(3)
+  users.each { |user| user.posts.create!(post_type: post_type, title: title, 
+                                         calories: calories, protein: protein,
+                                         fat: fat, carbs: carbs, ingredients: ingredients,
+                                         content: content) }
 end

@@ -5,7 +5,7 @@
       <%= f.hidden_field :post_type, :value => "workout" %>
       <%= f.text_field :title, placeholder: "eg. Zyzz no.1" %>
       <%= f.text_field :body_parts, placeholder: "eg. chest/biceps" %>
-      <%= f.number_field(:duration, in:0..240, step:15, placeholder: "eg. 15") %>
+      <%= f.number_field(:duration, in:0..240, placeholder: "eg. 15") %>
       <%= f.text_field :equipment, placeholder: "eg. dumbbells, adjustable bench, EZ curl bar" %>
       <%= f.text_area :content, placeholder: "eg. 4 sets of Incline Dumbbell Press, 8-10 reps..." %>
     </div>

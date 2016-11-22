@@ -1,8 +1,31 @@
 <li id="post-<%= post.id %>">
   <span class="user"><%= link_to post.user.name, post.user %></span>
   <span class="content">
-    <%= post.content %>
-    <%= image_tag post.picture.url if post.picture? %>
+    
+    <% if post?(post) %>
+      <%= post.content %></br>
+      <%= image_tag post.picture.url if post.picture? %></br>
+    
+    <% elsif workout?(post) %>
+      <% if post.title? %> Title: <%= post.title %></br><% end %>
+      <% if post.body_parts? %> Body Parts: <%= post.body_parts %></br><% end %>
+      <% if post.duration? %> Length: <%= post.duration %> minutes</br><% end %>
+      <% if post.equipment? %> Equipment: <%= post.equipment %></br><% end %>
+      Workout: <%= post.content %></br>
+    
+    <% elsif meal?(post) %>
+      <% if post.title? %> Title: <%= post.title %></br><% end %>
+      <% if post.calories? %> Calories: <%= post.calories %> kcal</br><% end %>
+      <% if post.protein? || post.fat? || post.carbs? %>
+        <div>Macronutrients:</br> 
+        <% if post.protein? %>Protein: <%= post.protein %> g</br><% end %>
+        <% if post.fat? %>Fat: <%= post.fat %> g</br><% end %>
+        <% if post.carbs? %>Carbs: <%= post.carbs %> g<% end %>
+        </div> <% end %>
+      <% if post.ingredients? %>Ingredients: <%= post.ingredients %></br><% end %>
+      Recipe: <%= post.content %></br>
+    <% end %>
+  
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
