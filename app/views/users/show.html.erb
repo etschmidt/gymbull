@@ -4,8 +4,11 @@
     <section class="user_info">
       <h1><%= @user.name %></h1>
       <%  if @user.picture? %>
-        <%= image_tag @user.picture.url %></br>
+        <%= image_tag @user.picture.url, size:"200" %></br>
       <% end %>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
       <% if @user.location? %> Location: <%= @user.location %></br><% end %>
       <% if @user.about? %> About: <%= @user.about %></br><% end %>
       <% if @user.height? %> Height: <%= @user.height %> in.</br><% end %>
@@ -19,6 +22,7 @@
     </section>
   </aside>
   <div class="col-md-8">
+    <%= render 'follow_form' if logged_in? %>
     <% if @user.posts.any? %>
       <h3>Posts (<%= @user.posts.count %>)</h3>
       <ol class="posts">

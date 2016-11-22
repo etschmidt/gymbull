@@ -1,0 +1,15 @@
+one:
+  follower: paul
+  followed: gurney
+
+two:
+  follower: paul
+  followed: thufir
+
+three:
+  follower: gurney
+  followed: paul
+
+four:
+  follower: duncan
+  followed: paul
