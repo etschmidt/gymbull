@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20161121174603) do
     t.datetime "updated_at",  null: false
     t.string   "picture"
     t.string   "title"
-    t.decimal  "carbs"
-    t.decimal  "fat"
-    t.decimal  "protein"
+    t.integer  "carbs"
+    t.integer  "fat"
+    t.integer  "protein"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
