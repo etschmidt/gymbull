@@ -5,6 +5,8 @@
       <h1><%= @user.name %></h1>
       <%  if @user.picture? %>
         <%= image_tag @user.picture.url, size:"200" %></br>
+      <% else %>
+        <%= image_tag "gym-clipart.jpg", size:"200" %></br>
       <% end %>
     <section class="stats">
       <%= render 'shared/stats' %>

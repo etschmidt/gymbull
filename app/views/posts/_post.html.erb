@@ -1,5 +1,9 @@
 <li id="post-<%= post.id %>">
-  <span class="user"><%= link_to post.user.name, post.user %></span>
+  <span class="user"><%  if @user.picture? %>
+        <%= image_tag @user.picture.url, size:"35" %>
+      <% else %>
+        <%= image_tag "gym-clipart.jpg", size:"35" %>
+      <% end %><%= link_to post.user.name, post.user %></span>
   <span class="content">
     
     <% if post?(post) %>
