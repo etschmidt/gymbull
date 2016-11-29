@@ -1,7 +1,7 @@
 <%= form_for(@post, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <div class="meal">
+    <div class="meal-form">
       <%= f.hidden_field :post_type, :value => "meal" %>
       <%= f.text_field :title, placeholder: "eg. morning meal 3" %>
       <%= f.number_field :calories, placeholder: "936 calories" %>

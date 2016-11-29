@@ -1,4 +1,4 @@
-<li id="post-<%= post.id %>">
+<li id="post-<%= post.id %>" class="<%= post.post_type %>">
   <span class="user">
     <%= picture_for(post.user, size: 30) %>
     <%= link_to post.user.name, post.user %></span>
