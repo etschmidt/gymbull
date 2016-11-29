@@ -1,24 +1,22 @@
 <li id="post-<%= post.id %>">
-  <span class="user"><%  if @user.picture? %>
-        <%= image_tag @user.picture.url, size:"35" %>
-      <% else %>
-        <%= image_tag "gym-clipart.jpg", size:"35" %>
-      <% end %><%= link_to post.user.name, post.user %></span>
+  <span class="user">
+    <%= picture_for(post.user, size: 30) %>
+    <%= link_to post.user.name, post.user %></span>
   <span class="content">
     
     <% if post?(post) %>
-      <%= post.content %></br>
+      <%= simple_format(post.content) %></br>
       <%= image_tag post.picture.url if post.picture? %></br>
     
     <% elsif workout?(post) %>
-      <% if post.title? %> Title: <%= post.title %></br><% end %>
+      <% if post.title? %><b><%= post.title %></b></br><% end %>
       <% if post.body_parts? %> Body Parts: <%= post.body_parts %></br><% end %>
       <% if post.duration? %> Length: <%= post.duration %> minutes</br><% end %>
       <% if post.equipment? %> Equipment: <%= post.equipment %></br><% end %>
-      Workout: <%= post.content %></br>
+      <div><b>Workout:</b></br><%= simple_format(post.content) %></div>
     
     <% elsif meal?(post) %>
-      <% if post.title? %> Title: <%= post.title %></br><% end %>
+      <% if post.title? %><b><%= post.title %></b></br><% end %>
       <% if post.calories? %> Calories: <%= post.calories %> kcal</br><% end %>
       <% if post.protein? || post.fat? || post.carbs? %>
         <div>Macronutrients:</br> 
@@ -27,7 +25,7 @@
         <% if post.carbs? %>Carbs: <%= post.carbs %> g<% end %>
         </div> <% end %>
       <% if post.ingredients? %>Ingredients: <%= post.ingredients %></br><% end %>
-      Recipe: <%= post.content %></br>
+     <div><b>Recipe:</b></br><%= simple_format(post.content) %></div>
     <% end %>
   
   </span>
