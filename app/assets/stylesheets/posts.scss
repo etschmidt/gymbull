@@ -39,12 +39,8 @@ $gray-medium-light: #eaeaea;
   }
 }
 
-a.navbar-brand {
-  color: black;
-  font-size: 36px;
-  padding-left: 50px;
-  }
 
+  
 /* Form */
 .form-check-inline input {
   width: 15px;
@@ -63,6 +59,12 @@ span.picture {
     border: 0;
   }
 }
+
+a.navbar-brand {
+  color: black;
+  font-size: 36px;
+  padding-left: 50px;
+  }
 
 /* Style the list */
 .no-bullets {

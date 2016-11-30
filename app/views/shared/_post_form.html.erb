@@ -1,8 +1,13 @@
-<p>
-<button id="post-button">Post</button>
-<button id="workout-button">Workout</button>
-<button id="meal-button">Meal</button>
-</p>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li id="post-button" class="form-button active"><a>Post</a></li>
+      <li id="workout-button" class="form-button"><a>Workout</a></li> 
+      <li id="meal-button" class="form-button"><a>Meal</a></li> 
+    </ul>
+  </div>
+</nav>
+
 <li id="post-form" class="no-bullets"><%= render 'posts/form_post' %></li>
 <li id="workout-form" class="no-bullets"><%= render 'posts/form_workout' %></li>
 <li id="meal-form" class="no-bullets"><%= render 'posts/form_meal' %></li>
@@ -18,21 +23,30 @@ $(document).ready(function(){
   $("#meal-form").hide();
   
   $("#post-button").click(function(){
-      $("#post-form").show()
-      $("#workout-form").hide()
+      $("#post-form").show();
+      $("#workout-form").hide();
       $("#meal-form").hide();
+      $("#post-button").addClass("active");
+      $("#workout-button").removeClass("active");
+      $("#meal-button").removeClass("active");
   });
   
   $("#workout-button").click(function(){
       $("#workout-form").show();
       $("#meal-form").hide();
       $("#post-form").hide();
+      $("#post-button").removeClass("active");
+      $("#workout-button").addClass("active");
+      $("#meal-button").removeClass("active");
   });
   
   $("#meal-button").click(function(){
       $("#meal-form").show();
       $("#post-form").hide();
       $("#workout-form").hide();
+      $("#post-button").removeClass("active");
+      $("#workout-button").removeClass("active");
+      $("#meal-button").addClass("active");
   });
   
 });
