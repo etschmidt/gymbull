@@ -2,11 +2,14 @@
   <div class="row">
     <aside class="col-md-4">
       <section class="user_info">
-        <%= render 'shared/user_info' %>
+        <%= picture_for(current_user, size: 150) %>
+        <h1><%= current_user.name %></h1>
+        <section class="stats">
+          <%= render 'shared/stats' %>
+        </section>
+        <span><%= link_to "view my profile", current_user %></span>
       </section>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
+
       <section class="post_form">
         <%= render 'shared/post_form' %>
       </section>
