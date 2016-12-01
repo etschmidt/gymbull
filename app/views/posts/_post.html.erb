@@ -5,15 +5,19 @@
   <span class="content">
     
     <% if post?(post) %>
-      <%= simple_format(post.content) %></br>
-      <%= image_tag post.picture.url if post.picture? %></br>
+      <%= simple_format(post.content) %>
+      <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      <%= image_tag post.picture.url if post.picture? %>
     
     <% elsif workout?(post) %>
       <% if post.title? %><b><%= post.title %></b></br><% end %>
       <% if post.body_parts? %> Body Parts: <%= post.body_parts %></br><% end %>
       <% if post.duration? %> Length: <%= post.duration %> minutes</br><% end %>
       <% if post.equipment? %> Equipment: <%= post.equipment %></br><% end %>
-      <div><b>Workout:</b></br><%= simple_format(post.content) %></div>
+      <div>
+        <b>Workout:</b></br><%= simple_format(post.content) %>
+        <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      </div>
     
     <% elsif meal?(post) %>
       <% if post.title? %><b><%= post.title %></b></br><% end %>
@@ -25,9 +29,13 @@
         <% if post.carbs? %>Carbs: <%= post.carbs %> g<% end %>
         </div> <% end %>
       <% if post.ingredients? %>Ingredients: <%= post.ingredients %></br><% end %>
-     <div><b>Recipe:</b></br><%= simple_format(post.content) %></div>
+     <div>
+        <b>Recipe:</b></br><%= simple_format(post.content) %>
+        <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      </div>
     <% end %>
   
+    
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.

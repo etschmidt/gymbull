@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <div class="row">
     
-    <aside class="col-md-4">
+    <aside class="col-md-3">
       <section class="user_info">
         <%= picture_for(current_user, size: 150) %>
         <h1><%= current_user.name %></h1>
@@ -16,7 +16,7 @@
       </section>
     </aside>
     
-    <div class="col-md-8">
+    <div class="col-md-7">
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -31,6 +31,16 @@
         </div>
       </nav>
       <%= render 'shared/feed' %>
+    </div>
+    <div class="col-md-1">
+      <div id="tag_cloud">
+        <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
+          <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-1">
+      
     </div>
   </div>
   

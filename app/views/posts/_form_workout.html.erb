@@ -8,6 +8,7 @@
       <%= f.number_field(:duration, in:0..240, placeholder: "eg. 15") %>
       <%= f.text_field :equipment, placeholder: "eg. dumbbells, adjustable bench, EZ curl bar" %>
       <%= f.text_area :content, placeholder: "eg. 4 sets of Incline Dumbbell Press, 8-10 reps..." %>
+      <%= f.text_field :tag_list, placeholder: "tags: eg. lifting, getbig" %>
     </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>

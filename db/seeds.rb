@@ -48,14 +48,6 @@ User.create!(name:  "Ethan T Schmidt",
                activated_at: Time.zone.now)
 end
 
-# Posts
-users = User.order(:created_at).take(6)
-5.times do\
-  post_type = "post"
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.posts.create!(post_type: post_type, content: content) }
-end
-
 # Workouts
 users = User.order(:created_at).take(6)
 5.times do\
@@ -65,12 +57,14 @@ users = User.order(:created_at).take(6)
   duration = Faker::Number.between(5, 240)
   equipment = Faker::Lorem.sentence(4)
   content = Faker::Lorem.paragraph(3)
+  tag_list = Faker::Hipster.words(2, false, false)
   users.each { |user| user.posts.create!(post_type: post_type, title: title, 
                                          body_parts: body_parts, duration: duration,
-                                         equipment: equipment, content: content) }
+                                         equipment: equipment, content: content, 
+                                         tag_list: tag_list) }
 end
 
-# Posts
+# Meals
 users = User.order(:created_at).take(6)
 5.times do\
   post_type = "meal"
@@ -81,11 +75,23 @@ users = User.order(:created_at).take(6)
   fat = Faker::Number.between(5, 240)
   ingredients = Faker::Lorem.sentence(4)
   content = Faker::Lorem.paragraph(3)
+  tag_list = Faker::Hipster.words(2, false, false)
   users.each { |user| user.posts.create!(post_type: post_type, title: title, 
                                          calories: calories, protein: protein,
                                          fat: fat, carbs: carbs, ingredients: ingredients,
-                                         content: content) }
+                                         content: content, tag_list: tag_list) }
 end
+
+# Posts
+users = User.order(:created_at).take(6)
+5.times do\
+  post_type = "post"
+  content = Faker::Lorem.sentence(5)
+  tag_list = Faker::Hipster.words(2, false, false)
+  users.each { |user| user.posts.create!(post_type: post_type, content: content,
+                                          tag_list: tag_list) }
+end
+
 
 # Following relationships
 users = User.all

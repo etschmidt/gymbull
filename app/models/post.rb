@@ -7,6 +7,8 @@ class Post < ApplicationRecord
   validates :content, presence: true
   validate  :picture_size
   
+  acts_as_taggable
+  
   private 
   
     # Validates size of uploaded picture
