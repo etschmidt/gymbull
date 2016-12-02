@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   
   get 'tags/:tag', to: 'static_pages#home', as: :tag
   
+  get 'users/:id/tags/:tag', to: 'users#show'
+  
   resources :users do
     member do
       get :following, :followers

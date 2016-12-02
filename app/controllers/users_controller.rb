@@ -10,7 +10,11 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.paginate(page: params[:page])
+    if params[:tag]
+      @posts = @user.posts.tagged_with(params[:tag])
+    else
+      @posts = @user.posts
+    end
   end
   
   def new
@@ -103,6 +107,4 @@ class UsersController < ApplicationController
       redirect_to(root_url) unless current_user.admin?
     end
    
-  
-    
 end

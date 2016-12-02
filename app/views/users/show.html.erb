@@ -1,6 +1,7 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-4">
+  
+  <aside class="col-md-3">
     <section class="user_info">
       <%= picture_for(@user, size: 150) %>
       <h1><%= @user.name %></h1>
@@ -19,7 +20,7 @@
       <% end %>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-6">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.posts.any? %>
       <nav class="navbar navbar-default">
@@ -39,8 +40,16 @@
       <ol class="posts">
         <%= render @posts %>
       </ol>
-      <%= will_paginate @posts %>
     <% end %>
+  </div>
+  
+  <div class="col-md-1">
+    <div id="tag_cloud">
+      <h4><%= @user.name %>'s Tags:</h4>
+      <% tag_cloud @posts.tag_counts, %w[s m l] do |tag, css_class| %>
+        <%= link_to tag.name, "/users/#{@user.id}/tags/#{tag.name}", class: css_class %>
+      <% end %>
+    </div>
   </div>
 </div>
 
