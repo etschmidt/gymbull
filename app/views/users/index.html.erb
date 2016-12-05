@@ -1,8 +1,20 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
+<aside class="col-md-3">
+	<section class="search">
+		<%= render 'search_user' %>
+	</section>
+</aside>
 
-<%= will_paginate %>
-
-<ul class="users">
-  <%= render @users %>
-</ul>
+<div class="col-md-6">
+	<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Users (<%= @users.count %>)</a>
+      </div>
+    </div>
+  </nav>
+	
+	<ul class="users">
+	  <%= render @users %>
+	</ul>
+</div>

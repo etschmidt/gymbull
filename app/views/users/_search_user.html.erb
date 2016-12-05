@@ -1,0 +1,7 @@
+<%= search_form_for @search do |f| %>
+	<div class="field">
+		<%= f.label :name_cont, "Search for Users" %><%= link_to "Clear", users_path, class: "btn" %>
+		<%= f.text_field :name_cont, placehodler: "Name contains" %>
+	</div>
+	<div class="actions"><%= f.submit "Search", class: "btn" %></div>
+<% end %>
