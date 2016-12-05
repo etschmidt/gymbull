@@ -1,8 +1,11 @@
 <li>
   <%= picture_for(user, size: 30) %>
-  <%= link_to user.name, user %>
+  <%= link_to user.name, user, :class => "btn" %>
   <% if current_user.admin? && !current_user?(user) %>
     <%= link_to "delete", user, method: :delete,
                                 data: { confirm: "You sure?" } %>
+  <% end %></br>
+  Top Tags: <% tag_cloud user.posts.tag_counts.limit(3), %w[s m l] do |tag, css_class|%>
+    <%= link_to tag.name, "/users/#{user.id}/tags/#{tag.name}", class: css_class %>
   <% end %>
 </li>
