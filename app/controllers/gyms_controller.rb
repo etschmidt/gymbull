@@ -7,6 +7,7 @@ class GymsController < ApplicationController
   end
 
   def new
+    @gym = Gym.new
   end
 
   def create

@@ -1,3 +1,18 @@
 <% provide(:title, @gym.name) %>
 
-<%= @gym.name %>, <%= @gym.email %>
+<div class="row">
+  <aside class="col-md-3">
+    <section class="gym_info">
+      <%= picture_for(@gym, size: 150) %>
+      <h1><%= @gym.name %></h1>
+      </section></br>
+      <% if @gym.location? %> Location: <%= @gym.location %></br><% end %>
+      <% if @gym.email? %> Email: <%= @gym.email %></br><% end %>
+      <% if @gym.focus? %> Focus: <%= @gym.focus %></br><% end %>
+      <% if @gym.about? %> About: <%= @gym.about %></br><% end %>
+      <% if @gym.hours? %> Hours: <%= @gym.hours %></br><% end %>
+      <% if @gym.pricing? %> Pricing: <%= @gym.pricing %></br><% end %>
+      <% if @gym.equipment? %> Equipment: <%= @gym.equipment %></br><% end %>
+      <% if @gym.classes? %> classes: <%= @gym.classes %></br><% end %>
+    </section>
+  </aside>
