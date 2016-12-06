@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206180559) do
+ActiveRecord::Schema.define(version: 20161206230653) do
 
   create_table "gyms", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20161206180559) do
     t.text     "classes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "gym_admin"
     t.index ["name"], name: "index_gyms_on_name", unique: true
   end
 

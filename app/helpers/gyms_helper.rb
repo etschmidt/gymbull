@@ -9,4 +9,9 @@ module GymsHelper
     end
   end
 	
+	# Returns true if the given user is a gym admin.
+  def gym_admin?(user)
+    user.id == gym.gym_admin
+  end
+	
 end

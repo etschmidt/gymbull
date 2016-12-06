@@ -10,6 +10,8 @@
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
+      
+      <%= f.hidden_field :gym_admin, :value => @current_user.id %>
 
       <%= f.label :picture %>
       <%= f.file_field :picture %>

@@ -1,0 +1,8 @@
+<li>
+  <%= picture_for(gym, size: 30) %>
+  <%= link_to gym.name, gym, :class => "btn" %>
+  <% if current_user.admin? %>
+    <%= link_to "delete", gym, method: :delete,
+                                data: { confirm: "You sure?" } %>
+  <% end %></br>
+</li>
