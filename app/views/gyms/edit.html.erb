@@ -1,2 +1,64 @@
-<h1>Gyms#edit</h1>
-<p>Find me in app/views/gyms/edit.html.erb</p>
+<% provide(:title, 'Edit Gym') %>
+<h1>Edit Gym</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@gym, html: { multipart: true }) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+	
+			<h3>Gym Information</h3>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :picture %>
+      <%= f.file_field :picture %>
+      
+      <%= f.label :location %>
+      <%= f.text_field :location, class: 'form-control' %>
+      
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+			<%= f.label :focus %>
+      <%= f.select :focus, [
+      	['General Purpose','General Purpose'],
+      	['Aerobic','Aerobic'],
+      	['Athletic Club','Athletic Club'],
+      	['Boot Camp','Boot Camp'],
+      	['Crossfit','Crossfit'],
+      	['Dance','Dance'],
+      	['Gymnastics','Gymnastics'],
+      	['Martial Arts','Martial Arts'],
+      	['Meal Service','Meal Service'],
+      	['Olympic Weightlifting','Olympic Weightlifting'],
+      	['Personal Training','Personal Training'],
+      	['Pilates','Pilates'],
+      	['Spinning','Spinning'],
+      	['Weight Loss','Weight Loss'],
+      	['Yoga','Yoga'],
+      	['Other','Other']
+      	], class: 'form-control' %>
+      
+      <%= f.label :about %>
+      <%= f.text_area :about, size: "24x6", class: 'form-control' %>
+      
+      <%= f.label :hours %>
+      <%= f.text_area :hours, size: "24x6", class: 'form-control' %>
+      
+      <%= f.label :about %>
+      <%= f.text_area :about, size: "24x6", class: 'form-control' %>
+      
+      <%= f.label :pricing %>
+      <%= f.text_area :pricing, size: "24x6", class: 'form-control' %>
+      
+      <%= f.label :equipment %>
+      <%= f.text_area :equipment, size: "24x6", class: 'form-control' %>
+      
+      <%= f.label :classes %>
+      <%= f.text_area :classes, size: "24x6", class: 'form-control' %>
+
+      <%= f.submit "Save Information", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

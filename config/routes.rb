@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   
   get 'users/:id/tags/:tag', to: 'users#show'
 
-  get 'gyms', to: 'gyms#new'
+  get 'gyms', to: 'gyms#index'
   
   resources :users do
     member do
