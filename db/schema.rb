@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201192563) do
+ActiveRecord::Schema.define(version: 20161206180559) do
+
+  create_table "gyms", force: :cascade do |t|
+    t.string   "name"
+    t.string   "picture"
+    t.string   "location"
+    t.string   "focus"
+    t.string   "email"
+    t.text     "about"
+    t.text     "hours"
+    t.text     "pricing"
+    t.text     "equipment"
+    t.text     "classes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_gyms_on_name", unique: true
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "post_type"

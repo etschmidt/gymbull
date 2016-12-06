@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'static_pages#home', as: :tag
   
   get 'users/:id/tags/:tag', to: 'users#show'
+
+  get 'gyms', to: 'gyms#new'
   
   resources :users do
     member do
