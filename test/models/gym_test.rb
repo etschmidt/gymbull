@@ -6,8 +6,12 @@ class GymTest < ActiveSupport::TestCase
     @gym = Gym.new(name: "CFHC", email: "mike@crossfithillcrest.com")
   end
   
+  test "should be valid" do
+    assert @gym.valid?
+  end
+
   test "name should be present" do
-    @gym.name = " "
+    @gym.name = ""
     assert_not @gym.valid?
   end
   
@@ -24,5 +28,13 @@ class GymTest < ActiveSupport::TestCase
       assert @gym.valid?, "#{valid_address.inspect} should be valid"
     end
   end
+  
+  test "names should be unique" do
+    duplicate_gym = @gym.dup
+    duplicate_gym.name = @gym.name.upcase
+    @gym.save
+    assert_not duplicate_gym.valid?
+  end
+
   
 end

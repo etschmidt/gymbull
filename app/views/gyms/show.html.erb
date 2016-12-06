@@ -1,2 +1,3 @@
-<h1>Gyms#show</h1>
-<p>Find me in app/views/gyms/show.html.erb</p>
+<% provide(:title, @gym.name) %>
+
+<%= @gym.name %>, <%= @gym.email %>
