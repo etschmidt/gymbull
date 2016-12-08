@@ -13,4 +13,8 @@ module PostsHelper
     post.post_type == "meal"
   end
   
+  def gympost?(post)
+    post.postable_type == "Gym"
+  end
+  
 end

@@ -20,11 +20,21 @@ User.create!(name:  "Ethan T Schmidt",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
-
+             
+Gym.create!(name:  "Bull Gym",
+               gym_admin: 1,
+               email: "bull@gym.com",
+               location:  "San Diego",
+               about:  "Good",
+               focus:  "Crossfit",
+               hours:  "Open",
+               pricing:  "Free",
+               equipment:  "None",
+               classes:  "None")
 # Users
 99.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@gymgoat.com"
+  email = "example-#{n+1}@gymbull.com"
   password = "password"
   location = Faker::Address.city
   about =  Faker::Lorem.paragraph(2)
@@ -46,6 +56,29 @@ User.create!(name:  "Ethan T Schmidt",
                quals:  quals,
                activated: true,
                activated_at: Time.zone.now)
+end
+
+# Gyms
+10.times do |n|
+  name  = Faker::Team.name
+  email = "gym-example-#{n+1}@gymbull.com"
+  location = Faker::Address.city
+  about =  Faker::Lorem.paragraph(2)
+  focus = "General Purpose"
+  hours = Faker::Lorem.sentence(8)
+  pricing = Faker::Lorem.sentence(8)
+  equipment = Faker::Lorem.sentence(10)
+  classes = Faker::Lorem.sentence(6)
+  Gym.create!(name:  name,
+               gym_admin: 10,
+               email: email,
+               location:  location,
+               about:  about,
+               focus:  focus,
+               hours:  hours,
+               pricing:  pricing,
+               equipment:  equipment,
+               classes:  classes)
 end
 
 # Workouts
@@ -89,6 +122,15 @@ users = User.order(:created_at).take(6)
   content = Faker::Lorem.sentence(5)
   tag_list = Faker::Hipster.words(2, false, false)
   users.each { |user| user.posts.create!(post_type: post_type, content: content,
+                                          tag_list: tag_list) }
+end
+
+gyms = Gym.order(:created_at).take(6)
+5.times do\
+  post_type = "post"
+  content = Faker::Lorem.sentence(5)
+  tag_list = Faker::Hipster.words(2, false, false)
+  gyms.each { |gym| gym.posts.create!(post_type: post_type, content: content,
                                           tag_list: tag_list) }
 end
 

@@ -14,8 +14,55 @@
       <% if @gym.pricing? %> Pricing: <%= @gym.pricing %></br><% end %>
       <% if @gym.equipment? %> Equipment: <%= @gym.equipment %></br><% end %>
       <% if @gym.classes? %> classes: <%= @gym.classes %></br><% end %>
-
-        <%= link_to "Edit Gym", edit_gym_path(@gym) %>
-    
+      <%= link_to "Edit Gym", edit_gym_path(@gym) %>
     </section>
+    
   </aside>
+  
+  <div class="col-md-6">
+    
+    <% if @gym.posts.any? %>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand">Gym Log (<%= @gym.posts.count %>)</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li id="post-toggle" class="active"><a>Posts</a></li>
+            <li id="workout-toggle" class="active"><a>Workouts</a></li> 
+            <li id="meal-toggle" class="active"><a>Meals</a></li> 
+            <li id="all-toggle" class="active"><a>All</a></li>
+          </ul>
+        </div>
+      </nav>
+      
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+      
+    <% end %>
+  </div>
+  
+  <div class="col-md-3">
+    <% if (@gym.gym_admin == current_user.id) %>
+     <section class="post_form">
+        <%= render 'gym_post_overview' %>
+      </section>
+    <% end %>
+  </div>
+  
+</div>
+<!--
+<script>
+  $(document).ready(function(){
+  
+    $(".post_form").hide();
+    
+    $("#gym_post").click(function(){
+      $(".post_form").toggle();
+    });
+    
+  });
+  
+</script>
+-->

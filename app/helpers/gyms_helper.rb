@@ -7,7 +7,7 @@ module GymsHelper
     else
       image_tag("gym-clipart-2.jpg", size: size, class: "picture")
     end
-  end
+	end
 	
 	# Returns true if the given user is a gym admin.
   def gym_admin?(user)

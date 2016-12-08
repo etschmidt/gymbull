@@ -10,6 +10,8 @@ class GymsController < ApplicationController
 
   def show
     @gym = Gym.find(params[:id])
+    @post = @gym.posts.build
+    @posts = @gym.posts
   end
 
   def new
@@ -62,10 +64,13 @@ class GymsController < ApplicationController
     
     # Confirms a gym admin
     def gym_admin
-      @gym = Gym.find(params[:id])
+      @gym = Gym.find_by(params[:id])
       redirect_to(root_url) unless current_user.id == @gym.gym_admin
     end
-      
+    
+    def gym_post?
+      :gym_post?
+    end
     
     # Confirms logged in user
     def logged_in_user

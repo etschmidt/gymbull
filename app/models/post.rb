@@ -1,8 +1,12 @@
 class Post < ApplicationRecord
+  
   belongs_to :user
+  belongs_to :gym 
+  belongs_to :postable, polymorphic: true
+  
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
-  validates :user_id, presence: true
+  
   validates :post_type, presence: true
   validates :content, presence: true
   validate  :picture_size

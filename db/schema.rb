@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206230653) do
+ActiveRecord::Schema.define(version: 20161207193714) do
 
   create_table "gyms", force: :cascade do |t|
     t.string   "name"
@@ -38,13 +38,19 @@ ActiveRecord::Schema.define(version: 20161206230653) do
     t.integer  "calories"
     t.text     "ingredients"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "picture"
     t.string   "title"
     t.integer  "carbs"
     t.integer  "fat"
     t.integer  "protein"
+    t.integer  "gym_id"
+    t.integer  "postable_id"
+    t.string   "postable_type"
+    t.index ["gym_id", "created_at"], name: "index_posts_on_gym_id_and_created_at"
+    t.index ["gym_id"], name: "index_posts_on_gym_id"
+    t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

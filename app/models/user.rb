@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     
-    has_many :posts, dependent: :destroy
+    has_many :posts, as: :postable, dependent: :destroy
+    has_many :gyms
     
     # for following users
     has_many :active_relationships, class_name:  "Relationship",

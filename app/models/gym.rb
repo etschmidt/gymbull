@@ -1,5 +1,8 @@
 class Gym < ApplicationRecord
 
+	has_many :posts, as: :postable, dependent: :destroy
+	belongs_to :user
+	
 	validates :name,  presence: true, length: { maximum: 50 }, 
 						uniqueness: { case_sensitive: true }
 

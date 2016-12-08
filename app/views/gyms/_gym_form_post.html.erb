@@ -1,5 +1,5 @@
-<%= form_for(@post, :url => userpost_path, 
-            html: { multipart: true }) do |f| %>
+<%= form_for(@post, :url => gympost_path,
+						html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <div class="post-form">
@@ -10,5 +10,5 @@
       <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
       </span>
     </div>
-<%= f.submit "Post", class: "btn btn-primary" %>
+<%= f.submit "Post from Gym", class: "btn btn-primary" %>
 <% end %>

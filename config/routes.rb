@@ -22,15 +22,30 @@ Rails.application.routes.draw do
 
   get 'gyms', to: 'gyms#index'
   
+  post 'userpost', to: 'posts#create_user_post', as: 'userpost'
+  post 'gympost', to: 'posts#create_gym_post', as: 'gympost'
+ 
+  delete '/:id/posts/:id', to: 'posts#destroy'
+  
+  delete 'gyms/gyms/:id/posts/:id', to: 'posts#destroy_gym_post'
+  
   resources :users do
     member do
       get :following, :followers
+      get :posts
     end
   end
+  
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :posts,               only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
-  resources :gyms
-
+  
+  resources :gyms do
+    member do
+      get :followers
+      get :posts
+    end
+  end
+  
+  resources :posts
 end

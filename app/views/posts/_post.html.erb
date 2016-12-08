@@ -1,7 +1,11 @@
 <li id="post-<%= post.id %>" class="<%= post.post_type %>">
-  <span class="user">
-    <%= picture_for(post.user, size: 30) %>
-    <%= link_to post.user.name, post.user %></span>
+  
+    <span class="user">
+      <%= post.postable_type %>
+      <%= post.postable_id %>
+    </span>
+  
+  
   <span class="content">
     
     <% if post?(post) %>
@@ -38,10 +42,16 @@
     
   </span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(post.created_at) %> ago
-    <% if current_user?(post.user) %>
-      <%= link_to "delete", post, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-    <% end %>
+    <%= post.id %>
+      <% if (post.postable_type == "User") %>
+        <% if (current_user.id == post.postable_id)%>
+          <%= link_to "delete", "/#{@user.id}/posts/#{post.id}", method: :delete %> 
+        <% end %>
+      <% end %>
+      <% if (post.postable_type == "Gym") %>
+        <% if (@gym.id == post.postable_id) %>
+          <%= link_to "delete", "/gyms/gyms/#{@gym.id}/posts/#{post.id}", method: :delete %> 
+        <% end %>
+      <% end %>
   </span>
 </li>
