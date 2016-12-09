@@ -49,7 +49,7 @@
         <% end %>
       <% end %>
       <% if (post.postable_type == "Gym") %>
-        <% if (@gym.id == post.postable_id) %>
+        <% if ((@gym.id == post.postable_id) && (@gym.gym_admin == current_user.id)) %>
           <%= link_to "delete", "/gyms/gyms/#{@gym.id}/posts/#{post.id}", method: :delete %> 
         <% end %>
       <% end %>

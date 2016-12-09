@@ -14,4 +14,7 @@ module GymsHelper
     user.id == gym.gym_admin
   end
 	
+	def current_gym
+	  @current_gym ||= Gym.find_by(id: gym_id)
+	end
 end
