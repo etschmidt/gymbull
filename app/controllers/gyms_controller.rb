@@ -1,7 +1,8 @@
 class GymsController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
-  before_action :gym_admin,      only: [:edit, :update]                                      
+  before_action :gym_admin,      only: [:edit, :update] 
+  before_action :admin_user_or_gym_admin, only: :destroy
   
   def index
     @search = Gym.search(params[:q])
@@ -45,8 +46,14 @@ class GymsController < ApplicationController
   def destroy
     Gym.find(params[:id]).destroy
     flash[:success] = "Gym deleted"
-    redirect_to gyms_url
-
+    redirect_to gyms_path
+  end
+  
+  def followers
+    @title = "Followers"
+    @gym  = Gym.find(params[:id])
+    @users = @gym.followers.paginate(page: params[:page])
+    render 'gyms/_show_follow_gym'
   end
   
   private
@@ -58,8 +65,9 @@ class GymsController < ApplicationController
     end
     
     # Confirms an admin user.
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
+    def admin_user_or_gym_admin
+      redirect_to(root_url) unless 
+        (current_user.admin? || (gym.gym_admin == current_user.id))
     end
     
     # Confirms a gym admin
@@ -68,8 +76,9 @@ class GymsController < ApplicationController
       redirect_to(root_url) unless current_user.id == @gym.gym_admin
     end
     
-    def gym_post?
-      :gym_post?
+    # Confirms a gym admin
+    def gym
+      @gym = Gym.find_by(params[:id])
     end
     
     # Confirms logged in user

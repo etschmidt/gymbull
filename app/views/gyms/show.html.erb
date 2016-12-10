@@ -5,6 +5,15 @@
     <section class="gym_info">
       <%= picture_for(@gym, size: 150) %>
       <h1><%= @gym.name %></h1>
+      <section class="stats">
+        <div class="stats">
+          <a href="<%= followers_gym_path(@gym) %>">
+            <strong id="followers" class="stat">
+              <%= @gym.followers.count %>
+            </strong>
+            followers
+          </a>
+        </div>
       </section></br>
       <% if @gym.location? %> Location: <%= @gym.location %></br><% end %>
       <% if @gym.email? %> Email: <%= @gym.email %></br><% end %>
@@ -21,7 +30,7 @@
   </aside>
   
   <div class="col-md-6">
-    
+    <%= render 'follow_form_gym' if logged_in? %>
     <% if @gym.posts.any? %>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -50,7 +59,12 @@
         <%= render 'gym_post_overview' %>
       </section>
     <% end %>
+    <% if current_user.admin? ||  (@gym.gym_admin == current_user.id) %>
+    <%= link_to "delete", @gym, method: :delete,
+                                data: { confirm: "You sure?" }, css_class: "btn" %>
+    <% end %>
   </div>
+  
   
 </div>
 <!--

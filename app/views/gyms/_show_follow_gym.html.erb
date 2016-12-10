@@ -1,0 +1,30 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <%= picture_for(@gym, size: 150) %>
+      <h1><%= @gym.name %></h1>
+      <span><%= link_to "view gym profile", @gym %></span>
+      <span><b>Posts:</b> <%= @gym.posts.count %></span>
+    </section>
+    <section class="stats">
+      <div class="stats">
+        <a href="<%= followers_gym_path(@gym) %>">
+          <strong id="followers" class="stat">
+            <%= @gym.followers.count %>
+          </strong>
+          followers
+        </a>
+      </div>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <ul class="users follow">
+        <%= render @users %>
+      </ul>
+      <%= will_paginate @users %>
+    <% end %>
+  </div>
+</div>
