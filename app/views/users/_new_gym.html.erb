@@ -1,0 +1,60 @@
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  
+  <%= f.hidden_field :account_type, :value => "gym" %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %>
+  
+  <%= f.label :focus %>
+  <%= f.select :focus, [
+  	['General Purpose','General Purpose'],
+  	['Aerobic','Aerobic'],
+  	['Athletic Club','Athletic Club'],
+  	['Boot Camp','Boot Camp'],
+  	['Crossfit','Crossfit'],
+  	['Dance','Dance'],
+  	['Gymnastics','Gymnastics'],
+  	['Martial Arts','Martial Arts'],
+  	['Meal Service','Meal Service'],
+  	['Olympic Weightlifting','Olympic Weightlifting'],
+  	['Personal Training','Personal Training'],
+  	['Pilates','Pilates'],
+  	['Spinning','Spinning'],
+  	['Weight Loss','Weight Loss'],
+  	['Yoga','Yoga'],
+  	['Other','Other']
+  	], class: 'form-control' %>
+  	
+  <%= f.label :picture %>
+  <%= f.file_field :picture %>
+  	
+  <%= f.label :location %>
+  <%= f.text_field :location, class: 'form-control' %>
+  
+  <%= f.label :about %>
+  <%= f.text_area :about, size: "24x6", class: 'form-control' %>
+  
+  <%= f.label :hours %>
+  <%= f.text_area :hours, size: "24x6", class: 'form-control' %>
+  
+  <%= f.label :pricing %>
+  <%= f.text_area :pricing, size: "24x6", class: 'form-control' %>
+  
+  <%= f.label :equipment %>
+  <%= f.text_area :equipment, size: "24x6", class: 'form-control' %>
+  
+  <%= f.label :classes %>
+  <%= f.text_area :classes, size: "24x6", class: 'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %>
+
+  <%= f.label :password_confirmation, "Confirmation" %>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+  <%= f.submit "Create my account", class: "btn btn-primary" %>
+<% end %>

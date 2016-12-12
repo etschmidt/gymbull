@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201192563) do
+ActiveRecord::Schema.define(version: 20161212235200) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "post_type"
@@ -87,6 +87,12 @@ ActiveRecord::Schema.define(version: 20161201192563) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.string   "picture"
+    t.string   "account_type"
+    t.string   "focus"
+    t.text     "pricing"
+    t.text     "equipment"
+    t.text     "classes"
+    t.text     "hours"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

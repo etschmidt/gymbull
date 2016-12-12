@@ -3,22 +3,28 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
-    <% end %>
+      <li id="new-user" class="no-bullets"><%= render 'new_user' %></li>
+      <li id="new-gym" class="no-bullets"><%= render 'new_gym' %></li>
+  </div>
+  
+  <div class="col-md-1">
+    <button id="form-toggle" class="btn btn-lg">Create a Gym</button>
   </div>
 </div>
+
+<script>
+
+$(document).ready(function(){
+  
+  $("#new-user").show();
+  $("#new-gym").hide();
+  
+  $("#form-toggle").click(function(){
+    $("#form-toggle").toggleClass("active");
+    $("#new-user").toggle();
+    $("#new-gym").toggle();
+  });
+  
+});
+
+</script>
