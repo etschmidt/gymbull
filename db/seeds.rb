@@ -24,7 +24,7 @@ User.create!(name:  "Ethan T Schmidt",
 # Users
 99.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@gymgoat.com"
+  email = "example-#{n+1}@gymbull.com"
   password = "password"
   location = Faker::Address.city
   about =  Faker::Lorem.paragraph(2)
