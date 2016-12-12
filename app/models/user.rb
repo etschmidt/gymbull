@@ -8,7 +8,7 @@ class User < ApplicationRecord
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
     has_many :following, through: :active_relationships, source: :followed
-    
+                        
     # For having followers
     has_many :passive_relationships, class_name:  "Relationship",
                                    foreign_key: "followed_id",
@@ -126,7 +126,7 @@ class User < ApplicationRecord
     active_relationships.find_by(followed_id: gym.id).destroy
   end
 
-  # Returns true if the current user is following the other user.
+  # Returns true if the current user is following a gym.
   def following?(gym)
     following.include?(gym)
   end
