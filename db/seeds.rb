@@ -26,6 +26,7 @@ User.create!(name:  "Ethan T Schmidt",
   name  = Faker::Name.name
   email = "example-#{n+1}@gymbull.com"
   password = "password"
+  account_type = "user"
   location = Faker::Address.city
   about =  Faker::Lorem.paragraph(2)
   height = Faker::Number.between(48, 90)
@@ -37,6 +38,7 @@ User.create!(name:  "Ethan T Schmidt",
                email: email,
                password:              password,
                password_confirmation: password,
+               account_type: account_type,
                location:  location,
                about:  about,
                height:  height,
@@ -47,6 +49,63 @@ User.create!(name:  "Ethan T Schmidt",
                activated: true,
                activated_at: Time.zone.now)
 end
+
+# Gyms
+5.times do |n|
+  name = Faker::Team.name
+  email = "examplegym-#{n+1}@gymbull.com"
+  password = "password"
+  account_type = "gym"
+  focus = "General Purpose"
+  location = Faker::Address.city
+  about =  Faker::Lorem.paragraph(2)
+  hours = Faker::Lorem.sentence(8)
+  pricing = Faker::Lorem.sentence(8)
+  equipment = Faker::Lorem.sentence(8)
+  classes = Faker::Lorem.sentence(8)
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password,
+               account_type: account_type,
+               location:  location,
+               about:  about,
+               focus: focus, 
+               hours: hours,
+               pricing: pricing, 
+               equipment: equipment, 
+               classes: classes,
+               activated: true,
+               activated_at: Time.zone.now)
+end
+
+5.times do |n|
+  name = Faker::Team.name
+  email = "examplegymxfit-#{n+1}@gymbull.com"
+  password = "password"
+  focus = "Crossfit"
+  location = Faker::Address.city
+  about =  Faker::Lorem.paragraph(2)
+  hours = Faker::Lorem.sentence(8)
+  pricing = Faker::Lorem.sentence(8)
+  equipment = Faker::Lorem.sentence(8)
+  classes = Faker::Lorem.sentence(8)
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password,
+               location:  location,
+               about:  about,
+               focus: focus,
+               hours: hours,
+               pricing: pricing, 
+               equipment: equipment, 
+               classes: classes,
+               activated: true,
+               activated_at: Time.zone.now)
+end
+  
+  
 
 # Workouts
 users = User.order(:created_at).take(6)

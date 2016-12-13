@@ -10,11 +10,20 @@
       </section></br>
       <% if @user.location? %> Location: <%= @user.location %></br><% end %>
       <% if @user.about? %> About: <%= @user.about %></br><% end %>
-      <% if @user.height? %> Height: <%= @user.height %> in.</br><% end %>
+      
+      <!-- Users -->
+            <% if @user.height? %> Height: <%= @user.height %> in.</br><% end %>
       <% if @user.weight? %> Weight: <%= @user.weight %> lbs.</br><% end %>
       <% if @user.goals? %> Goals: <%= @user.goals %></br><% end %>
       <% if @user.prs? %> Personal Records: <%= @user.prs %></br><% end %>
       <% if @user.quals? %> Qualifications: <%= @user.quals %></br><% end %>
+      
+      <!-- Gyms -->
+      <% if @user.hours? %> Hours: <%= @user.hours %></br><% end %>
+      <% if @user.pricing? %> Pricing: <%= @user.pricing %></br><% end %>
+      <% if @user.equipment? %> Equipment: <%= @user.equipment %></br><% end %>
+      <% if @user.classes? %> Classes: <%= @user.classes %></br><% end %>
+      
       <% if current_user?(@user) %>
         <%= link_to "Edit Profile", edit_user_path(current_user) %>
       <% end %>
@@ -26,7 +35,8 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand">My Log (<%= @user.posts.count %>)</a>
+            <a class="navbar-brand"><% if current_user?(@user) %>My <% end %>Log 
+            (<%= @user.posts.count %>)</a>
           </div>
           <ul class="nav navbar-nav navbar-right">
             <li id="post-toggle" class="active"><a>Posts</a></li>

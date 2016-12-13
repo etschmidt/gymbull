@@ -9,4 +9,10 @@ module UsersHelper
     end
   end
   
+    
+  #True if user account type is a gym
+  def gym?(user)
+    user.account_type == "gym"
+  end
+  
 end

@@ -4,8 +4,13 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
   
-  def index
-    @search = User.search(params[:q])
+  def index_gyms
+    @search = User.where(account_type: "gym").search(params[:q])
+    @users = @search.result.paginate(page: params[:page], :per_page => 30)
+  end
+  
+  def index_users
+    @search = User.where(account_type: "user").search(params[:q])
     @users = @search.result.paginate(page: params[:page], :per_page => 30)
   end
   
@@ -72,7 +77,10 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :picture, :email, :location, :about, 
                                    :height, :weight, :goals, :prs, :quals,
-                                   :password, :password_confirmation)
+                                   :password, :password_confirmation,
+                                   #these are only for gyms:
+                                   :account_type, :focus, :hours, :pricing,
+                                   :equipment, :classes)
     end
     
     # Before filters
@@ -95,11 +103,6 @@ class UsersController < ApplicationController
         flash[:danger] = "Please log in"
         redirect_to login_url
       end
-    end
-
-  # Confirms an admin user.
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
     end
    
 end
