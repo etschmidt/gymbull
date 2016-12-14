@@ -4,7 +4,8 @@
     <div class="post-form">
       <%= f.hidden_field :post_type, :value => "post" %>
       <%= f.text_area :content, placeholder: "Start typin'..." %>
-      <%= f.text_field :tag_list, placeholder: "tags: eg. lifting, getbig" %>
+      <span class="glyphicon glyphicon-tags"></span>
+      <%= f.text_field :tag_list, placeholder: "lifting, getbig" %>
       <span class="picture">
       <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
       </span>

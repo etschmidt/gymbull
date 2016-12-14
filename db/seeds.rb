@@ -8,8 +8,8 @@
 
 User.create!(name:  "Ethan T Schmidt",
              email: "ethan.t.schmidt@gmail.com",
-             password:              "foobar",
-             password_confirmation: "foobar",
+             password:              "Eagles69",
+               password_confirmation: "Eagles69",
              location:  "San Diego",
              about:  "I'm me",
              height:  69,
@@ -25,7 +25,7 @@ User.create!(name:  "Ethan T Schmidt",
 3.times do |n|
   name = Faker::Team.name
   email = "examplegym-#{n+1}@gymbull.com"
-  password = "password"
+  password = "Password1"
   account_type = "gym"
   focus = "General Purpose"
   location = Faker::Address.city
@@ -53,7 +53,7 @@ end
 2.times do |n|
   name = Faker::Team.name
   email = "examplegymxfit-#{n+1}@gymbull.com"
-  password = "password"
+  password = "Password1"
   account_type = "gym"
   focus = "Crossfit"
   location = Faker::Address.city
@@ -82,7 +82,7 @@ end
 99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@gymbull.com"
-  password = "password"
+  password = "Password1"
   account_type = "user"
   location = Faker::Address.city
   about =  Faker::Lorem.paragraph(2)

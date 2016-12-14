@@ -50,11 +50,21 @@
   <%= f.label :classes %>
   <%= f.text_area :classes, size: "24x6", class: 'form-control' %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, class: 'form-control' %>
+  <%= f.label :password %> 
+    <span class="has-tooltip" data-toggle="tooltip" title="Must contain: at least 8 characters, 
+                                                          at least 1 uppercase, 1 lowercase, and 1 number">
+      <span class="glyphicon glyphicon-info-sign"></span>
+    </span>
+  <%= f.password_field :password, class: 'form-control'%>
 
   <%= f.label :password_confirmation, "Confirmation" %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
   <%= f.submit "Create this gym", class: "btn btn-primary" %>
 <% end %>
+
+<script>
+  $(document).ready(function() {
+    $('.has-tooltip').tooltip();
+  });
+</script>
