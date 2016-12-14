@@ -16,7 +16,9 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    flash.now[:info] = "Log in to see all Users, Gyms, and other content"
+    if !logged_in?
+      flash.now[:info] = "Log in to see all Users, Gyms, and other content"
+    end
     if params[:tag]
       @posts = @user.posts.tagged_with(params[:tag])
     else

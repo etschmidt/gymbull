@@ -7,11 +7,29 @@
   box-sizing: border-box; 
 }
 
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  
+}
+
+#logopic {
+  padding-left: 20px;
+  height:100px;
+}
+
 .left {
   position:fixed; // keep fixed to window
   padding: 10px;
   top: 0; left: 0; // position to top left of window
-  height:100%; width:300px; //set dimensions
+  height:100%; width:150px; //set dimensions
   background:darkslategray;
 
   ul {
@@ -22,9 +40,9 @@
     li {
       list-style:none;
       margin-bottom:25px;
-      font-size: 35px;
+      font-size: 24px;
       color: white;
-      padding-left: 30px;
+      padding-left: 10px;
       
       &:hover {
         color:lightblue;
@@ -45,33 +63,9 @@
   }
 }
 
-.right {
-  position:relative;
-  margin-left:75px; // push the right column past the left column, with some room as well.
-  transition:margin-left ease .5s; // fluid transition when resizing
-  
-  body.open-nav & {
-    margin-left:275px; // push the right column further when left is opened
-  }
-}
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 4em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  padding-bottom: 20px;
-  font-weight: bold;
-}
-
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
-  
+.main {
+   position: fixed;
+ }
 
 /* footer */
 
