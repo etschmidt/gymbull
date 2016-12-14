@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    flash.now[:info] = "Log in to see all Users, Gyms, and other content"
     if params[:tag]
       @posts = @user.posts.tagged_with(params[:tag])
     else
@@ -103,6 +104,11 @@ class UsersController < ApplicationController
         flash[:danger] = "Please log in"
         redirect_to login_url
       end
+    end
+    
+    #True if user account type is a gym
+    def gym?(user)
+      user.account_type == "gym"
     end
    
 end

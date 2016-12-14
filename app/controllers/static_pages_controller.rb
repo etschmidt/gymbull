@@ -8,6 +8,8 @@ class StaticPagesController < ApplicationController
       else
         @feed_items = current_user.feed
       end
+    else
+        @feed_items = Post.limit(5)
     end
   end
 

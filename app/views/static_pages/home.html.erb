@@ -50,6 +50,16 @@
 
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
+<div class="container">
+  <h2>Most Recent GymBull Activity</h2>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+  
+</div>
+
 <% end %>
 
 <script>
