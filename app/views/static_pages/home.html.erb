@@ -3,7 +3,7 @@
     
     <aside class="col-md-3">
       <section class="user_info">
-        <span><%= picture_for(current_user, size: 150) %></span>
+        <span><%= profile_picture_for(current_user, size: :profile) %></span>
         <h1><%= current_user.name %></h1>
         <section class="stats">
           <%= render 'shared/stats' %>

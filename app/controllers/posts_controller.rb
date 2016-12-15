@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   
   def destroy
     @post.destroy
-    flash[:notice] = "Post deleted"
+    flash[:warning] = "Post deleted"
     redirect_to request.referrer || root_url
   end
   

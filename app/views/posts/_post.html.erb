@@ -1,13 +1,13 @@
 <li id="post-<%= post.id %>" class="<%= post.post_type %>">
   <span class="user">
-    <%= picture_for(post.user, size: 30) %>
+    <%= tiny_picture_for(post.user, size: :tiny) %>
     <%= link_to post.user.name, post.user %></span>
   <span class="content">
     
     <% if post?(post) %>
       <%= simple_format(post.content) %>
       <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-      <%= image_tag post.picture.url if post.picture? %>
+      <%= image_tag post.picture.url(:post) if post.picture? %>
     
     <% elsif workout?(post) %>
       <% if post.title? %><b><%= post.title %></b></br><% end %>
