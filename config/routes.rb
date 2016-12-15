@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   get 'gyms', to: 'users#index_gyms', as: 'gyms'
   
   resources :users do
+    collection do
+      match 'search' => 'users#index_gyms', via: [:get, :post], as: :search
+    end
+    
     member do
       get :following, :followers
     end

@@ -8,17 +8,19 @@
       <section class="stats">
         <%= render 'shared/stats' %>
       </section></br>
-      <% if @user.location? %><b>Location:</b> <%= @user.location %></br><% end %>
+      <% if @user.location? %><span class="glyphicon glyphicon-map-marker"></span> <%= @user.location %></br><% end %>
+      <% if @user.focus? %><span class="glyphicon glyphicon-grain"></span> <b><%= @user.focus %></b></br></br><% end %>
       <% if @user.about? %><b>About:</b> <%= @user.about %></br><% end %>
       
       <!-- Users -->
-            <% if @user.height? %><b>Height:</b> <%= @user.height %> in.</br><% end %>
+      <% if @user.height? %><b>Height:</b> <%= @user.height %> in.</br><% end %>
       <% if @user.weight? %><b>Weight:</b> <%= @user.weight %> lbs.</br><% end %>
       <% if @user.goals? %><b>Goals:</b> <%= @user.goals %></br><% end %>
       <% if @user.prs? %><b>Personal Records:</b> <%= @user.prs %></br><% end %>
       <% if @user.quals? %><b>Qualifications:</b> <%= @user.quals %></br><% end %>
       
       <!-- Gyms -->
+
       <% if @user.hours? %><b>Hours:</b> <%= @user.hours %></br><% end %>
       <% if @user.pricing? %><b>Pricing:</b> <%= @user.pricing %></br><% end %>
       <% if @user.equipment? %><b>Equipment:</b> <%= @user.equipment %></br><% end %>
