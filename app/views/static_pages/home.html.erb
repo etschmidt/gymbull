@@ -3,7 +3,7 @@
     
     <aside class="col-md-3">
       <section class="user_info">
-        <%= picture_for(current_user, size: 150) %>
+        <span><%= picture_for(current_user, size: 150) %></span>
         <h1><%= current_user.name %></h1>
         <section class="stats">
           <%= render 'shared/stats' %>
@@ -16,7 +16,7 @@
       </section>
     </aside>
     
-    <div class="col-md-6">
+    <div class="col-md-5">
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -30,15 +30,24 @@
           </ul>
         </div>
       </nav>
-      <%= render 'shared/feed' %>
+      
+      <% if @feed_items.any? %>
+        <ol class="posts">
+          <%= render @feed_items %>
+        </ol>
+      <% end %>
+      
     </div>
-    <div class="col-md-1">
+    <div class="col-md-3">
       <div id="tag_cloud">
         <h4>Trending Tags:</h4>
         <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
           <%= link_to tag.name, tag_path(tag.name), class: css_class %>
         <% end %>
       </div>
+      <section class="search">
+		    <%= render 'shared/search_feed' %>
+	    </section>
     </div>
   </div>
   

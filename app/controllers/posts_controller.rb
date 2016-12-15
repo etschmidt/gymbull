@@ -19,6 +19,10 @@ class PostsController < ApplicationController
     flash[:notice] = "Post deleted"
     redirect_to request.referrer || root_url
   end
+  
+  def index
+    render :home
+  end
    
    private
    
