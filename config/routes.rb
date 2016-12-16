@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   get 'tags/:tag', to: 'static_pages#home', as: :tag
-  
+
   get 'users/:id/tags/:tag', to: 'users#show'
   
   get 'users', to: 'users#index_users'
