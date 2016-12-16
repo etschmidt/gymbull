@@ -79,7 +79,7 @@ end
 end
 
 # Users
-51.times do |n|
+25.times do |n|
   name  = Faker::Name.first_name
   email = "example-#{n+1}@gymbull.com"
   password = "Password1"
@@ -155,7 +155,7 @@ end
 # Following relationships
 users = User.all
 user  = users.first
-following = users[2..50]
-followers = users[3..40]
+following = users[2..15]
+followers = users[3..25]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
