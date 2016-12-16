@@ -37,13 +37,23 @@
         </ol>
         
         <%= will_paginate @feed_items %>
-        
+      <% else %>
+        <div class="startinfo">
+          <h3>How to get started:</h3>
+          <ol>
+            <li>Post a new workout, meal, or anything else!</li>
+            <li>Browse or searchfor other users from the menu on the left.</li>
+            <li>Use the trending tags or search for other content.</li>
+            <li>Get FIT!</li>
+          </ol>
+        </div>
       <% end %>
+        
       
     </div>
     <div class="col-md-3">
       <div id="tag_cloud">
-        <h4>Trending Tags:</h4>
+        <h4>All Trending Tags:</h4>
         <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
           <%= link_to tag.name, tag_path(tag.name), class: css_class %>
         <% end %>
@@ -51,6 +61,7 @@
       <section class="search">
 		    <%= render 'shared/search_feed' %>
 	    </section>
+
     </div>
   </div>
   

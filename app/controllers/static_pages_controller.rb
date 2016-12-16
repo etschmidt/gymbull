@@ -4,10 +4,13 @@ class StaticPagesController < ApplicationController
     if logged_in?
       @post = current_user.posts.build
       if params[:tag]
-        @search = current_user.feed.tagged_with(params[:tag]).search(params[:q])
+        @search = Post.tagged_with(params[:tag]).search(params[:q])
         @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
-      else
+      elsif params[:q].blank?
         @search = current_user.feed.search(params[:q])
+        @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
+      else 
+        @search = Post.search(params[:q])
         @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
       end
     else

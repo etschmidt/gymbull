@@ -13,6 +13,8 @@ class Post < ApplicationRecord
   
   acts_as_taggable
   
+#  acts_as_taggable_on :ingredients, :body_parts, :equipment
+  
   private 
   
     # Validates size of uploaded picture
