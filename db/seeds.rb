@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(name:  "Ethan T Schmidt",
+User.create!(name:  "EthanTSchmidt",
              email: "ethan.t.schmidt@gmail.com",
              password:              "Eagles69",
                password_confirmation: "Eagles69",
@@ -23,7 +23,7 @@ User.create!(name:  "Ethan T Schmidt",
 
 # Gyms
 3.times do |n|
-  name = Faker::Team.name
+  name = Faker::Team.creature
   email = "examplegym-#{n+1}@gymbull.com"
   password = "Password1"
   account_type = "gym"
@@ -51,7 +51,7 @@ User.create!(name:  "Ethan T Schmidt",
 end
 
 2.times do |n|
-  name = Faker::Team.name
+  name = Faker::Team.creature
   email = "examplegymxfit-#{n+1}@gymbull.com"
   password = "Password1"
   account_type = "gym"
@@ -79,8 +79,8 @@ end
 end
 
 # Users
-99.times do |n|
-  name  = Faker::Name.name
+51.times do |n|
+  name  = Faker::Name.first_name
   email = "example-#{n+1}@gymbull.com"
   password = "Password1"
   account_type = "user"

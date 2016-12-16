@@ -11,7 +11,6 @@
       <% if gym?(current_user) %>
       
         <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
         
         <%= f.label :focus %>
         <%= f.select :focus, [
@@ -68,7 +67,6 @@
       <% else %>
       
         <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
         
         <%= f.label :picture %>
         <%= f.file_field :picture %>

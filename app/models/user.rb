@@ -1,5 +1,8 @@
 class User < ApplicationRecord
     
+    extend FriendlyId
+    friendly_id :name
+    
     has_many :posts, dependent: :destroy
     
     # for following users
@@ -20,7 +23,9 @@ class User < ApplicationRecord
     
     mount_uploader :picture, PictureUploader
     
+    VALID_NAME_REGEX = /\A[a-zA-Z\d_-]\z/
     validates :name, presence: true, length: { maximum: 50 },
+                            format: { with: VALID_NAME_REGEX },
                             uniqueness: { case_sensitive: true }
     
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

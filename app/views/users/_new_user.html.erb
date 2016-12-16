@@ -4,17 +4,20 @@
   <%= f.hidden_field :account_type, :value => "user" %>
 
   <%= f.label :name %>
+    <span class="has-tooltip" data-toggle="tooltip" title="Only letters, numbers, 
+                                        underscores, and dashes are allowed">
+      <span class="glyphicon glyphicon-info-sign"></span>
+    </span>
   <%= f.text_field :name, class: 'form-control' %>
 
   <%= f.label :email %>
   <%= f.email_field :email, class: 'form-control' %>
   
-  <%= f.label :password %> <%= f.label :password %> 
+  <%= f.label :password %> 
     <span class="has-tooltip" data-toggle="tooltip" title="Must contain: at least 8 characters, 
-                                                          at least 1 uppercase, 1 lowercase, and 1 number">
+                                        at least 1 uppercase, 1 lowercase, and 1 number">
       <span class="glyphicon glyphicon-info-sign"></span>
     </span>
-                    
   <%= f.password_field :password, class: 'form-control'%>
 
   <%= f.label :password_confirmation, "Confirmation" %>
