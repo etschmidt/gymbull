@@ -35,6 +35,9 @@
         <ol class="posts">
           <%= render @feed_items %>
         </ol>
+        
+        <%= will_paginate @feed_items %>
+        
       <% end %>
       
     </div>

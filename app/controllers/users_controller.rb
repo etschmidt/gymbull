@@ -20,9 +20,9 @@ class UsersController < ApplicationController
       flash.now[:info] = "Log in to see all Users, Gyms, and other content"
     end
     if params[:tag]
-      @posts = @user.posts.tagged_with(params[:tag])
+      @posts = @user.posts.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 15)
     else
-      @posts = @user.posts
+      @posts = @user.posts.paginate(page: params[:page], per_page: 15)
     end
   end
   

@@ -5,10 +5,10 @@ class StaticPagesController < ApplicationController
       @post = current_user.posts.build
       if params[:tag]
         @search = current_user.feed.tagged_with(params[:tag]).search(params[:q])
-        @feed_items = @search.result.includes(:tags).all
+        @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
       else
         @search = current_user.feed.search(params[:q])
-        @feed_items = @search.result.includes(:tags).all
+        @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
       end
     else
         @feed_items = Post.limit(5)
