@@ -51,7 +51,7 @@ User.create!(name:  "EthanTSchmidt",
 end
 
 2.times do |n|
-  name = Faker::Team.creature
+  name = Faker::Team.state
   email = "examplegymxfit-#{n+1}@gymbull.com"
   password = "Password1"
   account_type = "gym"
@@ -80,7 +80,7 @@ end
 
 # Users
 25.times do |n|
-  name  = Faker::Name.first_name
+  name  = Faker::Internet.user_name
   email = "example-#{n+1}@gymbull.com"
   password = "Password1"
   account_type = "user"

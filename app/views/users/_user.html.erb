@@ -1,5 +1,5 @@
 <li>
-  <%= picture_for(user, size: 30) %>
+  <%= tiny_picture_for(user, size: 30) %>
   <%= link_to user.name, user, :class => "btn" %>
   <% if current_user.admin? && !current_user?(user) %>
     <%= link_to "delete", user, method: :delete,
