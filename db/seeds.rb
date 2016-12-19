@@ -80,7 +80,7 @@ end
 
 # Users
 25.times do |n|
-  name  = Faker::Internet.user_name
+  name  = Faker::Name.first_name
   email = "example-#{n+1}@gymbull.com"
   password = "Password1"
   account_type = "user"
