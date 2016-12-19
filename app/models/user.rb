@@ -23,7 +23,7 @@ class User < ApplicationRecord
     
     mount_uploader :picture, PictureUploader
     
-    VALID_NAME_REGEX = /[a-zA-Z\d_-]/
+    VALID_NAME_REGEX = /\A[\w+\-]+\z/
     validates :name, presence: true, length: { maximum: 50 },
                             format: { with: VALID_NAME_REGEX },
                             uniqueness: { case_sensitive: true }
