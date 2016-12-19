@@ -9,6 +9,7 @@
       <% if logged_in? %>
       <li><%= link_to "Users", url_for(controller: "users", action: "index_users") %></li>
       <li><%= link_to "Gyms", url_for(controller: "users", action: "index_gyms") %></li>
+      <li><%= link_to "Favorites", favorite_posts_user_path(current_user) %></li>
       
       <li id="dropdown">Account<b class="caret"></b></li>
         <div id="account">

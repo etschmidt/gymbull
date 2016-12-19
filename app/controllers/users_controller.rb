@@ -75,6 +75,13 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   
+  def favorite_posts
+    @title = "Favorites"
+    @user = User.friendly.find(params[:id])
+    @posts = @user.favorite_posts
+    render 'favorite_posts/show'
+  end
+  
   private
     
     def user_params

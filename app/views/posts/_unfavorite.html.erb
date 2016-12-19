@@ -1,0 +1,5 @@
+<%= form_for(current_user.favorites.find_by(post_id: @post.id),
+             html: { method: :delete },
+             remote: true) do |f| %>
+  <%= f.submit "Unfavorite", class: "btn btn-sm" %>
+<% end %>

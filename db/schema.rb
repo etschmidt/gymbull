@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212235200) do
+ActiveRecord::Schema.define(version: 20161219194323) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.string   "favorited_type"
+    t.integer  "favorited_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["favorited_type", "favorited_id"], name: "index_favorites_on_favorited_type_and_favorited_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "post_type"

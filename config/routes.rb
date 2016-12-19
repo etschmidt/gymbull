@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get 'users', to: 'users#index_users'
   get 'gyms', to: 'users#index_gyms', as: 'gyms'
   
+  get 'favorite_posts', to: 'favorites#show'
+  
   resources :users do
     collection do
       match 'search' => 'users#index_gyms', via: [:get, :post], as: :search
@@ -30,6 +32,7 @@ Rails.application.routes.draw do
     
     member do
       get :following, :followers
+      get :favorite_posts
     end
   end
   resources :account_activations, only: [:edit]
@@ -40,5 +43,7 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships,       only: [:create, :destroy]
+  
+  resources :favorite_posts,      only: [:create, :destroy]
 
 end
