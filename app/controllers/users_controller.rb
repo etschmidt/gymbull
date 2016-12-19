@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     if params[:tag]
       @posts = @user.posts.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 15)
     else
-      @posts = @user.posts.paginate(page: params[:page], per_page: 15)
+      @posts = @user.posts.includes(:tags).all.paginate(page: params[:page], per_page: 15)
     end
   end
   
