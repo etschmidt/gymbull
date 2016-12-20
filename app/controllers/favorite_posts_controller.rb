@@ -1,5 +1,5 @@
 class FavoritePostsController < ApplicationController
-	before_action :logged_in_user
+	before_action :logged_in_user, :set_post
 
   def create
     Favorite.create(favorited: @post, user: current_user)

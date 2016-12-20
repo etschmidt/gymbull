@@ -22,9 +22,7 @@ Rails.application.routes.draw do
   
   get 'users', to: 'users#index_users'
   get 'gyms', to: 'users#index_gyms', as: 'gyms'
-  
-  get 'favorite_posts', to: 'favorites#show'
-  
+
   resources :users do
     collection do
       match 'search' => 'users#index_gyms', via: [:get, :post], as: :search
