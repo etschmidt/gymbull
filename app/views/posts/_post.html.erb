@@ -48,13 +48,13 @@
           <span class="glyphicon glyphicon-star"></span>
         <% end %>
       <% end %>
-    <% end %>
-    
+    <% end %> | 
       Posted <%= time_ago_in_words(post.created_at) %> ago
       <% if current_user?(post.user) %>
         <%= link_to "delete", post, method: :delete,
                                          data: { confirm: "You sure?" } %>
       <% end %>
+      | <%= post.id %> |
     </span>
   </div>
 </li>

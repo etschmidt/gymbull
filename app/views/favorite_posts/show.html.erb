@@ -1,6 +1,6 @@
 <% provide(:title, @title) %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-3">
     <section class="user_info">
       <span><%= profile_picture_for(current_user, size: :profile) %></span>
       <h1><%= @user.name %></h1>
@@ -11,9 +11,9 @@
   <div class="col-md-8">
     <h3><%= @title %></h3>
     <% if @posts.any? %>
-      <ul class="users follow">
+      <ol class="posts">
         <%= render @posts %>
-      </ul>
+      </ol>
     <% end %>
   </div>
 </div>
