@@ -1,11 +1,13 @@
 <li>
   <%= tiny_picture_for(user, size: 30) %>
-  <%= link_to user.name, user, :class => "btn" %>
+  <%= link_to user.name, user, :class => "btn btn-default btn-md" %>
   <% if current_user.admin? && !current_user?(user) %>
     <%= link_to "delete", user, method: :delete,
-                                data: { confirm: "You sure?" } %>
+                                data: { confirm: "You sure?" }, 
+                                :class => "btn btn-danger btn-xs"  %>
   <% end %></br>
   <% if gym?(user) %>
+    <span class="glyphicon glyphicon-grain"></span> <%= user.focus %></br>
     Location: <%= user.location %></br>
   <% end %>
   Top Tags: <% tag_cloud user.posts.tag_counts.limit(3), %w[s m l] do |tag, css_class|%>
