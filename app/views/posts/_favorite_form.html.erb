@@ -1,6 +1,10 @@
+
+// none of this is neccessary because it didn't work when I tried to refactor 
+//it out of the main_post patrital
+
 <% if logged_in? %>
   <% unless current_user.favorite_posts.exists?(id: @post.id) %>
-    <%= link_to favorite_posts_path(id: @post), method: :post do %>
+    <%= link_to favorite_posts_path(post_id: @post), method: :post do %>
       <span class="glyphicon glyphicon-star-empty"></span>
     <% end %>
   <% else %>
@@ -8,4 +12,4 @@
       <span class="glyphicon glyphicon-star"></span>
     <% end %>
   <% end %>
-<% end %> | 
+<% end %>

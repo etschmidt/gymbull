@@ -33,6 +33,9 @@ Rails.application.routes.draw do
       get :favorite_posts
     end
   end
+
+  resources :favorite_posts,      only: [:create, :destroy]
+
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :posts do
@@ -42,6 +45,4 @@ Rails.application.routes.draw do
   end
   resources :relationships,       only: [:create, :destroy]
   
-  resources :favorite_posts,      only: [:create, :destroy]
-
 end
