@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update, :favorite_posts]
   before_action :admin_user, only: :destroy
   
   def index_gyms
@@ -73,6 +73,13 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
+  end
+  
+  def favorite_posts
+    @title = "Favorites"
+    @user = User.friendly.find(params[:id])
+    @posts = @user.favorite_posts
+    render 'favorite_posts/show'
   end
   
   private

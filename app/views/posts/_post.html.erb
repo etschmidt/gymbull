@@ -34,14 +34,29 @@
         <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
       </div>
     <% end %>
+  </span>
   
+  <div  class="row">
+    <span class="timestamp">
+      
+  <!-- should probably be a partial; but didn't work when refactored out -->
+      <% if logged_in? %>
+        <% unless current_user.favorite_posts.exists?(id: post.id) %>
+          <%= link_to favorite_posts_path(post_id: post), method: :post do %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+        <% else %>
+          <%= link_to favorite_post_path(post), method: :delete do %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+        <% end %>
+      <% end %>    
     
-  </span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(post.created_at) %> ago
-    <% if current_user?(post.user) %>
-      <%= link_to "delete", post, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-    <% end %>
-  </span>
+      Posted <%= time_ago_in_words(post.created_at) %> ago
+      <% if current_user?(post.user) %>
+        <%= link_to "delete", post, method: :delete,
+                                         data: { confirm: "You sure?" } %>
+      <% end %>
+    </span>
+  </div>
 </li>
