@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <div class="row">
-    
-    <aside class="col-md-3">
+   
+    <aside class="col-md-3 panel panel-default">
       <section class="user_info">
         <span><%= profile_picture_for(current_user, size: :profile) %></span>
         <h1><%= current_user.name %></h1>
@@ -11,7 +11,7 @@
         <span><%= link_to "view my profile", current_user, :class => 'btn btn-default btn-md' %></span>
       </section>
 
-      <section class="post_form">
+      <section class="post_form ">
         <%= render 'shared/post_form' %>
       </section>
     </aside>
@@ -39,7 +39,7 @@
         <%= will_paginate @feed_items %>
         
       <% else %>
-        <div class="startinfo">
+        <div class="startinfo panel panel-default">
           <h3>How to get started:</h3>
           <ol>
             <li>Post a new workout, meal, or anything else!</li>
@@ -52,14 +52,14 @@
         
       
     </div>
-    <div class="col-md-3">
-      <div id="tag_cloud">
+    <div class="col-md-3 panel panel-default">
+      <div id="tag_cloud panel-body">
         <h4>All Trending Tags:</h4>
         <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
           <%= link_to tag.name, tag_path(tag.name), class: css_class %>
         <% end %>
       </div>
-      <section class="search">
+      <section class="search panel-body">
 		    <%= render 'shared/search_feed' %>
 	    </section>
 

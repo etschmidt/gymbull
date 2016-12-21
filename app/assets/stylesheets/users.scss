@@ -19,7 +19,20 @@ $gray-medium-light: #eaeaea;
 aside {
   section.user_info {
     margin-top: 20px;
+    left: 50%;
+    text-align: center;
+    h1 {
+      text-align: center;
+    }
+    .details {
+      text-align: left;
+    }
   }
+  
+  section.stats {
+    margin-left: 65px;
+  }
+  
   section {
     padding: 10px 0;
     margin-top: 20px;
