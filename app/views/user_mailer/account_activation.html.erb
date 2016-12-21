@@ -3,8 +3,11 @@
 <p>Hi <%= @user.name %>,</p>
 
 <p>
-Welcome to Gymbull! Click on the link below to activate your account:
+Welcome to GymBull! We're super-duper excited to have you onboard! Click on the link below to activate your account:
 </p>
 
 <%= link_to "Activate", edit_account_activation_url(@user.activation_token,
                                                     email: @user.email) %>
+                                                    
+<p>Sincerely,</br>
+The GymBull Bull</p>

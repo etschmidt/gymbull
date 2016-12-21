@@ -78,7 +78,7 @@ class UsersController < ApplicationController
   def favorite_posts
     @title = "Mires"
     @user = User.friendly.find(params[:id])
-    @posts = @user.favorite_posts
+    @posts = @user.favorite_posts.order(:updated_at)
     render 'favorite_posts/show'
   end
   
