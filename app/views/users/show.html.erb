@@ -1,6 +1,10 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   
+  <div class="col-md-1">
+    <%= render 'layouts/header' %>
+  </div>
+  
   <aside class="col-md-3 panel panel-default">
     <section class="user_info">
       <span><%= profile_picture_for(@user, size: :profile) %></span>
@@ -61,7 +65,7 @@
   </div>
   
   <div class="col-md-3 panel panel-default">
-    <div id="tag_cloud panel-body">
+    <div id="tag_cloud">
       <h4><%= @user.name %>'s Tags:</h4>
       <% tag_cloud @posts.tag_counts, %w[s m l] do |tag, css_class| %>
         <%= link_to tag.name, "/users/#{@user.id}/tags/#{tag.name}", class: css_class %>

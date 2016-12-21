@@ -1,69 +1,79 @@
 <% provide(:title, "About") %>
 
-<h1>Do you have questions about GymBull?</h1>
-
-<div class="container">
-  <div class="info-section">
-    <h3>What is GymBull?</h3>
-    <p>GymBull is an online culture of fitness. It is a collabortaion space and 
-    personal repository for fitness information and media. </p>
-
-    <h3>Who GymBull for?</h3>
-    <p>We're here for anyone who wants to learn more about fitness, excercise or
-    dieting and all those who want to continue engaging with the fitness community. 
-    Whether you actively collection workouts, meal plans, and other information or 
-    simply follow other users on GymBull, this is the place for you.</br>
-    We're also here for the content creators; the members of the fitness community 
-    who want to share their insights and practices with everyone else. GymBull is 
-    the place to directly engage with your followers on a platform solely dedicated
-    to a fitness lifestyle.</p>
-
-    <h3>Why not use Facebook, IG, Reddit &c.?</h3>
-    <p>Other social media sites are generally good places to find or publish 
-    information; however, the noise of everyother topic tends to drown out what 
-    you're looking for. Stick to Reddit for great cat videos, Facebook for terrible 
-    memes, and Instagram for pictures for the lucnh that one girl from high school 
-    just had; come to GymBull for fitness.</p>
-
-    <h3>What can I do with GymBull?</h3>
-    <p>On GymBull you can follow content in the form of detailed workout, meal plans,
-    or generpost and picture from other <%= link_to 'users', users_path %> or 
-    <%= link_to 'gyms', gyms_path %> around the world.,/br>
-    You can search all types of posts directly in their content or through a plathora
-    of tags. To save a post that you live, click the <span class="glyphicon glyphicon-star-empty">
-    </span> to <a href="#">favorite</a> it.</p>
-
-    <h3>Is everything on GymBull legitimate fitness advice?</h3>
-    <p>Nope. But we’re going to treat everyone here like adults who know their
-    strengths and limitations and who can discern for themselves what they can handle.</p>
-  </div>
-  <div class="info-section">
-    <h3>Why can’t I log in with Facebook or Google+?</h3>
-    <p>Your security and privacy are paramount concerns to the GymBull team; adding
-    third-party dependecies to our code, while convenient now, reduces the control
-    that we have in keeping your information safe. Facebook and Google won't track
-    you unless you let them, and a separate login system opts out of at least one branch
-    of their tracking network.</p>
-
-    <h3>Is my information secure?</h3>
-    <p>GymBull uses industry-leading encryption tools and practices to keep your
-    information your; we do not store any plain-text passwords in our system.
-    GymBull will never ask you for your password or any other credentials.</br>
-    However, maintaining privacy standards is everybody's responsibility. Use good
-    online practices at all times including, unique password for each site that you use, 
-    regularly updating security software, and adopting open-source tools such as 
-    Mozilla Firefox browsers and Linux OS distribution as well as encrypted email 
-    and messaging services.</p>
-    
-    <h3>Do I own my information?</h3>
-    <p>All GymBull posts are sole property and responsibility of the user.</p>
-  </div>
+<div class="row">
   
-  <div class="info-section">
-    <h3>There is something that I don’t like about GymBull; how do I complain?</h3>
-    <p>Please direct all such complaints <a href="mailto:gofuckyourself@suckit.com">here.</a></p>
-
-    <h3>I have constructive criticism about GymBull; how do I contribute?</h3>
-    <p>Kindly take the time for our short <a href="https://goo.gl/forms/vOsvp9VBPK50MlbJ2">survey</a>.</p>
+  <div class="col-md-1">
+    <%= render 'layouts/header' %>
+  </div>
+  <div class="col-md-11">
+  	
+		<h1>Do you have questions about GymBull?</h1>
+		
+		<div class="info-section">
+		  
+      <h3>What is GymBull?</h3>
+      <p>GymBull is an online culture of fitness. It is a collabortaion space and 
+      personal repository for fitness information and media. </p>
+  
+      <h3>Who GymBull for?</h3>
+      <p>We're here for anyone who wants to learn more about fitness, excercise or
+      dieting and all those who want to continue engaging with the fitness community. 
+      Whether you actively collection workouts, meal plans, and other information or 
+      simply follow other users on GymBull, this is the place for you.</br>
+      We're also here for the content creators; the members of the fitness community 
+      who want to share their insights and practices with everyone else. GymBull is 
+      the place to directly engage with your followers on a platform solely dedicated
+      to a fitness lifestyle.</p>
+  
+      <h3>Why not use Facebook, IG, Reddit &c.?</h3>
+      <p>Other social media sites are generally good places to find or publish 
+      information; however, the noise of everyother topic tends to drown out what 
+      you're looking for. Stick to Reddit for great cat videos, Facebook for terrible 
+      memes, and Instagram for pictures for the lucnh that one girl from high school 
+      just had; come to GymBull for fitness.</p>
+  
+      <h3>What can I do with GymBull?</h3>
+      <p>On GymBull you can follow content in the form of detailed workout, meal plans,
+      or generpost and picture from other <%= link_to 'users', users_path %> or 
+      <%= link_to 'gyms', gyms_path %> around the world.,/br>
+      You can search all types of posts directly in their content or through a plathora
+      of tags. To save a post that you live, click the <span class="glyphicon glyphicon-star-empty">
+      </span> to <a href="#">mire</a> it.</p>
+  
+      <h3>Is everything on GymBull legitimate fitness advice?</h3>
+      <p>Nope. But we’re going to treat everyone here like adults who know their
+      strengths and limitations and who can discern for themselves what they can handle.</p>
+      
+    </div>
+    <div class="info-section">
+      
+      <h3>Why can’t I log in with Facebook or Google+?</h3>
+      <p>Your security and privacy are paramount concerns to the GymBull team; adding
+      third-party dependecies to our code, while convenient now, reduces the control
+      that we have in keeping your information safe. Facebook and Google won't track
+      you unless you let them, and a separate login system opts out of at least one branch
+      of their tracking network.</p>
+  
+      <h3>Is my information secure?</h3>
+      <p>GymBull uses industry-leading encryption tools and practices to keep your
+      information your; we do not store any plain-text passwords in our system.
+      GymBull will never ask you for your password or any other credentials.</br>
+      However, maintaining privacy standards is everybody's responsibility. Use good
+      online practices at all times including, unique password for each site that you use, 
+      regularly updating security software, and adopting open-source tools such as 
+      Mozilla Firefox browsers and Linux OS distribution as well as encrypted email 
+      and messaging services.</p>
+      
+      <h3>Do I own my information?</h3>
+      <p>All GymBull posts are sole property and responsibility of the user.</p>
+    </div>
+    
+    <div class="info-section">
+      <h3>There is something that I don’t like about GymBull; how do I complain?</h3>
+      <p>Please direct all such complaints <a href="mailto:gofuckyourself@suckit.com">here.</a></p>
+  
+      <h3>I have constructive criticism about GymBull; how do I contribute?</h3>
+      <p>Kindly take the time for our short <a href="https://goo.gl/forms/vOsvp9VBPK50MlbJ2">survey</a>.</p>
+    </div>
   </div>
 </div>
