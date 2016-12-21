@@ -1,15 +1,27 @@
 <% provide(:title, @title) %>
 <div class="row">
-  <aside class="col-md-3">
+  <aside class="col-md-3 panel panel-default">
     <section class="user_info">
       <span><%= profile_picture_for(current_user, size: :profile) %></span>
       <h1><%= @user.name %></h1>
       <span><%= link_to "view my profile", @user %></span>
-      <span><b>Favorites:</b> <%= @user.favorite_posts.count %></span>
+      <span><b>Posts That You 'Mire:</b> <%= @user.favorite_posts.count %></span>
     </section>
   </aside>
-  <div class="col-md-8">
-    <h3><%= @title %></h3>
+  <div class="col-md-5">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">Mires</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li id="post-toggle" class="active"><a>Posts</a></li>
+          <li id="workout-toggle" class="active"><a>Workouts</a></li> 
+          <li id="meal-toggle" class="active"><a>Meals</a></li> 
+          <li id="all-toggle" class="active"><a>All</a></li>
+        </ul>
+      </div>
+    </nav>
     <% if @posts.any? %>
       <ol class="posts">
         <%= render @posts %>
@@ -17,3 +29,34 @@
     <% end %>
   </div>
 </div>
+
+<script>
+$(document).ready(function(){
+
+  $("#all-toggle").click(function(){
+      $(".post").show();
+      $(".workout").show();
+      $(".meal").show();
+      $("#post-toggle, #workout-toggle, #meal-toggle, #all-toggle").addClass("active");
+  });
+
+  $("#post-toggle").click(function(){
+      $(".post").toggle();
+      $("#post-toggle").toggleClass("active");
+      $("#all-toggle").removeClass("active");
+  });
+  
+  $("#workout-toggle").click(function(){
+      $(".workout").toggle();
+      $("#workout-toggle").toggleClass("active");
+      $("#all-toggle").removeClass("active");
+  });
+  
+  $("#meal-toggle").click(function(){
+      $(".meal").toggle();
+      $("#meal-toggle").toggleClass("active");
+      $("#all-toggle").removeClass("active");
+  });
+  
+});
+</script>
