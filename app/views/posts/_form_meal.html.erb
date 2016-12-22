@@ -3,13 +3,20 @@
   <div class="field">
     <div class="meal-form">
       <%= f.hidden_field :post_type, :value => "meal" %>
-      <%= f.text_field :title, placeholder: "eg. morning meal 3" %>
+      <%= f.label :title, "Meal name:" %>
+      <%= f.text_field :title, placeholder: "Morning meal 3" %>
+      <%= f.label :calories, "Total kcal:" %>
       <%= f.number_field :calories, placeholder: "936 calories" %>
+      <%= f.label :protein, "Total protein:" %>
       <%= f.number_field :protein, placeholder: "85g" %>
+      <%= f.label :carbs, "Total carbohydrates:" %>
       <%= f.number_field :carbs, placeholder: "55g" %>
+      <%= f.label :fat, "Total fat:" %>
       <%= f.number_field :fat, placeholder: "40g" %>
-      <%= f.text_field :ingredients, placeholder: "eg. chicken breast, broccoli, brown rice" %>
-      <%= f.text_area :content, placeholder: "eg. boil checken, steam brocolli..." %>
+      <%= f.label :ingredients, "Ingredients used:" %>
+      <%= f.text_field :ingredients, placeholder: "chicken breast, broccoli" %>
+      <%= f.label :content, "The recipe:", :class => "required" %>
+      <%= f.text_area :content, placeholder: "eg. boil checken, then steam brocolli..." %>
       <span class="glyphicon glyphicon-tags"></span>
       <%= f.text_field :tag_list, placeholder: "lifting, getbig" %>
     </div>

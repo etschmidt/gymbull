@@ -1,11 +1,13 @@
 <li>
-  <%= tiny_picture_for(user, size: 30) %>
-  <%= link_to user.name, user, :class => "btn btn-default btn-md" %>
-  <% if current_user.admin? && !current_user?(user) %>
-    <%= link_to "delete", user, method: :delete,
-                                data: { confirm: "You sure?" }, 
-                                :class => "btn btn-danger btn-xs"  %>
-  <% end %></br>
+  <div class="name-line">
+    <%= tiny_picture_for(user, size: 30) %>
+    <%= link_to user.name, user, :class => "username" %>
+    <% if current_user.admin? && !current_user?(user) %>
+      <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" }, 
+                                  :class => "btn btn-danger btn-xs"  %>
+    <% end %>
+  </div>
   <% if gym?(user) %>
     <span class="glyphicon glyphicon-grain"></span> <%= user.focus %></br>
     Location: <%= user.location %></br>

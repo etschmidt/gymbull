@@ -3,10 +3,15 @@
   <div class="field">
     <div class="workout-form">
       <%= f.hidden_field :post_type, :value => "workout" %>
-      <%= f.text_field :title, placeholder: "eg. Zyzz no.1" %>
-      <%= f.text_field :body_parts, placeholder: "eg. chest/biceps" %>
+      <%= f.label :title, "Workout name:" %>
+      <%= f.text_field :title, placeholder: "Zyzz no.1" %>
+      <%= f.label :body_parts, "Muscules used:" %>
+      <%= f.text_field :body_parts, placeholder: "chest/biceps" %>
+      <%= f.label :duration, "How ling it takes (min):" %>
       <%= f.number_field(:duration, in:0..240, placeholder: "eg. 15") %>
-      <%= f.text_field :equipment, placeholder: "eg. dumbbells, adjustable bench, EZ curl bar" %>
+      <%= f.label :equipment, "Equipment used:" %>
+      <%= f.text_field :equipment, placeholder: "dumbbells, adjustable bench" %>
+      <%= f.label :content, "The Workout:", :class => "required" %>
       <%= f.text_area :content, placeholder: "eg. 4 sets of Incline Dumbbell Press, 8-10 reps..." %>
       <span class="glyphicon glyphicon-tags"></span>
       <%= f.text_field :tag_list, placeholder: "lifting, getbig" %>

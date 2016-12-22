@@ -6,7 +6,7 @@ class AccountActivationsController < ApplicationController
       user.activate
       log_in user
       flash[:success] = "Account activated! Time to get SWOLE!"
-      redirect_to user
+      redirect_to root_url
     else
       flash[:danger] = "Shit's fucked up, yo"
       redirect_to root_url

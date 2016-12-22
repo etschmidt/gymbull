@@ -23,6 +23,12 @@ $gray-medium-light: #eaeaea;
   .user {
     margin-top: 5em;
     padding-top: 0;
+    img {
+      border-style: solid;
+      border-width: 1px;
+      border-color: black;
+      border-radius: 50%;
+    }
   }
   .content {
     display: block;
@@ -72,6 +78,11 @@ a.navbar-brand {
 
 .glyphicon.glyphicon-tags {
   padding-right: 5px;
+}
+
+label.required:before {
+  color: red;
+  content:"* "
 }
 
 /* Style the list */

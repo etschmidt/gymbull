@@ -3,6 +3,7 @@
   <div class="field">
     <div class="post-form">
       <%= f.hidden_field :post_type, :value => "post" %>
+      <%= f.label :content, "Post:", :class => "required" %>
       <%= f.text_area :content, placeholder: "Start typin'..." %>
       <span class="glyphicon glyphicon-tags"></span>  
       <%= f.text_field :tag_list, placeholder: "lifting, getbig" %>
