@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_filter :expire_hsts
   
   include SessionsHelper
   
@@ -14,6 +15,10 @@ class ApplicationController < ActionController::Base
         flash[:danger] = "Please log in."
         redirect_to login_url
       end
+    end
+    
+    def expire_hsts
+      response.headers["Strict-Transport-Security"] = 'max-age=0'
     end
   
 end
