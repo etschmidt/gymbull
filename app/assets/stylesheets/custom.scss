@@ -65,7 +65,7 @@ p {
 .debug_dump {
   clear: both;
   float: left;
-  width: 100%;
   margin-top: 45px;
+  margin-left: 200px;
   @include box_sizing;
 }

@@ -11,10 +11,6 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
-.carousel-inner > .item > img {
-    margin: 0 auto;
-}
-
 #tag_cloud {
   width: 250px;
   line-height: 1.6em;
@@ -33,5 +29,6 @@ $gray-medium-light: #eaeaea;
   border-width: 2px;
   border-color: $gray-medium-light;
   padding-left: 15px;
+  margin-left: 25px;
   margin-bottom: 25px;
 }
