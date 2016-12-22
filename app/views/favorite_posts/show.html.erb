@@ -27,12 +27,40 @@
         </ul>
       </div>
     </nav>
+    
     <% if @posts.any? %>
       <ol class="posts">
         <%= render @posts %>
       </ol>
+      
+    <% else %>
+      <div class="startinfo panel panel-default">
+        <h3>Here's where you can keep the posts that you like!</h3>
+        <ol>
+          <li>See the little <span class="glyphicon glyphicon-star-empty"></span>
+          on other posts?</li>
+          <li>Click it!</li>
+          <li>It shows up here</li>
+          <li>Yay!</li>
+        </ol>
+      </div>
     <% end %>
+    
   </div>
+  
+  <div class="col-md-3 panel panel-default">
+      <h1>MIRE</h1>
+      <h3>/ˈmī(ə)r/</h3>
+      <p>abv. "Admire"</p> 
+      <i>verb</i>:
+      <ol>
+        <li>to regard with wonder, pleasure, or approval.</li>
+        <li>to take pleasure; like or desire:</li>
+      </ol>
+      <i>you mirin these aesthetics, son?</i>
+      <p></p>
+  </div>
+    
 </div>
 
 <script>

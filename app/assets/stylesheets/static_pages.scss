@@ -11,6 +11,19 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+
+/* Main */
+
+.main {
+   position: fixed;
+ }
+
+body {
+  margin: 0px;
+  padding-top: 25px;
+}
+
+
 #tag_cloud {
   width: 250px;
   line-height: 1.6em;

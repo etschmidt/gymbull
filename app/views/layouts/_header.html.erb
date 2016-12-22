@@ -1,39 +1,58 @@
-<div class="left">
-  <div>
-    <%= image_tag "bull-clip-art.png", id: "logopic" %>
-    <%= link_to "Gymbull", root_path, id: "logo" %>
-  </div>
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About", about_path %></li>
-      <% if logged_in? %>
-      <li><%= link_to "Users", url_for(controller: "users", action: "index_users") %></li>
-      <li><%= link_to "Gyms", url_for(controller: "users", action: "index_gyms") %></li>
-      <li><%= link_to "Mires", favorite_posts_user_path(current_user) %></li>
+<div class="nav-side-menu">
+  <%= image_tag "bull-clip-art.png", id: "logopic" %>
+  <div class="brand">GYMBULL</div>
+  <i class="glyphicon glyphicon-option-vertical toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  
+    <div class="menu-list">
       
-      <li id="dropdown">Account<b class="caret"></b></li>
-        <div id="account">
-          <li><%= link_to "My Profile", current_user %></li>
-          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-        </div>
-    
-      <% else %>
-      <li><%= link_to "Log in", login_path %></li>
-      <% end %>
-    </ul>
+      <ul id="menu-content" class="menu-content collapse out">
+        <li>
+          <%= link_to root_path do %>
+            <i class="glyphicon glyphicon-home"></i> Home
+          <% end %>
+        </li>
+        <li>
+          <%= link_to about_path do %>
+            <i class="glyphicon glyphicon-question-sign"></i> About
+          <% end %>
+        </li>
+        
+        <% if logged_in? %>
+        <li>
+          <%= link_to url_for(controller: "users", action: "index_users") do %>
+            <i class="glyphicon glyphicon-knight"></i> Users
+          <% end %>
+        </li>
+        <li>
+          <%= link_to url_for(controller: "users", action: "index_gyms") do %>
+            <i class="glyphicon glyphicon-tower"></i> Gyms
+          <% end %>
+        </li>
+        <li>
+          <%= link_to favorite_posts_user_path(current_user) do %>
+            <i class="glyphicon glyphicon-star"></i> Mires
+          <% end %>
+        </li>
+        <li>
+          <%= link_to current_user do %>
+            <i class="glyphicon glyphicon-king"></i> My Profile
+          <% end %>
+        </li>
+        <li>
+          <%= link_to logout_path, method: "delete" do %>
+            <i class="glyphicon glyphicon-log-out"></i> Log out
+          <% end %>
+        </li>
+
+        <% else %>
+        <li>
+          <%= link_to login_path do %>
+            <i class="glyphicon glyphicon-log-in"></i> Log in
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
   <small>FITNESS | STRENGTH | AESTHETICS</small>  
 </div>
 
-<script>
-
-$(document).ready(function(){
-  
-  $("#account").hide();
-  
-  $("#dropdown").click(function(){
-    $("#account").toggle();
-  });
-  
-});
-
-</script>
