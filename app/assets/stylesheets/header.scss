@@ -13,13 +13,13 @@ But... I copied most of the nev menu from somewhere else...*/
 
 .nav-side-menu {
   overflow: auto;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 100;
   background-color: darkslategray;
   position: fixed;
   top: 0px;
   left: 0px;
-  width: 150px;
+  width: 130px;
   height: 100%;
   color: #e1ffff;
 }
@@ -28,14 +28,14 @@ But... I copied most of the nev menu from somewhere else...*/
   line-height: 50px;
   display: block;
   text-align: center;
-  font-size: 28px;
+  font-size: 22px;
 }
 
 .nav-side-menu small {
   position: fixed;
-  font-size: 8px;
+  font-size: 7px;
   bottom: 20px;
-  left: 5px;
+  left: 3px;
 }
 
 .nav-side-menu .toggle-btn {
