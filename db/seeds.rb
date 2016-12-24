@@ -8,8 +8,8 @@
 
 User.create!(name:  "TheBull",
              email: "ethan.t.schmidt@gmail.com",
-             password:              "Eagles69",
-               password_confirmation: "Eagles69",
+             password:              "Eagles69!!",
+             password_confirmation: "Eagles69!!",
              location:  "San Diego",
              about:  "I'm me",
              height:  69,
@@ -20,14 +20,23 @@ User.create!(name:  "TheBull",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
+             
+User.create!(name:  "Dandylion",
+             email: "danielle.dagostino@gmail.com",
+             password:              "Cheese4785",
+             password_confirmation: "Cheese4785",
+             location:  "San Diego",
+             admin: false,
+             activated: true,
+             activated_at: Time.zone.now)
 
 # Gyms
-3.times do |n|
+25.times do |n|
   name = Faker::Team.creature
   email = "examplegym-#{n+1}@gymbull.com"
   password = "Password1"
   account_type = "gym"
-  focus = "General Purpose"
+  focus = Faker::Company.focus
   location = Faker::Address.city
   about =  Faker::Lorem.paragraph(2)
   hours = Faker::Lorem.sentence(8)
@@ -50,36 +59,8 @@ User.create!(name:  "TheBull",
                activated_at: Time.zone.now)
 end
 
-2.times do |n|
-  name = Faker::Team.state
-  email = "examplegymxfit-#{n+1}@gymbull.com"
-  password = "Password1"
-  account_type = "gym"
-  focus = "Crossfit"
-  location = Faker::Address.city
-  about =  Faker::Lorem.paragraph(2)
-  hours = Faker::Lorem.sentence(8)
-  pricing = Faker::Lorem.sentence(8)
-  equipment = Faker::Lorem.sentence(8)
-  classes = Faker::Lorem.sentence(8)
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password,
-               account_type: account_type,
-               location:  location,
-               about:  about,
-               focus: focus,
-               hours: hours,
-               pricing: pricing, 
-               equipment: equipment, 
-               classes: classes,
-               activated: true,
-               activated_at: Time.zone.now)
-end
-
 # Users
-25.times do |n|
+99.times do |n|
   name  = Faker::Name.first_name
   email = "example-#{n+1}@gymbull.com"
   password = "Password1"
