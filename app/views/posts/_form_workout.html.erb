@@ -12,7 +12,8 @@
       <%= f.label :equipment, "Equipment used:" %>
       <%= f.text_field :equipment, placeholder: "dumbbells, adjustable bench" %>
       <%= f.label :content, "The Workout:", :class => "required" %>
-      <%= f.text_area :content, placeholder: "eg. 4 sets of Incline Dumbbell Press, 8-10 reps..." %>
+      <%= f.text_area :content, placeholder: "eg. 4 sets of Incline Dumbbell Press, 8-10 reps...", 
+       :required => true%>
       <span class="glyphicon glyphicon-tags"></span>
       <%= f.text_field :tag_list, placeholder: "lifting, getbig" %>
     </div>
