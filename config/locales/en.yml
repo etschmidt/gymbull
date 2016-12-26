@@ -18,39 +18,3 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
-en:
-  faker:
-    name:
-      
-      focus: [General Purpose, Aerobic, Athletic Club, Boot Camp,
-Crossfit, Dance, Gymnastics, Martial Arts, Meal Service,
-Olympic Weightlifting, Personal Training, Pilates, Spinning, Weight Loss, 
-Yoga, Other]
-
-      fitnesstags: [gymtime, gym, treadmill, gainz, workout, getStrong, 
-getfit, justdoit, bodybuilding, swole, ridethebull, fitspiration, 
-cardio, ripped, crossfit, beachbody, exercise, weightraining, 
-training, shredded, abs, sixpack, muscle, strong, lift, weights,
-Getfit, weightloss, mire, mirin, wod, aesthetic, squad, shreadding, 
-personaltrainer]
-
-      mealtags: [cleaneating, healthy, cleanrecipes, healthychoice, 
-cleanRecipe, eatclean, glutenfree, vegan, paleo, fitfood, mire,
-mirin, ridethebull, healthylifestyle, healthyrecipes, eatclean, 
-organic, foodporn, protein]
-
-      posttags: [ridethebull, quote, mire, mirin, inspiring, motivation, 
-fitnessquote, youcandoit, justbringit, dreambig, success, 
-staypositive, noexcuses]
-
-      body: [Neck, Traps, Shoulders, Chest, Biceps, Forearm, Abs, Quads, 
-Calves, Lats, Triceps, Middle Back, Lower Back, Glutes, Hamstrings]
-
-      equipment: [Squat Station, Barbells, Bench Press, Incline Bench Press, 
-Cables, Dumb Bells, Pull Up Bar, Lat Pull Down Machine, Leg Extension Machine,
-Leg Curl Machine, GHD, Dipping Bars, Smith Machine, Rowing Machine,
-Rings, Assault Bike, Preacher Bench, Abdominal Bench, Leg Press machine
-Hack Squat Machine, Calf Machines, Leg Adduction / Abduction Machine, 
-Pec Deck, Kettle Bells, Foam Roller, Stability Ball, Exercise Bikes,
-EZ Curl Bar, Reformer Pilates, Wall Ball, Power Tower]
