@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails',                   '5.0.0.1' #obv
 gem 'bcrypt',                  '3.1.11'  #password encryption
-gem 'faker',                   '1.7.0'   #making seed data
+gem 'faker',                   '1.7.1'   #making seed data
 gem 'carrierwave',             '0.11.2'  #image uploader
 gem 'mini_magick',             '4.5.1'   #image manipulation
 gem 'fog',                     '1.38.0'
