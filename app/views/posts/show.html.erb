@@ -1,0 +1,90 @@
+<% provide(:title, @post.title || @post.id.to_s) %>
+<div class="row">
+  
+  <div class="col-md-1">
+    <%= render 'layouts/header' %>
+  </div>
+  
+  <aside class="col-md-3 panel panel-default">
+    <section class="post_info">
+      <div class="user">
+		    <h1><%= link_to @post.user.name, @post.user %></h1>
+		  </div>
+		  <section class="details">
+		    
+		    <% if post?(@post) %>
+
+		    <% elsif workout?(@post) %>
+		      
+		      <% if @post.body_parts? %><b>Body Parts: </b><%= @post.body_parts %></br><% end %>
+		      <% if @post.duration? %><b>Length: </b><%= @post.duration %> minutes</br><% end %>
+		      <% if @post.equipment? %><b>Equipment: </b><%= @post.equipment %></br><% end %>
+
+		    <% elsif meal?(@post) %>
+
+		      <% if @post.calories? %><b>Calories: </b><%= @post.calories %> kcal</br><% end %>
+		      <% if @post.protein? || @post.fat? || @post.carbs? %>
+		      <div><b>Macronutrients:</b></br> 
+		        <% if @post.protein? %><b>Protein: </b><%= @post.protein %> g</br><% end %>
+		        <% if @post.fat? %><b>Fat: </b><%= @post.fat %> g</br><% end %>
+		        <% if @post.carbs? %><b>Carbs: </b><%= @post.carbs %> g<% end %>
+		        </div> <% end %>
+		      <% if @post.ingredients? %><b>Ingredients: </b><%= @post.ingredients %></br><% end %>
+		    <% end %>
+		   
+      <p>Posted <%= time_ago_in_words(@post.created_at) %> ago</p>
+      <% if current_user?(@post.user) %>
+        <%= link_to "Delete", @post, method: :delete,
+                                         data: { confirm: "You sure?" },
+                                         :class => "btn btn-danger btn-xs" %>
+      <% end %>
+		  </span>
+    </section>
+  </aside>
+  
+  
+  <div class="col-md-5">
+  	<nav class="navbar navbar-default">
+  		<div class="container-fluid">
+	  		<div class="navbar-header">
+		      <a class="navbar-brand">
+		      	<%=  @post.title || @post.id.to_s %>
+		      </a>
+	      </div>
+	      <ul class="nav navbar-nav navbar-right">
+	      	<li>
+	      		<% if logged_in? %>
+			        <% unless current_user.favorite_posts.exists?(id: @post.id) %>
+			          <%= link_to favorite_posts_path(post_id: @post), method: :post do %>
+			            <span class="glyphicon glyphicon-star-empty"></span>
+			          <% end %>
+			        <% else %>
+			          <%= link_to favorite_post_path(@post), method: :delete do %>
+			            <span class="glyphicon glyphicon-star"></span>
+			          <% end %>
+			        <% end %>
+			      <% end %> 
+	      	</li>
+	      </ul>
+      </div>
+    </nav>
+    
+  	<span class="content-detail">
+		  
+      <%= simple_format(@post.content) %>
+    	<%= image_tag @post.picture.url(:post) if @post.picture? %>
+
+	  </span>
+    
+  </div>
+  
+  <div class="col-md-3 panel panel-default">
+    <div id="tag_cloud">
+      <h4>Tags:</h4>
+      <% tag_cloud @post.tag_counts, %w[s m l] do |tag, css_class| %>
+        <%= link_to tag.name, "/tags/#{tag.name}", class: css_class %>
+      <% end %>
+    </div>
+  </div>
+  
+</div>

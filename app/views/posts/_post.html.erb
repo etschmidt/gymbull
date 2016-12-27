@@ -50,7 +50,11 @@
             <span class="glyphicon glyphicon-star"></span>
           <% end %>
         <% end %>
-      <% end %>    
+      <% end %> |
+      
+      <%= link_to post_path(post) do %>
+        <span class="glyphicon glyphicon-fullscreen"</span>
+      <% end %> |
     
       Posted <%= time_ago_in_words(post.created_at) %> ago
       <% if current_user?(post.user) %>

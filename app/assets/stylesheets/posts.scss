@@ -45,8 +45,54 @@ $gray-medium-light: #eaeaea;
   }
 }
 
-
+/* For the post detail screen */
+aside {
+  section.post-info {
+    margin-top: 20px;
+    left: 50%;
+    text-align: center;
+    h1 {
+      text-align: center;
+    }
+    .details {
+      text-align: left;
+    }
+    img {
+      border-style: solid;
+      border-width: 2px;
+      border-color: black;
+      border-radius: 50%;
+    }
+  }
   
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 9px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.navbar-nav .glyphicon {
+  font-size: 1.4em;
+}
+
+
+
 /* Form */
 .form-check-inline input {
   width: 15px;
