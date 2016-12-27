@@ -1,13 +1,14 @@
-<h1>Gymbull</h1>
+<p><%= @user.name %>,</p>
 
-<p>Hi <%= @user.name %>,</p>
+<p>Welcome to GymBull and thank you for signing up! We're super-duper excited to
+have you onboard! Click on the link below to activate your account, and then 
+you can add more information to your profile, find and follow other users and gyms, 
+or share workouts, meals, and more with everyone else.</p>
 
-<p>
-Welcome to GymBull! We're super-duper excited to have you onboard! Click on the link below to activate your account:
-</p>
-
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+<%= link_to "ACTIVATE", edit_account_activation_url(@user.activation_token,
                                                     email: @user.email) %>
                                                     
+<p>If you have the time, please fill out our quick <%= link_to "SURVEY", survey_path %></p>                                                    
+                                                    
 <p>Sincerely,</br>
-The GymBull Bull</p>
+The Bull</p>

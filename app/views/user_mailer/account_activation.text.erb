@@ -1,8 +1,13 @@
 Hi <%= @user.name %>,
 
-Welcome to GymBull! We're super-duper excited to have you onboard! Click on the link below to activate your account:
+Welcome to GymBull and thank you for signing up! We're super-duper excited to
+have you onboard! Click on the link below to activate your account, and then 
+you can add more information to your profile, find and follow other users and gyms, 
+or share workouts, meals, and more with everyone else.
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+
+If you have the time, please fill out our quick <%= survey_path %>
 
 Sincerely,
 The GymBull Bull
