@@ -44,13 +44,13 @@
         <% unless current_user.favorite_posts.exists?(id: post.id) %>
           <%= link_to favorite_posts_path(post_id: post), method: :post do %>
             <span class="glyphicon glyphicon-star-empty"></span>
-          <% end %>
+          <% end %> |
         <% else %>
           <%= link_to favorite_post_path(post), method: :delete do %>
             <span class="glyphicon glyphicon-star"></span>
           <% end %>
-        <% end %>
-      <% end %> |
+        <% end %> |
+      <% end %>
       
       <%= link_to post_path(post) do %>
         <span class="glyphicon glyphicon-fullscreen"</span>
