@@ -1,0 +1,63 @@
+<% provide(:title, "Edit Post") %>
+
+<h1>Update <%= @post.title || @post.id.to_s %></h1>
+
+<div class="row">
+  <div class="col-md-1">
+    <%= render 'layouts/header' %>
+  </div>
+  
+  <div class="col-md-5 col-md-offset-3">
+    <%= form_for(@post, html: { multipart: true }) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <% if post?(@post) %>
+      
+      	<%= f.label :content, "Post:", :class => "required" %>
+        <%= f.text_area :content, :required => true, size: "24x6", class: 'form-control' %>
+	      <span class="picture">
+	      	<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+	      </span>
+	    
+	    <% elsif workout?(@post) %>
+
+      <%= f.label :title, "Workout name:" %>
+      <%= f.text_field :title,class: 'form-control' %>
+      <%= f.label :body_parts, "Muscules used:" %>
+      <%= f.text_field :body_parts, class: 'form-control' %>
+      <%= f.label :duration, "How ling it takes (min):" %>
+      <%= f.number_field(:duration, in:0..240, class: 'form-control') %>
+      <%= f.label :equipment, "Equipment used:" %>
+      <%= f.text_field :equipment, class: 'form-control' %>
+      <%= f.label :content, "The Workout:", :class => "required" %>
+      <%= f.text_area :content, size: "24x6", class: 'form-control', 
+       :required => true%>
+       
+			<% elsif meal?(@post) %>	     
+     
+				<%= f.label :title, "Meal name:" %>
+	      <%= f.text_field :title, class: 'form-control' %>
+	      <%= f.label :calories, "Total kcal:" %>
+	      <%= f.number_field :calories, class: 'form-control' %>
+	      <%= f.label :protein, "Total protein:" %>
+	      <%= f.number_field :protein, class: 'form-control' %>
+	      <%= f.label :carbs, "Total carbohydrates:" %>
+	      <%= f.number_field :carbs, class: 'form-control' %>
+	      <%= f.label :fat, "Total fat:" %>
+	      <%= f.number_field :fat, class: 'form-control' %>
+	      <%= f.label :ingredients, "Ingredients used:" %>
+	      <%= f.text_field :ingredients, class: 'form-control' %>
+	      <%= f.label :content, "The recipe:", :class => "required" %>
+	      <%= f.text_area :content, size: "24x6", class: 'form-control', 
+	       :required => true %>
+	       
+	    <% end %>
+	    
+	      <span class="glyphicon glyphicon-tags"></span>
+	      <%= f.text_field :tag_list, class: 'form-control' %>
+      
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+
+	  <% end %>
+	</div>
+</div>

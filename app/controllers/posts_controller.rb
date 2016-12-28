@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   before_action :logged_in_user, only: [:create, :destroy]
-  before_action :correct_user,  only: :destroy
+  before_action :correct_user,  only: [:edit, :update, :destroy]
     
   def create
     @post = current_user.posts.build(post_params)
@@ -24,6 +24,20 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     if !logged_in?
       flash.now[:info] = "Log in to see all Users, Gyms, and other content"
+    end
+  end
+  
+  def edit
+    @post = Post.find_by(id: params[:id])
+  end
+  
+  def update
+    @post = Post.find_by(id: params[:id])
+    if @post.update_attributes(post_params)
+      flash[:success] = "Post updated"
+      redirect_to @post
+    else
+      render 'edit'
     end
   end
   

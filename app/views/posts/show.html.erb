@@ -34,9 +34,11 @@
 		   
       <p>Posted <%= time_ago_in_words(@post.created_at) %> ago</p>
       <% if current_user?(@post.user) %>
+      	<%= link_to "Edit Post", edit_post_path(@post), 
+      											:class => 'btn btn-default btn-xs' %>
         <%= link_to "Delete", @post, method: :delete,
-                                         data: { confirm: "You sure?" },
-                                         :class => "btn btn-danger btn-xs" %>
+                            data: { confirm: "You sure?" },
+                            :class => "btn btn-danger btn-xs" %>
       <% end %>
 		  </span>
     </section>
