@@ -1,6 +1,6 @@
 <li>
   <div class="name-line">
-    <%= tiny_picture_for(user, size: 30) %>
+    <%= tiny_picture_for(user, size: :tiny) %>
     <%= link_to user.name, user, :class => "username" %>
     <% if current_user.admin? && !current_user?(user) %>
       <%= link_to "delete", user, method: :delete,
