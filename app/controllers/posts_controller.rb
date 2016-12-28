@@ -22,6 +22,9 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by(id: params[:id])
+    if !logged_in?
+      flash.now[:info] = "Log in to see all Users, Gyms, and other content"
+    end
   end
   
   def index

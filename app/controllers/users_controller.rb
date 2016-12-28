@@ -6,12 +6,12 @@ class UsersController < ApplicationController
   
   def index_gyms
     @search = User.where(account_type: "gym").search(params[:q])
-    @users = @search.result.paginate(page: params[:page], :per_page => 30)
+    @users = @search.result.order(created_at: :desc).paginate(page: params[:page], :per_page => 30)
   end
   
   def index_users
     @search = User.where(account_type: "user").search(params[:q])
-    @users = @search.result.paginate(page: params[:page], :per_page => 30)
+    @users = @search.result.order(created_at: :desc).paginate(page: params[:page], :per_page => 30)
   end
   
   def show
