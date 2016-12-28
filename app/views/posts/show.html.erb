@@ -32,9 +32,7 @@
 		      <% if @post.ingredients? %><b>Ingredients: </b><%= @post.ingredients %></br><% end %>
 		    <% end %>
 		   
-      <p>Posted <%= time_ago_in_words(@post.created_at) %> ago</p>
-      
-      <% if logged_in? %>
+      <p><% if logged_in? %>
         <% unless current_user.favorite_posts.exists?(id: @post.id) %>
           <%= link_to favorite_posts_path(post_id: @post), method: :post do %>
             <span class="glyphicon glyphicon-star-empty"></span>
@@ -43,8 +41,10 @@
           <%= link_to favorite_post_path(@post), method: :delete do %>
             <span class="glyphicon glyphicon-star"></span>
           <% end %>
-        <% end %>
+        <% end %> |
       <% end %>
+      
+      Posted <%= time_ago_in_words(@post.created_at) %> ago</p>
       
       <% if current_user?(@post.user) %>
       	<%= link_to "Edit Post", edit_post_path(@post), 
