@@ -42,11 +42,17 @@
   <!-- should probably be a partial; but didn't work when refactored out -->
       <% if logged_in? %>
         <% unless current_user.favorite_posts.exists?(id: post.id) %>
-          <%= link_to favorite_posts_path(post_id: post), method: :post do %>
+          <%= link_to favorite_posts_path(post_id: post), 
+                          method: :post,
+                          :id => 'mire',
+                          :remote => true do %>
             <span class="glyphicon glyphicon-star-empty"></span>
           <% end %>
         <% else %>
-          <%= link_to favorite_post_path(post), method: :delete do %>
+          <%= link_to favorite_post_path(post), 
+                          method: :delete,
+                          :id => 'unmire',
+                          :remote => true do %>
             <span class="glyphicon glyphicon-star"></span>
           <% end %>
         <% end %> |
