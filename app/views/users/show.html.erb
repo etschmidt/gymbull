@@ -15,21 +15,21 @@
       <section class="details">
         <% if @user.location? %><span class="glyphicon glyphicon-map-marker"></span> <%= @user.location %></br><% end %>
         <% if @user.focus? %><span class="glyphicon glyphicon-grain"></span> <b><%= @user.focus %></b></br></br><% end %>
-        <% if @user.about? %><b>About:</b> <%= @user.about %></br><% end %>
+        <% if @user.about? %><b>About:</b> <%= simple_format(@user.about) %></br><% end %>
         
         <!-- Users -->
         <% if @user.height? %><b>Height:</b> <%= @user.height %> in.</br><% end %>
         <% if @user.weight? %><b>Weight:</b> <%= @user.weight %> lbs.</br><% end %>
-        <% if @user.goals? %><b>Goals:</b> <%= @user.goals %></br><% end %>
-        <% if @user.prs? %><b>Personal Records:</b> <%= @user.prs %></br><% end %>
-        <% if @user.quals? %><b>Qualifications:</b> <%= @user.quals %></br><% end %>
+        <% if @user.goals? %><b>Goals:</b> <%= simple_format(@user.goals) %></br><% end %>
+        <% if @user.prs? %><b>Personal Records:</b> <%= simple_format(@user.prs) %></br><% end %>
+        <% if @user.quals? %><b>Qualifications:</b> <%= simple_format(@user.quals) %></br><% end %>
         
         <!-- Gyms -->
   
-        <% if @user.hours? %><b>Hours:</b> <%= @user.hours %></br><% end %>
-        <% if @user.pricing? %><b>Pricing:</b> <%= @user.pricing %></br><% end %>
-        <% if @user.equipment? %><b>Equipment:</b> <%= @user.equipment %></br><% end %>
-        <% if @user.classes? %><b>Classes:</b> <%= @user.classes %></br><% end %>
+        <% if @user.hours? %><b>Hours:</b> <%= simple_format(@user.hours) %></br><% end %>
+        <% if @user.pricing? %><b>Pricing:</b> <%= simple_format(@user.pricing) %></br><% end %>
+        <% if @user.equipment? %><b>Equipment:</b> <%= simple_format(@user.equipment) %></br><% end %>
+        <% if @user.classes? %><b>Classes:</b> <%= simple_format(@user.classes) %></br><% end %>
         
         <% if current_user?(@user) %>
           <%= link_to "Edit Profile", edit_user_path(current_user), :class => 'btn btn-default btn-sm' %>
