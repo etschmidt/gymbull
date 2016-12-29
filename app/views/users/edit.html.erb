@@ -12,7 +12,7 @@
 
       <% if gym?(current_user) %>
       
-        <h3><%= @user.name %></h3>
+        <h3><%= f.text_field :name, class: 'form-control' %></h3>
         
         <%= f.label :focus %>
         <%= f.select :focus, [
@@ -108,10 +108,11 @@
   
         <%= f.label :password_confirmation, "Confirmation" %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
-  
-        <%= f.submit "Save changes", class: "btn btn-primary" %>
       
       <% end %>
+      
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+      
     <% end %>
 
     </div>
