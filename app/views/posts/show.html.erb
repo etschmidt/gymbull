@@ -69,12 +69,13 @@
       </div>
     </nav>
     
-  	<span class="content-detail">
+  	<div class="content-detail">
 		  
       <%= simple_format(@post.content) %>
-    	<%= image_tag @post.picture.url(:post) if @post.picture? %>
+      
+    	<%= image_tag(@post.picture.url(:post), :id => "centerpic") if @post.picture? %>
 
-	  </span>
+	  </div>
     
   </div>
   
