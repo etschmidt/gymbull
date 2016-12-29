@@ -1,7 +1,22 @@
 <%= search_form_for @search, url: search_posts_path, html: { method: :post } do |f| %>
 	<div class="field">
-		<h4>Search Content</h4>
+		<h4>Search Posts</h4>
+		
+		<%= f.label :content_cont %>
 		<%= f.search_field :content_cont %>
+		
+		<div class="workout">
+			<%= f.label :equipment_cont %>
+			<%= f.search_field :equipment_cont %>
+			<%= f.label "Muscules used contain" %>
+			<%= f.search_field :body_parts_cont %>
+		</div>
+		
+		<div class="meal">
+			<%= f.label "Ingredients contain" %>
+			<%= f.search_field :ingredients_cont %>
+		</div>
+		
 	</div>
 	<div class="actions"><%= f.submit "Search", class: "btn btn-primary" %></div>
 	<%= link_to "Clear Search/Tags", root_url, :class => 'btn btn-default' %>
