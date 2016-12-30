@@ -1,3 +1,46 @@
 // Place all the styles related to the Favorite_posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mini-posts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  li {
+    list-style: none;
+    display: inline-block;
+    width: calc(100% / 3.2);
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    
+    .inner-content {
+    	height:5em;
+    	overflow: hidden;
+    	p {
+    		line-height: 1.2em;
+    	}
+    }
+  }
+}
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) {
+	.mini-posts {
+		li {
+    width: calc(100% / 2.1);
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.mini-posts {
+		li {
+			width: (100%);
+		}
+	}
+}
+

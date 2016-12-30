@@ -26,6 +26,11 @@ class UsersController < ApplicationController
     end
   end
   
+  def favorite_posts
+    @user = User.friendly.find(params[:id])
+      @mini_posts = @user.favorite_posts
+  end
+  
   def new
     @user = User.new
   end

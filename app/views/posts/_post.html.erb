@@ -2,41 +2,61 @@
   <span class="user">
     <%= tiny_picture_for(post.user, size: :tiny) %>
     <%= link_to post.user.name, post.user %></span>
-  <span class="content">
     
+  <div class="content">
     <% if post?(post) %>
-      <%= simple_format(post.content) %>
-      <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-      <%= image_tag post.picture.url(:post) if post.picture? %>
-    
-    <% elsif workout?(post) %>
-      <% if post.title? %><b><%= post.title %></b></br><% end %>
-      <% if post.body_parts? %> Body Parts: <%= post.body_parts %></br><% end %>
-      <% if post.duration? %> Length: <%= post.duration %> minutes</br><% end %>
-      <% if post.equipment? %> Equipment: <%= post.equipment %></br><% end %>
-      <div>
-        <b>Workout:</b></br><%= simple_format(post.content) %>
-        <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase() %></b></span>
+      <div class="inner-content">
+        <%= simple_format(post.content) %>
       </div>
+      <%= image_tag post.picture.url(:post) if post.picture? %>
+      <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+
+    <% elsif workout?(post) %>
+    
+      <% if post.title? %>
+        <b><%= post.title %><span class="post-id"> - <%= post.post_type.titlecase()%></span></b></br>
+      <% else %>
+        <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase()%></b></span>
+      <% end %>
+      
+      <span class="full-option">
+        <% if post.body_parts? %> Body Parts: <%= post.body_parts %></br><% end %>
+        <% if post.duration? %> Length: <%= post.duration %> minutes</br><% end %>
+        <% if post.equipment? %> Equipment: <%= post.equipment %></br><% end %>
+      </span>
+      <div class="inner-content">
+        <span class="full-option"><b>Workout:</b></br></span><%= simple_format(post.content) %>
+      </div>
+        <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+
     
     <% elsif meal?(post) %>
-      <% if post.title? %><b><%= post.title %></b></br><% end %>
-      <% if post.calories? %> Calories: <%= post.calories %> kcal</br><% end %>
-      <% if post.protein? || post.fat? || post.carbs? %>
-        <div>Macronutrients:</br> 
-        <% if post.protein? %>Protein: <%= post.protein %> g</br><% end %>
-        <% if post.fat? %>Fat: <%= post.fat %> g</br><% end %>
-        <% if post.carbs? %>Carbs: <%= post.carbs %> g<% end %>
-        </div> <% end %>
-      <% if post.ingredients? %>Ingredients: <%= post.ingredients %></br><% end %>
-     <div>
-        <b>Recipe:</b></br><%= simple_format(post.content) %>
-        <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      
+      <% if post.title? %>
+        <b><%= post.title %><span class="post-id"> - <%= post.post_type.titlecase()%></span></b></br>
+      <% else %>
+        <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase() %></b></span>
+      <% end %>
+      
+      <span class="full-option">
+        <% if post.calories? %> Calories: <%= post.calories %> kcal</br><% end %>
+        <% if post.protein? || post.fat? || post.carbs? %>
+          <div>Macronutrients:</br> 
+          <% if post.protein? %>Protein: <%= post.protein %> g</br><% end %>
+          <% if post.fat? %>Fat: <%= post.fat %> g</br><% end %>
+          <% if post.carbs? %>Carbs: <%= post.carbs %> g<% end %>
+          </div> <% end %>
+        <% if post.ingredients? %>Ingredients: <%= post.ingredients %></br><% end %>
+      </span>
+      <div class="inner-content">
+        <span class="full-option"><b>Workout:</b></br></span><%= simple_format(post.content) %>
       </div>
+      <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
     <% end %>
-  </span>
+  </div>
   
-  <div  class="row">
+  <div class="row">
     <span class="timestamp">
       
   <!-- should probably be a partial; but didn't work when refactored out -->
@@ -61,12 +81,13 @@
       <%= link_to post_path(post) do %>
         <span class="glyphicon glyphicon-fullscreen"</span>
       <% end %> |
-    
-      Posted <%= time_ago_in_words(post.created_at) %> ago
-      <% if current_user?(post.user) %>
-        <%= link_to "delete", post, method: :delete,
-                                         data: { confirm: "You sure?" } %>
-      <% end %>
+      <span class="full-option">
+        Posted <%= time_ago_in_words(post.created_at) %> ago
+        <% if current_user?(post.user) %>
+          <%= link_to "delete", post, method: :delete,
+                                           data: { confirm: "You sure?" } %>
+        <% end %>
+      </span>
     </span>
   </div>
 </li>

@@ -5,19 +5,11 @@
     <%= render 'layouts/header' %>
   </div>
   
-  <aside class="col-md-3 panel panel-default">
-    <section class="user_info">
-      <span><%= profile_picture_for(current_user, size: :profile) %></span>
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
-      <span><b>Posts That You 'Mire:</b> <%= @user.favorite_posts.count %></span>
-    </section>
-  </aside>
-  <div class="col-md-5">
+  <div class="col-md-8">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand">Mires</a>
+          <a class="navbar-brand">Mires <span class="badge"><%= @user.favorite_posts.count %></span></a>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li id="post-toggle" class="active"><a>Posts</a></li>
@@ -29,9 +21,9 @@
     </nav>
     
     <% if @posts.any? %>
-      <ol class="posts">
+      <ul class="mini-posts">
         <%= render @posts %>
-      </ol>
+      </ul>
       
     <% else %>
       <div class="startinfo panel panel-default">
@@ -48,17 +40,17 @@
     
   </div>
   
-  <div class="col-md-3 panel panel-default">
-      <h1>MIRE</h1>
-      <h3>/ˈmī(ə)r/</h3>
-      <p>abv. "Admire"</p> 
-      <i>verb</i>:
-      <ol>
-        <li>to regard with wonder, pleasure, or approval.</li>
-        <li>to take pleasure; like or desire:</li>
-      </ol>
-      <i>you mirin these aesthetics, son?</i>
-      <p></p>
+  <div class="col-md-2 panel panel-default">
+    <h1>MIRE</h1>
+    <h3>/ˈmī(ə)r/</h3>
+    <p>abv. "Admire"</p> 
+    <i>verb</i>:
+    <ol>
+      <li>to regard with wonder, pleasure, or approval.</li>
+      <li>to take pleasure; like or desire:</li>
+    </ol>
+    <i>you mirin these aesthetics, son?</i>
+    <p></p>
   </div>
     
 </div>

@@ -108,6 +108,13 @@ But... I copied most of the nev menu from somewhere else...*/
   transition: all 1s ease;
 }
 
+@media (min-width: 767px) {
+  .nav-side-menu .menu-list .menu-content {
+    display: block;
+  }
+}
+
+
 
 /* Mobile */
 
@@ -140,12 +147,6 @@ But... I copied most of the nev menu from somewhere else...*/
     line-height: 50px !important;
   }
 }
-@media (min-width: 767px) {
-  .nav-side-menu .menu-list .menu-content {
-    display: block;
-  }
-}
-
 
 
 /* footer */
