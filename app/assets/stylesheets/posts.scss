@@ -40,6 +40,9 @@ $gray-medium-light: #eaeaea;
       display: block;
       padding: 5px 0;
     }
+    .glyphicon {
+      display: none;
+    }
   }
   .timestamp {
     color: $gray-light;

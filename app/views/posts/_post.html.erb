@@ -5,7 +5,11 @@
     
   <div class="content">
     <% if post?(post) %>
-      <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase() %></b></span>
+      <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase()%></b>
+        <% if post.picture? %>
+          <span class="glyphicon glyphicon-picture"></span>
+        <% end %>
+      </span>
       <div class="inner-content">
         <%= simple_format(post.content) %>
       </div>
