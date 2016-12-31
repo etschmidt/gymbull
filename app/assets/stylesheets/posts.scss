@@ -51,35 +51,6 @@ $gray-medium-light: #eaeaea;
   }
 }
 
-/* Mini-posts */
-
-.mini-posts {
-  list-style: none;
-  padding: 0;
-  li {
-    padding: 5p;
-    border: 1px solid #e8e8e8;
-  }
-  .user {
-    display: none;
-  }
-  p {
-    margin: 0;
-  }
-  .content {
-    display: block;
-    img {
-      display: none;
-    }
-  }
-  .row {
-    margin-left: 0;
-  }
-  .full-option {
-    display: none;
-  }
-}
-
 /* For the post detail screen */
 aside {
   section.post-info {

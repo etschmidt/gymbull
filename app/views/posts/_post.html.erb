@@ -95,3 +95,13 @@
     </span>
   </div>
 </li>
+
+<script>
+$(document).ready(function(){    
+    
+    $(".mini-posts li#post-<%= post.id %>").click(function(){
+    $("#post-<%= post.id %> .content div").toggleClass("inner-content");
+  });
+  
+});
+</script>

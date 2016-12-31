@@ -83,5 +83,9 @@ $(document).ready(function(){
       $("#all-toggle").removeClass("active");
   });
   
+  $(".mini-posts li").click(function(){
+    $("#post-#{post.id} .content div").toggleClass("inner-content");
+  });
+  
 });
 </script>

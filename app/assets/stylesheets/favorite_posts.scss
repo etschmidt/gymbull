@@ -2,36 +2,62 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* Mini-posts */
+
 .mini-posts {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
+  list-style: none;
+  padding: 0;
   li {
+    padding: 5px;
+    border: 1px solid #e8e8e8;
     list-style: none;
     display: inline-block;
-    width: calc(100% / 3.2);
+    width: calc(100% / 4.3);
     text-align: left;
     margin: 5px;
     padding: 5px;
     border-radius: 10px;
-    
-    .inner-content {
-    	height:5em;
-    	overflow: hidden;
-    	p {
-    		line-height: 1.2em;
-    	}
+    font-size: 11px;
+    .user {
+      display: none;
     }
+    p {
+      margin: 0;
+      line-height: 1.2em;
+    }
+    .content {
+      display: block;
+      .inner-content {
+      	height: 6.4em;
+      	overflow: auto;
+      }
+      img {
+        display: none;
+      }
+      .full-option {
+        display: none;
+      }
+    }
+    .row {
+      margin-left: 0;
+      .full-option {
+        display: none;
+      }
+    }
+    
   }
 }
+
 
 @media only screen 
   and (min-device-width: 768px) 
   and (max-device-width: 1024px) {
 	.mini-posts {
 		li {
-    width: calc(100% / 2.1);
+    width: calc(100% /2.3);
 		}
 	}
 }
