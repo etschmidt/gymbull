@@ -19,35 +19,36 @@ $gray-medium-light: #eaeaea;
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
-  }
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
-    img {
-      border-style: solid;
-      border-width: 1px;
-      border-color: black;
-      border-radius: 50%;
+    .user {
+      margin-top: 5em;
+      padding-top: 0;
+      img {
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
+        border-radius: 50%;
+      }
     }
-  }
-  .content {
-    display: block;
-    margin-left: 60px;
-    .post-id {
-      display: none;
-    }
-    img {
+    .content {
       display: block;
-      padding: 5px 0;
+      margin-left: 60px;
+      .post-id {
+        display: none;
+      }
+      img {
+        display: block;
+        margin-bottom: 5px;
+        width: 100%;
+      }
+      .glyphicon {
+        display: none;
+      }
     }
-    .glyphicon {
-      display: none;
+    .timestamp {
+      color: $gray-light;
+      display: block;
+      margin-left: 60px;
     }
-  }
-  .timestamp {
-    color: $gray-light;
-    display: block;
-    margin-left: 60px;
   }
 }
 
