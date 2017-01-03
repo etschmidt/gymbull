@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   def index
     render :home
   end
-   
+  
    private
    
    def post_params

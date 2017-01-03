@@ -58,7 +58,7 @@
     <div class="col-md-3 panel panel-default">
       <div id="tag_cloud">
         <h4>All Trending Tags:</h4>
-        <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
+        <% tag_cloud Post.tag_counts.limit(25), %w[s m l] do |tag, css_class| %>
           <%= link_to tag.name, tag_path(tag.name), class: css_class %>
         <% end %>
       </div>
@@ -81,7 +81,7 @@
       <div class="jumbotron col-md-10 col-md-offset-1 center">
         <h1>GymBull</h1>
         <h2>A Culture of Fitness</h2>
-      
+        <%= link_to "Sign in!", login_path, class: "btn btn-lg btn-primary" %> </br>
         <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
       </div>
       <div class="col-md-10 col-md-offset-1">
