@@ -84,12 +84,14 @@
       
       <%= link_to post_path(post) do %>
         <span class="glyphicon glyphicon-fullscreen"</span>
-      <% end %> |
+      <% end %>
+      | <b><%= post.comments.count %></b>
       <span class="full-option">
-        Posted <%= time_ago_in_words(post.created_at) %> ago
+      | Posted <%= time_ago_in_words(post.created_at) %> ago
         <% if current_user?(post.user) %>
-          <%= link_to "delete", post, method: :delete,
-                                           data: { confirm: "You sure?" } %>
+          <%= link_to post, method: :delete, data: { confirm: "You sure?" } do %>
+            <span class="glyphicon glyphicon-trash"</span>
+          <% end %>
         <% end %>
       </span>
     </span>
