@@ -44,6 +44,8 @@ Rails.application.routes.draw do
     collection do
       match 'search' => 'static_pages#home', via: [:get, :post], as: :search
     end
+    
+    resources :comments
   end
   resources :relationships,       only: [:create, :destroy]
   

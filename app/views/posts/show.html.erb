@@ -44,20 +44,21 @@
         <% end %> |
       <% end %>
 
-      Posted <%= time_ago_in_words(@post.created_at) %> ago</p>
+      Posted <%= time_ago_in_words(@post.created_at) %> ago
       
       <% if current_user?(@post.user) %>
-      	<%= link_to "Edit Post", edit_post_path(@post), 
-      											:class => 'btn btn-default btn-xs' %>
-        <%= link_to "Delete", @post, method: :delete,
-                            data: { confirm: "You sure?" },
-                            :class => "btn btn-danger btn-xs" %>
+      	| <%= link_to  edit_post_path(@post) do %>
+      	  <span class="glyphicon glyphicon-pencil"></span>
+      	<% end %> |
+        <%= link_to @post, method: :delete,
+                            data: { confirm: "You sure?" } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+      	<% end %>
       <% end %>
-		  </span>
+		  </p>
     </section>
   </aside>
-  
-  
+
   <div class="col-md-5">
   	<nav class="navbar navbar-default">
   		<div class="container-fluid">
@@ -72,11 +73,17 @@
   	<div class="content-detail">
 		  
       <%= simple_format(@post.content) %>
-      
     	<%= image_tag(@post.picture.url(:post), :id => "centerpic") if @post.picture? %>
 
 	  </div>
-    
+	  
+	    <ol class="comments">
+        <%= render @comments %>
+      </ol>
+      <% if logged_in? %>
+        <%= render 'comments/form' %>
+      <% end %>
+      
   </div>
   
   <div class="col-md-3 panel panel-default">

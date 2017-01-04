@@ -4,7 +4,7 @@ class User < ApplicationRecord
     friendly_id :name
     
     has_many :posts, dependent: :destroy
-    
+    has_many :comments
     has_many :favorites
     has_many :favorite_posts, through: :favorites, source: :favorited, source_type: 'Post'
     
