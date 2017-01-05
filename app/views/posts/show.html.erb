@@ -46,14 +46,16 @@
 
       Posted <%= time_ago_in_words(@post.created_at) %> ago
       
-      <% if (current_user?(@post.user) || current_user.admin?) %>
-      	| <%= link_to  edit_post_path(@post) do %>
-      	  <span class="glyphicon glyphicon-pencil"></span>
-      	<% end %> |
-        <%= link_to @post, method: :delete,
-                            data: { confirm: "You sure?" } do %>
-          <span class="glyphicon glyphicon-trash"></span>
-      	<% end %>
+      <% if logged_in? %>
+        <% if (current_user?(@post.user) || current_user.admin?) %>
+        	| <%= link_to  edit_post_path(@post) do %>
+        	  <span class="glyphicon glyphicon-pencil"></span>
+        	<% end %> |
+          <%= link_to @post, method: :delete,
+                              data: { confirm: "You sure?" } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+        	<% end %>
+        <% end %>
       <% end %>
     </section>
   </aside>
@@ -76,12 +78,16 @@
 
 	  </div>
 	  
+	  <% if logged_in? %>
 	    <ol class="comments">
         <%= render @comments %>
       </ol>
-      <% if logged_in? %>
-        <%= render 'comments/form' %>
-      <% end %>
+      <%= render 'comments/form' %>
+    <% else %>
+      <div class="alert alert-info">
+        <b><%= link_to "Log in", login_path %></b> to see comments and other content
+      </div>
+    <% end %>
       
   </div>
   

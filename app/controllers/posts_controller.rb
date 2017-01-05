@@ -23,9 +23,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @comments = Comment.where(post_id: @post.id).order("created_at ASC")
-    if !logged_in?
-      flash.now[:info] = "Log in to see all Users, Gyms, and other content"
-    end
   end
   
   def edit

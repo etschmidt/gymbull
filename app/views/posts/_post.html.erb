@@ -101,7 +101,7 @@
 <script>
 $(document).ready(function(){    
     
-    $(".mini-posts li#post-<%= post.id %>").click(function(){
+    $(".mini-posts li#post-<%= post.id %> .inner-content").click(function(){
     $("#post-<%= post.id %> .content div").toggleClass("inner-content");
   });
   
