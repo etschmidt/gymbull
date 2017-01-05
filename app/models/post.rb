@@ -14,9 +14,8 @@ class Post < ApplicationRecord
   validate  :picture_size
   
   acts_as_taggable
-  ActsAsTaggableOn::Tag.most_used(10)
-  
-#  acts_as_taggable_on :ingredients, :body_parts, :equipment
+
+
   
   private 
   

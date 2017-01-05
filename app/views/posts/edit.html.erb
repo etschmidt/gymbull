@@ -19,23 +19,23 @@
 	      	<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
 	      </span>
 	    
-	    <% elsif workout?(@post) %>
+	  <% elsif workout?(@post) %>
 
-      <%= f.label :title, "Workout name:" %>
-      <%= f.text_field :title,class: 'form-control' %>
-      <%= f.label :body_parts, "Muscules used:" %>
-      <%= f.text_field :body_parts, class: 'form-control' %>
-      <%= f.label :duration, "How ling it takes (min):" %>
-      <%= f.number_field(:duration, in:0..240, class: 'form-control') %>
-      <%= f.label :equipment, "Equipment used:" %>
-      <%= f.text_field :equipment, class: 'form-control' %>
-      <%= f.label :content, "The Workout:", :class => "required" %>
-      <%= f.text_area :content, size: "24x6", class: 'form-control', 
-       :required => true%>
+	      <%= f.label :title, "Workout name:" %>
+	      <%= f.text_field :title,class: 'form-control' %>
+	      <%= f.label :body_parts, "Muscules used:" %>
+	      <%= f.text_field :body_parts, class: 'form-control' %>
+	      <%= f.label :duration, "How ling it takes (min):" %>
+	      <%= f.number_field(:duration, in:0..240, class: 'form-control') %>
+	      <%= f.label :equipment, "Equipment used:" %>
+	      <%= f.text_field :equipment, class: 'form-control' %>
+	      <%= f.label :content, "The Workout:", :class => "required" %>
+	      <%= f.text_area :content, size: "24x6", class: 'form-control', 
+	       :required => true%>
        
-			<% elsif meal?(@post) %>	     
-     
-				<%= f.label :title, "Meal name:" %>
+	  <% elsif meal?(@post) %>	     
+ 
+	      <%= f.label :title, "Meal name:" %>
 	      <%= f.text_field :title, class: 'form-control' %>
 	      <%= f.label :calories, "Total kcal:" %>
 	      <%= f.number_field :calories, class: 'form-control' %>
@@ -57,7 +57,10 @@
 	      <%= f.text_field :tag_list, class: 'form-control' %>
       
       <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <%= link_to "Cancel", post_path(@post), class: "btn btn-default" %>
 
 	  <% end %>
+	  
+
 	</div>
 </div>
