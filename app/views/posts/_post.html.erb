@@ -79,7 +79,7 @@
                           :remote => true do %>
             <span class="glyphicon glyphicon-star"></span>
           <% end %>
-        <% end %> |
+        <% end %> | <b><%= post.favorites.count %></b> |
       <% end %>
       
       <%= link_to post_path(post) do %>

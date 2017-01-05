@@ -30,8 +30,8 @@
 		        <% if @post.carbs? %><b>Carbs: </b><%= @post.carbs %> g<% end %>
 		        </div> <% end %>
 		      <% if @post.ingredients? %><b>Ingredients: </b><%= @post.ingredients %></br><% end %>
-		    <% end %>
-		   
+		    <% end %></br>
+
       <% if logged_in? %>
         <% unless current_user.favorite_posts.exists?(id: @post.id) %>
           <%= link_to favorite_posts_path(post_id: @post), method: :post do %>
@@ -55,7 +55,6 @@
           <span class="glyphicon glyphicon-trash"></span>
       	<% end %>
       <% end %>
-
     </section>
   </aside>
 
@@ -64,7 +63,7 @@
   		<div class="container-fluid">
 	  		<div class="navbar-header">
 		      <a class="navbar-brand">
-		      	<%=  @post.title || @post.id.to_s %>
+		      	<%=  @post.title || @post.id.to_s %>  (<%= pluralize(@post.favorites.count, "Mire") %>)
 		      </a>
 	      </div>
       </div>

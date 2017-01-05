@@ -2,7 +2,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_many :comments
-  has_many :favorites
+  has_many :favorites, as: :favorited
   
   default_scope -> { order(created_at: :desc) }
   
@@ -15,10 +15,6 @@ class Post < ApplicationRecord
   
   acts_as_taggable
 
-
-  
-  private 
-  
     # Validates size of uploaded picture
     def picture_size
       if picture.size > 5.megabytes
