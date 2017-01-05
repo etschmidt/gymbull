@@ -46,7 +46,7 @@
 
       Posted <%= time_ago_in_words(@post.created_at) %> ago
       
-      <% if current_user?(@post.user) %>
+      <% if (current_user?(@post.user) || current_user.admin?) %>
       	| <%= link_to  edit_post_path(@post) do %>
       	  <span class="glyphicon glyphicon-pencil"></span>
       	<% end %> |
