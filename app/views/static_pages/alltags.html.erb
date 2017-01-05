@@ -1,0 +1,20 @@
+<% provide(:title, @title) %>
+<div class="row">
+  
+  <div class="col-md-1">
+    <%= render 'layouts/header' %>
+  </div>
+  
+  <div class="col-md-11">
+    <h1>All Tags:</h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+      <div id="big_tag_cloud">
+  	  	<% tag_cloud Post.tag_counts.all, %w[s m l] do |tag, css_class| %>
+          <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+        <% end %>
+      </div>
+    </div>
+    </div>
+	</div>
+</div>

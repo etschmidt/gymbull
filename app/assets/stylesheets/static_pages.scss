@@ -58,3 +58,12 @@ body {
 .jumbotrom {
   margin-left: 10%;
 }
+
+/* Tag Cloud Page */
+
+#big_tag_cloud {
+  line-height: 2em;
+  .s { font-size: 1em; }
+  .m { font-size: 2em; }
+  .l { font-size: 3em; }
+}

@@ -17,6 +17,10 @@ class StaticPagesController < ApplicationController
         @feed_items = Post.limit(5)
     end
   end
+  
+  def alltags
+    @title = "All tags"
+  end
 
   def about
     @title = "About"

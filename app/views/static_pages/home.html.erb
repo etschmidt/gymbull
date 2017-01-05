@@ -57,10 +57,11 @@
     
     <div class="col-md-3 panel panel-default">
       <div id="tag_cloud">
-        <h4>All Trending Tags:</h4>
+        <h4>Trending Tags:</h4>
         <% tag_cloud Post.tag_counts.limit(25), %w[s m l] do |tag, css_class| %>
           <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-        <% end %>
+        <% end %></br>
+        <%= link_to "All Tags", alltags_path %>
       </div>
       <section class="search panel-body">
 		    <%= render 'shared/search_feed' %>
@@ -82,7 +83,7 @@
         <h1>GymBull</h1>
         <h2>A Culture of Fitness</h2>
         <%= link_to "Sign in!", login_path, class: "btn btn-lg btn-primary" %> </br>
-        <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+        or <%= link_to "Sign up now!", signup_path %>
       </div>
       <div class="col-md-10 col-md-offset-1">
         <h2>Most Recent GymBull Activity</h2>
