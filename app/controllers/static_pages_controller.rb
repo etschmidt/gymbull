@@ -14,7 +14,7 @@ class StaticPagesController < ApplicationController
         @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
       end
     else
-        @feed_items = Post.limit(5)
+        @feed_items = Post.where(post_type: ["workout", "meal"]).limit(5)
     end
   end
   
