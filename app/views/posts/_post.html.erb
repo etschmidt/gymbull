@@ -54,7 +54,7 @@
         <% if post.ingredients? %>Ingredients: <%= post.ingredients %></br><% end %>
       </span>
       <div class="inner-content">
-        <span class="full-option"><b>Workout:</b></br></span><%= simple_format(post.content) %>
+        <span class="full-option"><b>Recipe:</b></br></span><%= simple_format(post.content) %>
       </div>
       <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
     <% end %>
