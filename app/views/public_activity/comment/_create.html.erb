@@ -1,0 +1,6 @@
+commented on  
+<% if activity.trackable %>
+	<%= link_to activity.trackable.post.title, activity.trackable.post %>
+<% else %>
+	a post that has since been removed
+<% end %>

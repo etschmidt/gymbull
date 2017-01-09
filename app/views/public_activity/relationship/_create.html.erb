@@ -1,0 +1,6 @@
+is following 
+<% if activity.trackable %>
+	<%= link_to activity.recipient.name, activity.recipient %>
+<% else %>
+	a user that has since been removed
+<% end %>

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include PublicActivity::Common
     
     extend FriendlyId
     friendly_id :name

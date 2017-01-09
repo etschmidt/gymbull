@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
 		@comment.save
 		
 		if @comment.save
+			@comment.create_activity :create, owner: current_user
 			redirect_to post_path(@post)
 		else
 			render 'new'

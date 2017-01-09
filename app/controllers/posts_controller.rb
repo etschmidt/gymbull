@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
+      @post.create_activity :create, owner: current_user
       flash[:success] = "Post!"
       redirect_to root_url
     else
@@ -32,6 +33,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
     if @post.update_attributes(post_params)
+      @post.create_activity :update, owner: current_user
       flash[:success] = "Post updated"
       redirect_to @post
     else

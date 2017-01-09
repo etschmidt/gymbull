@@ -19,6 +19,7 @@ gem 'jbuilder',                '2.4.1'
 gem 'acts-as-taggable-on',     '~> 4.0'  #taggings
 gem 'ransack',                 '1.8.2'   #searching
 gem 'friendly_id',             '~> 5.1'  #URL helpers
+gem 'public_activity',         '~> 1.4', '>= 1.4.2'
 
 group :development, :test do
   gem 'sqlite3',               '1.3.11'
