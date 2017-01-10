@@ -9,7 +9,6 @@ class StaticPagesController < ApplicationController
       @activities = PublicActivity::Activity
         .order("created_at desc").limit(10)
         .where("owner_id IN (#{following_ids})
-                  OR owner_id = :user_id
                   OR recipient_id = :user_id", 
                   user_id: current_user.id)
                 
