@@ -14,9 +14,9 @@
         </section>
         <span><%= link_to "view my profile", current_user, :class => 'btn btn-default btn-md' %></span>
       </section>
-      <section class="post_form ">
-        <%= render 'shared/post_form' %>
-      </section>
+      <div id="activityfeed">
+        <%= render 'activities/index' %>
+      </div>
     </aside>
     
     <div class="col-md-5">
@@ -56,8 +56,13 @@
     </div>
     
     <div class="col-md-3 panel panel-default">
+      
+      <section class="post_form ">
+        <%= render 'shared/post_form' %>
+      </section>
+
       <div id="tag_cloud">
-        <h4>Trending Tags:</h4>
+        <h4>Trending Tags</h4>
         <% tag_cloud Post.tag_counts.limit(25), %w[s m l] do |tag, css_class| %>
           <%= link_to tag.name, tag_path(tag.name), class: css_class %>
         <% end %></br>

@@ -1,0 +1,13 @@
+<li class="activity">
+<%= link_to activity.owner.name, activity.owner if activity.owner %>
+commented on  
+<% if activity.trackable && activity.trackable.post %>
+		<% if activity.trackable.post.title? %>
+			<%= link_to activity.trackable.post.title, activity.trackable.post %>
+		<% else %>
+			<%= link_to activity.trackable.post.id, activity.trackable.post %>
+		<% end %>
+<% else %>
+	a post that has since been removed
+<% end %>
+</li>

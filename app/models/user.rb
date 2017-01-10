@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include PublicActivity::Model
+  tracked
     
     extend FriendlyId
     friendly_id :name

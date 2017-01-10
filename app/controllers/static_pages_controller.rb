@@ -16,6 +16,7 @@ class StaticPagesController < ApplicationController
     else
         @feed_items = Post.where(post_type: ["workout", "meal"]).limit(5)
     end
+    @activities = PublicActivity::Activity.order("created_at desc").limit(15)
   end
   
   def alltags

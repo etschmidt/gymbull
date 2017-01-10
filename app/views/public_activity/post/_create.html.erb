@@ -1,0 +1,16 @@
+<li class="activity">
+	<%= link_to activity.owner.name, activity.owner if activity.owner %>
+	created a
+	<% if activity.trackable %>
+	
+		<% if post?(activity.trackable) %>
+			<%= link_to "Post", activity.trackable %>
+		<% elsif workout?(activity.trackable) %>
+			<%= link_to "Workout", activity.trackable %>
+		<% elsif meal?(activity.trackable) %>
+			<%= link_to "Meal", activity.trackable %>
+		<% end %>
+	<% else %>
+		post that has since been removed
+	<% end %>
+</li>

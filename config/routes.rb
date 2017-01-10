@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -49,5 +49,6 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :relationships,       only: [:create, :destroy]
+  resources :activities
   
 end
