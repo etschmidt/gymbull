@@ -2,18 +2,35 @@
   <div class="name-line">
     <%= tiny_picture_for(user, size: :tiny) %>
     <%= link_to user.name, user, :class => "username" %>
-        <% if current_user.admin? && !current_user?(user) %>
-      <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" }, 
-                                  :class => "btn btn-danger btn-xs"  %>
+    <!-- Follow forms goes here, also I really wish that I could 
+    partital this outs, but cest la vie-->
+    
+    <% unless current_user?(user)%>
+      <div id="follow_form">
+      <% if current_user.following?(user) %>
+        <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
+                     html: { method: :delete },
+                     remote: true) do |f| %>
+          <%= f.submit "Unfollow", class: "btn follow btn-xs" %>
+        <% end %>
+      <% else %>
+        <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+          <div><%= hidden_field_tag :followed_id, user.id %></div>
+          <%= f.submit "Follow", class: "btn btn-primary follow btn-xs" %>
+        <% end %>
+      <% end %>
+      </div>
     <% end %>
   </div>
-  <% if gym?(user) %>
-    <span class="glyphicon glyphicon-grain"></span> <%= user.focus %></br>
-    Location: <%= user.location %></br>
-  <% end %>
-  Top Tags: <% tag_cloud user.posts.tag_counts.limit(3), %w[s m l] do |tag, css_class|%>
-    <%= link_to tag.name, "/users/#{user.id}/tags/#{tag.name}", class: css_class %>
-  <% end %>
-  <span class="badge"><%= user.posts.count %></span> 
+  <div>
+    <% if gym?(user) %>
+      <span class="glyphicon glyphicon-grain"></span> <%= user.focus %></br>
+      Location: <%= user.location %></br>
+    <% end %>
+    Top Tags: <% tag_cloud user.posts.tag_counts.limit(3), %w[s m l] do |tag, css_class|%>
+      <%= link_to tag.name, "/users/#{user.id}/tags/#{tag.name}", class: css_class %>
+    <% end %>
+    <span class="badge"><%= user.posts.count %></span>
+  </div>
+
 </li>
