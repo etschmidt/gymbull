@@ -9,9 +9,9 @@
       <section class="user_info">
         <span><%= profile_picture_for(current_user, size: :profile) %></span>
         <h1><%= current_user.name %></h1>
-        <section class="stats">
+        <div class="stats">
           <%= render 'shared/stats' %>
-        </section>
+        </div>
         <span><%= link_to "view my profile", current_user, :class => 'btn btn-default btn-md' %></span>
       </section>
       <div id="activityfeed">

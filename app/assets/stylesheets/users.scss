@@ -16,28 +16,26 @@ $gray-medium-light: #eaeaea;
 
 /* sidebar */
 
-aside {
-  section.user_info {
-    margin-top: 20px;
-    left: 50%;
+
+section.user_info {
+  margin-top: 20px;
+  left: 50%;
+  text-align: center;
+  h1 {
     text-align: center;
-    h1 {
-      text-align: center;
-    }
-    .details {
-      text-align: left;
-    }
-    img {
-      border-style: solid;
-      border-width: 2px;
-      border-color: black;
-      border-radius: 50%;
-    }
-    .stats {
-      width: 75%;
-      margin-left: 15%;
-    }
-  
+  }
+  .details {
+    text-align: left;
+  }
+  img {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 50%;
+  }
+  .stats {
+    width: 75%;
+    margin-left: 16%;
   }
   
   
