@@ -59,6 +59,35 @@ body {
   margin-left: 10%;
 }
 
+.splash.panel {
+  h1 {
+    font-size: 50px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 767px) {
+  .splash.panel {
+    border: 2px solid darkslategray;
+    padding: 50px 0 100px 0;
+    img {
+    padding-top: 25px;
+    width: 80%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .splash.panel {
+    border: none;
+    img {
+      display: none;
+    }
+  }
+}
+
 /* Tag Cloud Page */
 
 #big_tag_cloud {
