@@ -3,11 +3,11 @@
 commented on  
 <% if activity.trackable && activity.trackable.post %>
 	<% if (current_user = activity.trackable.post.user) %>
-		<%= link_to "your post", activity.trackable.post %>
+		<%= link_to "your post", activity.trackable.post %> <span class="admin"><%= time_tag activity.trackable.created_at %></span>
 	<% elsif activity.trackable.post.title? %>
-		<%= link_to activity.trackable.post.title, activity.trackable.post %>
+		<%= link_to activity.trackable.post.title, activity.trackable.post %> <span class="admin"><%= time_tag activity.trackable.created_at %></span>
 	<% else %>
-		<%= link_to activity.trackable.post.id, activity.trackable.post %>
+		<%= link_to activity.trackable.post.id, activity.trackable.post %> <span class="admin"><%= time_tag activity.trackable.created_at %></span> 
 	<% end %>
 <% else %>
 	a post that has since been removed

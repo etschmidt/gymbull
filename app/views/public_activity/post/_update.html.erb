@@ -3,9 +3,9 @@
 	updated 
 	<% if activity.trackable %>
 		<% if activity.trackable.title? %>
-			<%= link_to activity.trackable.title, activity.trackable %>
+			<%= link_to activity.trackable.title, activity.trackable %> <span class="admin"><%= time_tag activity.trackable.created_at %></span>
 		<% else %>
-			<%= link_to activity.trackable.id, activity.trackable %>
+			<%= link_to activity.trackable.id, activity.trackable %> <span class="admin"><%= time_tag activity.trackable.created_at %></span>
 		<% end %>
 	<% else %>
 		a post that has since been removed

@@ -3,9 +3,9 @@
 	is following 
 	<% if activity.trackable %>
 		<% if (current_user = activity.recipient) %>
-			you
+			you <span class="admin"><%= time_tag activity.trackable.created_at %></span>
 		<% else %>
-			<%= link_to activity.recipient.name, activity.recipient %>
+			<%= link_to activity.recipient.name, activity.recipient %> <span class="admin"><%= time_tag activity.trackable.created_at %></span>
 		<% end %>
 	<% else %>
 		a user that has since been removed
