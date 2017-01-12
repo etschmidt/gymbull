@@ -47,6 +47,11 @@ class StaticPagesController < ApplicationController
     @title = "Survey"
   end
   
+  def sample
+    @posts = Post.limit(15)
+    flash.now[:info] = "<b>Log in</b> to save content that you 'mire here".html_safe
+  end
+  
 end
 
 private 

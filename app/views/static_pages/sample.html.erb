@@ -1,0 +1,92 @@
+<% provide(:title, @title) %>
+<div class="row">
+  
+  <div class="col-md-1">
+    <%= render 'layouts/header' %>
+  </div>
+  
+  <div class="col-md-8">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">Mires <span class="badge"></span></a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li id="post-toggle" class="active"><a>Posts</a></li>
+          <li id="workout-toggle" class="active"><a>Workouts</a></li> 
+          <li id="meal-toggle" class="active"><a>Meals</a></li> 
+          <li id="all-toggle" class="active"><a>All</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <% if @posts.any? %>
+      <ul class="mini-posts">
+        <%= render @posts %>
+      </ul>
+      
+    <% else %>
+      <div class="startinfo panel panel-default">
+        <h3>Here's where you can keep the posts that you like!</h3>
+        <ol>
+          <li>See the little <span class="glyphicon glyphicon-star-empty"></span>
+          on other posts?</li>
+          <li>Click it!</li>
+          <li>It shows up here</li>
+          <li>Yay!</li>
+        </ol>
+      </div>
+    <% end %>
+    
+  </div>
+  
+  <div class="col-md-2 panel panel-default">
+    <h1>MIRE</h1>
+    <h3>/ˈmī(ə)r/</h3>
+    <p>abv. "Admire"</p> 
+    <i>verb</i>:
+    <ol>
+      <li>to regard with wonder, pleasure, or approval.</li>
+      <li>to take pleasure; like or desire:</li>
+    </ol>
+    <i>you mirin these aesthetics, son?</i>
+    <p></p>
+  </div>
+    
+</div>
+
+<script>
+
+$(document).ready(function(){
+
+  $("#all-toggle").click(function(){
+      $(".post").show();
+      $(".workout").show();
+      $(".meal").show();
+      $("#post-toggle, #workout-toggle, #meal-toggle, #all-toggle").addClass("active");
+  });
+
+  $("#post-toggle").click(function(){
+      $(".post").toggle();
+      $("#post-toggle").toggleClass("active");
+      $("#all-toggle").removeClass("active");
+  });
+  
+  $("#workout-toggle").click(function(){
+      $(".workout").toggle();
+      $("#workout-toggle").toggleClass("active");
+      $("#all-toggle").removeClass("active");
+  });
+  
+  $("#meal-toggle").click(function(){
+      $(".meal").toggle();
+      $("#meal-toggle").toggleClass("active");
+      $("#all-toggle").removeClass("active");
+  });
+  
+  $(".mini-posts li").click(function(){
+    $("#post-#{post.id} .content div").toggleClass("inner-content");
+  });
+  
+});
+</script>

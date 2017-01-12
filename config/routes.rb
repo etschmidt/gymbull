@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
   get  '/survey',  to: 'static_pages#survey' 
-  get  '/alltags',  to: 'static_pages#alltags' 
+  get  '/alltags',  to: 'static_pages#alltags'
+  get  '/sample',  to: 'static_pages#sample' 
   
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'

@@ -63,7 +63,7 @@
   <div class="row">
     <span class="timestamp">
       
-  <!-- should probably be a partial; but didn't work when refactored out -->
+<!-- should probably be a partial; but didn't work when refactored out -->
       <% if logged_in? %>
         <% unless current_user.favorite_posts.exists?(id: post.id) %>
           <%= link_to favorite_posts_path(post_id: post), 
@@ -79,13 +79,17 @@
                           :remote => true do %>
             <span class="glyphicon glyphicon-star"></span>
           <% end %>
-        <% end %> | <b><%= post.favorites.count %></b> |
-      <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to sample_path do %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+        <% end %>
+      <% end %> | <b><%= post.favorites.count %></b> |
       
       <%= link_to post_path(post) do %>
         <span class="glyphicon glyphicon-fullscreen"</span>
       <% end %>
-      | <b><%= post.comments.count %></b>
+      | <b><%= post.comments.count %> comments</b>
       <span class="full-option">
       | Posted <%= time_ago_in_words(post.created_at) %> ago
         <% if current_user?(post.user) %>
@@ -98,6 +102,7 @@
   </div>
 </li>
 
+<!-- This script is just to expand the post tiles in the Mire controller -->
 <script>
 $(document).ready(function(){    
     
