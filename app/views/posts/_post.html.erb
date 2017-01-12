@@ -24,13 +24,13 @@
         <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase()%></b></span>
       <% end %>
       
-      <span class="full-option">
+      <div class="full-option">
         <% if post.body_parts? %> Body Parts: <%= post.body_parts %></br><% end %>
         <% if post.duration? %> Length: <%= post.duration %> minutes</br><% end %>
         <% if post.equipment? %> Equipment: <%= post.equipment %></br><% end %>
-      </span>
+      </div>
       <div class="inner-content">
-        <span class="full-option"><b>Workout:</b></br></span><%= simple_format(post.content) %>
+        <span class="full-option post_type"><b>Workout:</b></br></span><%= simple_format(post.content) %>
       </div>
         <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 
@@ -43,7 +43,7 @@
         <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase() %></b></span>
       <% end %>
       
-      <span class="full-option">
+      <div class="full-option">
         <% if post.calories? %> Calories: <%= post.calories %> kcal</br><% end %>
         <% if post.protein? || post.fat? || post.carbs? %>
           <div>Macronutrients:</br> 
@@ -52,9 +52,9 @@
           <% if post.carbs? %>Carbs: <%= post.carbs %> g<% end %>
           </div> <% end %>
         <% if post.ingredients? %>Ingredients: <%= post.ingredients %></br><% end %>
-      </span>
+      </div>
       <div class="inner-content">
-        <span class="full-option"><b>Recipe:</b></br></span><%= simple_format(post.content) %>
+        <span class="full-option post_type"><b>Recipe:</b></br></span><%= simple_format(post.content) %>
       </div>
       <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
     <% end %>
@@ -87,9 +87,9 @@
       <% end %> | <b><%= post.favorites.count %></b> |
       
       <%= link_to post_path(post) do %>
-        <span class="glyphicon glyphicon-fullscreen"</span>
+        <span class="glyphicon glyphicon-fullscreen"></span>
+        | <span class="comment_count"><b><%= post.comments.count %> comments</b></span>
       <% end %>
-      | <b><%= post.comments.count %> comments</b>
       <span class="full-option">
       | Posted <%= time_ago_in_words(post.created_at) %> ago
         <% if current_user?(post.user) %>

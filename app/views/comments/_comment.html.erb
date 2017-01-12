@@ -1,7 +1,7 @@
 <li>
-	<div class="comment-name">
-		<%= link_to comment.user.name %>
-	</div>
+  <span class="user">
+    <%= tiny_picture_for(comment.post.user, size: :tiny) %>
+    <%= link_to comment.post.user.name, comment.post.user %></span>
 	
 	<div class="comment-content">
 		<%= comment.content %>

@@ -48,8 +48,33 @@ $gray-medium-light: #eaeaea;
       color: $gray-light;
       display: block;
       margin-left: 60px;
+      a span.comment_count b {
+        color: #777777;
+  // I have no idea how to remove the fucking underline
+        a span.comment_count b:hover {
+          text-decoration: none;
+        }
+        
+      }
     }
   }
+}
+
+@media (min-width: 767px) {
+  .posts li div.content div.full-option {
+      float: right;
+    }
+  div.inner-content span.post_type {
+    display: none;
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 767px) {
+  //maybe something will go here soon....
 }
 
 /* For the post detail screen */
