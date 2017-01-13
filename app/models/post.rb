@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   include PublicActivity::Common
 
+  acts_as_taggable
+  
   belongs_to :user
   has_many :comments
   has_many :favorites, as: :favorited
@@ -13,8 +15,6 @@ class Post < ApplicationRecord
   validates :post_type, presence: true
   validates :content, presence: true
   validate  :picture_size
-  
-  acts_as_taggable
 
     # Validates size of uploaded picture
     def picture_size
