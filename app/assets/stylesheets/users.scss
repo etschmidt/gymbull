@@ -24,8 +24,17 @@ section.user_info {
   h1 {
     text-align: center;
   }
-  .details {
+  section.details {
     text-align: left;
+    div.flexbox {
+      display: flex;
+      .glyphicon {
+        margin-right: 10px;
+      }
+      .loctxt {
+        padding-top: 2px;
+      }
+    }
   }
   img {
     border-style: solid;

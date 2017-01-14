@@ -18,8 +18,10 @@
       <%= f.label :content, "The Recipe:", :class => "required" %>
       <%= f.text_area :content, placeholder: "eg. boil checken, then steam brocolli...", 
        :required => true %>
-      <span class="glyphicon glyphicon-tags"></span>
-      <%= f.text_field :tag_list, placeholder: "lifting, getbig" %>
+      <div class="flexbox">
+        <span class="glyphicon glyphicon-tags"></span>  
+        <%= f.text_field :tag_list, placeholder: "lifting, getbig" %>  
+      </div>
     </div>
 <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>

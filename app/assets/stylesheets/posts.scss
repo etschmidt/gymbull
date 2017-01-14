@@ -162,8 +162,17 @@ a.navbar-brand {
   float: right;
 }
 
-.glyphicon.glyphicon-tags {
-  padding-right: 5px;
+div.flexbox {
+  display: flex;
+  .glyphicon.glyphicon-tags {
+    padding-right: 10px;
+    margin-top: 3px;
+  }
+  .glyphicon.glyphicon-tags.edit {
+  padding-right: 10px;
+  margin-top: 6px;
+  }
+  
 }
 
 label.required:before {
