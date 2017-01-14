@@ -35,6 +35,9 @@ $gray-medium-light: #eaeaea;
       .post-id {
         display: none;
       }
+      span.mini-option {
+        display: none;
+      }
       img {
         display: block;
         margin-bottom: 5px;
@@ -47,7 +50,7 @@ $gray-medium-light: #eaeaea;
     .timestamp {
       color: $gray-light;
       display: block;
-      margin-left: 60px;
+      margin-left: 27px;
       a span.comment_count b {
         color: #777777;
   // I have no idea how to remove the fucking underline

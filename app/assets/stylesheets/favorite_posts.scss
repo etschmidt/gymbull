@@ -31,11 +31,15 @@
     .content {
       display: block;
       .inner-content {
-      	height: 6.4em;
+      	height: 13em;
       	overflow: auto;
       }
+      .mini-option {
       img {
-        display: none;
+          display: block;
+          margin-bottom: 5px;
+          width: 100%;
+        }     
       }
       .full-option {
         display: none;

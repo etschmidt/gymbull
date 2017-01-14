@@ -6,14 +6,17 @@
   <div class="content">
     <% if post?(post) %>
       <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase()%></b>
-        <% if post.picture? %>
-          <span class="glyphicon glyphicon-picture"></span>
-        <% end %>
       </span>
       <div class="inner-content">
-        <%= simple_format(post.content) %>
+          <%= simple_format(post.content) %>
+
+        <span class="full-option">
+          <%= image_tag post.picture.url(:post) if post.picture? %>
+        </span>
+        <span class="mini-option">
+          <%= image_tag post.picture.url(:mini) if post.picture? %>
+        </span>
       </div>
-      <%= image_tag post.picture.url(:post) if post.picture? %>
       <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 
     <% elsif workout?(post) %>
