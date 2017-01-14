@@ -54,7 +54,8 @@
 	    <% end %>
 	    
 	      <span class="glyphicon glyphicon-tags"></span>
-	      <%= f.text_field :tag_list, multiple: true, class: 'form-control' %>
+	      <%= f.text_field :tag_list, value: f.object.tag_list.to_s, 
+	      		multiple: true, class: 'form-control' %>
       
       <%= f.submit "Save changes", class: "btn btn-primary" %>
       <%= link_to "Cancel", post_path(@post), class: "btn btn-default" %>
