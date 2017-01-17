@@ -52,20 +52,21 @@
   <div class="col-md-5">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.posts.any? %>
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand"><% if current_user?(@user) %>My <% end %>Log 
-            <span class="badge"><%= @user.posts.count %></span></a>
-          </div>
-          <ul class="nav navbar-nav navbar-right">
-            <li id="post-toggle" class="active"><a>Posts</a></li>
-            <li id="workout-toggle" class="active"><a>Workouts</a></li> 
-            <li id="meal-toggle" class="active"><a>Meals</a></li> 
-            <li id="all-toggle" class="active"><a>All</a></li>
-          </ul>
+
+      <div class="bar">
+        
+        <h1>
+          <% if current_user?(@user) %>My <% end %>Log 
+          <span class="badge"><%= @user.posts.count %></span>
+        </h1>
+        
+        <div class="btn-group md-group" role="group">
+          <button class="btn btn-default btn-md active" id="post-toggle">Posts</button>
+          <button class="btn btn-default btn-md active" id="workout-toggle">Workouts</button> 
+          <button class="btn btn-default btn-md active" id="meal-toggle">Meals</button> 
+          <button class="btn btn-default btn-md active" id="all-toggle">All</button>
         </div>
-      </nav>
+      </div>
       
       <ol class="posts">
         <%= render @posts %>

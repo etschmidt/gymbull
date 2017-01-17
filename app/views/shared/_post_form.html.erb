@@ -1,12 +1,10 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav">
-      <li id="post-button" class="form-button active"><a>Post</a></li>
-      <li id="workout-button" class="form-button"><a>Workout</a></li> 
-      <li id="meal-button" class="form-button"><a>Meal</a></li> 
-    </ul>
-  </div>
-</nav>
+<div class="btn-group" role="group">
+
+  <button type="button" class="btn btn-default btn-md form-button active" id="post-button">Post</button>
+  <button type="button" class="btn btn-default btn-md form-button" id="workout-button">Workout</button>
+  <button type="button" class="btn btn-default btn-md form-button" id="meal-button">Meal</button>
+
+</div>
 
 <li id="post-form" class="no-bullets"><%= render 'posts/form_post' %></li>
 <li id="workout-form" class="no-bullets"><%= render 'posts/form_workout' %></li>

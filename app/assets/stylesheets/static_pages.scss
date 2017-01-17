@@ -55,13 +55,9 @@ body {
   width: 100%;
 }
 
-.jumbotrom {
-  margin-left: 10%;
-}
-
 .splash.panel {
   h1 {
-    font-size: 50px;
+    font-size: 75px;
   }
   p {
     font-size: 12px;
@@ -75,6 +71,19 @@ body {
     img {
     padding-top: 25px;
     width: 80%;
+    }
+  }
+  .bar {
+    height: 75px;
+    h1 {
+      float: left;
+    }
+    .btn-group {
+      float: right;
+      padding-top: 15px;
+    }
+    .btn-group.md-group {
+      padding-top: 25px;
     }
   }
 }

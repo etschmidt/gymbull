@@ -66,11 +66,11 @@ $gray-medium-light: #eaeaea;
 @media (min-width: 767px) {
   .posts li div.content div.full-option {
       float: right;
+      margin-left: 15px;
     }
   div.inner-content span.post_type {
     display: none;
   }
-
 }
 
 
@@ -154,11 +154,11 @@ span.picture {
   }
 }
 
-a.navbar-brand {
-  color: black;
-  font-size: 28px;
-  padding-left: 20px;
-  }
+section.post_form div.btn-group {
+  padding-bottom: 5px;
+  padding-top: 2px;
+  padding-left: 35px;
+}
 
 #post_tag_list {
   width: 90%;
