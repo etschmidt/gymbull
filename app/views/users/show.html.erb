@@ -40,11 +40,12 @@
         <% if @user.equipment? %><b>Equipment:</b> <%= simple_format(@user.equipment) %></br><% end %>
         <% if @user.classes? %><b>Classes:</b> <%= simple_format(@user.classes) %></br><% end %>
         
-        
-        <% if current_user.admin? && !current_user?(@user) %>
-          <%= link_to "delete", @user, method: :delete,
-                                      data: { confirm: "You sure?" }, 
-                                      :class => "btn btn-danger btn-xs"  %>
+        <% if logged_in? %>
+          <% if current_user.admin? && !current_user?(@user) %>
+            <%= link_to "delete", @user, method: :delete,
+                                        data: { confirm: "You sure?" }, 
+                                        :class => "btn btn-danger btn-xs"  %>
+          <% end %>
         <% end %>
       </section>
     </section>

@@ -14,15 +14,14 @@
       
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
-        <span>Remember me on this computer</span> 
+        <span>Remember me on this device</span> 
       <% end %>
 
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %> | Forgot your password? <%= link_to "Reset password", new_password_reset_path %></p>
-  </div>
-
+    <p>New user? <%= link_to "Sign up now!", signup_path %></br>
+    Forgot your password? <%= link_to "Reset password", new_password_reset_path %></p>
 
 <script>
   $(document).ready(function() {

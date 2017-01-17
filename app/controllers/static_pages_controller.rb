@@ -25,10 +25,18 @@ class StaticPagesController < ApplicationController
         @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
       end
     else
-        @feed_items = Post.where(post_type: ["workout", "meal"]).limit(5)
+      if params[:tag]
+        @search = Post.where(post_type: ["workout", "meal"]).tagged_with(params[:tag]).search(params[:q])
+        @feed_items = @search.result.paginate(page: params[:page], per_page: 15)
+      elsif params[:q].blank?
+        @search = Post.where(post_type: ["workout", "meal"]).search(params[:q])
+        @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
+      else 
+        @search = Post.where(post_type: ["workout", "meal"]).search(params[:q])
+        @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
+      end
     end
     
-
   end
   
   def alltags
@@ -48,7 +56,7 @@ class StaticPagesController < ApplicationController
   end
   
   def sample
-    @posts = Post.limit(15)
+    @posts = Post.where(post_type: ["workout", "meal"]).limit(15)
     flash.now[:info] = "<b>Log in</b> to save content that you 'mire here".html_safe
   end
   
