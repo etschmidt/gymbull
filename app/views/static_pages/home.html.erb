@@ -12,7 +12,10 @@
         <div class="stats">
           <%= render 'shared/stats' %>
         </div>
-        <span><%= link_to "view my profile", current_user, :class => 'btn btn-default btn-md' %></span>
+        <span>
+          <%= link_to "View my profile", current_user, :class => 'btn btn-default btn-md' %>
+          <%= link_to "Post something", root_path(:anchor => "postanchor"), :class => 'btn btn-default btn-md mobile' %>
+        </span>
       </section>
       <div id="activityfeed">
         <%= render 'activities/user_activities' %>
@@ -53,8 +56,8 @@
       <% end %>
     </div>
     
-    <div class="col-md-3 panel panel-default">
-      
+    <div class="col-md-3 panel panel-default" id="postanchor">
+ 
       <section class="post_form ">
         <%= render 'shared/post_form' %>
       </section>

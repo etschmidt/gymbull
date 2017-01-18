@@ -38,14 +38,18 @@ class StaticPagesController < ApplicationController
     end
     
   end
-  
-  def alltags
-    @title = "All tags"
-  end
 
   def about
     @title = "About"
   end
+  
+  def alltags
+    @title = "All tags"
+  end
+ 
+  def calculator
+    @title = "Calculator"
+  end  
   
   def contact
     @title = "Contact"
