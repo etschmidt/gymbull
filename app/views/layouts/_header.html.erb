@@ -1,7 +1,7 @@
 <div class="nav-side-menu">
   <%= image_tag "BullsHead2-300px.png", id: "logopic" %>
   <div class="brand">GYMBULL</div>
-  <i class="glyphicon glyphicon-option-vertical toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  <i class="glyphicon glyphicon-menu-hamburger toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
   
     <div class="menu-list">
       
@@ -14,6 +14,11 @@
         <li>
           <%= link_to about_path do %>
             <i class="glyphicon glyphicon-question-sign"></i> About
+          <% end %>
+        </li>
+        <li>
+          <%= link_to calculator_path do %>
+            <i class="glyphicon glyphicon-th"></i> Calclator
           <% end %>
         </li>
         
