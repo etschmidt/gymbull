@@ -24,16 +24,6 @@
         
         <% if logged_in? %>
         <li>
-          <%= link_to url_for(controller: "users", action: "index_users") do %>
-            <i class="glyphicon glyphicon-knight"></i> Users
-          <% end %>
-        </li>
-        <li>
-          <%= link_to url_for(controller: "users", action: "index_gyms") do %>
-            <i class="glyphicon glyphicon-tower"></i> Gyms
-          <% end %>
-        </li>
-        <li>
           <%= link_to favorite_posts_user_path(current_user) do %>
             <i class="glyphicon glyphicon-star"></i> Mires
           <% end %>
@@ -43,6 +33,17 @@
             <i class="glyphicon glyphicon-king"></i> My Profile
           <% end %>
         </li>
+        <li>
+          <%= link_to url_for(controller: "users", action: "index_users") do %>
+            <i class="glyphicon glyphicon-knight"></i> Users
+          <% end %>
+        </li>
+        <li>
+          <%= link_to url_for(controller: "users", action: "index_gyms") do %>
+            <i class="glyphicon glyphicon-tower"></i> Gyms
+          <% end %>
+        </li>
+
         <li>
           <%= link_to logout_path, method: "delete" do %>
             <i class="glyphicon glyphicon-log-out"></i> Log out
