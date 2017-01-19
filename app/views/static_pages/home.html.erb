@@ -64,7 +64,7 @@
 
       <div id="tag_cloud">
         <h4>Trending Tags</h4>
-        <% tag_cloud Post.tag_counts.limit(25), %w[s m l] do |tag, css_class| %>
+        <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
           <%= link_to tag.name, tag_path(tag.name), class: css_class %>
         <% end %></br>
       </div>
@@ -123,7 +123,7 @@
     <div class="col-md-3 panel panel-default">
       <div id="tag_cloud">
         <h4>Trending Tags</h4>
-        <% tag_cloud Post.tag_counts.limit(25), %w[s m l] do |tag, css_class| %>
+        <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
           <%= link_to tag.name, tag_path(tag.name), class: css_class %>
         <% end %></br>
       </div>
