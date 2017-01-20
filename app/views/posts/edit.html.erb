@@ -15,10 +15,10 @@
       
       	<%= f.label :content, "Post:", :class => "required" %>
         <%= f.text_area :content, :required => true, size: "24x6", class: 'form-control' %>
-	      <span class="picture">
-	      	<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-	      </span>
-	    
+	      <div class="flexbox picture">
+	        <span class="glyphicon glyphicon-camera edit"></span>  
+  	      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>  
+    	  </div>
 	  <% elsif workout?(@post) %>
 
 	      <%= f.label :title, "Workout name:" %>

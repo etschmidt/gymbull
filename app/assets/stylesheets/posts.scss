@@ -177,7 +177,14 @@ div.flexbox {
   padding-right: 10px;
   margin-top: 6px;
   }
-  
+  .glyphicon.glyphicon-camera {
+    padding-right: 10px;
+    margin-top: 4px;
+  }
+  .glyphicon.glyphicon-camera.edit {
+  padding-right: 10px;
+  margin-top: 6px;
+  }  
 }
 
 label.required:before {
