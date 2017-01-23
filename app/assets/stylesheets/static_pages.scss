@@ -53,24 +53,28 @@ body {
   }
 }
 
+.panel.panel-default {
+  padding-bottom: 10px;
+}
+
+.bar {
+  display: flex;
+  justify-content: flex-end;
+  h1 {
+    margin-right: auto;
+  }
+  .all_toggle {
+  margin-top: 10px;
+  margin-bottom: 12px;
+  }
+}
+
+// for desktop/laptops //
 @media (min-width: 767px) {
   div.panel.intro {
     img {
     width: 80%;
     margin-bottom: 10px;
-    }
-  }
-  .bar {
-    height: 75px;
-    h1 {
-      float: left;
-    }
-    .btn-group {
-      float: right;
-      padding-top: 15px;
-    }
-    .btn-group.md-group {
-      padding-top: 25px;
     }
   }
   div.btn-group.intro {
@@ -82,21 +86,25 @@ body {
   }
 }
 
-
-
-
+// for mobile //
 @media (max-width: 767px) {
   div.panel.intro {
     img {
       display: none;
     }
-    h1 {
-      display: none;
-    }
   }
+  .bar {
+    h1 {
+      font-size: 32px;
+    }
+    .all_toggle {
+      font-size: 16px;
+    }
+  } 
+    
 }
 
-/* Tag Cloud Page */
+// Tag Cloud Page //
 
 #big_tag_cloud {
   line-height: 2em;
@@ -129,13 +137,4 @@ body {
   h3.odd {
     background-color: $gray-medium-light;
   }
-  
 }
-
-
-
-
-
-
-
-

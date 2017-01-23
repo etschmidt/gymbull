@@ -18,8 +18,10 @@
 
   </aside>
   
-  <div class="col-md-8">
-    <h3><%= @title %></h3>
+  <div class="col-md-5">
+    <div class="bar">
+      <h1>Users (<%= @users.count %>)</h1>
+    </div>
     <% if @users.any? %>
       <ul class="users follow">
         <%= render @users %>

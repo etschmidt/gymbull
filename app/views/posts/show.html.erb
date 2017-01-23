@@ -61,16 +61,10 @@
   </aside>
 
   <div class="col-md-5">
-  	<nav class="navbar navbar-default">
-  		<div class="container-fluid">
-	  		<div class="navbar-header">
-		      <a class="navbar-brand">
-		      	<%=  @post.title || @post.id.to_s %>  (<%= pluralize(@post.favorites.count, "Mire") %>)
-		      </a>
-	      </div>
-      </div>
-    </nav>
-    
+  	<div class="bar">
+  	  <h1><%=  @post.title || @post.id.to_s %>  (<%= pluralize(@post.favorites.count, "Mire") %>)</h1>
+		</div>
+
   	<div class="content-detail">
 		  
       <%= simple_format(@post.content) %>

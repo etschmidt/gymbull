@@ -27,12 +27,8 @@
       <div class="bar">
         
         <h1>Bullpen</h1>
-        <div class="btn-group" role="group">
-          <button class="btn btn-default btn-lg active" id="post-toggle">Posts</button>
-          <button class="btn btn-default btn-lg active" id="workout-toggle">Workouts</button> 
-          <button class="btn btn-default btn-lg active" id="meal-toggle">Meals</button> 
-
-        </div>
+        <%= link_to "Show All", posts_path, 
+          :class => 'btn btn-default btn-lg all_toggle' %>
       </div>
         
       <% if @feed_items.any? %>
@@ -69,9 +65,7 @@
         <% end %></br>
       </div>
       <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
-      <section class="search panel-body">
-		    <%= render 'shared/search_feed' %>
-	    </section>
+
     </div>
 
   </div>
@@ -95,15 +89,6 @@
     
     <div class="col-md-5">
       <h2>Search, browse, and save exercise and nutrition information from all around the world</h2>
-<!-- Not really sure that I want this...
-      <div class="center">
-        <div class="btn-group intro" role="group">
-          <button class="btn btn-default btn-lg active" id="workout-toggle">Workouts</button> 
-          <button class="btn btn-default btn-lg active" id="meal-toggle">Meals</button> 
-          <button class="btn btn-default btn-lg active" id="all-toggle">All</button>
-        </div>
-      </div>
-      -->
         
       <% if @feed_items.any? %>
         <ol class="posts">

@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :posts do
     collection do
-      match 'search' => 'static_pages#home', via: [:get, :post], as: :search
+      match 'search' => 'posts#index', via: [:get, :post], as: :search
     end
     
     resources :comments
