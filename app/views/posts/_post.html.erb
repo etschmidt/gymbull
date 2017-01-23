@@ -2,7 +2,7 @@
   <span class="user">
     <%= tiny_picture_for(post.user, size: :tiny) %>
     <%= link_to post.user.name, post.user %></span>
-    
+ <!-- everything "full option" won't be shown in the miniposts -->   
   <div class="content">
     <% if post?(post) %>
       <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase()%></b>
@@ -68,21 +68,29 @@
       
 <!-- should probably be a partial; but didn't work when refactored out -->
       <% if logged_in? %>
-        <% unless current_user.favorite_posts.exists?(id: post.id) %>
-          <%= link_to favorite_posts_path(post_id: post), 
-                          method: :post,
-                          :id => 'mire',
-                          :remote => true do %>
-            <span class="glyphicon glyphicon-star-empty"></span>
+  <!-- this didn't fix the problem; it just patched the leak: still cannot
+  mire a post from the return of a search-->
+        <% if params[:q].blank? %>
+          <% unless current_user.favorite_posts.exists?(id: post.id) %>
+            <%= link_to favorite_posts_path(post_id: post), 
+                            method: :post,
+                            :id => 'mire',
+                            :remote => true do %>
+              <span class="glyphicon glyphicon-star-empty"></span>
+            <% end %>
+          <% else %>
+            <%= link_to favorite_post_path(post), 
+                            method: :delete,
+                            :id => 'unmire',
+                            :remote => true do %>
+              <span class="glyphicon glyphicon-star"></span>
+            <% end %>
           <% end %>
         <% else %>
-          <%= link_to favorite_post_path(post), 
-                          method: :delete,
-                          :id => 'unmire',
-                          :remote => true do %>
-            <span class="glyphicon glyphicon-star"></span>
-          <% end %>
+          <span class="glyphicon glyphicon-star-empty"></span>
         <% end %>
+  <!-- this is for the post if a user isn't logged in
+  also helps to showcase features-->
       <% else %>
         <%= link_to sample_path do %>
             <span class="glyphicon glyphicon-star-empty"></span>
