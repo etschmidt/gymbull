@@ -2,15 +2,7 @@
 	<%= link_to activity.owner.name, activity.owner if activity.owner %>
 	created a
 	<% if activity.trackable %>
-	
-		<% if post?(activity.trackable) %>
-			<%= link_to "Post", activity.trackable %> <span class="admin"><%= time_tag activity.trackable.created_at %></span>
-		<% elsif workout?(activity.trackable) %>
-			<%= link_to "Workout", activity.trackable %> <span class="admin"><%= time_tag activity.trackable.created_at %></span>
-		<% elsif meal?(activity.trackable) %>
-			<%= link_to "Meal", activity.trackable %> <span class="admin"><%= time_tag activity.trackable.created_at %></span>
-		<% end %>
-		
+			this <%= link_to "Post", activity.recipient %> <span class="admin"><%= time_tag activity.trackable.created_at %></span>
 	<% else %>
 		post that has since been removed
 	<% end %>
