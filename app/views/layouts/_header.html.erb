@@ -49,6 +49,13 @@
             <i class="glyphicon glyphicon-log-out"></i> Log out
           <% end %>
         </li>
+        <% if current_user.admin? %>
+          <li>
+            <%= link_to activities_path,do %>
+              <i class="glyphicon glyphicon-tree"></i> Log out
+            <% end %>
+          </li>
+        <% end %>
 
         <% else %>
         <li>

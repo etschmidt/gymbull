@@ -49,6 +49,9 @@
         <% end %>
       </section>
     </section>
+      <div id="activityfeed">
+        <%= render 'activities/user_activities' %>
+      </div>
   </aside>
   <div class="col-md-5">
     <%= render 'follow_form' if logged_in? %>
