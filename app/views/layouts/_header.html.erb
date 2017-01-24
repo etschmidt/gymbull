@@ -44,18 +44,19 @@
           <% end %>
         </li>
 
+        <% if current_user.admin? %>
+          <li>
+            <%= link_to activities_path do %>
+              <i class="glyphicon glyphicon-list"></i> Activity
+            <% end %>
+          </li>
+        <% end %>
+        
         <li>
           <%= link_to logout_path, method: "delete" do %>
             <i class="glyphicon glyphicon-log-out"></i> Log out
           <% end %>
         </li>
-        <% if current_user.admin? %>
-          <li>
-            <%= link_to activities_path do %>
-              <i class="glyphicon glyphicon-tree"></i> Activity
-            <% end %>
-          </li>
-        <% end %>
 
         <% else %>
         <li>
