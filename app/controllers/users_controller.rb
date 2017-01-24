@@ -16,15 +16,6 @@ class UsersController < ApplicationController
   
   def show
     @user = User.friendly.find(params[:id])
-    if logged_in?
-
-      @activities = PublicActivity::Activity
-        .order("created_at desc").limit(10)
-        .where("owner_id IN (#{following_ids})
-                  OR recipient_id = :user_id", 
-                  user_id: current_user.id)
-    end
-    
     if !logged_in?
       flash.now[:info] = "Log in to see all Users, Gyms, and other content"
     end
