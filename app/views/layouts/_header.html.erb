@@ -51,8 +51,8 @@
         </li>
         <% if current_user.admin? %>
           <li>
-            <%= link_to activities_path,do %>
-              <i class="glyphicon glyphicon-tree"></i> Log out
+            <%= link_to activities_path do %>
+              <i class="glyphicon glyphicon-tree"></i> Activity
             <% end %>
           </li>
         <% end %>
