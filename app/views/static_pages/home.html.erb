@@ -85,6 +85,7 @@
         <%= image_tag "barbell-clipart.jpg" %>
       </div>
       <%= render 'sessions/login' %>
+      <%= link_to "Jump to search", root_path(:anchor => "searchanchor"), :class => 'btn btn-default btn-md mobile' %>
     </div>
     
     <div class="col-md-5">
@@ -105,7 +106,7 @@
       <% end %>
     </div>
   
-    <div class="col-md-3 panel panel-default">
+    <div class="col-md-3 panel panel-default" id="searchanchor">
       <div id="tag_cloud">
         <h4>Trending Tags</h4>
         <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
@@ -119,6 +120,7 @@
   </div>
 <% end %>
 
+<!-- just in case I want to bring this back...
 <script>
 $(document).ready(function(){
 
