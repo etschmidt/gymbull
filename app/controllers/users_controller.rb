@@ -33,6 +33,7 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    @title = 'Sign up'
   end
   
   def create
@@ -48,6 +49,7 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.friendly.find(params[:id])
+    @title = 'Edit profile'
   end
   
   def update
