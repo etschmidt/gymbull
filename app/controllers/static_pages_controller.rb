@@ -3,15 +3,16 @@ class StaticPagesController < ApplicationController
   def home
     if logged_in?
       
-      @activities = PublicActivity::Activity.order("created_at desc").limit(10)
+    #  @activities = PublicActivity::Activity.order("created_at desc").limit(10)
+      following_ids = "SELECT followed_id FROM relationships
+                      WHERE  follower_id = :user_id"
 
-=begin
       @activities = PublicActivity::Activity
         .order("created_at desc").limit(10)
         .where("owner_id IN (#{following_ids})
                   OR recipient_id = :user_id", 
                   user_id: current_user.id)
-=end
+
 
       @post = current_user.posts.build
       if params[:tag]
@@ -71,9 +72,4 @@ private
                      WHERE  follower_id = :user_id"
     Post.where("user_id IN (#{following_ids})
                 OR user_id = :user_id", user_id: id)
-  end
-  
-  def following_ids
-
-      
   end
