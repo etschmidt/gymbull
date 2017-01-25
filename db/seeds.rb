@@ -10,6 +10,7 @@ User.create!(name:  "TheBull",
              email: "TheBull@gymbull.com",
              password:              "Eagles69!!",
              password_confirmation: "Eagles69!!",
+             account_type = "user"
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
@@ -18,6 +19,7 @@ User.create!(name:  "EthanTSchmidt",
              email: "ethan.t.schmidt@gmail.com",
              password:              "Eagles69!!",
              password_confirmation: "Eagles69!!",
+             account_type = "user"
              location:  "San Diego",
              about:  "I'm me",
              height:  69,
@@ -33,6 +35,7 @@ User.create!(name:  "Dandylion",
              email: "danielle.dagostino@gmail.com",
              password:              "Cheese4785",
              password_confirmation: "Cheese4785",
+             account_type = "user"
              location:  "San Diego",
              admin: false,
              activated: true,
