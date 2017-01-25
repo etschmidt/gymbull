@@ -3,13 +3,15 @@ class StaticPagesController < ApplicationController
   def home
     if logged_in?
       
-  #   @activities = PublicActivity::Activity.order("created_at desc").limit(10)
+      @activities = PublicActivity::Activity.order("created_at desc").limit(10)
 
+=begin
       @activities = PublicActivity::Activity
         .order("created_at desc").limit(10)
         .where("owner_id IN (#{following_ids})
                   OR recipient_id = :user_id", 
                   user_id: current_user.id)
+=end
 
       @post = current_user.posts.build
       if params[:tag]
