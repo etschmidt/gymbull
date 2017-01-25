@@ -8,12 +8,13 @@
   </div>
   
   <div class="col-md-6 col-md-offset-3">
-      <li id="new-user" class="no-bullets"><%= render 'new_user' %></li>
-      <li id="new-gym" class="no-bullets"><%= render 'new_gym' %></li>
+      <li class="no-bullets new-user"><%= render 'new_user' %></li>
+      <li class="no-bullets new-gym"><%= render 'new_gym' %></li>
   </div>
   
   <div class="col-md-1">
-    <button id="form-toggle" class="btn btn-primary">Create a Gym</button>
+    <button class="form-toggle btn btn-primary new-user">Create a Gym instead</button>
+    <button class="form-toggle btn btn-primary new-gym">Create a User instead</button>
   </div>
 </div>
 
@@ -21,13 +22,13 @@
 
 $(document).ready(function(){
   
-  $("#new-user").show();
-  $("#new-gym").hide();
+  $(".new-user").show();
+  $(".new-gym").hide();
   
-  $("#form-toggle").click(function(){
-    $("#form-toggle").toggleClass("active");
-    $("#new-user").toggle();
-    $("#new-gym").toggle();
+  $(".form-toggle").click(function(){
+    $(".form-toggle").toggleClass("active");
+    $(".new-user").toggle();
+    $(".new-gym").toggle();
   });
   
 });
