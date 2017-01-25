@@ -17,7 +17,9 @@
           <%= link_to "Post something", root_path(:anchor => "postanchor"), :class => 'btn btn-default btn-md mobile' %>
         </span>
       </section>
-
+      <div id="activityfeed">
+        <%= render 'activities/user_activities' %>
+      </div>
     </aside>
     
     <div class="col-md-5">
