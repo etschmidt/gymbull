@@ -62,6 +62,10 @@ class StaticPagesController < ApplicationController
     flash.now[:info] = "<b>Log in</b> to save content that you 'mire here".html_safe
   end
   
+  def letsencrypt
+    render text: "1uwA0trZcRmMK5S9Ft5IX1kZx40T633O9bFKQKKrPCE.bgMz6QxSusVZDSXyUxli-d-u6JCn4GNH5a3NQ4SQ7to"
+  end
+  
 end
 
 private 

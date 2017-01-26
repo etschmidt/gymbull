@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/.well-known/acme-challenge/:id' ,   to: 'static_pages#letsencrypt'
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
