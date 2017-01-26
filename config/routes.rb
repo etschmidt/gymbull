@@ -28,8 +28,11 @@ Rails.application.routes.draw do
   get 'users', to: 'users#index_users'
   get 'gyms', to: 'users#index_gyms', as: 'gyms'
 
-# this is for letsencrypt to find and verify the site
-  get '/.well-known/acme-challenge/vPm1E8Lk1tr2pU0kSVhDnWnB5JIrmuYQx17pbsKEwxI' ,   to: 'static_pages#letsencrypt'
+# this is for letsencrypt to find and verify the site www.gymbull.com
+  get '/.well-known/acme-challenge/vPm1E8Lk1tr2pU0kSVhDnWnB5JIrmuYQx17pbsKEwxI' ,   to: 'static_pages#letsencrypt1'
+  
+# this is for letsencrypt to find and verify the site gymbull.com
+#  get '/.well-known/acme-challenge/vPm1E8Lk1tr2pU0kSVhDnWnB5JIrmuYQx17pbsKEwxI' ,   to: 'static_pages#letsencrypt2'
 
   resources :users do
     collection do
