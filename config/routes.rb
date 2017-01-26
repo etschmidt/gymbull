@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get '/.well-known/acme-challenge/vPm1E8Lk1tr2pU0kSVhDnWnB5JIrmuYQx17pbsKEwxI' ,   to: 'static_pages#letsencrypt'
-
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -29,6 +27,9 @@ Rails.application.routes.draw do
   
   get 'users', to: 'users#index_users'
   get 'gyms', to: 'users#index_gyms', as: 'gyms'
+
+# this is for letsencrypt to find and verify the site
+  get '/.well-known/acme-challenge/vPm1E8Lk1tr2pU0kSVhDnWnB5JIrmuYQx17pbsKEwxI' ,   to: 'static_pages#letsencrypt'
 
   resources :users do
     collection do
