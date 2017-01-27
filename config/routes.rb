@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get '/.well-known/acme-challenge/vPm1E8Lk1tr2pU0kSVhDnWnB5JIrmuYQx17pbsKEwxI' ,   to: 'static_pages#letsencrypt1'
   
 # this is for letsencrypt to find and verify the site gymbull.com
-#  get '/.well-known/acme-challenge/vPm1E8Lk1tr2pU0kSVhDnWnB5JIrmuYQx17pbsKEwxI' ,   to: 'static_pages#letsencrypt2'
+  get '/.well-known/acme-challenge/RQ5SDEpnhY0aY29Y5Dh55NanB1Zv_SEqKhkyMkGpR3E' ,   to: 'static_pages#letsencrypt2'
 
   resources :users do
     collection do
