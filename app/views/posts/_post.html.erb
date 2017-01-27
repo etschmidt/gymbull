@@ -54,7 +54,7 @@
           <% if post.fat? %>Fat: <%= post.fat %> g</br><% end %>
           <% if post.carbs? %>Carbs: <%= post.carbs %> g<% end %>
           </div> <% end %>
-        <% if post.ingredients? %>Ingredients: <%= post.ingredients %></br><% end %>
+        <% if post.ingredients? %>Ingredients: <%= simple_format(post.ingredients) %></br><% end %>
       </div>
       <div class="inner-content">
         <span class="full-option post_type"><b>Recipe:</b></br></span><%= simple_format(post.content) %>

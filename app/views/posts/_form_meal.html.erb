@@ -14,7 +14,7 @@
       <%= f.label :fat, "Total fat:" %>
       <%= f.number_field :fat, placeholder: "40g" %>
       <%= f.label :ingredients, "Ingredients used:" %>
-      <%= f.text_field :ingredients, placeholder: "chicken breast, broccoli" %>
+      <%= f.text_area :ingredients, placeholder: "chicken breast, broccoli" %>
       <%= f.label :content, "The Recipe:", :class => "required" %>
       <%= f.text_area :content, placeholder: "eg. boil checken, then steam brocolli...", 
        :required => true %>
