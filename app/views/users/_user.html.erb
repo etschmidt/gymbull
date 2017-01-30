@@ -30,7 +30,7 @@
     Top Tags: <% tag_cloud user.posts.tag_counts.limit(3), %w[s m l] do |tag, css_class|%>
       <%= link_to tag.name, "/users/#{user.id}/tags/#{tag.name}", class: css_class %>
     <% end %>
-    <span class="badge"><%= user.posts.count %></span>
+    <span class="badge"><%= user.posts.count %></span> <%= user.email if current_user.admin? %>
   </div>
 
 </li>
