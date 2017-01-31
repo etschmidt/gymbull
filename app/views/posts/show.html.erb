@@ -29,7 +29,7 @@
 		        <% if @post.fat? %><b>Fat: </b><%= @post.fat %> g</br><% end %>
 		        <% if @post.carbs? %><b>Carbs: </b><%= @post.carbs %> g<% end %>
 		        </div> <% end %>
-		      <% if @post.ingredients? %><b>Ingredients: </b><%= simple_format(post.content) %></br><% end %>
+		      <% if @post.ingredients? %><b>Ingredients: </b><%= simple_format(@post.content) %></br><% end %>
 		    <% end %></br>
 
       <% if logged_in? %>
@@ -78,9 +78,17 @@
       </ol>
       <%= render 'comments/form' %>
     <% else %>
+      
       <div class="alert alert-info">
         <b><%= link_to "Log in", login_path %></b> to see comments and other content
       </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= render 'sessions/login' %>
+        </div>
+        
+      </div>
+      
     <% end %>
       
   </div>
