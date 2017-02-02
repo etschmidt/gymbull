@@ -62,18 +62,13 @@
     </div>
   <% else %>
   
-    <div class="col-md-3 panel panel-default intro">
-      <div class="center">
-        <h1>GymBull</h1>
-        <h3>A Culture of Fitness Without the Bullshit</h3>
-        <%= image_tag "barbell-clipart.jpg" %>
-      </div>
-      <%= render 'sessions/login' %>
-      <%= link_to "Jump to search", root_path(:anchor => "searchanchor"), :class => 'btn btn-default btn-md mobile' %>
-    </div>
-    
     <div class="col-md-5">
-      <h2>Search, browse, and save exercise and nutrition information from all around the world</h2>
+      <div class="bar">
+        
+        <h1>Search results</h1>
+          <%= link_to "All posts", root_path, 
+            :class => 'btn btn-default btn-lg all_toggle' %>
+      </div>
         
       <% if @feed_items.any? %>
         <ol class="posts">
