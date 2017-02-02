@@ -128,13 +128,15 @@ body {
 /* Calculator */
 
 .calculator {
-  h3 {
-    margin: 0;
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-bottom: 10px;
-  }
-  h3.odd {
-    background-color: $gray-medium-light;
+  .onerepcalc {
+    h3 {
+      margin: 0;
+      padding-top: 10px;
+      padding-left: 15px;
+      padding-bottom: 10px;
+    }
+    h3.odd {
+      background-color: $gray-medium-light;
+    }
   }
 }

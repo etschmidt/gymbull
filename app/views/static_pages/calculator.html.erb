@@ -1,96 +1,134 @@
 <% provide(:title, @title) %>
 
-<div class="row">
+<div class="row calculator">
   
   <div class="col-md-1">
     <%= render 'layouts/header' %>
   </div>
-  <div class="col-md-11">
-  	
-		<h1>Epley Calculator</h1>
+
+	<div class="col-md-3 panel panel-default">
+		<div class="bar">
+			<h1 class="onerepcalc">1RM</h1>
+			<h1 class="bmicalc">BMI</h1>
 		
-		<div class="container calculator">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<label for="weight">How much you moved:</label>
-							<input id="weight" placeholder="weight" value="" type="number">
-							<label for="reps">How many times you moved it:</label>
-							<select class="reps" id="rep">
-								<option value="1">1</option>
-								<option value="1.0333">2</option>
-								<option value="1.0667">3</option>
-								<option value="1.1333">4</option>
-								<option value="1.1667">5</option>
-								<option value="1.2">6</option>
-								<option value="1.2333">7</option>
-								<option value="1.2667">8</option>
-								<option value="1.3">9</option>
-								<option value="1.3333">10</option>
-							</select>
-							<button class="submit btn btn-primary">Boom!</button>
-						</div>
+      <button class="btn btn-default btn-lg all_toggle onerepcalc" id="showbmi">BMI</button>
+      <button class="btn btn-default btn-lg all_toggle bmicalc" id="show1rm">1RM</button>
+    </div>
+
+		<!-- 1 rep max calculator -->				
+			<div class="onerepcalc">
+				<label for="weight">How much you moved:</label>
+				<input id="weight" placeholder="weight" value="" type="number">
+				<label for="reps">How many times you moved it:</label>
+				<select class="reps" id="rep">
+					<option value="1">1</option>
+					<option value="1.0333">2</option>
+					<option value="1.0667">3</option>
+					<option value="1.1333">4</option>
+					<option value="1.1667">5</option>
+					<option value="1.2">6</option>
+					<option value="1.2333">7</option>
+					<option value="1.2667">8</option>
+					<option value="1.3">9</option>
+					<option value="1.3333">10</option>
+				</select>
+				<button class="1rmsubmit btn btn-primary">Boom!</button>
+			</div>
+			
+		<!-- BMI Calc -->
+			<div class="bmicalc">
+				<label for="bodyweight">Your bodyweight:</label>
+				<input id="bodyweight" placeholder="in pounds" value="" type="number">
+				<label for="height">Your height:</label>
+				<input id="height" placeholder="in inches" value="" type="number">
+				<button class="bmisubmit btn btn-primary">Boom!</button>
+			</div>
+		
+		</div>
+
+	<div class="col-md-5">
+		
+		<!-- 1 rep max calculator -->	
+		<div class="panel panel-default onerepcalc">
+			<h2>One Rep Max: <span id="1rm"></span></h2>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2">
+						<h3 class="odd">125%  -- <span id="125"></span></h3>
+						<h3>120%  -- <span id="120"></span></h3>
+						<h3 class="odd">115%  -- <span id="115"></span></h3>
+						<h3>110%  -- <span id="110"></span></h3>
+						<h3 class="odd">105%  -- <span id="105"></span></h3>
+						<h3>100%  -- <span id="100"></span></h3>
 					</div>
-				</div>
-				<div class="col-md-5">
-					<div class="panel panel-default">
-						<h2>One Rep Max: <span id="1rm"></span></h2>
-						<div class="container">
-							<div class="row">
-								<div class="col-md-2">
-									<h3 class="odd">125%  -- <span id="125"></span></h3>
-									<h3>120%  -- <span id="120"></span></h3>
-									<h3 class="odd">115%  -- <span id="115"></span></h3>
-									<h3>110%  -- <span id="110"></span></h3>
-									<h3 class="odd">105%  -- <span id="105"></span></h3>
-									<h3>100%  -- <span id="100"></span></h3>
-								</div>
-								<div class="col-md-2">
-									<h3 class="odd">95% -- <span id="95"></span></h3>
-									<h3>90% -- <span id="90"></span></h3>
-									<h3 class="odd">85% -- <span id="85"></span></h3>
-									<h3>80% -- <span id="80"></span></h3>
-									<h3 class="odd">75% -- <span id="75"></span></h3>
-									<h3>70% -- <span id="70"></span></h3>
-									<h3 class="odd">65% -- <span id="65"></span></h3>
-									<h3>60% -- <span id="60"></span></h3>
-									<h3 class="odd">55% -- <span id="55"></span></h3>
-									<h3>50% -- <span id="50"></span></h3>
-								</div>
-							</div>
-						</div>
-							
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							In 1985, Nebraska strength and conditioning coach Boyd Epley derived the 
-							formula: 1RM = weight(1+(reps/30)), assuming r > 1. Ever since then, this 
-							equation has been used to find percentages of maximum exercise capacity
-							to use in working sets. These numbers will give you a pretty good idea of 
-							relative loads, but may differ in accuracy or precision based on the age, 
-							gender, and experience of the athlete and the technical rigor of the excerise.
-						</div>
+					<div class="col-md-2">
+						<h3 class="odd">95% -- <span id="95"></span></h3>
+						<h3>90% -- <span id="90"></span></h3>
+						<h3 class="odd">85% -- <span id="85"></span></h3>
+						<h3>80% -- <span id="80"></span></h3>
+						<h3 class="odd">75% -- <span id="75"></span></h3>
+						<h3>70% -- <span id="70"></span></h3>
+						<h3 class="odd">65% -- <span id="65"></span></h3>
+						<h3>60% -- <span id="60"></span></h3>
+						<h3 class="odd">55% -- <span id="55"></span></h3>
+						<h3>50% -- <span id="50"></span></h3>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- BMI Calc -->
+		<div class="panel panel-default bmicalc">
+			<div class="panel-body center">
+				<h2>Your Body Mass Index: <span id="BMI"></span></h2>
+				<h3><span id="bmicategory"></span></h3>
+			</div>
+		</div>
+		
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<span class="onerepcalc">In 1985, Nebraska strength and conditioning coach Boyd Epley derived the 
+				formula: 1RM = weight(1+(reps/30)), assuming r > 1. Ever since then, this 
+				equation has been used to find percentages of maximum exercise capacity
+				to use in working sets. These numbers will give you a pretty good idea of 
+				relative loads, but may differ in accuracy or precision based on the age, 
+				gender, and experience of the athlete and the technical rigor of the excerise.</span>
+				<span class="bmicalc">Your BMI is a measurement of your body weight based on 
+				your height and weight. Although your BMI does not actually "measure" your 
+				percentage of body fat, it is a useful tool to estimate a healthy body weight 
+				based on your height. Due to its ease of measurement and calculation, it is 
+				the most widely used diagnostic indicator to identify a person's optimal weight 
+				depending on his height. Your BMI "number" will inform you if you are underweight,
+				of normal weight, overweight, or obese. However, due to the wide variety of body types, 
+				the distribution of muscle and bone mass, etc., it is not appropriate to use this as the 
+				only or final indication for diagnosis.</span>
+			</div>
+		</div>
+	</div>
 
-			
 
 
-
-
-		  
-  </div>
 </div>
 
 <script>
 	$(document).ready(function(){
+		
+		$(".onerepcalc").show();
+    $(".bmicalc").hide();
+    
+    $("#showbmi").click(function() {
+    	$(".onerepcalc").hide();
+    	$(".bmicalc").show();
+    });
+    
+    $("#show1rm").click(function() {
+    	$(".onerepcalc").show();
+    	$(".bmicalc").hide();
+    });
 
-		$('.submit').click(function() {
+// One rep max calculator
+		$('.1rmsubmit').click(function() {
 			var weight = parseInt($("input[id='weight']").val());
 			var reps = ($(".reps").val());
 			onerepmax = Math.round(weight * reps);
@@ -112,8 +150,37 @@
 			$('#60').text(Math.round(0.60 * onerepmax));
 			$('#55').text(Math.round(0.55 * onerepmax));
 			$('#50').text(Math.round(0.50 * onerepmax));
-
 		});
+		
+//BMI Calculator
 
+		$('.bmisubmit').click(function() {
+			var bodyweight = parseInt($("input[id='bodyweight']").val());
+			var height = parseInt($("input[id='height']").val());
+
+			var bmi = Math.round((bodyweight / (height * height)) * 703);
+			
+			if (15 > bmi) {
+				bmicategory = "You are very severely underweight";
+			} else if (16 > bmi) {
+				bmicategory = "You are severely underweight";
+			} else if (18.5 > bmi) {
+				bmicategory = "You are underweight";
+			} else if (25 > bmi) {
+				bmicategory = "You are normal (healthy weight)";
+			} else if (30 > bmi) {
+				bmicategory = "You are overweight";
+			} else if (35 > bmi) {
+				bmicategory = "You are moderately obese";
+			} else if (40 > bmi) {
+				bmicategory = "You are severely obese";
+			} else {
+				bmicategory = "You are very severely obese";
+			};
+			
+			$('#BMI').text(bmi);
+			$('#bmicategory').text(bmicategory);
+		
+		});
 	});
 </script>
