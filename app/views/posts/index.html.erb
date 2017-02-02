@@ -3,61 +3,103 @@
   <div class="col-md-1">
     <%= render 'layouts/header' %>
   </div>
-
-  <aside class="col-md-3 panel panel-default">
-    <section class="user_info">
-      <span><%= profile_picture_for(current_user, size: :profile) %></span>
-      <h1><%= current_user.name %></h1>
-      <div class="stats">
-        <%= render 'shared/stats' %>
-      </div>
-      <span>
-        <%= link_to "View my profile", current_user, :class => 'btn btn-default btn-md' %>
-			</span>
-    </section>
-	  <%= render 'shared/search_posts' %>
-  </aside>
   
-  <div class="col-md-5">
+  <% if logged_in? %>
+    <aside class="col-md-3 panel panel-default">
+      <section class="user_info">
+        <span><%= profile_picture_for(current_user, size: :profile) %></span>
+        <h1><%= current_user.name %></h1>
+        <div class="stats">
+          <%= render 'shared/stats' %>
+        </div>
+        <span>
+          <%= link_to "View my profile", current_user, :class => 'btn btn-default btn-md' %>
+  			</span>
+      </section>
+  	  <%= render 'shared/search_posts' %>
+    </aside>
     
-    <div class="bar">
+    <div class="col-md-5">
       
-      <h1>All Posts</h1>
-        <%= link_to "Show Bullpen", root_path, 
-          :class => 'btn btn-default btn-lg all_toggle' %>
-    </div>
-      
-    <% if @feed_items.any? %>
-      <ol class="posts">
-        <%= render @feed_items %>
-      </ol>
-      
-      <%= will_paginate @feed_items %>
-      
-    <% else %>
-      <div class="startinfo panel panel-default">
-        <h3>How to get started:</h3>
-        <ol>
-          <li>Post a new workout, meal, or anything else!</li>
-          <li>Find other <%= link_to 'users', users_path %> or 
-          <%= link_to 'gyms', gyms_path %> and follow them.</li> 
-          <li>Use the trending <%= link_to 'tags', alltags_path %> or search for other content.</li>
-          <li>Get FIT!</li>
-        </ol>
+      <div class="bar">
+        
+        <h1>All Posts</h1>
+          <%= link_to "Show Bullpen", root_path, 
+            :class => 'btn btn-default btn-lg all_toggle' %>
       </div>
-    <% end %>
+        
+      <% if @feed_items.any? %>
+        <ol class="posts">
+          <%= render @feed_items %>
+        </ol>
+        
+        <%= will_paginate @feed_items %>
+        
+      <% else %>
+        <div class="startinfo panel panel-default">
+          <h3>How to get started:</h3>
+          <ol>
+            <li>Post a new workout, meal, or anything else!</li>
+            <li>Find other <%= link_to 'users', users_path %> or 
+            <%= link_to 'gyms', gyms_path %> and follow them.</li> 
+            <li>Use the trending <%= link_to 'tags', alltags_path %> or search for other content.</li>
+            <li>Get FIT!</li>
+          </ol>
+        </div>
+      <% end %>
+      
+    </div>
+    	<div class="col-md-3 panel panel-default">
+  	    <div id="tag_cloud">
+  	      <h4>Trending Tags</h4>
+  	      <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
+  	        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  	      <% end %></br>
+  	    </div>
+  	    <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
+  		</div>
+  
+    </div>
+  <% else %>
+  
+    <div class="col-md-3 panel panel-default intro">
+      <div class="center">
+        <h1>GymBull</h1>
+        <h3>A Culture of Fitness Without the Bullshit</h3>
+        <%= image_tag "barbell-clipart.jpg" %>
+      </div>
+      <%= render 'sessions/login' %>
+      <%= link_to "Jump to search", root_path(:anchor => "searchanchor"), :class => 'btn btn-default btn-md mobile' %>
+    </div>
     
-  </div>
-  	<div class="col-md-3 panel panel-default">
-	    <div id="tag_cloud">
-	      <h4>Trending Tags</h4>
-	      <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
-	        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-	      <% end %></br>
-	    </div>
-	    <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
-		</div>
-
-  </div>
-
+    <div class="col-md-5">
+      <h2>Search, browse, and save exercise and nutrition information from all around the world</h2>
+        
+      <% if @feed_items.any? %>
+        <ol class="posts">
+          <%= render @feed_items %>
+        </ol>
+        
+        <%= will_paginate @feed_items %>
+        
+      <% else %>
+        <div class="startinfo panel panel-default">
+          <h3>Nothing else here, buddy,</br>
+          try logging in to see more content</h3>
+        </div>
+      <% end %>
+    </div>
+  
+    <div class="col-md-3 panel panel-default" id="searchanchor">
+      <div id="tag_cloud">
+        <h4>Trending Tags</h4>
+        <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
+          <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+        <% end %></br>
+      </div>
+      <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
+	    <%= render 'shared/search_posts' %>
+    </div>
+  
+  <% end %>
 </div>
