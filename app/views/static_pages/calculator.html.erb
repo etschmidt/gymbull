@@ -158,7 +158,7 @@
 			var bodyweight = parseInt($("input[id='bodyweight']").val());
 			var height = parseInt($("input[id='height']").val());
 
-			var bmi = Math.round((bodyweight / (height * height)) * 703);
+			var bmi = Math.round(((bodyweight / (height * height)) * 703) * 10) / 10;
 			
 			if (15 > bmi) {
 				bmicategory = "You are very severely underweight";
