@@ -57,7 +57,7 @@ Rails.application.routes.draw do
     
     resources :comments
   end
-  resources :relationships,       only: [:create, :destroy]
+  resources :relationships,       only: [:create, :destroy, :index_create, :index_destroy]
   resources :activities
   
 end

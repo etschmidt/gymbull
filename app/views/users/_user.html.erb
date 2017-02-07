@@ -1,22 +1,21 @@
-<li>
+<li class="user-<%= user.id %>">
   <div class="name-line">
     <%= tiny_picture_for(user, size: :tiny) %>
     <%= link_to user.name, user, :class => "username" %>
     <!-- Follow forms goes here, also I really wish that I could 
-    partital this outs, but cest la vie-->
+    partital this out-->
     
     <% unless current_user?(user)%>
       <div id="follow_form">
       <% if current_user.following?(user) %>
         <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
-                     html: { method: :delete },
-                     remote: true) do |f| %>
-          <%= f.submit "Unfollow", class: "btn follow btn-xs" %>
+                     html: { method: :delete }) do |f| %>
+          <%= f.submit "Unfollow", class: "btn btn-xs follow" %>
         <% end %>
       <% else %>
-        <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+        <%= form_for(current_user.active_relationships.build) do |f| %>
           <div><%= hidden_field_tag :followed_id, user.id %></div>
-          <%= f.submit "Follow", class: "btn btn-primary follow btn-xs" %>
+          <%= f.submit "Follow", class: "btn btn-xs btn-primary follow" %>
         <% end %>
       <% end %>
       </div>
