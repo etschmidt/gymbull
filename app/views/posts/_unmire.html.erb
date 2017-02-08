@@ -1,0 +1,5 @@
+<%= form_for(favorite_post_path(@post), 
+    html: { method: :delete },
+             remote: true) do |f| %>
+  <%= f.submit "Unmire", class: "btn btn-default" %>
+<% end %>
