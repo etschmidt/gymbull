@@ -7,7 +7,7 @@ class FavoritePostsController < ApplicationController
   def create
     Favorite.create(favorited: @post, user: current_user)
     respond_to do |format|
-      format.html { redirect_to request.referrer }
+      format.html { redirect_to request.referer }
       format.js {render inline: "location.reload();" }
     end
   end
@@ -15,7 +15,7 @@ class FavoritePostsController < ApplicationController
   def destroy
     Favorite.where(favorited_id: @post.id, user_id: current_user.id).first.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer }
+      format.html { redirect_to request.referer }
       format.js {render inline: "location.reload();" }
     end
   end

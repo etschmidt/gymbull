@@ -104,8 +104,9 @@
       <span class="full-option">
       | Posted <%= time_ago_in_words(post.created_at) %> ago
         <% if current_user?(post.user) %>
-          <%= link_to post, method: :delete, data: { confirm: "You sure?" } do %>
-            <span class="glyphicon glyphicon-trash"</span>
+          <%= link_to post, method: :delete, data: { confirm: "You sure?" },
+                            :remote => true do %>
+            <span class="glyphicon glyphicon-trash"></span>
           <% end %>
         <% end %>
       </span>
