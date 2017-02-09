@@ -1,8 +1,11 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   
-  <button class="form-toggle btn new-user">Create a Gym instead</button></br>
-  
+  <div class="new-user">
+    <p>Are you a personal trainer, or own a gym or studio?</p>
+    <button class="form-toggle btn new-user">Create a Gym instead</button></br>
+  </div>
+
   <%= f.hidden_field :account_type, :value => "user" %>
 
   <%= f.label :username, :class => "required"  %>
