@@ -16,14 +16,21 @@
         <%= link_to "Edit Profile", edit_user_path(current_user), :class => 'btn btn-default btn-md' %>
       <% end %>
       <section class="details">
+        
+        <% if @user.focus? %>
+          <div class="flexbox">
+            <span class="glyphicon glyphicon-grain"></span>
+            <b><%= @user.focus %></b>
+          </div>
+        <% end %>        
+        
         <% if @user.location? %>
           <div class="flexbox">
             <span class="glyphicon glyphicon-map-marker"></span>
-            <span class="loctxt"><%= @user.location %></span>
+            <span class="loctxt"><b><%= @user.location %></b></span>
           </div>
         <% end %>  
-        
-        <% if @user.focus? %><span class="glyphicon glyphicon-grain"></span> <b><%= @user.focus %></b></br></br><% end %>
+      
         <% if @user.about? %><b>About:</b> <%= simple_format(@user.about) %></br><% end %>
         
         <!-- Users -->

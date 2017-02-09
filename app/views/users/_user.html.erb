@@ -24,12 +24,13 @@
   <div>
     <% if gym?(user) %>
       <span class="glyphicon glyphicon-grain"></span> <%= user.focus %></br>
-      Location: <%= user.location %></br>
+      <span class="glyphicon glyphicon-map-marker"></span> <%= user.location %></br>
     <% end %>
     Top Tags: <% tag_cloud user.posts.tag_counts.limit(3), %w[s m l] do |tag, css_class|%>
       <%= link_to tag.name, "/users/#{user.id}/tags/#{tag.name}", class: css_class %>
     <% end %>
-    <span class="badge"><%= user.posts.count %></span> <%= user.email if current_user.admin? %>
+    <span class="badge"><%= user.posts.count %></span></br>
+    <%= user.email if current_user.admin? %>
   </div>
 
 </li>
