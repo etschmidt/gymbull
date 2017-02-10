@@ -17,8 +17,11 @@ $gray-medium-light: #eaeaea;
   list-style: none;
   padding: 0;
   li {
-    padding: 10px 0;
-    border-top: 1px solid darkslategrey;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #ddd;
     .user {
       margin-top: 5em;
       padding-top: 0;
@@ -48,9 +51,13 @@ $gray-medium-light: #eaeaea;
       }
     }
     .timestamp {
+      border-top: 1px solid darkslategrey;
+      padding-top: 3px;
       color: $gray-light;
       display: block;
-      margin-left: 27px;
+      margin-left: 20px;
+      margin-right: 20px;
+      font-size: 12px;
       a span.comment_count b {
         color: #777777;
   // I have no idea how to remove the fucking underline

@@ -12,14 +12,15 @@
   padding: 0;
   li {
     padding: 5px;
-    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    border: 1px solid #ddd;
     list-style: none;
     display: inline-block;
     width: calc(100% / 4.3);
     text-align: left;
     margin: 5px;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 11px;
     .user {
       display: none;
@@ -46,7 +47,9 @@
       }
     }
     .row {
-      margin-left: 0;
+      border-top: 1px solid #ddd;
+      padding-top: 2px;
+      margin: 0;
       .full-option {
         display: none;
       }

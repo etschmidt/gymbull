@@ -18,12 +18,6 @@ $gray-medium-light: #eaeaea;
    position: fixed;
  }
 
-body {
-  margin: 0px;
-  padding-top: 25px;
-}
-
-
 #tag_cloud {
   line-height: 1.6em;
   .s { font-size: 0.8em; }
@@ -88,6 +82,9 @@ body {
 
 // for mobile //
 @media (max-width: 767px) {
+  .panel.panel-default {
+     margin: 0px 14px 0px 14px;
+  }
   div.panel.intro {
     img {
       display: none;
@@ -103,7 +100,7 @@ body {
   } 
   div.signin.intro {
     display: none;
-  }  
+  } 
 }
 
 // Tag Cloud Page //
