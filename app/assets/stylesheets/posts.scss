@@ -38,6 +38,9 @@ $gray-medium-light: #eaeaea;
       .post-id {
         display: none;
       }
+      .full-option {
+        font-size: 12px;
+      }
       span.mini-option {
         display: none;
       }
@@ -75,6 +78,7 @@ $gray-medium-light: #eaeaea;
       float: right;
       margin-left: 15px;
       margin-bottom: 15px;
+      margin-right: 5px;
       max-width: 200px;
     }
   div.inner-content span.post_type {
