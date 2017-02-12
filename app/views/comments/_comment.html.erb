@@ -7,10 +7,12 @@
 		<%= comment.content %>
 	</div>
 	
-	<%= time_ago_in_words(comment.created_at) %> ago
-	<% if current_user?(comment.user) %>
-		<%= link_to post_comment_path(comment.post, comment), method: :delete do %>
-			<span class="glyphicon glyphicon-trash"</span>
-		<% end %>
-	<% end %>
+	<div class="row">
+    <span class="timestamp">
+			<%= time_ago_in_words(comment.created_at) %> ago
+			<% if current_user?(comment.user) %>
+				<%= link_to post_comment_path(comment.post, comment), method: :delete do %>
+					<span class="glyphicon glyphicon-trash"></span>
+				<% end %>
+			<% end %>
 </li>

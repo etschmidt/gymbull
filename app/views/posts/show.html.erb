@@ -31,37 +31,39 @@
 		        </div> <% end %>
 		      <% if @post.ingredients? %><b>Ingredients: </b><%= simple_format(@post.content) %></br><% end %>
 		    <% end %></br>
-
-      <% if logged_in? %>
-        <% unless current_user.favorite_posts.exists?(id: @post.id) %>
-          <%= link_to favorite_posts_path(post_id: @post), method: :post, remote: true do %>
-            <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="stamp">
+          <% if logged_in? %>
+            <% unless current_user.favorite_posts.exists?(id: @post.id) %>
+              <%= link_to favorite_posts_path(post_id: @post), method: :post, remote: true do %>
+                <span class="glyphicon glyphicon-star-empty"></span>
+              <% end %>
+            <% else %>
+              <%= link_to favorite_post_path(@post), method: :delete, remote: true do %>
+                <span class="glyphicon glyphicon-star"></span>
+              <% end %>
+            <% end %> |
           <% end %>
-        <% else %>
-          <%= link_to favorite_post_path(@post), method: :delete, remote: true do %>
-            <span class="glyphicon glyphicon-star"></span>
+    
+          Posted <%= time_ago_in_words(@post.created_at) %> ago
+          
+          <% if logged_in? %>
+            <% if (current_user?(@post.user) || current_user.admin?) %>
+            	| <%= link_to  edit_post_path(@post) do %>
+            	  <span class="glyphicon glyphicon-pencil"></span>
+            	<% end %> |
+              <%= link_to @post, method: :delete,
+                                  data: { confirm: "You sure?" } do %>
+                <span class="glyphicon glyphicon-trash"></span>
+            	<% end %>
+            <% end %>
           <% end %>
-        <% end %> |
-      <% end %>
-
-      Posted <%= time_ago_in_words(@post.created_at) %> ago
-      
-      <% if logged_in? %>
-        <% if (current_user?(@post.user) || current_user.admin?) %>
-        	| <%= link_to  edit_post_path(@post) do %>
-        	  <span class="glyphicon glyphicon-pencil"></span>
-        	<% end %> |
-          <%= link_to @post, method: :delete,
-                              data: { confirm: "You sure?" } do %>
-            <span class="glyphicon glyphicon-trash"></span>
-        	<% end %>
-        <% end %>
-      <% end %>
+        </span>  
+      </section>
     </section>
   </aside>
 
   <div class="col-md-5">
-  	<div class="bar">
+  	<div class="title-bar bar">
   	  <h1><%=  @post.title || @post.id.to_s %>  (<%= pluralize(@post.favorites.count, "Mire") %>)</h1>
 		</div>
 
@@ -70,26 +72,28 @@
       <%= simple_format(@post.content) %>
     	<%= image_tag(@post.picture.url(:post), :id => "centerpic") if @post.picture? %>
 
-	  </div>
-	  
-	  <% if logged_in? %>
-	    <ol class="comments">
-        <%= render @comments %>
-      </ol>
-      <%= render 'comments/form' %>
-    <% else %>
-      
-      <div class="alert alert-info">
-        <b><%= link_to "Log in", login_path %></b> to see comments and other content
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= render 'sessions/login' %>
+  	  <% if logged_in? %>
+  	    <ol class="comments">
+          <%= render @comments %>
+        </ol>
+        <%= render 'comments/form' %>
+      <% else %>
+        
+        <div class="alert alert-info">
+          <b><%= link_to "Log in", login_path %></b> to see comments and other content
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= render 'sessions/login' %>
+          </div>
+          
         </div>
         
-      </div>
-      
-    <% end %>
+      <% end %>
+
+	  </div>
+	  
+
       
   </div>
   

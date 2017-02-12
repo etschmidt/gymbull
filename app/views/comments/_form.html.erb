@@ -1,5 +1,5 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-	<%= f.text_area :content, size: "24x4" %>
-	<%= f.submit "Comment", :class => 'btn btn-default' %>
+	<%= f.text_area :content, placeholder: "Your comment here...", size: "24x4" %>
+	<%= f.submit "Post a reply", :class => 'btn btn-default' %>
 <% end %>

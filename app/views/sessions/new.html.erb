@@ -4,9 +4,8 @@
     <%= render 'layouts/header' %>
   </div>
   
-  <h1>Log in</h1>
-  
-  <div class="col-md-6 col-md-offset-3 panel panel-default login">
+  <div class="col-md-5 col-md-offset-3 panel panel-default">
+    <h1>Log in</h1>
       <%= form_for(:session, url: login2_path) do |f| %>
   
         <%= f.label :email %>

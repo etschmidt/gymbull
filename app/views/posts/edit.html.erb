@@ -1,13 +1,14 @@
 <% provide(:title, "Edit Post") %>
 
-<h1>Update <%= @post.title || @post.id.to_s %></h1>
-
 <div class="row">
   <div class="col-md-1">
     <%= render 'layouts/header' %>
   </div>
   
-  <div class="col-md-5 col-md-offset-3">
+  <div class="col-md-5 col-md-offset-3 panel panel-default">
+  	<div class="title-bar">
+			<h1>Update <%= @post.title || @post.id.to_s %></h1>
+		</div>
     <%= form_for(@post, html: { multipart: true }) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 

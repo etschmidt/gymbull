@@ -91,7 +91,7 @@ $gray-medium-light: #eaeaea;
 
 /* For the post detail screen */
 aside {
-  .post-info {
+  .post-info { //this is retarded and must be merged with the section below
     margin-top: 20px;
     left: 50%;
     text-align: center;
@@ -130,7 +130,23 @@ aside {
       margin-bottom: 3px;
       margin-top: 0px;
     }
+    .details {
+      font-size: 1.1em;
+    }
   }
+}
+
+.stamp {
+  font-size: 12px;
+  margin-bottom: 0;
+ }
+
+.content-detail {
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 5px 10px 10px 10px;
+  border: 1px solid #ddd;
 }
 
 .navbar-nav .glyphicon {

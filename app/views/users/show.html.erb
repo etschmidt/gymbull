@@ -61,8 +61,7 @@
     <%= render 'follow_form' if logged_in? %>
     <% if @user.posts.any? %>
 
-      <div class="bar">
-        
+      <div class="title-bar bar">
         <h1>
           <% if current_user?(@user) %>My <% end %>Log 
           <span class="badge"><%= @user.posts.count %></span>

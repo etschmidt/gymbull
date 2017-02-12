@@ -25,7 +25,7 @@
     
     <div class="col-md-5">
       
-      <div class="bar">
+      <div class="title-bar bar">
         
         <h1>Bullpen</h1>
         <%= link_to "Search posts", posts_path, 
@@ -81,8 +81,10 @@
     </div>
     
     <div class="col-md-5">
-      <h2>Search, browse, and save exercise and nutrition information from all around the world</h2>
-        
+      <div class="title-bar">
+        <h2>Search, browse, and save exercise and nutrition information from all around the world</h2>
+      </div>
+      
       <% if @feed_items.any? %>
         <ol class="posts">
           <%= render @feed_items %>
