@@ -5,7 +5,8 @@
     <%= render 'layouts/header' %>
   </div>
   <div class="col-md-6 col-md-offset-3 panel panel-default">
-    <h1>Forgot password</h1>
+    <h1>Forgot password ?</h1>
+    <h2>We'll help you ifx that</h2>
     <%= form_for(:password_reset, url: password_resets_path) do |f| %>
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>

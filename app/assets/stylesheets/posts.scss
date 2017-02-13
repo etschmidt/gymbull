@@ -95,6 +95,7 @@ $gray-medium-light: #eaeaea;
 
 /* For the post detail screen */
 aside {
+  margin-bottom: 10px !important;
   .post-info { //this is retarded and must be merged with the section below
     margin-top: 20px;
     left: 50%;
