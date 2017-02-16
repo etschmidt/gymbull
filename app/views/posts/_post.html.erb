@@ -59,7 +59,9 @@
       <div class="inner-content">
         <span class="full-option post_type"><b>Recipe:</b></br></span><%= simple_format(post.content) %>
       </div>
-      <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      <div class="taglist">
+        <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      </div>
     <% end %>
   </div>
   
