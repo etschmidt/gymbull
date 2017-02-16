@@ -29,7 +29,7 @@ class User < ApplicationRecord
     mount_uploader :picture, PictureUploader
     
     VALID_NAME_REGEX = /\A[\w+\-]+\z/
-    validates :name, presence: true, length: { maximum: 50 },
+    validates :name, presence: true, length: { minimum: 4, maximum: 50 },
                             format: { with: VALID_NAME_REGEX },
                             uniqueness: { case_sensitive: true }
     
@@ -40,7 +40,7 @@ class User < ApplicationRecord
     
     VALID_PASSWORD_REGEX = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)./
     has_secure_password                         
-    validates :password, presence: true, length: { minimum: 8 }, allow_nil: true, 
+    validates :password, presence: true, length: { minimum: 8, maximum: 30 }, allow_nil: true, 
                          format: { with: VALID_PASSWORD_REGEX }   
     
     validate  :picture_size
