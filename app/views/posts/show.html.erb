@@ -29,7 +29,7 @@
 		        <% if @post.fat? %><b>Fat: </b><%= @post.fat %> g</br><% end %>
 		        <% if @post.carbs? %><b>Carbs: </b><%= @post.carbs %> g<% end %>
 		        </div> <% end %>
-		      <% if @post.ingredients? %><b>Ingredients: </b><%= simple_format(@post.content) %></br><% end %>
+		      <% if @post.ingredients? %><b>Ingredients: </b><%= simple_format(@post.ingredients) %></br><% end %>
 		    <% end %></br>
         <span class="stamp">
           <% if logged_in? %>
