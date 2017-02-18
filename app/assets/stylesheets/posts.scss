@@ -176,6 +176,26 @@ aside {
 .form-check-inline input {
   width: 15px;
 }
+fieldset {
+  overflow: hidden
+}
+.radio {
+  float: left;
+  clear: none;
+  label {
+    float: left;
+    clear: none;
+    display: block;
+    padding: 2px 1em 0 0;
+    font-weight: bold !important;
+  }  
+  input {
+    float: left;
+    clear: none;
+    margin: 2px 0 0 2px;
+    width: 40px;
+  }
+}
 
 section {
   textarea {

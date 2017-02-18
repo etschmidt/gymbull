@@ -1,6 +1,16 @@
 <%= search_form_for @search, url: search_posts_path, html: { method: :post } do |f| %>
 	<div class="field">
 		<h4>Search Posts</h4>
+		<fieldset>
+			<div class="radio">
+				<%= f.label :post_type_eq, "Posts" %>
+				<%= f.radio_button :post_type_eq, "post" %>
+				<%= f.label :post_type_eq, "Workouts" %>
+				<%= f.radio_button :post_type_eq, "workout" %>
+				<%= f.label :post_type_eq, "Meals" %>
+				<%= f.radio_button :post_type_eq, "meal" %>
+			</div>			
+		</fieldset>
 		
 		<%= f.label :content_cont %>
 		<%= f.search_field :content_cont %>
@@ -19,5 +29,5 @@
 		
 	</div>
 	<div class="actions"><%= f.submit "Search", class: "btn btn-primary" %></div>
-	<%= link_to "Clear Search/Tags", root_url, :class => 'btn btn-default' %>
+	<%= link_to "Clear Search/Tags", posts_path, :class => 'btn btn-default' %>
 <% end %>
