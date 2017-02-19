@@ -78,13 +78,14 @@
     <% end %>
   </div>
   
-  <div class="col-md-3 panel panel-default">
-    <div id="tag_cloud">
-      <h4><%= @user.name %>'s Tags:</h4>
-      <% tag_cloud @posts.tag_counts.limit(15), %w[s m l] do |tag, css_class| %>
-        <%= link_to tag.name, "/users/#{@user.id}/tags/#{tag.name}", class: css_class %>
-      <% end %>
-    </div>
+  <div class="col-md-3 panel panel-default ">
+      <div id="tag_cloud">
+        <h4><%= @user.name %>'s Tags:</h4>
+        <% tag_cloud @posts.tag_counts.limit(15), %w[s m l] do |tag, css_class| %>
+          <%= link_to tag.name, "/users/#{@user.id}/tags/#{tag.name}", class: css_class %>
+        <% end %>
+      </div>
+
   </div>
 </div>
 

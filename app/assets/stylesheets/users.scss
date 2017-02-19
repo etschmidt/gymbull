@@ -91,6 +91,12 @@ section.user_info {
   }
 }
 
+@media (min-width: 767px) {
+  .fixed {
+    position: fixed;
+  }
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -154,6 +160,12 @@ input {
 }
 
 /* Users index */
+
+.search {
+  h3 {
+    margin-top: 0;
+  }
+}
 
 .users {
   list-style: none;

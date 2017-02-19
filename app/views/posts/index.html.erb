@@ -6,16 +6,6 @@
   
   <% if logged_in? %>
     <aside class="col-md-3 panel panel-default">
-      <section class="user_info">
-        <span><%= profile_picture_for(current_user, size: :profile) %></span>
-        <h1><%= current_user.name %></h1>
-        <div class="stats">
-          <%= render 'shared/stats' %>
-        </div>
-        <span>
-          <%= link_to "View my profile", current_user, :class => 'btn btn-default btn-md' %>
-  			</span>
-      </section>
   	  <%= render 'shared/search_posts' %>
     </aside>
     

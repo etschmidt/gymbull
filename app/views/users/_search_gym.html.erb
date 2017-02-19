@@ -1,8 +1,8 @@
 <%= search_form_for @search, url: search_users_path,
                         html: { method: :post } do |f| %>
 	<div class="field">
-		<%= f.label :name_cont, "Search Gyms" %><%= link_to "Clear", 
-			url_for(controller: "users", action: "index_gyms"), class: "btn" %>
+		<h3>Search</h3>
+		<%= f.label :name_cont %>
 		<%= f.search_field :name_cont, placeholder: "Name contains" %>
 		<%= f.label :location_cont %>
   	<%= f.search_field :location_cont, placeholder: "Location contains"  %>
@@ -27,5 +27,9 @@
 	  	['Other']
 	  	]) %>
 	</div>
-	<div class="actions"><%= f.submit "Search", class: "btn btn-primary" %></div>
+	<div class="actions">
+		<%= f.submit "Search", class: "btn btn-primary" %>
+		<%= link_to "Clear", 
+			url_for(controller: "users", action: "index_gyms"), class: "btn btn-default" %>
+	</div>
 <% end %>
