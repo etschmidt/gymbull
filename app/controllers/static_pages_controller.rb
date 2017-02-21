@@ -15,6 +15,8 @@ class StaticPagesController < ApplicationController
 
 
       @post = current_user.posts.build
+      
+      # this is for the posts user will see before following any other users
       @posts = Post.limit(15)
       
       if params[:tag]

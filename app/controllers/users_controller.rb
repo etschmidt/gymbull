@@ -4,14 +4,19 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :favorite_posts]
   before_action :admin_user, only: :destroy
   
-  def index_gyms
-    @search = User.where(account_type: "gym").search(params[:q])
-    @users = @search.result.order(created_at: :desc).paginate(page: params[:page], :per_page => 30)
-  end
+#  def index_gyms
+#    @search = User.where(account_type: "gym").search(params[:q])
+#    @users = @search.result.order(created_at: :desc).paginate(page: params[:page], :per_page => 30)
+#  end
   
-  def index_users
-    @search = User.where(account_type: "user").search(params[:q])
-    @users = @search.result.order(created_at: :desc).paginate(page: params[:page], :per_page => 30)
+  def index
+    if params[:q].blank?
+      @search = recent_users.search(params[:q])
+      @users = @search.result.order(created_at: :desc).limit(20)
+    else
+      @search = User.search(params[:q])
+      @users =  @search.result.order(created_at: :desc).limit(20)
+    end
   end
   
   def show
@@ -28,7 +33,7 @@ class UsersController < ApplicationController
   
   def favorite_posts
     @user = User.friendly.find(params[:id])
-      @mini_posts = @user.favorite_posts
+    @mini_posts = @user.favorite_posts
   end
   
   def new
@@ -127,6 +132,13 @@ class UsersController < ApplicationController
     #True if user account type is a gym
     def gym?(user)
       user.account_type == "gym"
+    end
+    
+    def recent_users
+      recent_posts = "SELECT user_id 
+                      FROM posts 
+                      ORDER BY created_at ASC" 
+      User.where("id IN (#{recent_posts})")
     end
    
 end

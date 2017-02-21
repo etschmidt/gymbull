@@ -26,8 +26,8 @@ Rails.application.routes.draw do
 
   get 'users/:id/tags/:tag', to: 'users#show'
   
-  get 'users', to: 'users#index_users'
-  get 'gyms', to: 'users#index_gyms', as: 'gyms'
+#  get 'users', to: 'users#index_users'
+#  get 'gyms', to: 'users#index_gyms', as: 'gyms'
 
 # this is for letsencrypt to find and verify the site www.gymbull.com
   get '/.well-known/acme-challenge/vPm1E8Lk1tr2pU0kSVhDnWnB5JIrmuYQx17pbsKEwxI' ,   to: 'static_pages#letsencrypt1'
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   resources :users do
     collection do
-      match 'search' => 'users#index_gyms', via: [:get, :post], as: :search
+      match 'search' => 'users#index', via: [:get, :post], as: :search
     end
     
     member do

@@ -3,10 +3,31 @@
 		<h3>Search</h3>
 		<%= f.label :name_cont %>
 		<%= f.search_field :name_cont, placeholder: "Name contains" %>
+		<%= f.label :location_cont %>
+  	<%= f.search_field :location_cont, placeholder: "Location contains"  %>
+  	<%= f.label :focus %>
+	  <%= f.select :focus_eq, options_for_select([
+	  	['Select', ''],
+	  	['General Purpose'],
+	  	['Aerobic'],
+	  	['Athletic Club'],
+	  	['Boot Camp'],
+	  	['Crossfit'],
+	  	['Dance'],
+	  	['Gymnastics'],
+	  	['Martial Arts'],
+	  	['Meal Service'],
+	  	['Olympic Weightlifting'],
+	  	['Personal Training'],
+	  	['Pilates'],
+	  	['Spinning'],
+	  	['Weight Loss'],
+	  	['Yoga'],
+	  	['Other']
+	  	]) %>
 	</div>
 	<div class="actions">
 		<%= f.submit "Search", class: "btn btn-primary" %>
-		<%= link_to "Clear", 
-			url_for(controller: "users", action: "index_users"), class: "btn btn-default" %>
+		<%= link_to "Clear", users_path, class: "btn btn-default" %>
 	</div>
 <% end %>
