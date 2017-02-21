@@ -15,10 +15,10 @@ class StaticPagesController < ApplicationController
 
 
       @post = current_user.posts.build
+      @posts = Post.limit(15)
+      
       if params[:tag]
         @feed_items = Post.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 15)
-      elsif params[:q].blank?
-        @feed_items = current_user.feed.includes(:tags).all.paginate(page: params[:page], per_page: 15)
       else 
         @feed_items = Post.includes(:tags).all.paginate(page: params[:page], per_page: 15)
       end

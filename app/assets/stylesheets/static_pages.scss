@@ -31,12 +31,18 @@ $gray-medium-light: #eaeaea;
 
 .startinfo {
   padding-left: 15px;
+  margin-bottom: 10px !important;
+  padding-right: 10px;
+  h3 {
+    display: center;
+  }
 }
 
 .alert {
   left: 50%;
   width: 100%;
   margin-bottom: 10px !important;
+  font-weight: bold;
 }
 
 .intro{

@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       @post.create_activity :create, owner: current_user
-      flash[:success] = "Post!"
+      flash[:success] = "Great Post! Keep up the good work!"
       redirect_to root_url
     else
       @feed_items = []
