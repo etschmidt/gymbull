@@ -24,7 +24,7 @@
   <div>
     <% if gym?(user) %>
       <span class="glyphicon glyphicon-grain"></span> <%= user.focus %></br>
-      <%= if user.location %>
+      <% if user.location %>
         <span class="glyphicon glyphicon-map-marker"></span> <%= user.location %></br>
       <% end %>
     <% end %>
