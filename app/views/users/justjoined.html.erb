@@ -1,25 +1,23 @@
-<% provide(:title, 'All gyms') %>
-<div class="row">
+<% provide(:title) %>
+<div  class="row">
 	<div class="col-md-1">
   	<%= render 'layouts/header' %>
 	</div>
 	
 	<aside class="col-md-3 panel panel-default">
-		<section class="search">
-			<%= render 'search_gym' %>
-		</section>
+
 	</aside>
 	
 	<div class="col-md-5">
     <div class="title-bar bar">
-      <h1>Gyms</h1>
+      <h1>Just Joined</h1>
+      <%= link_to "Search Users", users_path, 
+          :class => 'btn btn-default btn-lg all_toggle' %>
     </div>
 		
 		<ul class="users">
 		  <%= render @users %>
 		</ul>
-		
-		<%= will_paginate %>
 		
 	</div>
 </div>

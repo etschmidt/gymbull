@@ -4,12 +4,8 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :favorite_posts]
   before_action :admin_user, only: :destroy
   
-#  def index_gyms
-#    @search = User.where(account_type: "gym").search(params[:q])
-#    @users = @search.result.order(created_at: :desc).paginate(page: params[:page], :per_page => 30)
-#  end
-  
   def index
+    @title = 'Search Users'
     if params[:q].blank?
       @search = recent_users.search(params[:q])
       @users = @search.result.order(created_at: :desc).limit(20)
@@ -18,6 +14,11 @@ class UsersController < ApplicationController
       @users =  @search.result.order(created_at: :desc).limit(20)
     end
   end
+  
+  def justjoined
+    @title = 'Just Joined'
+    @users = User.order(created_at: :desc).limit(20)
+  end  
   
   def show
     @user = User.friendly.find(params[:id])

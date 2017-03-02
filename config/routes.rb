@@ -25,9 +25,7 @@ Rails.application.routes.draw do
   get 'posts/:id', to: 'posts#show'
 
   get 'users/:id/tags/:tag', to: 'users#show'
-  
-#  get 'users', to: 'users#index_users'
-#  get 'gyms', to: 'users#index_gyms', as: 'gyms'
+  get 'justjoined', to: 'users#justjoined'
 
 # this is for letsencrypt to find and verify the site www.gymbull.com
   get '/.well-known/acme-challenge/vPm1E8Lk1tr2pU0kSVhDnWnB5JIrmuYQx17pbsKEwxI' ,   to: 'static_pages#letsencrypt1'
