@@ -24,7 +24,9 @@
   <div>
     <% if gym?(user) %>
       <span class="glyphicon glyphicon-grain"></span> <%= user.focus %></br>
-      <span class="glyphicon glyphicon-map-marker"></span> <%= user.location %></br>
+      <%= if user.location %>
+        <span class="glyphicon glyphicon-map-marker"></span> <%= user.location %></br>
+      <% end %>
     <% end %>
     Top Tags: <% tag_cloud user.posts.tag_counts.limit(3), %w[s m l] do |tag, css_class|%>
       <%= link_to tag.name, "/users/#{user.id}/tags/#{tag.name}", class: css_class %>
