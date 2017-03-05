@@ -6,12 +6,10 @@
   </div>
   
   <aside class="col-md-3 panel panel-default">
-    <section class="post_info">
-      <div class="user">
-		    <h1><%= link_to @post.user.name, @post.user %></h1>
-		  </div>
-		  <section class="details">
-		    
+    <section class="post-info">
+  		   <b>Author: </b><%= link_to @post.user.name, @post.user %></br>
+		     <% if @post.favorites.count > 0 %><b><%= pluralize(@post.favorites.count, "Mire") %></b></br><% end %>
+
 		    <% if post?(@post) %>
 
 		    <% elsif workout?(@post) %>
@@ -30,7 +28,7 @@
 		        <% if @post.carbs? %><b>Carbs: </b><%= @post.carbs %> g<% end %>
 		        </div> <% end %>
 		      <% if @post.ingredients? %><b>Ingredients: </b><%= simple_format(@post.ingredients) %></br><% end %>
-		    <% end %></br>
+		    <% end %>
         <span class="stamp">
           <% if logged_in? %>
             <% unless current_user.favorite_posts.exists?(id: @post.id) %>
@@ -58,13 +56,12 @@
             <% end %>
           <% end %>
         </span>  
-      </section>
     </section>
   </aside>
 
   <div class="col-md-5">
   	<div class="title-bar bar">
-  	  <h1><%=  @post.title || @post.id.to_s %>  (<%= pluralize(@post.favorites.count, "Mire") %>)</h1>
+  	  <h1><%=  @post.title || @post.id.to_s %></h1>
 		</div>
 
   	<div class="content-detail">

@@ -4,7 +4,7 @@
     <%= link_to comment.user.name, comment.user %></span>
 	
 	<div class="comment-content">
-		<%= comment.content %>
+		<%= simple_format(comment.content) %>
 	</div>
 	
 	<div class="row">
