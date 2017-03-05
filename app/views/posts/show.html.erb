@@ -61,10 +61,10 @@
 
   <div class="col-md-5">
   	<div class="title-bar bar">
-  	  <% if post.title? %>
-        <h1><%= post.title %></br></h1>
+  	  <% if @post.title? %>
+        <h1><%= @post.title %></br></h1>
       <% else %>
-        <h1><%= post.id %></br></h1>
+        <h1><%= @post.id %></br></h1>
       <% end %>
 		</div>
 
