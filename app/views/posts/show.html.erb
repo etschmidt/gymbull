@@ -61,7 +61,11 @@
 
   <div class="col-md-5">
   	<div class="title-bar bar">
-  	  <h1><%=  @post.title || @post.id %></h1>
+  	  <% if post.title? %>
+        <h1><%= post.title %></br></h1>
+      <% else %>
+        <h1><%= post.id %></br></h1>
+      <% end %>
 		</div>
 
   	<div class="content-detail">
