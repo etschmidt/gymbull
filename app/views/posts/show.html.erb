@@ -63,6 +63,8 @@
   	<div class="title-bar bar">
   	  <% if @post.title? %>
         <h1><%= @post.title %></br></h1>
+      <% elsif workout?(@post) %>
+        <h1><%= @post.created_at.to_date.to_formatted_s(:rfc822) %></br></h1>
       <% else %>
         <h1><%= @post.id %></br></h1>
       <% end %>

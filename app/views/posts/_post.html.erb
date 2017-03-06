@@ -24,7 +24,7 @@
       <% if post.title? %>
         <b><%= post.title %><span class="post-id"> - <%= post.post_type.titlecase()%></span></b></br>
       <% else %>
-        <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase()%></b></span>
+        <b><%= post.created_at.to_date.to_formatted_s(:rfc822) %><span class="post-id"> - <%= post.post_type.titlecase()%></b></span>
       <% end %>
       
       <div class="full-option">
