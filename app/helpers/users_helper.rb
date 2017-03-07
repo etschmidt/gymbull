@@ -40,5 +40,5 @@ module UsersHelper
   def gym?(user)
     user.account_type == "gym"
   end
-  
+
 end

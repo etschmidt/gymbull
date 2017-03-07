@@ -15,7 +15,7 @@
       <% if current_user?(@user) %>
         <%= link_to "Edit Profile", edit_user_path(current_user), :class => 'btn btn-default btn-md' %>
       <% end %>
-      <section class="details">
+      <div class="details">
         
         <% if @user.focus? %>
           <div class="flexbox">
@@ -30,7 +30,14 @@
             <span class="loctxt"><b><%= @user.location %></b></span>
           </div>
         <% end %>  
-      
+        
+        <% if @user.email_option? %>
+          <div class="flexbox">
+            <span class="glyphicon glyphicon-envelope"></span>
+            <span class="loctxt"><b><%= @user.email %></b></span>
+          </div>
+        <% end %>   
+        
         <% if @user.about? %><b>About:</b> <%= simple_format(@user.about) %></br><% end %>
         
         <!-- Users -->
@@ -54,7 +61,7 @@
                                         :class => "btn btn-danger btn-xs"  %>
           <% end %>
         <% end %>
-      </section>
+      </div>
     </section>
   </aside>
   <div class="col-md-5">

@@ -31,12 +31,7 @@ class UsersController < ApplicationController
       @posts = @user.posts.includes(:tags).all.paginate(page: params[:page], per_page: 15)
     end
   end
-  
-  def favorite_posts
-    @user = User.friendly.find(params[:id])
-    @mini_posts = @user.favorite_posts
-  end
-  
+
   def new
     @user = User.new
     @title = 'Sign up'
@@ -93,16 +88,23 @@ class UsersController < ApplicationController
   def favorite_posts
     @title = "Mires"
     @user = User.friendly.find(params[:id])
-    @posts = @user.favorite_posts.order(:updated_at)
+    @posts = @user.favorite_posts
     render 'favorite_posts/show'
   end
   
+  def recent_mires
+    render 'favorite_posts/show'
+    @title = 'Recently Mired'
+    @user = User.friendly.find(params[:id])
+    @posts = @user.favorite_posts    
+  end
+
   private
     
     def user_params
       params.require(:user).permit(:name, :picture, :email, :location, :about, 
                                    :height, :weight, :goals, :prs, :quals,
-                                   :password, :password_confirmation,
+                                   :password, :password_confirmation, :email_option,
                                    #these are only for gyms:
                                    :account_type, :focus, :hours, :pricing,
                                    :equipment, :classes)

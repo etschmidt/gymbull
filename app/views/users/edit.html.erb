@@ -98,7 +98,7 @@
         </span>
         <%= f.text_field :name, class: 'form-control' %>
         
-        <%= f.label :email %>
+        <%= f.label :email %> <span class="email_option"><%= f.check_box :email_option, {}, true %><%= f.label "Show email on Profile" %></span>
         <%= f.email_field :email, class: 'form-control' %>
         
         <%= f.label :password %> 
