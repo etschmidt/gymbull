@@ -89,7 +89,11 @@
             <% end %>
           <% end %>
         <% else %>
-          <span class="glyphicon glyphicon-star-empty"></span>
+          <% unless current_user.favorite_posts.exists?(id: post.id) %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
         <% end %>
   <!-- this is for the post if a user isn't logged in
   also helps to showcase features-->

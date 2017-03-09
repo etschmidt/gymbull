@@ -18,12 +18,12 @@
             :class => 'btn btn-default btn-lg all_toggle' %>
       </div>
         
-      <% if @feed_items.any? %>
+      <% if @posts.any? %>
         <ol class="posts">
-          <%= render @feed_items %>
+          <%= render @posts %>
         </ol>
         
-        <%= will_paginate @feed_items %>
+        <%= will_paginate @posts %>
         
       <% else %>
         <div class="startinfo panel panel-default">
@@ -63,12 +63,12 @@
             :class => 'btn btn-default btn-lg all_toggle' %>
       </div>
         
-      <% if @feed_items.any? %>
+      <% if @posts.any? %>
         <ol class="posts">
-          <%= render @feed_items %>
+          <%= render @posts %>
         </ol>
         
-        <%= will_paginate @feed_items %>
+        <%= will_paginate @posts %>
         
       <% else %>
         <div class="startinfo panel panel-default">

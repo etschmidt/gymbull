@@ -6,57 +6,57 @@
   </div>
   
   <aside class="col-md-3 panel panel-default">
-    <section class="post-info">
-  		   <b>Author: </b><%= link_to @post.user.name, @post.user %></br>
-		     <% if @post.favorites.count > 0 %><b><%= pluralize(@post.favorites.count, "Mire") %></b></br><% end %>
+    <div class="post-info">
+		  <b>Author: </b><%= link_to @post.user.name, @post.user %></br>
+	    <% if @post.favorites.count > 0 %><b><%= pluralize(@post.favorites.count, "Mire") %></b></br><% end %>
 
-		    <% if post?(@post) %>
+	    <% if post?(@post) %>
 
-		    <% elsif workout?(@post) %>
-		      
-		      <% if @post.body_parts? %><b>Body Parts: </b><%= @post.body_parts %></br><% end %>
-		      <% if @post.duration? %><b>Length: </b><%= @post.duration %> minutes</br><% end %>
-		      <% if @post.equipment? %><b>Equipment: </b><%= @post.equipment %></br><% end %>
+	    <% elsif workout?(@post) %>
+	      
+	      <% if @post.body_parts? %><b>Body Parts: </b><%= @post.body_parts %></br><% end %>
+	      <% if @post.duration? %><b>Length: </b><%= @post.duration %> minutes</br><% end %>
+	      <% if @post.equipment? %><b>Equipment: </b><%= @post.equipment %></br><% end %>
 
-		    <% elsif meal?(@post) %>
+	    <% elsif meal?(@post) %>
 
-		      <% if @post.calories? %><b>Calories: </b><%= @post.calories %> kcal</br><% end %>
-		      <% if @post.protein? || @post.fat? || @post.carbs? %>
-		      <div><b>Macronutrients:</b></br> 
-		        <% if @post.protein? %><b>Protein: </b><%= @post.protein %> g</br><% end %>
-		        <% if @post.fat? %><b>Fat: </b><%= @post.fat %> g</br><% end %>
-		        <% if @post.carbs? %><b>Carbs: </b><%= @post.carbs %> g<% end %>
-		        </div> <% end %>
-		      <% if @post.ingredients? %><b>Ingredients: </b><%= simple_format(@post.ingredients) %></br><% end %>
-		    <% end %>
-        <span class="stamp">
-          <% if logged_in? %>
-            <% unless current_user.favorite_posts.exists?(id: @post.id) %>
-              <%= link_to favorite_posts_path(post_id: @post), method: :post, remote: true do %>
-                <span class="glyphicon glyphicon-star-empty"></span>
-              <% end %>
-            <% else %>
-              <%= link_to favorite_post_path(@post), method: :delete, remote: true do %>
-                <span class="glyphicon glyphicon-star"></span>
-              <% end %>
-            <% end %> |
-          <% end %>
-    
-          Posted <%= time_ago_in_words(@post.created_at) %> ago
-          
-          <% if logged_in? %>
-            <% if (current_user?(@post.user) || current_user.admin?) %>
-            	| <%= link_to  edit_post_path(@post) do %>
-            	  <span class="glyphicon glyphicon-pencil"></span>
-            	<% end %> |
-              <%= link_to @post, method: :delete,
-                                  data: { confirm: "You sure?" } do %>
-                <span class="glyphicon glyphicon-trash"></span>
-            	<% end %>
+	      <% if @post.calories? %><b>Calories: </b><%= @post.calories %> kcal</br><% end %>
+	      <% if @post.protein? || @post.fat? || @post.carbs? %>
+	      <div><b>Macronutrients:</b></br> 
+	        <% if @post.protein? %><b>Protein: </b><%= @post.protein %> g</br><% end %>
+	        <% if @post.fat? %><b>Fat: </b><%= @post.fat %> g</br><% end %>
+	        <% if @post.carbs? %><b>Carbs: </b><%= @post.carbs %> g<% end %>
+	        </div> <% end %>
+	      <% if @post.ingredients? %><b>Ingredients: </b><%= simple_format(@post.ingredients) %></br><% end %>
+	    <% end %>
+      <span class="stamp">
+        <% if logged_in? %>
+          <% unless current_user.favorite_posts.exists?(id: @post.id) %>
+            <%= link_to favorite_posts_path(post_id: @post), method: :post, remote: true do %>
+              <span class="glyphicon glyphicon-star-empty"></span>
             <% end %>
+          <% else %>
+            <%= link_to favorite_post_path(@post), method: :delete, remote: true do %>
+              <span class="glyphicon glyphicon-star"></span>
+            <% end %>
+          <% end %> |
+        <% end %>
+  
+        Posted <%= time_ago_in_words(@post.created_at) %> ago
+        
+        <% if logged_in? %>
+          <% if (current_user?(@post.user) || current_user.admin?) %>
+          	| <%= link_to  edit_post_path(@post) do %>
+          	  <span class="glyphicon glyphicon-pencil"></span>
+          	<% end %> |
+            <%= link_to @post, method: :delete,
+                                data: { confirm: "You sure?" } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+          	<% end %>
           <% end %>
-        </span>  
-    </section>
+        <% end %>
+      </span>  
+    </div>
   </aside>
 
   <div class="col-md-5">
