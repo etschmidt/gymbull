@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(name:  "TheBull",
-             email: "TheBull@gymbull.com",
-             password:              "Eagles69!!",
-             password_confirmation: "Eagles69!!",
+             email: "Thegymbull@gmail.com",
+             password:              "Penises00!!",
+             password_confirmation: "Penises00!!",
              account_type = "user"
              admin: true,
              activated: true,
@@ -17,8 +17,8 @@ User.create!(name:  "TheBull",
              
 User.create!(name:  "EthanTSchmidt",
              email: "ethan.t.schmidt@gmail.com",
-             password:              "Eagles69!!",
-             password_confirmation: "Eagles69!!",
+             password:              "Penises00!!",
+             password_confirmation: "Penises00!!",
              account_type = "user"
              location:  "San Diego",
              about:  "I'm me",
@@ -31,16 +31,6 @@ User.create!(name:  "EthanTSchmidt",
              activated: true,
              activated_at: Time.zone.now)
              
-User.create!(name:  "Dandylion",
-             email: "danielle.dagostino@gmail.com",
-             password:              "Cheese4785",
-             password_confirmation: "Cheese4785",
-             account_type = "user"
-             location:  "San Diego",
-             admin: false,
-             activated: true,
-             activated_at: Time.zone.now)
-
 # Gyms
 15.times do |n|
   last_name = Faker::Name.last_name

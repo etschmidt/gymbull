@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'static_pages#home', as: :tag
   get 'posts/:id', to: 'posts#show'
 
+# special user case routes
   get 'users/:id/tags/:tag', to: 'users#show'
   get 'justjoined', to: 'users#justjoined'
 

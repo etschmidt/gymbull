@@ -92,12 +92,14 @@ class UsersController < ApplicationController
     render 'favorite_posts/show'
   end
   
-  def recent_mires
+=begin  
+  def reverse_mires
     render 'favorite_posts/show'
-    @title = 'Recently Mired'
+    @title = 'Mires'
     @user = User.friendly.find(params[:id])
-    @posts = @user.favorite_posts    
+    @posts = @user.favorite_posts 
   end
+=end
 
   private
     
