@@ -1,4 +1,6 @@
 <% provide(:title, @post.title || @post.id.to_s) %>
+<% provide(:page_desc, "A " + @post.post_type + " by " + @post.user.name) %>
+
 <div class="row">
   
   <div class="col-md-1">
