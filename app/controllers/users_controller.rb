@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
-  before_action :correct_user, only: [:edit, :update, :favorite_posts]
+  before_action :correct_user, only: [:edit, :update, :favorite_posts, :reverse_mires]
   before_action :admin_user, only: :destroy
   
   def index
@@ -92,12 +92,19 @@ class UsersController < ApplicationController
     render 'favorite_posts/show'
   end
   
-=begin  
   def reverse_mires
-    render 'favorite_posts/show'
-    @title = 'Mires'
+    @title = "Reverse Mires"
     @user = User.friendly.find(params[:id])
-    @posts = @user.favorite_posts 
+    @posts = @user.favorite_posts.reverse
+    render 'favorite_posts/show'
+  end
+
+=begin
+  def recent_mires
+    @title = "Recent Mires"
+    @user = User.friendly.find(params[:id])
+    @posts = Favorite.where(user_id: current_user.id)
+    render 'favorite_posts/show'
   end
 =end
 
@@ -111,7 +118,7 @@ class UsersController < ApplicationController
                                    :account_type, :focus, :hours, :pricing,
                                    :equipment, :classes)
     end
-    
+ 
     # Before filters
 
     # Confirms the correct user.
@@ -145,5 +152,5 @@ class UsersController < ApplicationController
                       ORDER BY created_at ASC" 
       User.where("id IN (#{recent_posts})")
     end
-   
+    
 end
