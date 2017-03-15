@@ -152,34 +152,27 @@ But... I copied most of the nev menu from somewhere else...*/
 
 footer {
   margin-top: 45px;
-  margin-left: 100px;
   padding-top: 5px;
   border-top: 1px solid darkslategray;
   color: #777;
+  a {
+    color: #555;
+  }
+  a:hover {
+    color: #222;
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
 }
-
-footer a {
-  color: #555;
-}
-
-footer a:hover {
-  color: #222;
-}
-
-footer small {
-  float: left;
-}
-
-footer ul {
-  float: right;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 15px;
-}
-
 .application {
   position: fixed;
 }
