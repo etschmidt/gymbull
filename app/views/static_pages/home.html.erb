@@ -75,7 +75,7 @@
       <div id="tag_cloud">
         <h4>Trending Tags</h4>
         <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
-          <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+          <%= link_to tag.name.downcase, tag_path(tag.name), class: css_class %>
         <% end %></br>
       </div>
       <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>

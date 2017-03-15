@@ -16,11 +16,11 @@ class Post < ApplicationRecord
   validates :content, presence: true
   validate  :picture_size
 
-    # Validates size of uploaded picture
-    def picture_size
-      if picture.size > 5.megabytes
-        errors.add(:picture, "Woah, buddy! That's too BIG!")
-      end
+  # Validates size of uploaded picture
+  def picture_size
+    if picture.size > 5.megabytes
+      errors.add(:picture, "Woah, buddy! That's too BIG!")
     end
+  end
     
 end
