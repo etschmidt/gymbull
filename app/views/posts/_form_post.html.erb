@@ -5,11 +5,15 @@
       <%= f.hidden_field :post_type, :value => "post" %>
       <%= f.label :content, "Post:", :class => "required" %>
       <%= f.text_area :content, placeholder: "Start typin'...", :required => true %>
-      <div class="flexbox">
+      <div class="flexbox flextags">
         <span class="glyphicon glyphicon-camera"></span>  
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>  
       </div>
-      <div class="flexbox">
+      <div class="flexbox flextags">
+        <span class="glyphicon glyphicon-facetime-video"></span>  
+        <%= f.text_field :youtube_url, placeholder: "Insert YouTube link" %>  
+      </div>
+      <div class="flexbox flextags">
         <span class="glyphicon glyphicon-tags"></span>  
         <%= f.text_field :tag_list, placeholder: "lifting, getbig" %>  
       </div>

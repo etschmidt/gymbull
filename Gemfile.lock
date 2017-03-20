@@ -378,6 +378,7 @@ GEM
     websocket-extensions (0.1.2)
     will_paginate (3.1.5)
     xml-simple (1.1.5)
+    youtube_addy (1.0.4)
 
 PLATFORMS
   ruby
@@ -416,6 +417,7 @@ DEPENDENCIES
   uglifier (= 3.0.0)
   web-console (= 3.1.1)
   will_paginate (= 3.1.5)
+  youtube_addy (~> 1.0)
 
 BUNDLED WITH
    1.12.5

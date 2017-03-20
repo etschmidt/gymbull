@@ -22,5 +22,5 @@ class Post < ApplicationRecord
       errors.add(:picture, "Woah, buddy! That's too BIG!")
     end
   end
-    
+  
 end

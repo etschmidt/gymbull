@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307212848) do
+ActiveRecord::Schema.define(version: 20170320200332) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170307212848) do
     t.integer  "carbs"
     t.integer  "fat"
     t.integer  "protein"
+    t.string   "youtube_url"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -130,6 +131,7 @@ ActiveRecord::Schema.define(version: 20170307212848) do
     t.text     "classes"
     t.text     "hours"
     t.boolean  "email_option",      default: false
+    t.string   "youtube_url"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

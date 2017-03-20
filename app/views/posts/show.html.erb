@@ -75,7 +75,13 @@
   	<div class="content-detail">
 		  
       <%= simple_format(@post.content) %>
-    	<%= image_tag(@post.picture.url(:post), :id => "centerpic") if @post.picture? %>
+      <div class="center">
+      	<%= image_tag @post.picture.url(:post) if @post.picture? %>
+        <% if @post.youtube_url? %>
+          <iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@post.youtube_url) %>" 
+          allowfullscreen="allowfullscreen"></iframe>
+        <% end %>
+      </div>
 
   	  <% if logged_in? %>
   	    <ol class="comments">

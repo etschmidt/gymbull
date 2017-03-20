@@ -15,10 +15,7 @@
       
       	<%= f.label :content, "Post:", :class => "required" %>
         <%= f.text_area :content, :required => true, size: "24x6", class: 'form-control' %>
-	      <div class="flexbox picture">
-	        <span class="glyphicon glyphicon-camera edit"></span>  
-  	      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>  
-    	  </div>
+        
 	  <% elsif workout?(@post) %>
 
 	      <%= f.label :title, "Workout name:" %>
@@ -52,8 +49,15 @@
 	       :required => true %>
 	       
 	    <% end %>
-	    	
-	    	<div class="flexbox">
+	      <div class="flexbox flextags">
+	        <span class="glyphicon glyphicon-camera edit"></span>  
+  	      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %>  
+    	  </div>
+    	  <div class="flexbox flextags">
+        	<span class="glyphicon glyphicon-facetime-video"></span>  
+        	<%= f.text_field :youtube_url, placeholder: "Insert YouTube link", class: 'form-control' %>  
+     		</div>
+	    	<div class="flexbox flextags">
 	    		<span class="glyphicon glyphicon-tags edit"></span>
 	      	<%= f.text_field :tag_list, value: f.object.tag_list.to_s, 
 	      		multiple: true, class: 'form-control' %>	

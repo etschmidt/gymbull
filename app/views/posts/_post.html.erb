@@ -12,12 +12,18 @@
 
         <span class="full-option">
           <%= image_tag post.picture.url(:post) if post.picture? %>
+          <% if post.youtube_url? %>
+            <iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.youtube_url) %>" 
+            allowfullscreen="allowfullscreen"></iframe>
+          <% end %>
         </span>
         <span class="mini-option">
           <%= image_tag post.picture.url(:mini) if post.picture? %>
         </span>
       </div>
-      <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      <div class="taglist">
+        <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      </div>
 
     <% elsif workout?(post) %>
     
@@ -33,9 +39,19 @@
         <% if post.equipment? %> Equipment: <%= post.equipment %></br><% end %>
       </div>
       <div class="inner-content">
-        <span class="full-option post_type"><b>Workout:</b></br></span><%= simple_format(post.content) %>
+        <span class="full-option post_type"><b>Workout:</b></br></span>
+        <%= simple_format(post.content) %>
+        <span class="full-option">
+          <%= image_tag post.picture.url(:post) if post.picture? %>
+          <% if post.youtube_url? %>
+            <iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.youtube_url) %>" 
+            allowfullscreen="allowfullscreen"></iframe>
+          <% end %>
+        </span>
       </div>
+      <div class="taglist">
         <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      </div>
 
     
     <% elsif meal?(post) %>
@@ -57,7 +73,15 @@
         <% if post.ingredients? %>Ingredients: <%= simple_format(post.ingredients) %></br><% end %>
       </div>
       <div class="inner-content">
-        <span class="full-option post_type"><b>Recipe:</b></br></span><%= simple_format(post.content) %>
+        <span class="full-option post_type"><b>Recipe:</b></br></span>
+        <%= simple_format(post.content) %>
+        <span class="full-option">
+          <%= image_tag post.picture.url(:post) if post.picture? %>
+          <% if post.youtube_url? %>
+            <iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.youtube_url) %>" 
+            allowfullscreen="allowfullscreen"></iframe>
+          <% end %>
+        </span>    
       </div>
       <div class="taglist">
         <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
