@@ -10,13 +10,15 @@
       <div class="inner-content">
           <%= simple_format(post.content) %>
 
-        <span class="full-option">
-          <%= image_tag post.picture.url(:post) if post.picture? %>
-          <% if post.youtube_url? %>
-            <iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.youtube_url) %>" 
-            allowfullscreen="allowfullscreen"></iframe>
-          <% end %>
-        </span>
+        <% if post.picture? || post.youtube_url? %>
+          <span class="full-option">
+            <%= image_tag post.picture.url(:post) if post.picture? %>
+            <% if post.youtube_url? %>
+              <iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.youtube_url) %>" 
+              allowfullscreen="allowfullscreen"></iframe>
+            <% end %>
+          </span>
+        <% end %>
         <span class="mini-option">
           <%= image_tag post.picture.url(:mini) if post.picture? %>
         </span>
@@ -41,13 +43,15 @@
       <div class="inner-content">
         <span class="full-option post_type"><b>Workout:</b></br></span>
         <%= simple_format(post.content) %>
-        <span class="full-option">
-          <%= image_tag post.picture.url(:post) if post.picture? %>
-          <% if post.youtube_url? %>
-            <iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.youtube_url) %>" 
-            allowfullscreen="allowfullscreen"></iframe>
-          <% end %>
-        </span>
+        <% if post.picture? || post.youtube_url? %>
+          <span class="full-option">
+            <%= image_tag post.picture.url(:post) if post.picture? %>
+            <% if post.youtube_url? %>
+              <iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.youtube_url) %>" 
+              allowfullscreen="allowfullscreen"></iframe>
+            <% end %>
+          </span>
+        <% end %>
       </div>
       <div class="taglist">
         <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
@@ -75,13 +79,16 @@
       <div class="inner-content">
         <span class="full-option post_type"><b>Recipe:</b></br></span>
         <%= simple_format(post.content) %>
-        <span class="full-option">
-          <%= image_tag post.picture.url(:post) if post.picture? %>
-          <% if post.youtube_url? %>
-            <iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.youtube_url) %>" 
-            allowfullscreen="allowfullscreen"></iframe>
-          <% end %>
-        </span>    
+        
+        <% if post.picture? || post.youtube_url? %>
+          <span class="full-option">
+            <%= image_tag post.picture.url(:post) if post.picture? %>
+            <% if post.youtube_url? %>
+              <iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.youtube_url) %>" 
+              allowfullscreen="allowfullscreen"></iframe>
+            <% end %>
+          </span>
+        <% end %> 
       </div>
       <div class="taglist">
         <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>

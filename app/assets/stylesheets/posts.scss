@@ -38,6 +38,11 @@ $gray-medium-light: #eaeaea;
       .post-id {
         display: none;
       }
+      div.inner-content {
+        p:last-of-type {
+          margin-bottom: 0;
+        }
+      }
       .full-option {
         font-size: 12px;
       }
@@ -105,6 +110,15 @@ $gray-medium-light: #eaeaea;
     }
   }
 }
+
+@media (max-width: 766px) {
+  .posts li div.content {
+    span.post_type {
+      display: none;
+    }
+  }
+}
+
 
 
 /* Mobile */
