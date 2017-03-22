@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320200332) do
+ActiveRecord::Schema.define(version: 20170321163103) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -133,6 +133,11 @@ ActiveRecord::Schema.define(version: 20170320200332) do
     t.boolean  "email_option",      default: false
     t.string   "youtube_url"
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "wods", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
