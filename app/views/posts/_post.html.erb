@@ -8,8 +8,7 @@
       <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase()%></b>
       </span>
       <div class="inner-content">
-          <%= simple_format(post.content) %>
-
+ <!-- pix % videos --> 
         <% if post.picture? || post.youtube_url? %>
           <span class="full-option">
             <%= image_tag post.picture.url(:post) if post.picture? %>
@@ -19,8 +18,11 @@
             <% end %>
           </span>
         <% end %>
+<!--  --> 
+          <%= simple_format(post.content) %>
+
         <span class="mini-option">
-          <%= image_tag post.picture.url(:mini) if post.picture? %>
+          <%= image_tag post.picture.url(:mini) if post.picture? %> <!-- only for posts--> 
         </span>
       </div>
       <div class="taglist">
@@ -42,7 +44,7 @@
       </div>
       <div class="inner-content">
         <span class="full-option post_type"><b>Workout:</b></br></span>
-        <%= simple_format(post.content) %>
+ <!-- pix % videos --> 
         <% if post.picture? || post.youtube_url? %>
           <span class="full-option">
             <%= image_tag post.picture.url(:post) if post.picture? %>
@@ -52,6 +54,9 @@
             <% end %>
           </span>
         <% end %>
+<!--  --> 
+        <%= simple_format(post.content) %>
+
       </div>
       <div class="taglist">
         <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
@@ -78,8 +83,7 @@
       </div>
       <div class="inner-content">
         <span class="full-option post_type"><b>Recipe:</b></br></span>
-        <%= simple_format(post.content) %>
-        
+ <!-- pix % videos --> 
         <% if post.picture? || post.youtube_url? %>
           <span class="full-option">
             <%= image_tag post.picture.url(:post) if post.picture? %>
@@ -88,7 +92,10 @@
               allowfullscreen="allowfullscreen"></iframe>
             <% end %>
           </span>
-        <% end %> 
+        <% end %>
+<!--  --> 
+        <%= simple_format(post.content) %>
+
       </div>
       <div class="taglist">
         <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
