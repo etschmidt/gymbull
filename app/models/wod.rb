@@ -5,11 +5,11 @@ class Wod < ApplicationRecord
     @time = time
     @rounds = rounds
     @pull = PULLS.first
-		@run = RUNS.first
-		@sit = SITS.first
-		@jump = JUMPS.first
-		@light = LIGHTS.first
-		@heavy = HEAVYS.first
+    @run = RUNS.first
+    @sit = SITS.first
+    @jump = JUMPS.first
+    @light = LIGHTS.first
+    @heavy = HEAVYS.first
     @pull2 = PULLS.last
     @run2 = RUNS.last
     @sit2 = SITS.last
@@ -56,12 +56,12 @@ class Wod < ApplicationRecord
 
 WOD_TYPES = ["AMRAP", "RFT", "AMRAP", "RFT", "EMOM"]    #reduces the chances of EMOMs
 PULLS = ["StrPullups", "StrHSPU", "BarMU", "RingMU", "RingDips", "RopeClimb",
-				 "KipPullups", "T2B", "C2B"].shuffle
+         "KipPullups", "T2B", "C2B"].shuffle
 RUNS = ["CalRow", "Row", "CalBike", "DU", "Run"].shuffle
 SITS = ["Situps", "KBS", "KBSn", "KBC", "GHD", "HipExt", "Slamballs", "Pushups"].shuffle
 JUMPS = ["BoxJumps", "BBJ", "BJO", "BBJO", "AirSquats", "Pistols", "Lunges",
          "Burpees", "Wallballs"].shuffle
-LIGHTS = ["OHP", "C&Press", "SDLHP", "Snatches", "HangSnatch", "PowerSnatch", "HPS", "Thrusters", "OHS"].shuffle
+LIGHTS = ["OHP", "C&Press", "SDLHP", "Snatches", "HangSnatch", "PowerSnatch", "HPS", "Thrusters", "Clusters", "OHS"].shuffle
 HEAVYS = ["BackSquat", "FrontSquat", "Deadlift", "PushJerk", "PushPress", "Cleans", "HangClean", "PowerClean", "HPC", "C&J"].shuffle
 
   # for the Strength & Skill
@@ -100,7 +100,9 @@ DEATHS = ["Calorie Row", "Wallballs", "Deadlifts", "Front Squats", "Kettlebell S
 # number of reps for each movement
   def reps(movement)
     if @wod_type == "EMOM"
-      if movement == "RopeClimb"
+      if movement == "C&Press" or movement == "Clusters" or movement == "C&J"
+        return rand(1..2)
+      elsif movement == "RopeClimb"
         return 1
       else
         return rand(2..4)
@@ -120,13 +122,13 @@ DEATHS = ["Calorie Row", "Wallballs", "Deadlifts", "Front Squats", "Kettlebell S
         return rand(2..9)   
   # this is rdundant to allow for futher refinement   
       elsif @wod_type == "AMRAP"
-        if @time > 12
-          return rand(15..40)
-        else 
+        if @time < 12
           return rand(3..21)
+        else 
+          return rand(5..30)
         end
       elsif @rounds < 5    #@wod_type is RFT
-        return rand(15..40)
+        return rand(5..30)
       else
         return rand(3..21)
       end
@@ -142,23 +144,29 @@ DEATHS = ["Calorie Row", "Wallballs", "Deadlifts", "Front Squats", "Kettlebell S
       if @rounds < 5
         return ["#{@set1}", "#{@set2}", "#{@set3}", "#{@set4}",
                 "#{@set5}", "#{@set6}", "#{@set7}", "#{@set8}"]
-               .sample(rand(4..7)).map { |i| "" + i.to_s + "" }.join("\n")
+               .sample(rand(3..7)).map { |i| "" + i.to_s + "" }.join("\n")
       else
         return ["#{@set1}", "#{@set2}", "#{@set3}", "#{@set4}",
                 "#{@set5}", "#{@set6}", "#{@set7}", "#{@set8}"]
-               .sample(rand(2..5)).map { |i| "" + i.to_s + "" }.join("\n")
+               .sample(rand(2..4)).map { |i| "" + i.to_s + "" }.join("\n")
       end
     else     # wod_type is AMRAP
-      return ["#{@set1}", "#{@set2}", "#{@set3}", "#{@set4}",
-              "#{@set5}", "#{@set6}", "#{@set7}", "#{@set8}"]
-             .sample(rand(2..7)).map { |i| "" + i.to_s + "" }.join("\n")
+      if @time < 12
+        return ["#{@set1}", "#{@set2}", "#{@set3}", "#{@set4}",
+                "#{@set5}", "#{@set6}", "#{@set7}", "#{@set8}"]
+               .sample(rand(3..7)).map { |i| "" + i.to_s + "" }.join("\n")
+      else
+        return ["#{@set1}", "#{@set2}", "#{@set3}", "#{@set4}",
+                "#{@set5}", "#{@set6}", "#{@set7}", "#{@set8}"]
+               .sample(rand(2..4)).map { |i| "" + i.to_s + "" }.join("\n")
+      end
     end
   end
 
 # if one of the movemnts is a light BB, then the heavy BB defaults to that weight as well
 # clearly, there must be a better way to do this than check the regex against the string
   def bbweight
-    if @sets.to_s =~ /OHP|C&Press|SDLHP|Snatches|HangSnatch|PowerSnatch|HPS|Thrusters|OHS/ 
+    if @sets.to_s =~ /OHP|C&Press|SDLHP|Snatches|HangSnatch|PowerSnatch|HPS|Thrusters|Clusters|OHS/ 
       return ["75/55", "95/65", "115/85", "135/95"].sample + "#\n"
     elsif @sets.to_s =~ /PushJerk|PushPress|HPC|C&J/
       return ["115/85", "135/95", "155/105", "185/115"].sample + "#\n"
@@ -221,18 +229,18 @@ DEATHS = ["Calorie Row", "Wallballs", "Deadlifts", "Front Squats", "Kettlebell S
   end
 
   def print_wod
-		if @wod_type == "EMOM"
-		  "WOD:\n" +
-    	"#{@wod_type} #{@time}\n\n" +
-    	"#{@sets}\n\n" +
+    if @wod_type == "EMOM"
+      "WOD:\n" +
+      "#{@wod_type} #{@time}\n\n" +
+      "#{@sets}\n\n" +
       "#{bbweight}" +
       "#{kbweight}" +
       "#{height}" +
       "#{slamweight}" +
       "#{wallweight}"
     else
-		  "WOD:\n" +
-    	"#{@rounds}#{@wod_type}#{@time}\n\n" +
+      "WOD:\n" +
+      "#{@rounds}#{@wod_type}#{@time}\n\n" +
       "#{@sets}\n\n" +
       "#{bbweight}" +
       "#{kbweight}" +
