@@ -122,7 +122,7 @@ DEATHS = ["Calorie Row", "Wallballs", "Deadlifts", "Front Squats", "Kettlebell S
         return rand(2..9)   
   # this is redundant to allow for futher refinement
       elsif @wod_type == "RFT"
-        if @rounds < 5    #@wod_type is RFT
+        if @rounds < 5
           return [15, 20, 25, 30].sample
         else
           return rand(3..21) 
