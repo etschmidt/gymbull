@@ -26,13 +26,13 @@ class StaticPagesController < ApplicationController
       end
     else
       if params[:tag]
-        @search = Post.where(post_type: ["workout", "meal"]).tagged_with(params[:tag]).search(params[:q])
+        @search = Post.tagged_with(params[:tag]).search(params[:q])
         @feed_items = @search.result.paginate(page: params[:page], per_page: 15)
       elsif params[:q].blank?
-        @search = Post.where(post_type: ["workout", "meal"]).search(params[:q])
+        @search = Post.search(params[:q])
         @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
       else 
-        @search = Post.where(post_type: ["workout", "meal"]).search(params[:q])
+        @search = Post.search(params[:q])
         @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
       end
     end
