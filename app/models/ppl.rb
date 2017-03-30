@@ -8,7 +8,7 @@ class Ppl < ApplicationRecord
 	end
 	
 	CHEST = ["SATOR", "AREPO"].shuffle
-	SHOLDERS = ["TENET", "OPERA"].shuffle
+	SHOULDERS = ["TENET", "OPERA"].shuffle
 	TRICEPS = ["ROTAS"].shuffle
 	
 	BACK = ["SATOR", "AREPO"].shuffle
