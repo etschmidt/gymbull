@@ -65,9 +65,20 @@ class Ppl < ApplicationRecord
 		end 
 	end
 	
+	def muscles
+		if @day == "Monday" or @day == "Thursday"
+			return "Chest, Shoulders & Triceps"
+		elsif @day == "Tuesday" or @day == "Friday"
+			return "Back, Traps & Biceps"
+		elsif @day == "Wednesday" or @day == "Saturday"
+			return "Quads, Hamstrings & Calves"
+		else
+			return "None"
+		end 
+	end
+	
 	def isolates
 		if @title == "Push"
-			@muscles = "Chest, Shoulders & Triceps"
 			@iso1a = CHEST.first
 			@iso1b = CHEST.last
 			@iso2a = SHOULDERS.first
@@ -75,7 +86,6 @@ class Ppl < ApplicationRecord
 			@iso3a = TRICEPS.first
 			@iso3b = TRICEPS.last
 		elsif @title == "Push"
-			@muscles = "Back, Traps & Biceps"
 			@iso1a = BACK.first
 			@iso1b = BACK.last
 			@iso2a = TRAPS.first
@@ -83,7 +93,6 @@ class Ppl < ApplicationRecord
 			@iso3a = BICEPS.first
 			@iso3b = BICEPS.last
 		else @title == "Push"
-			@muscles = "Quads, Hamstrings & Calves"
 			@iso1a = QUADS.first
 			@iso1b = QUADS.last
 			@iso2a = HAMSTRINGS.first
@@ -95,31 +104,37 @@ class Ppl < ApplicationRecord
 	
 	def compounds
 		if @day == "Monday"
+			@title = "Monday - Push"
 			@compound1 = "Flat Barbell Bench Press"
 			@compound2 = "Seated Dumbbell Overhead Press"
 		elsif @day == "Tuesday"
+   		@title = "Tuesday - Pull"
 			@compound1 = "Deadlift"
 			@compound2 = "Weighted Chin-ups"
 		elsif @day == "Wednesday"
+			@title = "Wednesday - Legs"
 			@compound1 = "Back Squat"
 			@compound2 = ""
 		elsif @day == "Thursday"
+			@title = "Thursday - Push"
 			@compound1 = "Standing Military Press"
 			@compound2 = "Incline Dumbbel Bench Press"
 		elsif @day == "Friday"
+			@title = "Friday - Pull"
 			@compound1 = "Snatch Grip Deadlift"
 			@compound2 = "Weighted Pull-ups"
 		elsif @day == "Saturday"
+			@title = "Saturday - Legs"
 			@compound1 = "Front Squat"
 			@compound2 = "Seated Dumbbell Overhead Press"
 		else #Sunday
+			@title = "Sunday - Rest"
 			@compound1 = ""
 			@compound2 = ""
 		end 
 	end
 		
 	def print_ppl
-		print "#{@day} - #{@title}\n\n" +
 		"5 x 5:\n" +
 		"#{@compound1}\n" +
 		"#{@compound2}\n\n" +
@@ -133,7 +148,6 @@ class Ppl < ApplicationRecord
 		"5 x 20:\n" +
 		"#{@abs1}\n" +
 		"#{@abs2}\n"
-		
 	end
 	
 	
