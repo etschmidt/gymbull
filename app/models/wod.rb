@@ -56,7 +56,7 @@ class Wod < ApplicationRecord
 
 WOD_TYPES = ["AMRAP", "RFT", "AMRAP", "RFT", "EMOM"]    #reduces the chances of EMOMs
 PULLS = ["StrPullups", "StrHSPU", "BarMU", "RingMU", "RingDips", "RopeClimb",
-         "KipPullups", "T2B", "C2B"].shuffle
+         "KipPullups", "T2B", "C2B", "KTE"].shuffle
 RUNS = ["CalRow", "Row", "CalBike", "DU", "Run"].shuffle
 SITS = ["Situps", "KBS", "KBSn", "KBC", "GHD", "HipExt", "Slamballs", "Pushups"].shuffle
 JUMPS = ["BoxJumps", "BBJ", "BJO", "BBJO", "AirSquats", "Pistols", "Lunges",
