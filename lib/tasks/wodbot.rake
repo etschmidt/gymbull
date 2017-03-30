@@ -1,11 +1,19 @@
-task :testpost => :environment do
+task :testwod => :environment do
 	wod = Wod.new
 	
 	print wod.print_ss
 	print wod.print_wod
 end
 
-task :post => :environment do
+task :testppl => :environment do
+	ppl = Ppl.new
+	ppl.isolates
+	ppl.compounds
+	
+	print ppl.print_ppl
+end
+
+task :postwod => :environment do
 	wod = Wod.new
 	
 	post = Post.new(user_id: 128,

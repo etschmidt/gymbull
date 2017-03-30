@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321163103) do
+ActiveRecord::Schema.define(version: 20170328190214) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -66,6 +66,11 @@ ActiveRecord::Schema.define(version: 20170321163103) do
     t.integer  "protein"
     t.string   "youtube_url"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "ppls", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "relationships", force: :cascade do |t|
