@@ -7,19 +7,50 @@ class Ppl < ApplicationRecord
 		@abs2 = ABS.last
 	end
 	
-	CHEST = ["SATOR", "AREPO"].shuffle
-	SHOULDERS = ["TENET", "OPERA"].shuffle
-	TRICEPS = ["ROTAS"].shuffle
+	CHEST = ["Dumbbell Floor Press", "Cable Crossovers (mid chest)", "Cable Crossovers (bent over)", "Wide Reverse Grip Bench Press", "Decline Bench Press",
+	"Decline Dumbbell Bench Press", "Incline Bench Press", "Dumbbell Flys", "Pec Dec", "Machine Flys", 
+	"Chest Dip", "Incline Dumbbell Flys", "Dumbbell Pullover", "Lying Cable Pullover", "Barbell Pullover", 
+	"Alternate Dumbbell Bench Press (high start)", "Decline Dumbbell Flys", "Reverse Dumbbell Bench Press", "Reverse Grip Bench Press", "Muscle Clean & Press"].shuffle
 	
-	BACK = ["SATOR", "AREPO"].shuffle
-	TRAPS = ["TENET", "OPERA"].shuffle
-	BICEPS = ["ROTAS"].shuffle
+	SHOULDERS = ["Seated Arnold Press", "Weight Plate Front Raise", "Rear Delt Barbell Row To Neck", "Seated Dumbbell Lateral Raise", "Standing Arnold Press",
+	"Alternate Bent Over Dumbbell Reverse Fly", "Dumbbell Lateral Raise", "Dumbbell Front Raise", "Seated Bent Over Dumbbell Reverse Fly", "Cable Lateral Raise", 
+	"Lying Rear Delt Barbell Raise", "Dublin Press", "Cuban Press", "Cable Front Raise", "Seated Barbell Front Raise", 
+	"Dumbbell Reverse Fly On Incline Bench", "Machine Reverse Flys", "Military Press Behind Neck", "Alternate Seated Dumbbell Press", "One Arm Standing Dumbbell Front Raise"].shuffle
 	
-	QUADS = ["SATOR", "AREPO"].shuffle
-	HAMSTRINGS = ["TENET", "OPERA"].shuffle
-	CALVES = ["ROTAS"].shuffle
+	TRICEPS = ["Dumbbell Tricep Kickback", "One Arm Standing Dumbbell Extension", "Close Grip Push Up", "Weighted Tricep Dips", "Alternate Lying Dumbbell Extension",
+	"EZ Bar Incline Skullcrusher", "Incline Two Arm Dumbbell Extension", "One Arm Seated Overhead Tricep Extension", "Lying Tricep Extension ", "Close Grip Bench Press", 
+	"High Pulley Overhead Rope Extension", "EZ Bar Skullcrusher", "French Press", "One Arm Seated Dumbbell Extension", "Lying Dumbbell Extension", 
+	"Seated French Press", "Two Arm Cable Tricep Kickback", "Weighted Bench Dips", "Close Grip Dumbbell Press", "Decline Lying Dumbbell Extension"].shuffle
 	
-	ABS = ["SATOR", "AREPO"].shuffle
+	BACK = ["Close Grip Pull Up", "Straight Arm Lat Pull Down", "Behind Neck Lat Pull Down", "V-Bar Pull Up", "Close Grip Lat Pull Down",
+	"Rope Lat Pull Down", "Underhand Close Grip Lat Pull Down", "Close Grip Lat Pull Down", "Rope Pull Up", "Lat Pull Down", 
+	"Incline Bench Two Arm Dumbbell Row", "Cable Seated Row", "One Arm Dumbbell Row", "Bent Over Dumbbell Row", "T-Bar Row", 
+	"EZ Bar Reverse Grip Bent Over Row", "Standing One Arm Cable Row", "Reverse Grip Bent Over Row", "Incline Bench Barbell Row", "One Arm T-Bar Row"].shuffle
+	
+	TRAPS = ["Dumbbell Upright Row", "Cable Upright Row", "Behind The Back Barbell Shrug", "One Arm Dumbbell Upright Row", "Barbell Shrug",
+	"Dumbbell Shrug", "Barbell Upright Row", "Barbell Wide Grip Row", "Sumo Deadlift High Pull", "Cable Shrug", 
+	"Seated Cable Shrug", "Seated Dumbbell Shrug", "Seated Cable Face Pull", "Tate Press", "Cable Face Pull"].shuffle
+	
+	BICEPS = ["Cross Body Hammer Curl", "EZ Bar Curl", "Alternating Standing Dumbbell Curl", "Dumbbell Preacher Curl", "Cable Curl",
+	"Zottman Curl", "Close Grip EZ Bar Curl", "Rope Cable Curl", "Wide Grip EZ Bar Curl", "Alternate Seated Hammer Curl", 
+	"Concentration Curl", "Incline Dumbbell Curl", "EZ Bar Preacher Curl", "Standing Dumbbell Curl", "Standing Hammer Curl", 
+	"Standing Barbell Curl", "Barbell Preacher Curl", "Alternate Seated Dumbbell Curl", "Alternate Standing Hammer Curl", "Hammer Bar Preacher Curl"].shuffle
+	
+	QUADS = ["Leg Extension", "One Leg Dumbbell Squat", "Dumbbell Walking Lunge", "Barbell Walking Lunge", "Goblet Squat",
+	"Dumbbell Jumping Squat", "Wide Squat", "Dumbbell Rear Lunge", "Leg Press", "Dumbbell Step Up", 
+	"Zerchers squat", "Narrow Squat", "Weighted Pistol Squat", "Single Leg Extension", "Single Leg Press", 
+	"Dumbbell Lunge", "Barbell Lunge"].shuffle
+	
+	HAMSTRINGS = ["Leg Curl", "Dumbbell Stiff Leg Deadlift", "Good Mornings", "Romanian Deadlift", "Dumbbell Hamstring Curl",
+	"Lying Cable Hamstring Curl", "Single Leg Curl", "One Leg Lying Cable Hamstring Curl", "Wide Grip Deadlift", " Wide Grip Romanian Deadlift"].shuffle
+	
+	CALVES = ["Standing Barbell Calf Raise", "Seated Barbell Calf Raise", "Standing Dumbbell Calf Raise", "One Leg Seated Dumbbell Calf Raise", "Rocking Standing Calf Raise",
+	"Donkey Calf Raise", "One Leg Donkey Calf Raise", "45 Degree Toe Raise"].shuffle
+	
+	ABS = ["Scullers", "Abdominal Air Bike", "Lying Alternate Floor Leg Raise", "Standing Barbell Twist", "Wood Chop",
+	"Standing Cable Crunch", "Kneeling Cable Crunch", "Dumbbell Side Bends", "Weighted Crunch", "Decline Sit Up", 
+	"Lying Bench Leg Raise", "Hanging Knee Raise", "Strict Toes to Bar", "Russian Twist", "Seated Barbell Twist", 
+	"Twisting Decline Sit Up", "Lying Heel Touches", "Twisting Hanging Knee Raise", "Saw in Plank", "Ab Rollout"].shuffle
 	
 	
 	def title
@@ -94,9 +125,9 @@ class Ppl < ApplicationRecord
 		"#{@compound2}\n\n" +
 		"4 x 8-12:\n" +
 		"#{@iso1a}\n" +
-		"#{@iso1b}\n\n" +
-		"#{@iso2a}\n" +
-		"#{@iso2b}\n\n" +
+		"#{@iso1b}\n" +
+		"#{@iso2a}\n\n" +
+		"#{@iso2b}\n" +
 		"#{@iso3a}\n" +
 		"#{@iso3b}\n\n" +
 		"5 x 20:\n" +
