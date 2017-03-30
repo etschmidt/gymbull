@@ -21,10 +21,10 @@ class StaticPagesController < ApplicationController
       
       if params[:tag]
         @feed_items = Post.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 15)
-      else 
-        @feed_items = Post.includes(:tags).all.paginate(page: params[:page], per_page: 15)
+      else # normal, default feed
+        @feed_items = current_user.feed.includes(:tags).all.paginate(page: params[:page], per_page: 15)
       end
-    else
+    else #not logged in
       if params[:tag]
         @search = Post.tagged_with(params[:tag]).search(params[:q])
         @feed_items = @search.result.paginate(page: params[:page], per_page: 15)
