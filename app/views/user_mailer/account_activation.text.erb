@@ -1,15 +1,12 @@
-Hi <%= @user.name %>,
+<%= @user.name %>,
 
 Welcome to GymBull and thank you for signing up! We're super-duper excited to
 have you onboard! Click on the link below to activate your account, and then 
 you can add more information to your profile, find and follow other users and gyms, 
-or share workouts, meals, and more with everyone else.
+or share workouts, meals, and more.
 
+Please confirm your email address through the link below.
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
 
-If you have the time, please fill out our quick Survey at:
-
-https://drive.google.com/open?id=1_ONTKbeESZZ-1ZbBvLtqcS-BN3YMr-W6CUkvfhWxcuw">SURV</a>
-
-Shref=incerely,
+Sincerely,
 The GymBull Bull
