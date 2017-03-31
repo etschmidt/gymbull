@@ -141,10 +141,10 @@ class Ppl < ApplicationRecord
 			"#{@compound2}\n\n" +
 			"4 x 8-12:\n" +
 			"#{@iso1a}\n" +
+			"#{@iso2a}\n" +
+			"#{@iso3a}\n\n" +
 			"#{@iso1b}\n" +
-			"#{@iso2a}\n\n" +
 			"#{@iso2b}\n" +
-			"#{@iso3a}\n" +
 			"#{@iso3b}\n\n" +
 			"5 x 20:\n" +
 			"#{@abs1}\n" +
