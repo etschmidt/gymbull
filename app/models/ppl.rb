@@ -78,21 +78,21 @@ class Ppl < ApplicationRecord
 	end
 	
 	def isolates
-		if @title == "Push"
+		if @day == "Monday" or @day == "Thursday"
 			@iso1a = CHEST.first
 			@iso1b = CHEST.last
 			@iso2a = SHOULDERS.first
 			@iso2b = SHOULDERS.last
 			@iso3a = TRICEPS.first
 			@iso3b = TRICEPS.last
-		elsif @title == "Push"
+		elsif @day == "Tuesday" or @day == "Friday"
 			@iso1a = BACK.first
 			@iso1b = BACK.last
 			@iso2a = TRAPS.first
 			@iso2b = TRAPS.last
 			@iso3a = BICEPS.first
 			@iso3b = BICEPS.last
-		else @title == "Legs"
+		else @day == "Wednesday" or @day == "Saturday"
 			@iso1a = QUADS.first
 			@iso1b = QUADS.last
 			@iso2a = HAMSTRINGS.first
@@ -135,19 +135,23 @@ class Ppl < ApplicationRecord
 	end
 		
 	def print_ppl
-		"5 x 5:\n" +
-		"#{@compound1}\n" +
-		"#{@compound2}\n\n" +
-		"4 x 8-12:\n" +
-		"#{@iso1a}\n" +
-		"#{@iso1b}\n" +
-		"#{@iso2a}\n\n" +
-		"#{@iso2b}\n" +
-		"#{@iso3a}\n" +
-		"#{@iso3b}\n\n" +
-		"5 x 20:\n" +
-		"#{@abs1}\n" +
-		"#{@abs2}\n"
+		unless @title == "Rest"
+			"5 x 5:\n" +
+			"#{@compound1}\n" +
+			"#{@compound2}\n\n" +
+			"4 x 8-12:\n" +
+			"#{@iso1a}\n" +
+			"#{@iso1b}\n" +
+			"#{@iso2a}\n\n" +
+			"#{@iso2b}\n" +
+			"#{@iso3a}\n" +
+			"#{@iso3b}\n\n" +
+			"5 x 20:\n" +
+			"#{@abs1}\n" +
+			"#{@abs2}\n"
+		else
+			"Rest"
+		end
 	end
 	
 	
