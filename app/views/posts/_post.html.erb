@@ -144,11 +144,10 @@
         | <span class="comment_count"><b><%= post.comments.count %> comments</b></span>
       <% end %>
       <span class="full-option">
-      | Posted <%= time_ago_in_words(post.created_at) %> ago
         <% if current_user?(post.user) %>
           <%= link_to post, method: :delete, data: { confirm: "You sure?" },
                             :remote => true do %>
-            <span class="glyphicon glyphicon-trash"></span>
+             | <span class="glyphicon glyphicon-trash"></span>
           <% end %>
         <% end %>
       </span>
