@@ -92,7 +92,7 @@ class Ppl < ApplicationRecord
 			@iso2b = TRAPS.last
 			@iso3a = BICEPS.first
 			@iso3b = BICEPS.last
-		else @title == "Push"
+		else @title == "Legs"
 			@iso1a = QUADS.first
 			@iso1b = QUADS.last
 			@iso2a = HAMSTRINGS.first
