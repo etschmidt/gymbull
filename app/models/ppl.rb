@@ -135,7 +135,9 @@ class Ppl < ApplicationRecord
 	end
 		
 	def print_ppl
-		unless @title == "Rest"
+		if @title == "Rest"
+			"Rest Day"
+		else
 			"5 x 5:\n" +
 			"#{@compound1}\n" +
 			"#{@compound2}\n\n" +
@@ -149,8 +151,6 @@ class Ppl < ApplicationRecord
 			"5 x 20:\n" +
 			"#{@abs1}\n" +
 			"#{@abs2}\n"
-		else
-			"Rest"
 		end
 	end
 	

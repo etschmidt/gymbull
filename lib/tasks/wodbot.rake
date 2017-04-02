@@ -33,6 +33,8 @@ namespace :ppl do
 		ppl = Ppl.new
 		ppl.isolates
 		ppl.compounds
+		ppl.title
+		ppl.muscles
 		
 		post = Post.new(user_id: 131,
 							 post_type: "workout",
