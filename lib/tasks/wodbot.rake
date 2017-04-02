@@ -23,7 +23,6 @@ namespace :ppl do
 		ppl = Ppl.new
 		ppl.isolates
 		ppl.compounds
-		ppl.title
 		ppl.muscles
 		
 		print ppl.print_ppl
@@ -33,10 +32,9 @@ namespace :ppl do
 		ppl = Ppl.new
 		ppl.isolates
 		ppl.compounds
-		ppl.title
 		ppl.muscles
 		
-		post = Post.new(user_id: 131,
+		post = Post.new(user_id: 2,
 							 post_type: "workout",
 							 title: Date.today.strftime("%A") + " - " + ppl.title,
 							 body_parts: ppl.muscles,

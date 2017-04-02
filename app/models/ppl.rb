@@ -52,19 +52,6 @@ class Ppl < ApplicationRecord
 	"Lying Bench Leg Raise", "Hanging Knee Raise", "Strict Toes to Bar", "Russian Twist", "Seated Barbell Twist", 
 	"Twisting Decline Sit Up", "Lying Heel Touches", "Twisting Hanging Knee Raise", "Saw in Plank", "Ab Rollout"].shuffle
 	
-	
-	def title
-		if @day == "Monday" or @day == "Thursday"
-			return "Push"
-		elsif @day == "Tuesday" or @day == "Friday"
-			return "Pull"
-		elsif @day == "Wednesday" or @day == "Saturday"
-			return "Legs"
-		else
-			return "Rest"
-		end 
-	end
-	
 	def muscles
 		if @day == "Monday" or @day == "Thursday"
 			return "Chest, Shoulders & Triceps"
@@ -72,7 +59,7 @@ class Ppl < ApplicationRecord
 			return "Back, Traps & Biceps"
 		elsif @day == "Wednesday" or @day == "Saturday"
 			return "Quads, Hamstrings & Calves"
-		else
+		elsif @day == "Sunday"
 			return "None"
 		end 
 	end
@@ -128,14 +115,14 @@ class Ppl < ApplicationRecord
 			@compound1 = "Front Squat"
 			@compound2 = "Seated Dumbbell Overhead Press"
 		else #Sunday
-			@title = "Sunday - Rest"
+			@title = "Sunday"
 			@compound1 = ""
 			@compound2 = ""
 		end 
 	end
 		
 	def print_ppl
-		if @title == "Rest"
+		if @day == "Sunday"
 			"Rest Day"
 		else
 			"5 x 5:\n" +
