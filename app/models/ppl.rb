@@ -51,6 +51,24 @@ class Ppl < ApplicationRecord
 	"Standing Cable Crunch", "Kneeling Cable Crunch", "Dumbbell Side Bends", "Weighted Crunch", "Decline Sit Up", 
 	"Lying Bench Leg Raise", "Hanging Knee Raise", "Strict Toes to Bar", "Russian Twist", "Seated Barbell Twist", 
 	"Twisting Decline Sit Up", "Lying Heel Touches", "Twisting Hanging Knee Raise", "Saw in Plank", "Ab Rollout"].shuffle
+
+	def title
+		if @day == "Monday"
+			return "Monday - Push"
+		elsif @day == "Tuesday"
+   		return "Tuesday - Pull"
+		elsif @day == "Wednesday"
+			return "Wednesday - Legs"
+		elsif @day == "Thursday"
+			return "Thursday - Push"
+		elsif @day == "Friday"
+			return "Friday - Pull"
+		elsif @day == "Saturday"
+			return "Saturday - Legs"
+		else #Sunday
+			return "Sunday"
+		end 
+	end
 	
 	def muscles
 		if @day == "Monday" or @day == "Thursday"

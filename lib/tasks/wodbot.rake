@@ -36,7 +36,7 @@ namespace :ppl do
 		
 		post = Post.new(user_id: 2,
 							 post_type: "workout",
-							 title: Date.today.strftime("%A") + " - " + ppl.title,
+							 title: ppl.title,
 							 body_parts: ppl.muscles,
 							 duration: 45,
 							 content: ppl.print_ppl, 
