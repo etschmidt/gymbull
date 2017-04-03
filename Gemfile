@@ -21,6 +21,7 @@ gem 'ransack',                 '1.8.2'   #searching
 gem 'friendly_id',             '~> 5.1'  #URL helpers
 gem 'public_activity',         '~> 1.5'  #activity feed
 gem 'youtube_addy',            '~> 1.0'  #youtube url parser
+gem 'social-share-button',      '~> 0.10.0' #socail share buttons
 
 group :development, :test do
   gem 'sqlite3',               '1.3.11'
