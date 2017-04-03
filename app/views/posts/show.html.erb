@@ -31,7 +31,7 @@
 	        </div> <% end %>
 	      <% if @post.ingredients? %><b>Ingredients: </b><%= simple_format(@post.ingredients) %></br><% end %>
 	    <% end %>
-      <span class="stamp">
+      <div class="stamp">
         <% if logged_in? %>
           <% unless current_user.favorite_posts.exists?(id: @post.id) %>
             <%= link_to favorite_posts_path(post_id: @post), method: :post, remote: true do %>
@@ -57,10 +57,10 @@
           	<% end %>
           <% end %>
         <% end %>
-      </span>  
-      <span class="share-buttons">
+      </div>  
+      <div class="share-buttons">
         <%= social_share_button_tag(@post.title) %>
-      </span>
+      </div>
     </div>
   </aside>
 

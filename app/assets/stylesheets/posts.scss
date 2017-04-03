@@ -134,11 +134,13 @@ aside {
     padding-top: 10px !important;
     text-align: left;
     font-size: 1.1em;
-    span {
+    .stamp {
       display: inline;
       line-height: 1;
-      font-size: 11px ;
-      margin-bottom: 0;
+      font-size: 12px ;
+    }
+    .share-buttons {
+      margin-top: 3px;
     }
   }
 }
