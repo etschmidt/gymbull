@@ -152,5 +152,13 @@ class UsersController < ApplicationController
                       ORDER BY created_at ASC" 
       User.where("id IN (#{recent_posts})")
     end
-    
+=begin  fuck this shit
+    def allmires
+          @mireds = Post.where(@user.id = user_id)
+      allmires = "SELECT user_id
+      FROM favorites
+      INNER JOIN posts
+      ON posts.id = favorited_id"
+    end
+=end
 end
