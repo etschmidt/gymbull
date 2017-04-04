@@ -85,11 +85,14 @@ $gray-medium-light: #eaeaea;
         font-size: 12px;
         a span.comment_count b {
           color: #777777;
-    // I have no idea how to remove the fucking underline
-          a span.comment_count b:hover {
-            text-decoration: none;
+          a:hover {
+            color: darkslategrey;
           }
-        }      
+        }
+        a:hover {
+          text-decoration: none;
+          color: darkslategrey;
+        }
       }
     }
   }
