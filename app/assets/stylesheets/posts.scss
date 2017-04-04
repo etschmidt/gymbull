@@ -140,7 +140,11 @@ aside {
     .stamp {
       display: inline;
       line-height: 1;
-      font-size: 12px ;
+      font-size: 12px;
+      a:hover {
+        text-decoration: none;
+        color: darkslategrey;
+      }
     }
     .share-buttons {
       margin-top: 3px;
@@ -148,12 +152,20 @@ aside {
   }
 }
 
-.content-detail {
-  background-color: #fff;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  padding: 5px 10px 10px 10px;
-  border: 1px solid #ddd;
+.col-md-5 {
+  .title-bar.middle {
+    h1 {
+      margin: auto;
+      width: 50%;
+    }
+  }
+  .content-detail {
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px 10px 10px 10px;
+    border: 1px solid #ddd;
+  }
 }
 
 .navbar-nav .glyphicon {
