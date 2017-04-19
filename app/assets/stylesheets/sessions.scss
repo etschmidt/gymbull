@@ -6,25 +6,13 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
- @media (max-width: 978px) {
-    .container {
-      padding:0;
-      margin:0;
-    }
- }
- 
- .loginpage {
-
   a {
     -webkit-transition: all 0.35s;
     -moz-transition: all 0.35s;
     transition: all 0.35s;
   }
 
-  header {
-    .container {
-      margin-right: 0 !important;
-    }
+  .loginpage {
     position: relative;
     min-height: auto;
     overflow-y: hidden;
@@ -66,6 +54,7 @@
 
 
   section {
+    width: 120%;
     padding: 100px 0;
   }
   section h2 {
@@ -266,4 +255,3 @@
   body {
     webkit-tap-highlight-color: #222222;
   }
-}
