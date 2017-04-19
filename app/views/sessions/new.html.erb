@@ -1,108 +1,92 @@
 <% provide(:title, "Log in") %>
 
-  <div class="loginpage">
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="header-content">
-                        <div class="header-content-inner panel panel-default">
-                          <div class="login panel-body">
-                            <h1>GymBull</h1>
-                            <h2>A Culture of Fitness Without the Bullshit</h2>
-                            <%= form_for(:session, url: login2_path) do |f| %>
-                        
-                              <%= f.label :email %>
-                              <%= f.email_field :email, class: 'form-control' %>
-                        
-                              <%= f.label :password %>
-                              <span class="has-tooltip" data-toggle="tooltip" title="Must contain: at least 8 characters, 
-                                                                                  at least 1 uppercase, 1 lowercase, and 1 number">
-                                <span class="glyphicon glyphicon-info-sign"></span>
-                              </span>
-                              
-                              <%= f.password_field :password, class: 'form-control' %>
-                              
-                              <%= f.label :remember_me, class: "checkbox inline" do %>
-                                <%= f.check_box :remember_me %>
-                                <span>Remember me on this computer</span> 
-                              <% end %>
-                        
-                              <%= f.submit "Log in", class: "btn btn-primary" %>
-                            <% end %>
-                          
-                            <small>New user? <%= link_to "Sign up now!", signup_path %> | Forgot your password? <%= link_to "Reset password", new_password_reset_path %></small>      
-                          </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="device-container">
-                        <%= image_tag "boxjump.jpg", id: "boxjump", size: "314x551" %>
-                    </div>
-                </div>
-            </div>
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1 panel panel-default intro">
+        <div class="center">
+          <h1>GymBull</h1>
+          <h2>A Culture of Fitness Without the Bullshit</h2>
         </div>
-    </header>
-    <section id="features" class="features">
-        <div class="container">
-            <div class="row">
-                <div class="text-center ">
-                    <div class="section-heading">
-                        <h2>Find the best workouts and meals to fuel your performance</h2>
-                        <p class="text-muted">Search, save, & share your own</p>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
+        <%= form_for(:session, url: login2_path) do |f| %>
+    
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+    
+          <%= f.label :password %>
+          <span class="has-tooltip" data-toggle="tooltip" title="Must contain: at least 8 characters, 
+                                                              at least 1 uppercase, 1 lowercase, and 1 number">
+            <span class="glyphicon glyphicon-info-sign"></span>
+          </span>
+          
+          <%= f.password_field :password, class: 'form-control' %>
+          
+          <%= f.label :remember_me, class: "checkbox inline" do %>
+            <%= f.check_box :remember_me %>
+            <span>Remember me on this computer</span> 
+          <% end %>
+    
+          <%= f.submit "Log in", class: "btn btn-primary" %>
+        <% end %>
+      
+        <small>New user? <%= link_to "Sign up now!", signup_path %> | Forgot your password? <%= link_to "Reset password", new_password_reset_path %></small>      
 
-              <div class="col-md-4">
-                  <div class="feature-item">
-                      <i class="icon-screen-smartphone text-primary"></i>
-                      <h3>Perfect for Personal Trainers and Gyms</h3>
-                      <p class="text-muted">Develop your online presence and boost your brand</p>
-                  </div>
-              </div>
-              <div class="col-md-4">
-                  <div class="feature-item">
-                      <i class="icon-camera text-primary"></i>
-                      <h3>Great for fitness and nutrition enthusiasts</h3>
-                      <p class="text-muted">Find and follow your favorite content from home or at the gym</p>
-                  </div>
-              </div>
-              <div class="col-md-4">
-                  <div class="feature-item">
-                      <i class="icon-present text-primary"></i>
-                      <h3>Free and Simple to Use</h3>
-                      <p class="text-muted">As always, No ads, No Fees, No Bullshit!</p>
-                  </div>
-              </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="cta-content">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                
-              </div>
-              <div class="col-md-6">
-                <h2>Stop waiting.<br>Start training.</h2>
-                <a href="#contact" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
-              </div>
-            </div>
+      </div>
+      <div class="col-md-4">
+          <div class="device-container">
+              <%= image_tag "boxjump.jpg", id: "boxjump", size: "314x551" %>
           </div>
-                
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+      <div class="text-center ">
+          <div class="section-heading">
+              <h2>Find the best workouts and meals to fuel your performance</h2>
+              <p class="text-muted">Search, save, & share your own</p>
+              <hr>
+          </div>
+      </div>
+  </div>
+  
+  <div class="row">
+
+    <div class="col-md-4">
+        <div class="feature-item">
+            <i class="icon-screen-smartphone text-primary"></i>
+            <h3>Perfect for Personal Trainers and Gyms</h3>
+            <p class="text-muted">Develop your online presence and boost your brand</p>
         </div>
-        <div class="overlay"></div>
-    </section>
+    </div>
+    <div class="col-md-4">
+        <div class="feature-item">
+            <i class="icon-camera text-primary"></i>
+            <h3>Great for fitness and nutrition enthusiasts</h3>
+            <p class="text-muted">Find and follow your favorite content from home or at the gym</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="feature-item">
+            <i class="icon-present text-primary"></i>
+            <h3>Free and Simple to Use</h3>
+            <p class="text-muted">As always, No ads, No Fees, No Bullshit!</p>
+        </div>
+    </div>
 
   </div>
-
+  <div class="row">
+    <div class="col-md-6">
+      
+    </div>
+    <div class="col-md-6">
+      <h2>Stop waiting.<br>Start training.</h2>
+      <a href="#contact" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
+    </div>
+  </div>
+</div>  
 
 <script>
   $(document).ready(function() {
