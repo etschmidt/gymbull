@@ -1,9 +1,6 @@
 <% provide(:title, @title) %>
-<div class="row">
-  
-	<div class="col-md-1">
-  	<%= render 'layouts/header' %>
-	</div>
+<div class="container">
+	<div class="row">
   
   <aside class="col-md-3 panel panel-default">
     <section class="user_info">
@@ -12,7 +9,7 @@
     </section>
   </aside>
   
-  <div class="col-md-5 panel panel-default user-form">
+  <div class="col-md-6 panel panel-default user-form">
     <h1>Update Profile</h1>      
 
     <%= form_for(@user, html: { multipart: true }) do |f| %>
@@ -117,6 +114,7 @@
 
     </div>
   </div>
+</div>
 </div>
 
 <script type="text/javascript">

@@ -1,11 +1,8 @@
 <% provide(:title, @user.name) %>
 <% provide(:page_desc, @user.about) %>
 
-<div class="row">
-  
-  <div class="col-md-1">
-    <%= render 'layouts/header' %>
-  </div>
+<div class="container">
+	<div class="row">
   
   <aside class="col-md-3 panel panel-default">
     <section class="user_info">
@@ -69,7 +66,7 @@
       </span>
   </aside>
   
-  <div class="col-md-5">
+  <div class="col-md-6">
     <%= render 'follow_form' if logged_in? %>
     
       <div class="title-bar bar">
@@ -100,6 +97,7 @@
       </div>
 
   </div>
+</div>
 </div>
 
 <script>

@@ -1,10 +1,8 @@
 <% provide(:title, "Log in") %>
-<div class="row">
-  <div class="col-md-1">
-    <%= render 'layouts/header' %>
-  </div>
+<div class="container">
+	<div class="row">
   
-  <div class="col-md-5 col-md-offset-3 panel panel-default">
+  <div class="col-md-6 col-md-offset-3 panel panel-default">
     <h1>Log in</h1>
       <%= form_for(:session, url: login2_path) do |f| %>
   
@@ -30,6 +28,7 @@
       <p>New user? <%= link_to "Sign up now!", signup_path %> | Forgot your password? <%= link_to "Reset password", new_password_reset_path %></p>      
    
   </div>
+</div>
 </div>
 
 <script>

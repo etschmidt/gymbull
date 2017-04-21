@@ -11,21 +11,16 @@
     <%= render 'layouts/analytics' %>
   </head>
   <body>
+    <%= render 'layouts/header' %>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-11 col-md-offset-1">
-          <% flash.each do |message_type, message| %>
-            <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-          <% end %>
-        </div>
-      </div>
-      
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
+    
       <%= yield %>
       
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
-    </div>
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
 
   </body>
 <!-- 

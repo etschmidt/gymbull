@@ -1,8 +1,6 @@
 <% provide(:title) %>
-<div  class="row">
-	<div class="col-md-1">
-  	<%= render 'layouts/header' %>
-	</div>
+<div class="container">
+	<div class="row">
 	
 	<aside class="col-md-3 panel panel-default">
 		<div class="search">
@@ -10,7 +8,7 @@
 		</div>
 	</aside>
 	
-	<div class="col-md-5">
+	<div class="col-md-6">
     <div class="title-bar bar">
       <h1>Users & Gyms</h1>
       <%= link_to "New Users", justjoined_path, 
@@ -22,4 +20,5 @@
 		</ul>
 		
 	</div>
+</div>
 </div>

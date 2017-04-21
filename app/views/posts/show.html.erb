@@ -1,11 +1,8 @@
 <% provide(:title, @post.title || @post.id.to_s) %>
 <% provide(:page_desc, "A " + @post.post_type + " by " + @post.user.name) %>
 
-<div class="row">
-  
-  <div class="col-md-1">
-    <%= render 'layouts/header' %>
-  </div>
+<div class="container">
+	<div class="row">
   
   <aside class="col-md-3 panel panel-default">
     <div class="post-info">
@@ -64,7 +61,7 @@
     </div>
   </aside>
 
-  <div class="col-md-5">
+  <div class="col-md-6">
   	<div class="title-bar bar middle">
   	  <% if @post.title? %>
         <h1><%= @post.title %></br></h1>
@@ -120,4 +117,5 @@
     </div>
   </div>
   
+</div>
 </div>

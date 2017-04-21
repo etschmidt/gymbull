@@ -1,11 +1,9 @@
 <% provide(:title, "Edit Post") %>
 
-<div class="row">
-  <div class="col-md-1">
-    <%= render 'layouts/header' %>
-  </div>
+<div class="container">
+	<div class="row">
   
-  <div class="col-md-5 col-md-offset-3 panel panel-default">
+  <div class="col-md-6 col-md-offset-3 panel panel-default">
 		<h1>Update Post</h1>
 
     <%= form_for(@post, html: { multipart: true }) do |f| %>
@@ -71,4 +69,5 @@
 	  
 
 	</div>
+</div>
 </div>
