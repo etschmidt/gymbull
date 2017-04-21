@@ -1,11 +1,17 @@
-<div class="nav-side-menu">
-  <%= image_tag "BullsHead2-300px.png", id: "logopic" %>
-  <div class="brand">GYMBULL</div>
-  <i class="glyphicon glyphicon-menu-hamburger toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-  
-    <div class="menu-list">
-      
-      <ul id="menu-content" class="menu-content collapse out">
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+
+    <div class="brand">GYMBULL
+    </div>
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span> Menu
+      </button>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
         <li>
           <%= link_to root_path do %>
             <i class="glyphicon glyphicon-home"></i> Home
@@ -23,45 +29,51 @@
         </li>
         
         <% if logged_in? %>
-        <li>
-          <%= link_to favorite_posts_user_path(current_user) do %>
-            <i class="glyphicon glyphicon-star"></i> Mires
-          <% end %>
-        </li>
-        <li>
-          <%= link_to current_user do %>
-            <i class="glyphicon glyphicon-king"></i> My Profile
-          <% end %>
-        </li>
-        <li>
-          <%= link_to users_path do %>
-            <i class="glyphicon glyphicon-knight"></i> Users
-          <% end %>
-        </li>
-
-        <% if current_user.admin? %>
           <li>
-            <%= link_to activities_path do %>
-              <i class="glyphicon glyphicon-list"></i> Activity
+            <%= link_to favorite_posts_user_path(current_user) do %>
+              <i class="glyphicon glyphicon-star"></i> Mires
+            <% end %>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to current_user do %>
+                  <i class="glyphicon glyphicon-king"></i> My Profile
+                <% end %>
+              </li>
+              <li>
+                <%= link_to edit_user_path(current_user) do %>
+                  <i class="glyphicon glyphicon-pencil"></i> Edit
+                <% end %>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to logout_path, method: "delete" do %>
+                  <i class="glyphicon glyphicon-log-out"></i> Log out
+                <% end %>
+              </li>
+            </ul>
+          </li>
+          <% if current_user.admin? %>
+            <li>
+              <%= link_to activities_path do %>
+                <i class="glyphicon glyphicon-list"></i> Activity
+              <% end %>
+            </li>
+          <% end %>
+        
+        <% else %>
+          <li>
+            <%= link_to login_path do %>
+              <i class="glyphicon glyphicon-log-in"></i> Log in
             <% end %>
           </li>
         <% end %>
-        
-        <li>
-          <%= link_to logout_path, method: "delete" do %>
-            <i class="glyphicon glyphicon-log-out"></i> Log out
-          <% end %>
-        </li>
-
-        <% else %>
-        <li>
-          <%= link_to login_path do %>
-            <i class="glyphicon glyphicon-log-in"></i> Log in
-          <% end %>
-        </li>
-        <% end %>
       </ul>
     </div>
-  <small>FITNESS | STRENGTH | AESTHETICS</small>  
-</div>
-
+  </div>
+</nav>
