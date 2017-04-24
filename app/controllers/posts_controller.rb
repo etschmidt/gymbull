@@ -50,7 +50,8 @@ class PostsController < ApplicationController
       @posts = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
     else 
       @search = Post.search(params[:q])
-      @posts = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
+      @posts = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 500)
+      
     end
   end
   
