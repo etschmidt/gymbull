@@ -1,39 +1,43 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-a {
-  -webkit-transition: all 0.35s;
-  -moz-transition: all 0.35s;
-  transition: all 0.35s;
-  color: #fdcc52;
-}
-a:hover,
-a:focus {
-  color: #fcbd20;
-}
-hr {
-  max-width: 100px;
-  margin: 25px auto 0;
-  border-width: 1px;
-  border-color: rgba(34, 34, 34, 0.1);
-}
-hr.light {
-  border-color: white;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
-  font-weight: 200;
-  letter-spacing: 1px;
-}
-p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 20px;
+
+.login {
+
+  a {
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
+    color: #fdcc52;
+  }
+  a:hover,
+  a:focus {
+    color: #fcbd20;
+  }
+  hr {
+    max-width: 100px;
+    margin: 25px auto 0;
+    border-width: 1px;
+    border-color: rgba(34, 34, 34, 0.1);
+  }
+  hr.light {
+    border-color: white;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+    font-weight: 200;
+    letter-spacing: 1px;
+  }
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
 }
 header {
   position: relative;
@@ -51,21 +55,21 @@ header .header-content {
 header .header-content .header-content-inner {
   position: relative;
   max-width: 500px;
-  margin: 0 auto;
   color: black;
+  display: center;
   .btn {
-    margin-left: 5%;
-    width: 90%;
+    display: center;
     color: darkslategrey;
     background-color: #fdcc52;
     border-color: #fdcc52;
-    :hover {
-      background-color: darkslategrey !important;
-      color: #fdcc52 !important;
-    }
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .btn:hover {
+      background-color: #fcb603 !important;
   }
   .divider {
-
     height: 1px;
     width: 20%;
     margin-left: 40%;
@@ -89,8 +93,12 @@ header .device-container {
     h1 {
       margin-top: 5px;
     }
+    a {
+      color: #337ab7;
+    }
   }
 }
+
 @media (max-width: 767px) {
   header .device-container .panel {
     margin: 50px 0 25px 0;
@@ -296,48 +304,51 @@ section.contact ul.list-social li.social-facebook a {
 section.contact ul.list-social li.social-tumblr a {
   background-color: #35465c;
 }
-.no-gutter > [class*='col-'] {
-  padding-right: 0;
-  padding-left: 0;
-}
-.btn-outline {
-  color: white;
-  border-color: white;
-  border: 1px solid;
-}
-.btn-outline:hover,
-.btn-outline:focus,
-.btn-outline:active,
-.btn-outline.active {
-  color: white;
-  background-color: #fdcc52;
-  border-color: #fdcc52;
-}
-.btn {
-  font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border-radius: 300px;
-}
-.btn-xl {
-  padding: 15px 45px;
-  font-size: 11px;
-}
-::-moz-selection {
-  color: white;
-  text-shadow: none;
-  background: #222222;
-}
-::selection {
-  color: white;
-  text-shadow: none;
-  background: #222222;
-}
-img::selection {
-  color: white;
-  background: transparent;
-}
-img::-moz-selection {
-  color: white;
-  background: transparent;
+
+.login {
+  .no-gutter > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .btn-outline {
+    color: white;
+    border-color: white;
+    border: 1px solid;
+  }
+  .btn-outline:hover,
+  .btn-outline:focus,
+  .btn-outline:active,
+  .btn-outline.active {
+    color: white;
+    background-color: #fdcc52;
+    border-color: #fdcc52;
+  }
+  .btn {
+    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 300px;
+  }
+  .btn-xl {
+    padding: 15px 45px;
+    font-size: 11px;
+  }
+  ::-moz-selection {
+    color: white;
+    text-shadow: none;
+    background: #222222;
+  }
+  ::selection {
+    color: white;
+    text-shadow: none;
+    background: #222222;
+  }
+  img::selection {
+    color: white;
+    background: transparent;
+  }
+  img::-moz-selection {
+    color: white;
+    background: transparent;
+  }
 }

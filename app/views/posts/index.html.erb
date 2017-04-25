@@ -42,20 +42,14 @@
     </div>
   <% else %>
   
-    <div class="col-md-3 panel panel-default signin intro">
-      <div class="center">
-        <h1>GymBull</h1>
-        <h3>A Culture of Fitness Without the Bullshit</h3>
-        <%= image_tag "barbell-clipart.jpg" %>
-      </div>
-      <%= render 'sessions/login' %>
-      <%= link_to "Jump to search", root_path(:anchor => "searchanchor"), :class => 'btn btn-default btn-md mobile' %>
-    </div>
+    <aside class="col-md-3 panel panel-default">
+  	  <%= render 'shared/search_posts' %>
+    </aside>
   
     <div class="col-md-6">
       
       <div class="title-bar bar">
-        <h1>Search results</h1>
+        <h1>All Posts</h1>
           <%= link_to "Bullpen", root_path, 
             :class => 'btn btn-default btn-lg all_toggle' %>
       </div>
@@ -83,7 +77,6 @@
         <% end %></br>
       </div>
       <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
-	    <%= render 'shared/search_posts' %>
     </div>
   
   <% end %>
