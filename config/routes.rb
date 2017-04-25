@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
-  post   '/login2',   to: 'sessions#create2'
   delete '/logout',  to: 'sessions#destroy'
   
   get 'tags/:tag', to: 'static_pages#home', as: :tag

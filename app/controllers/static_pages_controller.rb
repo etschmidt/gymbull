@@ -3,40 +3,27 @@ class StaticPagesController < ApplicationController
   before_action :logged_in_user, only: [:home]
   
   def home
-    if logged_in?
       
-    #  @activities = PublicActivity::Activity.order("created_at desc").limit(10)
-      following_ids = "SELECT followed_id FROM relationships
-                      WHERE  follower_id = :user_id"
+  #  @activities = PublicActivity::Activity.order("created_at desc").limit(10)
+    following_ids = "SELECT followed_id FROM relationships
+                    WHERE  follower_id = :user_id"
 
-      @activities = PublicActivity::Activity
-        .order("created_at desc").limit(10)
-        .where("owner_id IN (#{following_ids})
-                  OR recipient_id = :user_id", 
-                  user_id: current_user.id)
+    @activities = PublicActivity::Activity
+      .order("created_at desc").limit(10)
+      .where("owner_id IN (#{following_ids})
+                OR recipient_id = :user_id", 
+                user_id: current_user.id)
 
 
-      @post = current_user.posts.build
-      
-      # this is for the posts user will see before following any other users
-      @posts = Post.limit(15)
-      
-      if params[:tag]
-        @feed_items = Post.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 15)
-      else # normal, default feed
-        @feed_items = current_user.feed.includes(:tags).all.paginate(page: params[:page], per_page: 15)
-      end
-    else #not logged in
-      if params[:tag]
-        @search = Post.tagged_with(params[:tag]).search(params[:q])
-        @feed_items = @search.result.paginate(page: params[:page], per_page: 15)
-      elsif params[:q].blank?
-        @search = Post.search(params[:q])
-        @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
-      else 
-        @search = Post.search(params[:q])
-        @feed_items = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
-      end
+    @post = current_user.posts.build
+    
+    # this is for the posts user will see before following any other users
+    @posts = Post.limit(15)
+    
+    if params[:tag]
+      @feed_items = Post.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 15)
+    else # normal, default feed
+      @feed_items = current_user.feed.includes(:tags).all.paginate(page: params[:page], per_page: 15)
     end
     
   end

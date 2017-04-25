@@ -164,7 +164,7 @@ section h2 {
 }
 
 section.features .section-heading {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 section.features .section-heading h2 {
   margin-top: 0;
@@ -180,10 +180,11 @@ section.features .feature-item {
 section.features .device-container {
   margin-bottom: 50px;
   margin: auto;
-  width: 60%;
   img {
     border-radius: 10px;
-    margin-left: -55px;
+    display: block;
+    margin: auto;
+    //width: 40%;
   }
 }
 @media (max-width: 768px) {
