@@ -1,134 +1,141 @@
 <% provide(:title, "Log in") %>
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5">
-                  <div class="device-container">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                        <h1>GymBull</h1>
-                          <%= form_for(:session, url: login2_path) do |f| %>
-                      
-                            <%= f.label :email %>
-                            <%= f.email_field :email, class: 'form-control' %>
-                      
-                            <%= f.label :password %>
-                            <span class="has-tooltip" data-toggle="tooltip" title="Must contain: at least 8 characters, 
-                                                                                at least 1 uppercase, 1 lowercase, and 1 number">
-                              <span class="glyphicon glyphicon-info-sign"></span>
-                            </span>
-                            
-                            <%= f.password_field :password, class: 'form-control' %>
-                            
-                            <%= f.label :remember_me, class: "checkbox inline" do %>
-                              <%= f.check_box :remember_me %>
-                              <span>Remember me on this computer</span> 
-                            <% end %>
-                      
-                            <%= f.submit "Log in", class: "btn btn-primary" %>
-                          <% end %>
-                      
-                          <small>New user? <%= link_to "Sign up now!", signup_path %> | Forgot your password? <%= link_to "Reset password", new_password_reset_path %></small>      
-                       
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-sm-offset-1">
-                  <div class="header-content">
-                      <div class="header-content-inner">
-                          <h1>New Age is an app landing page that will help you beautifully showcase your new mobile app, or anything else!</h1>
-                          <a href="#download" class="btn btn-outline btn-xl page-scroll">Start Now for Free!</a>
-                      </div>
-                  </div>
-                </div>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="device-container", id:"top" >
+            <div class="panel panel-default">
+              <div class="panel-body">
+              <h1>GymBull</h1>
+                <%= form_for(:session, url: login2_path) do |f| %>
+            
+                  <%= f.label :email %>
+                  <%= f.email_field :email, class: 'form-control' %>
+            
+                  <%= f.label :password %>
+                  <span class="has-tooltip" data-toggle="tooltip" title="Must contain: at least 8 characters, 
+                                                                      at least 1 uppercase, 1 lowercase, and 1 number">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                  </span>
+                  
+                  <%= f.password_field :password, class: 'form-control' %>
+                  
+                  <%= f.label :remember_me, class: "checkbox inline" do %>
+                    <%= f.check_box :remember_me %>
+                    <span>Remember me on this computer</span> 
+                  <% end %>
+            
+                  <%= f.submit "Log in", class: "btn btn-primary" %>
+                <% end %>
+            
+                <small>New user? <%= link_to "Sign up now!", signup_path %> | Forgot your password? <%= link_to "Reset password", new_password_reset_path %></small>      
+               
+              </div>
             </div>
+          </div>
         </div>
-    </header>
+        <div class="col-sm-6 col-sm-offset-1">
+          <div class="header-content">
+            <div class="header-content-inner">
+              <h1>A Culture of Fitness</h1>
+              <%= link_to "Start Now for Free", signup_path, class: "btn btn-outline btn-xl page-scroll" %>
+              <div class="divider"></div>
+              <%= link_to "Continue to the Bullpen", root_path, class: "btn btn-outline btn-xl page-scroll" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <section id="features" class="features">
-        <div class="container">
+  <section id="features" class="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="section-heading">
+            <h2>The Best Exercise & Nutrition Information from around the World</h2>
+            <p class="text-muted">Make your workouts and meals smarter!</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="device-container">
+            <%= image_tag "boxjump.jpg", height: '500', alt: "Jump", id: "jump" %>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-heading">
-                        <h2>Unlimited Features, Unlimited Fun</h2>
-                        <p class="text-muted">Check out what you can do with this app theme!</p>
-                        <hr>
-                    </div>
+              <div class="col-md-6">
+                <div class="feature-item">
+                  <i class="fa fa-camera"></i>
+                  <h3>Share your Own</h3>
+                  <p class="text-muted">Develop your following through pictures, videos, and workouts! </p>
                 </div>
+              </div>
+              <div class="col-md-6">
+                <div class="feature-item">
+                  <i class="fa fa-star"></i>
+                  <h3>Save what You Like</h3>
+                  <p class="text-muted">Keep a catalogue of what you 'Mire!</p>
+                </div>
+              </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="device-container">
-                      <%= image_tag "boxjump.jpg", height: '417', alt: "Jump", id: "jump" %>
-                    </div>
+              <div class="col-md-6">
+                <div class="feature-item">
+                  <i class="fa fa-user-circle"></i>
+                  <h3>Connect with Others</h3>
+                  <p class="text-muted">Follow Gyms and Trainers from around the World!</p>
                 </div>
-                <div class="col-md-8">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="feature-item">
-                                    <i class="icon-screen-smartphone text-primary"></i>
-                                    <h3>Device Mockups</h3>
-                                    <p class="text-muted">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="feature-item">
-                                    <i class="icon-camera text-primary"></i>
-                                    <h3>Flexible Use</h3>
-                                    <p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="feature-item">
-                                    <i class="icon-present text-primary"></i>
-                                    <h3>Free to Use</h3>
-                                    <p class="text-muted">As always, this theme is free to download and use for any purpose!</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="feature-item">
-                                    <i class="icon-lock-open text-primary"></i>
-                                    <h3>Open Source</h3>
-                                    <p class="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div class="col-md-6">
+                <div class="feature-item">
+                  <i class="fa fa-search"></i>
+                  <h3>Find the Best</h3>
+                  <p class="text-muted">Tailor your searches by equipment, muscles, and more!</p>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="cta">
-        <div class="cta-content">
-            <div class="container">
-                <h2>Stop waiting.<br>Start building.</h2>
-                <a href="#contact" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
-            </div>
-        </div>
-        <div class="overlay"></div>
-    </section>
+  <section class="cta">
+    <div class="cta-content">
+      <div class="container">
+        <h2>Stop waiting.<br>Start training.</h2>
+        <%= link_to "Let's Get Started!", signup_path, class: "btn btn-outline btn-xl page-scroll" %>
+      </div>
+    </div>
+    <div class="overlay"></div>
+  </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>We <i class="fa fa-heart"></i> new friends!</h2>
-            <ul class="list-inline list-social">
-                <li class="social-twitter">
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li class="social-facebook">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li class="social-tumblr">
-                    <a href="#"><i class="fa fa-tumblr"></i></a>
-                </li>
-            </ul>
-        </div>
-    </section>
+  <section id="contact" class="contact">
+    <div class="container">
+      <ul class="list-inline list-social">
+        <li class="social-twitter">
+          <%= link_to "https://twitter.com/theGymBull" do %>
+            <i class="fa fa-twitter"></i>
+          <% end %>
+        </li>
+        <li class="social-facebook">
+          <%= link_to "https://www.facebook.com/thegymbull/" do %>
+            <i class="fa fa-facebook"></i>
+          <% end %>
+        </li>
+        <li class="social-tumblr">
+          <%= link_to "https://gymbullblog.tumblr.com/" do %>
+            <i class="fa fa-tumblr"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </section>
 
 <script>
   $(document).ready(function() {

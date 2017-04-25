@@ -6,7 +6,7 @@
 
     <div class="title-bar bar">
       <h1>Mires <span class="badge"><%= @user.favorite_posts.count %></span></h1>
-      <%= link_to "Mires", favorite_posts_user_path(current_user), 
+      <%= link_to "Default", favorite_posts_user_path(current_user), 
         :class => 'btn btn-default btn-lg all_toggle' %>
       <%= link_to "Reverse", reverse_mires_user_path(current_user), 
         :class => 'btn btn-default btn-lg all_toggle' %>

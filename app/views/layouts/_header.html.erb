@@ -5,27 +5,27 @@
       <%= image_tag "BullsHead2-200px-inverse.png", id: "logopic" %>
       <span>GymBull</span>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span> Menu
+          <span class="sr-only">Toggle navigation</span> <i class="fa fa-ellipsis-v fa-lg"></i>
       </button>
     </div>
     
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to root_path do %>
-            <i class="glyphicon glyphicon-home"></i> Bullpen
-          <% end %>
-        </li>
-        <li>
-          <%= link_to calculator_path do %>
-            <i class="glyphicon glyphicon-th"></i> Calculator
-          <% end %>
-        </li>
-        
+
         <% if logged_in? %>
+          <li>
+            <%= link_to root_path do %>
+              <i class="glyphicon glyphicon-home"></i> Bullpen
+            <% end %>
+          </li>
           <li>
             <%= link_to favorite_posts_user_path(current_user) do %>
               <i class="glyphicon glyphicon-star"></i> Mires
+            <% end %>
+          </li>
+          <li>
+            <%= link_to calculator_path do %>
+              <i class="glyphicon glyphicon-th"></i> Calculator
             <% end %>
           </li>
 
@@ -62,11 +62,22 @@
 
         <% else %>
           <li>
+            <%= link_to posts_path do %>
+              <i class="glyphicon glyphicon-home"></i> Bullpen
+            <% end %>
+          </li>
+          <li>
+            <%= link_to calculator_path do %>
+              <i class="glyphicon glyphicon-th"></i> Calculator
+            <% end %>
+          </li>
+          <li>
             <%= link_to login_path do %>
               <i class="glyphicon glyphicon-log-in"></i> Log in
             <% end %>
           </li>
         <% end %>
+
       </ul>
     </div>
   </div>

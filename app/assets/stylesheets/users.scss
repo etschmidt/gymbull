@@ -11,6 +11,15 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+.background {
+  margin-top: -15px;
+ 
+  padding: 75px 0 150px 0;
+  background-image: image-url("Kettlebells.jpg");
+  background-size: cover;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 /* sidebar */
 section.user_info {
   margin-top: 20px;

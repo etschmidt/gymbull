@@ -41,43 +41,69 @@ header {
   width: 100%;
   min-height: auto;
   overflow-y: hidden;
-  background: url("../img/bg-pattern.png"), #2f4f4f;
-  /* fallback for old browsers */
-  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #edf0f5, #2f4f4f);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: url("../img/bg-pattern.png"), linear-gradient(to left, #edf0f5, #2f4f4f);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: white;
+  background-image: image-url("Kettlebells.jpg");
+  background-size: cover;
 }
 header .header-content {
   text-align: center;
-  padding: 50px 0 50px;
   position: relative;
 }
 header .header-content .header-content-inner {
   position: relative;
   max-width: 500px;
   margin: 0 auto;
+  color: black;
+  .btn {
+    margin-left: 5%;
+    width: 90%;
+    color: darkslategrey;
+    background-color: #fdcc52;
+    border-color: #fdcc52;
+    :hover {
+      background-color: darkslategrey !important;
+      color: #fdcc52 !important;
+    }
+  }
+  .divider {
+
+    height: 1px;
+    width: 20%;
+    margin-left: 40%;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
 }
 header .header-content .header-content-inner h1 {
   margin-top: 0;
   margin-bottom: 30px;
   font-size: 30px;
+
 }
 
 header .device-container {
   color: darkslategrey;
-  top: 50%;
-  margin: 50px 0px 25px 0px;
-  h1 {
-    margin-top: 5px;
+  .panel {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+    h1 {
+      margin-top: 5px;
+    }
   }
 }
 @media (max-width: 767px) {
+  header .device-container .panel {
+    margin: 50px 0 25px 0;
+  }
+  header .header-content .header-content-inner {
+    margin: 25px 0 25px 0;
+    color: white;
+  }
   header .device-container h1 {
     display: none;
   }
-} 
+}
+
 @media (min-width: 768px) {
   header {
     min-height: 100%;
@@ -85,13 +111,14 @@ header .device-container {
   header .header-content {
     text-align: left;
     padding: 0;
-    height: 100vh;
+    height: 75vh;
+    margin: 100px auto 0;
   }
   header .header-content .header-content-inner {
     max-width: none;
     margin: 0;
     position: absolute;
-    top: 40%;
+    top: 30%;
     transform: translateY(-50%);
   }
   header .header-content .header-content-inner h1 {
@@ -102,8 +129,15 @@ header .device-container {
   }
   header .device-container {
     max-width: none;
-    height: 100vh;
-    margin: 200px auto 0;
+    height: 75vh;
+    margin: 100px auto 0;
+    .panel {
+      max-width: none;
+      margin: 0;
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+    }
   }
 }
 @media (min-width: 992px) {
@@ -141,8 +175,21 @@ section.features .device-container {
   width: 60%;
   img {
     border-radius: 10px;
+    margin-left: -55px;
   }
 }
+@media (max-width: 768px) {
+  section.features .device-container {
+    img {
+      margin-bottom: 50px;
+    }
+  }
+  section.features .feature-item {
+    text-align: center;
+    margin-bottom: 40px !important;
+  }
+}
+
 @media (min-width: 992px) {
   section.features .device-container {
     margin-bottom: 0;
@@ -175,7 +222,7 @@ section.cta {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: image-url("Kettlebells.jpg");
+  background-image: image-url("barbell-lg.jpg");
   padding: 250px 0;
 }
 section.cta .cta-content {
@@ -190,8 +237,14 @@ section.cta .cta-content h2 {
   font-size: 50px;
 }
 @media (min-width: 768px) {
-  section.cta .cta-content h2 {
-    font-size: 80px;
+  section.cta .cta-content {
+    .btn {
+      margin-left: 8%;
+      width: 20%;
+    }
+    h2 {
+      font-size: 80px;
+    }
   }
 }
 section.cta .overlay {
@@ -203,8 +256,16 @@ section.cta .overlay {
   left: 0;
 }
 section.contact {
+  padding-bottom: 150px;
+  margin-bottom: -150px;
   text-align: center;
-  background-color: darkslategrey;
+    background:  #7b4397;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #7b4397, #dc2430);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #7b4397, #dc2430);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
 }
 section.contact h2 {
   margin-top: 0;
@@ -229,19 +290,10 @@ section.contact ul.list-social li a {
 section.contact ul.list-social li.social-twitter a {
   background-color: #1da1f2;
 }
-section.contact ul.list-social li.social-twitter a:hover {
-  background-color: #0d95e8;
-}
 section.contact ul.list-social li.social-facebook a {
   background-color: #3b5998;
 }
-section.contact ul.list-social li.social-facebook a:hover {
-  background-color: #344e86;
-}
 section.contact ul.list-social li.social-tumblr a {
-  background-color: #35465c;
-}
-section.contact ul.list-social li.social-tumblr a:hover {
   background-color: #35465c;
 }
 .no-gutter > [class*='col-'] {
