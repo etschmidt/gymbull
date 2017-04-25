@@ -47,26 +47,24 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid darkslategray;
-  color: #777;
-  a {
-    color: #555;
-  }
-  a:hover {
-    color: #fdcc52;
-  }
+  color: darkslategray;
   small {
-    float: left;
-    margin-left: 10%;
+    width: 100px;
+    padding-left: 0px !important;
   }
   ul {
-    float: right;
-    margin-right: 10%;
+    display: inline-flex;
     list-style: none;
+    padding-left: 0px !important;
     li {
-      float: left;
-      margin-left: 15px;
+      margin-right: 10px;
+      margin-left: 10px;
       a {
         color: darkslategray;
+      }
+      a:hover {
+        color: #fdcc52;
+        text-decoration: none;
       }
     }
   }
