@@ -32,11 +32,11 @@
         <% if logged_in? %>
           <% unless current_user.favorite_posts.exists?(id: @post.id) %>
             <%= link_to favorite_posts_path(post_id: @post), method: :post, remote: true do %>
-              <span class="glyphicon glyphicon-star-empty"></span>
+              <i class="fa fa-star-o"></i>
             <% end %>
           <% else %>
             <%= link_to favorite_post_path(@post), method: :delete, remote: true do %>
-              <span class="glyphicon glyphicon-star"></span>
+              <i class="fa fa-star"></i>
             <% end %>
           <% end %> |
         <% end %>
@@ -46,11 +46,11 @@
         <% if logged_in? %>
           <% if (current_user?(@post.user) || current_user.admin?) %>
           	| <%= link_to  edit_post_path(@post) do %>
-          	  <span class="glyphicon glyphicon-pencil"></span>
+          	  <i class="fa fa-edit"></i>
           	<% end %> |
             <%= link_to @post, method: :delete,
                                 data: { confirm: "You sure?" } do %>
-              <span class="glyphicon glyphicon-trash"></span>
+              <i class="fa fa-trash-o"></i>
           	<% end %>
           <% end %>
         <% end %>

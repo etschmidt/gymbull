@@ -31,6 +31,17 @@ $gray-medium-light: #eaeaea;
         border-color: black;
         border-radius: 50%;
       }
+      .name {
+        font-size: 16px;
+        a {
+          text-decoration: none;
+        }
+      }
+      i {
+        float: right;
+        margin-top: 5px;
+        margin-right: 5px;
+      }
     }
     .content {
       display: block;
@@ -67,7 +78,7 @@ $gray-medium-light: #eaeaea;
           margin-right: 5%;
         }
       }
-      .glyphicon {
+      .fa {
         display: none;
       }
     }
@@ -204,6 +215,7 @@ fieldset {
     width: 40px;
   }
 }
+
 
 span.picture {
   margin-top: 10px;

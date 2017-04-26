@@ -12,7 +12,7 @@
 			<%= time_ago_in_words(comment.created_at) %> ago
 			<% if current_user?(comment.user) %>
 				<%= link_to post_comment_path(comment.post, comment), method: :delete do %>
-					<span class="glyphicon glyphicon-trash"></span>
+					<i class="fa fa-trash-o"></i>
 				<% end %>
 			<% end %>
 </li>

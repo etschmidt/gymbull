@@ -1,7 +1,12 @@
 <li id="post-<%= post.id %>" class="<%= post.post_type %>">
   <span class="user">
     <%= tiny_picture_for(post.user, size: :tiny) %>
-    <%= link_to post.user.name, post.user %></span>
+    <span class="name"><%= link_to post.user.name, post.user %></span>
+  <%= link_to post_path(post) do %>
+    <i class="fa fa-arrows-alt"></i>
+  <% end %>
+  </span>
+    
  <!-- everything "full option" won't be shown in the miniposts -->   
   <div class="content">
     <% if post?(post) %>
@@ -114,40 +119,39 @@
                             method: :post,
                             :id => 'mire',
                             :remote => true do %>
-              <span class="glyphicon glyphicon-star-empty"></span>
+              <i class="fa fa-star-o"></i>
             <% end %>
           <% else %>
             <%= link_to favorite_post_path(post), 
                             method: :delete,
                             :id => 'unmire',
                             :remote => true do %>
-              <span class="glyphicon glyphicon-star"></span>
+              <i class="fa fa-star"></i>
             <% end %>
           <% end %>
         <% else %>
           <% unless current_user.favorite_posts.exists?(id: post.id) %>
-            <span class="glyphicon glyphicon-star-empty"></span>
+            <i class="fa fa-star-o"></i>
           <% else %>
-            <span class="glyphicon glyphicon-star"></span>
+            <i class="fa fa-star"></i>
           <% end %>
         <% end %>
   <!-- this is for the post if a user isn't logged in
   also helps to showcase features-->
       <% else %>
         <%= link_to sample_path do %>
-            <span class="glyphicon glyphicon-star-empty"></span>
+            <i class="fa fa-star-o"></i>
         <% end %>
       <% end %> | <b><%= post.favorites.count %></b> |
-      
+  <!-- -->    
       <%= link_to post_path(post) do %>
-        <span class="glyphicon glyphicon-fullscreen"></span>
-        | <span class="comment_count"><b><%= post.comments.count %> comments</b></span>
+        <i class="fa fa-comments-o"></i>| <span class="comment_count"><b><%= post.comments.count %></b></span>
       <% end %>
       <span class="full-option">
         <% if current_user?(post.user) %>
           <%= link_to post, method: :delete, data: { confirm: "You sure?" },
                             :remote => true do %>
-             | <span class="glyphicon glyphicon-trash"></span>
+             | <i class="fa fa-trash-o"></i>
           <% end %>
         <% end %>
       </span>
