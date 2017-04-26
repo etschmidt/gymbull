@@ -116,6 +116,14 @@ header .device-container {
   header .header-content .header-content-inner {
     margin: 25px 0 40px 0;
     color: white;
+    h1 {
+      font-weight: 500; 
+      text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    }
   }
   header .device-container h1 {
     display: none;
