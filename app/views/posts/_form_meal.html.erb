@@ -4,31 +4,31 @@
     <div class="meal-form">
       <%= f.hidden_field :post_type, :value => "meal" %>
       <%= f.label :title, "Meal name:" %>
-      <%= f.text_field :title, placeholder: "Morning meal 3" %>
+      <%= f.text_field :title, placeholder: "Morning meal 3", class: "form-control" %>
       <%= f.label :calories, "Total kcal:" %>
-      <%= f.number_field :calories, placeholder: "936 calories" %>
+      <%= f.number_field :calories, placeholder: "936 calories", class: "form-control" %>
       <%= f.label :protein, "Total protein:" %>
-      <%= f.number_field :protein, placeholder: "85g" %>
+      <%= f.number_field :protein, placeholder: "85g", class: "form-control" %>
       <%= f.label :carbs, "Total carbohydrates:" %>
-      <%= f.number_field :carbs, placeholder: "55g" %>
+      <%= f.number_field :carbs, placeholder: "55g", class: "form-control" %>
       <%= f.label :fat, "Total fat:" %>
-      <%= f.number_field :fat, placeholder: "40g" %>
+      <%= f.number_field :fat, placeholder: "40g", class: "form-control" %>
       <%= f.label :ingredients, "Ingredients used:" %>
-      <%= f.text_area :ingredients, placeholder: "chicken breast, broccoli" %>
+      <%= f.text_area :ingredients, placeholder: "chicken breast, broccoli", class: "form-control" %>
       <%= f.label :content, "The Recipe:", :class => "required" %>
       <%= f.text_area :content, placeholder: "eg. boil checken, then steam brocolli...", 
-       :required => true %>
-      <div class="flexbox flextags">
-        <span class="glyphicon glyphicon-camera"></span>  
-        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>  
+       :required => true, class: "form-control" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-camera-retro fa-fw"></i></span>
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: "form-control" %>  
       </div>
-      <div class="flexbox flextags">
-        <span class="glyphicon glyphicon-facetime-video"></span>  
-        <%= f.text_field :youtube_url, placeholder: "Insert YouTube link" %>  
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-youtube-play fa-fw"></i></span>
+        <%= f.text_field :youtube_url, placeholder: "Insert YouTube link", class: "form-control" %>  
       </div>
-      <div class="flexbox flextags">
-        <span class="glyphicon glyphicon-tags"></span>  
-        <%= f.text_field :tag_list, placeholder: "lifting, getbig" %>  
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-tags fa-fw"></i></span> 
+        <%= f.text_field :tag_list, placeholder: "lifting, getbig", class: "form-control" %>  
       </div>
     </div>
 <%= f.submit "Post", class: "btn btn-primary" %>
