@@ -163,6 +163,9 @@ header .device-container {
       position: absolute;
       top: 45%;
       transform: translateY(-50%);
+      .panel-body {
+        padding-top: 5px;
+      }
     }
   }
 }
