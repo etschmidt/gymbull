@@ -42,7 +42,7 @@
 header {
   position: relative;
   margin-top: -17px;
-  padding-bottom: 40px;
+  padding-bottom: 115px;
   width: 100%;
   min-height: auto;
   overflow-y: hidden;
@@ -91,6 +91,7 @@ header .device-container {
     position: relative;
     max-width: 500px;
     margin: 0 auto;
+    padding: 0;
     form {
       .input-group {
         margin-bottom: 10px;
