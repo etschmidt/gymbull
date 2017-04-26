@@ -5,11 +5,15 @@
 	<div class="row">
   
   <aside class="col-md-3 panel panel-default">
+    
     <section class="user_info">
       <span><%= profile_picture_for(@user, size: :profile) %></span>
       <h1><%= @user.name %></h1>
       <div class="stats">
         <%= render 'shared/stats' %>
+      </div>
+      <div class="mobile-follow">
+        <%= render 'follow_form' if logged_in? %>
       </div>
       <% if current_user?(@user) %>
         <%= link_to "Edit Profile", edit_user_path(current_user), :class => 'btn btn-default btn-md' %>
@@ -17,21 +21,21 @@
       <div class="details">
         <% if @user.focus? %>
           <div class="flexbox">
-            <span class="glyphicon glyphicon-grain"></span>
+            <i class="fa fa-institution"></i>
             <b><%= @user.focus %></b>
           </div>
         <% end %>        
         
         <% if @user.location? %>
           <div class="flexbox">
-            <span class="glyphicon glyphicon-map-marker"></span>
+            <i class="fa fa-map-marker"></i>
             <span class="loctxt"><b><%= @user.location %></b></span>
           </div>
         <% end %>  
         
         <% if @user.email_option? %>
           <div class="flexbox">
-            <span class="glyphicon glyphicon-envelope"></span>
+            <i class="fa fa-envelope-o"></i>
             <span class="loctxt"><b><%= @user.email %></b></span>
           </div>
         <% end %>   
@@ -67,7 +71,9 @@
   </aside>
   
   <div class="col-md-6">
-    <%= render 'follow_form' if logged_in? %>
+    <span class="desktop-follow">
+      <%= render 'follow_form' if logged_in? %>
+    </span>
     
       <div class="title-bar bar">
         <h1>

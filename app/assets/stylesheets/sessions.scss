@@ -91,6 +91,14 @@ header .device-container {
     position: relative;
     max-width: 500px;
     margin: 0 auto;
+    form {
+      .input-group {
+        margin-bottom: 10px;
+      }
+      .checkbox {
+        margin-top: 1px;
+      }
+    }
     h1 {
       margin-top: 5px;
     }
