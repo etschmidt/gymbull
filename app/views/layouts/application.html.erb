@@ -10,6 +10,11 @@
     <%= render 'layouts/shim' %>
     <%= render 'layouts/analytics' %>
     <script src="https://use.fontawesome.com/18aa40b94f.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.has-tooltip').tooltip();
+      });
+    </script>
   </head>
   <body>
     <%= render 'layouts/header' %>

@@ -13,7 +13,8 @@
       <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase()%></b>
       </span>
       <div class="inner-content">
-          <%= simple_format(post.content) %>
+          <%= sanitize simple_format(post.content), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
+                attributes: %w(href class) %>
  <!-- pix % videos --> 
         <% if post.picture? || post.youtube_url? %>
           <span class="full-option">
@@ -48,7 +49,8 @@
       </div>
       <div class="inner-content">
         <span class="full-option post_type"><b>Workout:</b></br></span>
-        <%= simple_format(post.content) %>
+        <%= sanitize simple_format(post.content), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
+                attributes: %w(href class) %>
  <!-- pix % videos --> 
         <% if post.picture? || post.youtube_url? %>
           <span class="full-option">
@@ -86,7 +88,8 @@
       </div>
       <div class="inner-content">
         <span class="full-option post_type"><b>Recipe:</b></br></span>
-        <%= simple_format(post.content) %>
+        <%= sanitize simple_format(post.content), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
+                attributes: %w(href class) %>
         
  <!-- pix % videos --> 
         <% if post.picture? || post.youtube_url? %>

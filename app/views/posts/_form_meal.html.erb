@@ -16,6 +16,8 @@
       <%= f.label :ingredients, "Ingredients used:" %>
       <%= f.text_area :ingredients, placeholder: "chicken breast, broccoli", class: "form-control" %>
       <%= f.label :content, "The Recipe:", :class => "required" %>
+            <i class="fa fa-code has-tooltip" data-toggle="tooltip" 
+            title="GymBull allows the following HTML tags: strong em a code pre h2 h3 p blockquote ul ol li br"></i>
       <%= f.text_area :content, placeholder: "eg. boil checken, then steam brocolli...", 
        :required => true, class: "form-control" %>
       <div class="input-group">

@@ -74,7 +74,9 @@
 
   	<div class="content-detail">
 		  
-      <%= simple_format(@post.content) %>
+      <%= sanitize simple_format(@post.content), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
+                attributes: %w(href class) %>
+                
       <div class="center">
       	<%= image_tag @post.picture.url(:post) if @post.picture? %>
         <% if @post.youtube_url? %>

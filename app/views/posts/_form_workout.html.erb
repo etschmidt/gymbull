@@ -12,6 +12,8 @@
       <%= f.label :equipment, "Equipment used:" %>
       <%= f.text_field :equipment, placeholder: "dumbbells, adjustable bench", class: "form-control" %>
       <%= f.label :content, "The Workout:", :class => "required" %>
+      <i class="fa fa-code has-tooltip" data-toggle="tooltip" 
+            title="GymBull allows the following HTML tags: strong em a code pre h2 h3 p blockquote ul ol li br"></i>
       <%= f.text_area :content, placeholder: "eg. 4 sets of Incline Dumbbell Press, 8-10 reps...", 
        :required => true, class: "form-control" %>
       <div class="input-group">
