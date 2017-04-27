@@ -8,7 +8,7 @@
   <%= f.label :name, :class => "required"  %>
     <span class="has-tooltip" data-toggle="tooltip" title="Only letters, numbers, 
                                         underscores, and dashes are allowed">
-      <span class="glyphicon glyphicon-info-sign"></span>
+      <i class="fa fa-info-circle"></i>
     </span>
   <%= f.text_field :name, class: 'form-control', :required => true  %>
 
@@ -42,24 +42,34 @@
   <%= f.text_field :location, class: 'form-control' %>
   
   <%= f.label :about %>
+  <i class="fa fa-code has-tooltip" data-toggle="tooltip" 
+            title="GymBull allows the following HTML tags: strong em a code pre h2 h3 p blockquote ul ol li br"></i>
   <%= f.text_area :about, size: "24x6", class: 'form-control' %>
   
   <%= f.label :hours %>
+  <i class="fa fa-code has-tooltip" data-toggle="tooltip" 
+            title="GymBull allows the following HTML tags: strong em a code pre h2 h3 p blockquote ul ol li br"></i>
   <%= f.text_area :hours, size: "24x6", class: 'form-control' %>
   
   <%= f.label :pricing %>
+  <i class="fa fa-code has-tooltip" data-toggle="tooltip" 
+            title="GymBull allows the following HTML tags: strong em a code pre h2 h3 p blockquote ul ol li br"></i>
   <%= f.text_area :pricing, size: "24x6", class: 'form-control' %>
   
   <%= f.label :equipment %>
+  <i class="fa fa-code has-tooltip" data-toggle="tooltip" 
+            title="GymBull allows the following HTML tags: strong em a code pre h2 h3 p blockquote ul ol li br"></i>
   <%= f.text_area :equipment, size: "24x6", class: 'form-control' %>
   
   <%= f.label :classes %>
+  <i class="fa fa-code has-tooltip" data-toggle="tooltip" 
+            title="GymBull allows the following HTML tags: strong em a code pre h2 h3 p blockquote ul ol li br"></i>
   <%= f.text_area :classes, size: "24x6", class: 'form-control' %>
 
   <%= f.label :password, :class => "required"  %> 
     <span class="has-tooltip" data-toggle="tooltip" title="Must contain: at least 8 characters, 
                                                           at least 1 uppercase, 1 lowercase, and 1 number">
-      <span class="glyphicon glyphicon-info-sign"></span>
+      <i class="fa fa-info-circle"></i>
     </span>
   <%= f.password_field :password, class: 'form-control', :required => true%>
 
