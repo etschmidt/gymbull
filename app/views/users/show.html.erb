@@ -39,28 +39,28 @@
             <span class="loctxt"><b><%= @user.email %></b></span>
           </div>
         <% end %>   
-        <% if @user.about? %><b>About:</b> <%= sanitize simple_format(@post.content), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
+        <% if @user.about? %><b>About:</b> <%= sanitize simple_format(@user.about), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
                 attributes: %w(href class) %> </br><% end %>
         
         <!-- Users -->
         <% if @user.height? %><b>Height:</b> <%= @user.height %> in.</br><% end %>
         <% if @user.weight? %><b>Weight:</b> <%= @user.weight %> lbs.</br><% end %>
-        <% if @user.goals? %><b>Goals:</b> <%= sanitize simple_format(@post.content), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
+        <% if @user.goals? %><b>Goals:</b> <%= sanitize simple_format(@user.goals), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
                 attributes: %w(href class) %> %></br><% end %>
-        <% if @user.prs? %><b>Personal Records:</b> <%= sanitize simple_format(@post.content), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
+        <% if @user.prs? %><b>Personal Records:</b> <%= sanitize simple_format(@user.prs), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
                 attributes: %w(href class) %></br><% end %>
-        <% if @user.quals? %><b>Qualifications:</b> <%= sanitize simple_format(@post.content), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
+        <% if @user.quals? %><b>Qualifications:</b> <%= sanitize simple_format(@user.quals), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
                 attributes: %w(href class) %> </br><% end %>
         
         <!-- Gyms -->
   
-        <% if @user.hours? %><b>Hours:</b> <%= sanitize simple_format(@post.content), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
+        <% if @user.hours? %><b>Hours:</b> <%= sanitize simple_format( @user.hours), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
                 attributes: %w(href class) %></br><% end %>
-        <% if @user.pricing? %><b>Pricing:</b> <%= sanitize simple_format(@post.content), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
+        <% if @user.pricing? %><b>Pricing:</b> <%= sanitize simple_format(@user.pricing), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
                 attributes: %w(href class) %></br><% end %>
-        <% if @user.equipment? %><b>Equipment:</b> <%= sanitize simple_format(@post.content), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
+        <% if @user.equipment? %><b>Equipment:</b> <%= sanitize simple_format(@user.equipment), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
                 attributes: %w(href class) %></br><% end %>
-        <% if @user.classes? %><b>Classes:</b> <%= sanitize simple_format(@post.content), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
+        <% if @user.classes? %><b>Classes:</b> <%= sanitize simple_format(@user.classes), tags: %w(strong em a code pre h2 h3 p blockquote ul ol li br),
                 attributes: %w(href class) %></br><% end %>
         
         <% if logged_in? %>
