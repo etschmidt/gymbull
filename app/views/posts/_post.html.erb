@@ -42,9 +42,9 @@
       <% end %>
       
       <div class="full-option">
-        <% if post.body_parts? %> Body Parts: <%= post.body_parts %></br><% end %>
-        <% if post.duration? %> Length: <%= post.duration %> minutes</br><% end %>
-        <% if post.equipment? %> Equipment: <%= post.equipment %></br><% end %>
+        <% if post.body_parts? %><b>Body Parts:</b> <%= post.body_parts %></br><% end %>
+        <% if post.duration? %><b>Length:</b> <%= post.duration %> minutes</br><% end %>
+        <% if post.equipment? %><b>Equipment:</b> <%= post.equipment %></br><% end %>
       </div>
       <div class="inner-content">
         <span class="full-option post_type"><b>Workout:</b></br></span>
@@ -75,14 +75,14 @@
       <% end %>
       
       <div class="full-option">
-        <% if post.calories? %> Calories: <%= post.calories %> kcal</br><% end %>
+        <% if post.calories? %><b>Calories:</b> <%= post.calories %> kcal</br><% end %>
         <% if post.protein? || post.fat? || post.carbs? %>
           <div>Macronutrients:</br> 
-          <% if post.protein? %>Protein: <%= post.protein %> g</br><% end %>
-          <% if post.fat? %>Fat: <%= post.fat %> g</br><% end %>
-          <% if post.carbs? %>Carbs: <%= post.carbs %> g<% end %>
+          <% if post.protein? %><b>Protein:</b> <%= post.protein %> g</br><% end %>
+          <% if post.fat? %><b>Fat:</b> <%= post.fat %> g</br><% end %>
+          <% if post.carbs? %><b>Carbs:</b> <%= post.carbs %> g<% end %>
           </div> <% end %>
-        <% if post.ingredients? %>Ingredients: <%= simple_format(post.ingredients) %></br><% end %>
+        <% if post.ingredients? %><b>Ingredients:</b> <%= simple_format(post.ingredients) %></br><% end %>
       </div>
       <div class="inner-content">
         <span class="full-option post_type"><b>Recipe:</b></br></span>

@@ -113,10 +113,11 @@ $gray-medium-light: #eaeaea;
   .posts li div.content {
     div.full-option {
       float: right;
+      text-align: left;
       margin-left: 15px;
       margin-bottom: 15px;
       margin-right: 5px;
-      max-width: 200px;
+      width: 150px;
       height: 100%;
     }
     div.inner-content span.post_type {
@@ -246,8 +247,6 @@ section.post_form {
   }
 }
 
-section.post_form 
-
 #post_tag_list {
   float: right;
 }
@@ -255,6 +254,19 @@ section.post_form
 label.required:before {
   color: red;
   content:"* "
+}
+
+/* Edit view */
+.edit_post {
+  .form-control {
+    margin-bottom: 5px;
+  }
+  .input-group {
+    margin-bottom: 5px !important;
+    .form-control {
+      margin-bottom: 0px !important;
+    }
+  }
 }
 
 /* Style the list */
