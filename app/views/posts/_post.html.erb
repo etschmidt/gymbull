@@ -148,7 +148,7 @@
       <% end %> | <b><%= post.favorites.count %></b> |
   <!-- -->    
       <%= link_to post_path(post) do %>
-        <i class="fa fa-comments-o"></i>| <span class="comment_count"><b><%= post.comments.count %></b></span>
+        <i class="fa fa-comments-o"></i> | <span class="comment_count"><b><%= post.comments.count %></b></span>
       <% end %>
       <span class="full-option">
         <% if current_user?(post.user) %>

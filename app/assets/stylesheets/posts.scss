@@ -149,6 +149,9 @@ aside {
     padding-top: 10px !important;
     text-align: left;
     font-size: 1.1em;
+    .btn.btn-sm {
+      float: right;
+    }
     .stamp {
       display: inline;
       line-height: 1;
@@ -159,7 +162,7 @@ aside {
       }
     }
     .share-buttons {
-      margin-top: 3px;
+      margin-top: 6px;
     }
   }
 }
