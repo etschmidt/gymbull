@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get  '/survey',  to: 'static_pages#survey' 
   get  '/alltags',  to: 'static_pages#alltags'
   get  '/sample',  to: 'static_pages#sample' 
+  get  '/terms',  to: 'static_pages#terms' 
   
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
