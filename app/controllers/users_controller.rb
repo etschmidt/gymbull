@@ -30,6 +30,9 @@ class UsersController < ApplicationController
     else
       @posts = @user.posts.includes(:tags).all.paginate(page: params[:page], per_page: 15)
     end
+    
+    @other_users = recent_users.reverse_order.limit(3)
+    
   end
 
   def new

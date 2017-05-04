@@ -93,13 +93,41 @@
       </div>
       
       <% if @user.posts.any? %>
-      <ol class="posts">
-        <%= render @posts %>
-      </ol>
-
-      <%= will_paginate @posts %>
+        <ol class="posts">
+          <%= render @posts %>
+        </ol>
+        <%= will_paginate @posts %>
       
-    <% end %>
+      <% else %> <!-- If user hasn't posted anything yet -->
+      
+        <div class="startinfo panel panel-default">
+          <% if current_user?(@user) %>
+            <div class="center">
+              <h3>Hey, you haven't posted anything yet<br>Here are a few suggestions:</h3>
+            </div>
+  
+            <ul>
+              <li>What's the one workout you do when you only have 20 minutes at the gym?</li>
+              <li>What's your go-to meal to maximize gains?</li> 
+              <li>Or, how about this: Just post a picture of yourself at the start of your fitness journey</li>
+            </ul>
+      
+          <% else %>
+          
+            <div class="center">
+              <h3>This guy hasn't posted anything yet</br>Here are some other users who have:</h3>
+            </div>
+  
+        		<ul class="users">
+        		  <%= render @other_users %>
+        		</ul>
+            
+          <% end %>
+          
+        </div>
+      
+      <% end %>
+      
   </div>
   
   <div class="col-md-3 panel panel-default ">
