@@ -158,7 +158,9 @@ class UsersController < ApplicationController
     
     def top_posters
       
-      User.joins(:posts).group("posts.user_id").order("count(posts.user_id) asc")
+      #User.joins(:posts).group("posts.user_id").order("count(posts.user_id) asc")
+      
+      User.joins('left join posts on users.id = posts.user_id').select('users.*, count(posts.id) as posts_count'). group('users.id').order('posts_count desc')
     
     end
 
