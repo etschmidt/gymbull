@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   def index
     @title = 'Users'
     if params[:q].blank?
-      @search = recent_users.search(params[:q])    #should be replaced with top_posters eventually
-      @users = @search.result.reverse_order.limit(20)
+      @search = top_posters.search(params[:q])    #should be replaced with top_posters eventually
+      @users = @search.result.limit(20)
     else
       @search = User.search(params[:q])
       @users =  @search.result.reverse_order.limit(20)
@@ -157,8 +157,6 @@ class UsersController < ApplicationController
     end
     
     def top_posters
-      
-      #User.joins(:posts).group("posts.user_id").order("count(posts.user_id) asc")
       
       User.joins('left join posts on users.id = posts.user_id').select('users.*, count(posts.id) as posts_count'). group('users.id').order('posts_count desc')
     
