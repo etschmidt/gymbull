@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
   
   def index
-    @title = 'Search Users'
+    @title = 'Users'
     if params[:q].blank?
-      @search = recent_users.search(params[:q])
-      @users = @search.result.order(created_at: :desc).limit(20)
+      @search = top_posters.search(params[:q])
+      @users = @search.result.reverse_order.limit(20)
     else
       @search = User.search(params[:q])
-      @users =  @search.result.order(created_at: :desc).limit(20)
+      @users =  @search.result.reverse_order.limit(20)
     end
   end
   
@@ -155,13 +155,19 @@ class UsersController < ApplicationController
                       ORDER BY created_at ASC" 
       User.where("id IN (#{recent_posts})")
     end
+    
+    def top_posters
+      
+      User.joins(:posts).group("posts.user_id").order("count(posts.user_id) asc")
+    
+    end
 
     def suggestions
       
       following_ids = "SELECT followed_id FROM relationships
                     WHERE  follower_id = (#{current_user.id})"
 
-      recent_users.where("id NOT IN (#{following_ids})")
+      top_posters.where("user_id NOT IN (#{following_ids})")
     end
       
 

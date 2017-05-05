@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
       
   #  @activities = PublicActivity::Activity.order("created_at desc").limit(10)
     following_ids = "SELECT followed_id FROM relationships
-                    WHERE  follower_id = :user_id"
+                    WHERE  follower_id = (#{current_user.id})"
 
     @activities = PublicActivity::Activity
       .order("created_at desc").limit(10)
