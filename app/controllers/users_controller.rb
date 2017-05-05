@@ -8,10 +8,10 @@ class UsersController < ApplicationController
     @title = 'Users'
     if params[:q].blank?
       @search = top_posters.search(params[:q])
-      @users = @search.result.reverse_order.limit(20)
+      @users = @search.result.limit(20)
     else
       @search = User.search(params[:q])
-      @users =  @search.result.reverse_order.limit(20)
+      @users =  @search.result.limit(20)
     end
   end
   
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
       @posts = @user.posts.includes(:tags).all.paginate(page: params[:page], per_page: 15)
     end
     
-    @suggestions = suggestions.reverse_order.limit(3)
+    @suggestions = suggestions.limit(3)
     
   end
 
