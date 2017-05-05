@@ -7,11 +7,11 @@ class UsersController < ApplicationController
   def index
     @title = 'Users'
     if params[:q].blank?
-      @search = top_posters.search(params[:q])
-      @users = @search.result.limit(20)
+      @search = recent_users.search(params[:q])
+      @users = @search.result.reverse_order.limit(20)
     else
       @search = User.search(params[:q])
-      @users =  @search.result.limit(20)
+      @users =  @search.result.reverse_order.limit(20)
     end
   end
   
