@@ -31,7 +31,7 @@ class UsersController < ApplicationController
       @posts = @user.posts.includes(:tags).all.paginate(page: params[:page], per_page: 15)
     end
     
-    @other_users = recent_users.reverse_order.limit(3)
+    @suggestions = suggestions.reverse_order.limit(3)
     
   end
 
@@ -155,13 +155,14 @@ class UsersController < ApplicationController
                       ORDER BY created_at ASC" 
       User.where("id IN (#{recent_posts})")
     end
-=begin  fuck this shit
-    def allmires
-          @mireds = Post.where(@user.id = user_id)
-      allmires = "SELECT user_id
-      FROM favorites
-      INNER JOIN posts
-      ON posts.id = favorited_id"
+
+    def suggestions
+      
+      following_ids = "SELECT followed_id FROM relationships
+                    WHERE  follower_id = (#{current_user.id})"
+
+      recent_users.where("id NOT IN (#{following_ids})")
     end
-=end
+      
+
 end
