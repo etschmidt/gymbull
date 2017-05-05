@@ -8,12 +8,10 @@ class UsersController < ApplicationController
     @title = 'Users'
     if params[:q].blank?
       @search = top_posters.search(params[:q])
-      @users = @search.result.order(created_at: :desc).limit(20)
- #     @users = @search.result.reverse_order.limit(20)
+      @users = @search.result.reverse_order.limit(20)
     else
       @search = User.search(params[:q])
-      @users = @search.result.order(created_at: :desc).limit(20)
-#      @users =  @search.result.reverse_order.limit(20)
+      @users =  @search.result.reverse_order.limit(20)
     end
   end
   
@@ -169,10 +167,7 @@ class UsersController < ApplicationController
       following_ids = "SELECT followed_id FROM relationships
                     WHERE  follower_id = (#{current_user.id})"
 
-      #top_posters.where("user_id NOT IN (#{following_ids})")
-      
-      recent_users.where("user_id NOT IN (#{following_ids})")
-      
+      top_posters.where("user_id NOT IN (#{following_ids})")
     end
       
 
