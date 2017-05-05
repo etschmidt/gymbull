@@ -10,4 +10,9 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Password reset"
   end
   
+  def notice(user)
+    @user = user
+    mail to: user.email, subject: "Account Activated"
+  end
+  
 end
