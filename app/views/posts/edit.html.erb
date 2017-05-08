@@ -57,7 +57,8 @@
 	      </div>
 	      <div class="input-group">
 	        <span class="input-group-addon"><i class="fa fa-tags fa-fw"></i></span>
-	        <%= f.text_field :tag_list, placeholder: "lifting, getbig", class: "form-control" %>  
+	        <%= f.text_field :tag_list, placeholder: "lifting, getbig", value: f.object.tag_list.to_s, 
+	      		multiple: true, class: 'form-control' %>
 	      </div>
 	      
       
