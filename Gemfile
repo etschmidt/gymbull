@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.4.0'
-gem 'rails',                   '5.1.0'
+ruby '2.4.1'
+gem 'rails',                   '5.0.2'
 gem 'bcrypt',                  '3.1.11'  #password encryption
 gem 'faker',                   '1.7.1'   #making seed data
 gem 'carrierwave',             '0.11.2'  #image uploader

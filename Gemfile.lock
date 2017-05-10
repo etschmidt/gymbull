@@ -406,6 +406,7 @@ DEPENDENCIES
   pg (= 0.18.4)
   public_activity (~> 1.5)
   puma (= 3.4.0)
+  rails (= 5.0.2)
   rails-controller-testing (= 0.1.1)
   rails_real_favicon
   ransack (= 1.8.2)
@@ -420,6 +421,9 @@ DEPENDENCIES
   web-console (= 3.1.1)
   will_paginate (= 3.1.5)
   youtube_addy (~> 1.0)
+
+RUBY VERSION
+   ruby 2.4.1p111
 
 BUNDLED WITH
    1.14.6
