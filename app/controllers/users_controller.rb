@@ -94,22 +94,13 @@ class UsersController < ApplicationController
     @posts = @user.favorite_posts
     render 'favorite_posts/show'
   end
-  
-  def reverse_mires
-    @title = "Reverse Mires"
-    @user = User.friendly.find(params[:id])
-    @posts = @user.favorite_posts.reverse
-    render 'favorite_posts/show'
-  end
 
-=begin
   def recent_mires
     @title = "Recent Mires"
     @user = User.friendly.find(params[:id])
-    @posts = Favorite.where(user_id: current_user.id)
+    @posts = @user.recent_mires
     render 'favorite_posts/show'
   end
-=end
 
   private
     
@@ -156,14 +147,15 @@ class UsersController < ApplicationController
       User.where("id IN (#{recent_posts})")
     end
     
-    def top_posters
-      
-      User.joins('left join posts on users.id = posts.user_id').select('users.*, count(posts.id) as posts_count'). group('users.id').order('posts_count desc')
+    ###############################################################################################
+ 
+    #################################################################################################
     
+    def top_posters
+      User.joins('left join posts on users.id = posts.user_id').select('users.*, count(posts.id) as posts_count').group('users.id').order('posts_count desc')
     end
 
     def suggestions
-      
       following_ids = "SELECT followed_id FROM relationships
                     WHERE  follower_id = (#{current_user.id})"
 

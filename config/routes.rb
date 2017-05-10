@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     member do
       get :following, :followers
       get :favorite_posts
-      get '/reverse_mires', to: 'users#reverse_mires'
+      #get '/reverse_mires', to: 'users#reverse_mires'
       get '/recent_mires', to: 'users#recent_mires'
     end
   end
