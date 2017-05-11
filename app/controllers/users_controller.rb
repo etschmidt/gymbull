@@ -95,12 +95,21 @@ class UsersController < ApplicationController
     render 'favorite_posts/show'
   end
 
-  def recent_mires
+  def reverse_mires
     @title = "Recent Mires"
     @user = User.friendly.find(params[:id])
-    @posts = @user.recent_mires
+    @posts = @user.favorite_posts.reverse
     render 'favorite_posts/show'
   end
+  
+=begin
+  def reverse_mires
+    @title = "Recent Mires"
+    @user = User.friendly.find(params[:id])
+    @posts = @user.favorite_posts.reverse
+    render 'favorite_posts/show'
+  end
+=end
 
   private
     
@@ -146,10 +155,6 @@ class UsersController < ApplicationController
                       ORDER BY created_at ASC" 
       User.where("id IN (#{recent_posts})")
     end
-    
-    ###############################################################################################
- 
-    #################################################################################################
     
     def top_posters
       User.joins('left join posts on users.id = posts.user_id').select('users.*, count(posts.id) as posts_count').group('users.id').order('posts_count desc')

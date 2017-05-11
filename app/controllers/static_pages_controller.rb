@@ -53,8 +53,16 @@ class StaticPagesController < ApplicationController
   end
   
   def sample
+    @title = "Mires"
     @posts = Post.where(post_type: ["workout", "meal"]).limit(15)
     flash.now[:info] = "<b>Log in</b> to save content that you 'mire here".html_safe
+    render 'favorite_posts/show'
+  end
+  
+  def top_mires
+    @title = "Top Mires"
+    @posts = Post.joins('LEFT JOIN favorites ON posts.id = favorites.favorited_id').select('posts.*, count(favorites.id) AS favorites_count').group('posts.id').order('favorites_count desc').limit(10)
+    render 'favorite_posts/show'
   end
   
   def letsencrypt1
