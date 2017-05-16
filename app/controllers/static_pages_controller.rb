@@ -61,8 +61,12 @@ class StaticPagesController < ApplicationController
   
   def top_mires
     @title = "Top 12"
+    if !logged_in?
+      flash.now[:info] = "Log in to see all users, gyms, and other content"
+    end
     @posts = Post.unscoped.order('posts.favorites_count desc').limit(12)
     render 'favorite_posts/show'
+
   end
   
   def letsencrypt1

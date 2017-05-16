@@ -18,12 +18,6 @@
       <% end %>
     </div>
     
-    <% if !logged_in? %>
-      <div class="alert alert-mires alert-info">
-        Please <b><%= link_to "Log in", login_path %></b> to mire content
-      </div>
-    <% end %>
-    
     <% if @posts.any? %>
       <ul class="mini-posts">
         <%= render @posts %>

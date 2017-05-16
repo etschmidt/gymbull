@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     if !logged_in?
-      flash.now[:info] = "Log in to see all Users, Gyms, and other content"
+      flash.now[:info] = "Log in to see all users, gyms, and other content"
     end
     if params[:tag]
       @posts = @user.posts.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 15)
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   def update
     @user = User.friendly.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash.now[:success] = "Profile updated"
       redirect_to @user
     else
       render 'edit'
