@@ -91,14 +91,20 @@ class UsersController < ApplicationController
   def favorite_posts
     @title = "Mires"
     @user = User.friendly.find(params[:id])
-    @posts = @user.favorite_posts
+    @posts = Post.unscoped
+            .joins('INNER JOIN favorites ON posts.id = favorites.favorited_id')
+            .select('posts.*').where('favorites.user_id = ?', @user.id)
+            .group('posts.id').order('favorites.created_at asc')
     render 'favorite_posts/show'
   end
 
   def reverse_mires
     @title = "Mires - Reverse"
     @user = User.friendly.find(params[:id])
-    @posts = @user.favorite_posts.reverse
+    @posts = Post.unscoped
+            .joins('INNER JOIN favorites ON posts.id = favorites.favorited_id')
+            .select('posts.*').where('favorites.user_id = ?', @user.id)
+            .group('posts.id').order('favorites.created_at desc')
     render 'favorite_posts/show'
   end
   
