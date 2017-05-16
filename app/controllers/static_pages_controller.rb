@@ -52,16 +52,16 @@ class StaticPagesController < ApplicationController
     @title = "Terms"
   end
   
-  def sample
-    @title = "Mires"
-    @posts = Post.where(post_type: ["workout", "meal"]).limit(15)
-    flash.now[:info] = "<b>Log in</b> to save content that you 'mire here".html_safe
-    render 'favorite_posts/show'
-  end
+#  def sample
+#    @title = "Mires"
+#    @posts = Post.where(post_type: ["workout", "meal"]).limit(15)
+#    flash.now[:info] = "<b>Log in</b> to save content that you 'mire here".html_safe
+#    render 'favorite_posts/show'
+#  end
   
   def top_mires
-    @title = "Top Mires"
-    @posts = Post.joins('LEFT JOIN favorites ON posts.id = favorites.favorited_id').select('posts.*, count(favorites.id) AS favorites_count').group('posts.id').order('favorites_count desc').limit(10)
+    @title = "Top 12"
+    @posts = Post.unscoped.order('posts.favorites_count desc').limit(12)
     render 'favorite_posts/show'
   end
   

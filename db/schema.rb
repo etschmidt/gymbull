@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510172250) do
+ActiveRecord::Schema.define(version: 20170516051019) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -57,14 +57,15 @@ ActiveRecord::Schema.define(version: 20170510172250) do
     t.integer  "calories"
     t.text     "ingredients"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "picture"
     t.string   "title"
     t.integer  "carbs"
     t.integer  "fat"
     t.integer  "protein"
     t.string   "youtube_url"
+    t.integer  "favorites_count", default: 0
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

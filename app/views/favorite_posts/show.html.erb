@@ -6,15 +6,23 @@
 
     <div class="title-bar bar">
       <% if logged_in? %>
-        <h1>Mires</h1>
-        <%= link_to "Default", favorite_posts_user_path(current_user), 
+        <h1><%= render inline: @title %></h1>
+        <%= link_to "Top 12", top_mires_path, 
+          :class => 'btn btn-default btn-lg all_toggle' %>
+        <%= link_to "My Mires", favorite_posts_user_path(current_user), 
           :class => 'btn btn-default btn-lg all_toggle' %>
         <%= link_to "Reverse", reverse_mires_user_path(current_user), 
           :class => 'btn btn-default btn-lg all_toggle' %>
       <% else %>
-        <h1>Mires</h1>
+        <h1><%= render inline: @title %></h1>
       <% end %>
     </div>
+    
+    <% if !logged_in? %>
+      <div class="alert alert-mires alert-info">
+        Please <b><%= link_to "Log in", login_path %></b> to mire content
+      </div>
+    <% end %>
     
     <% if @posts.any? %>
       <ul class="mini-posts">
