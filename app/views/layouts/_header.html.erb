@@ -19,6 +19,11 @@
             <% end %>
           </li>
           <li>
+            <%= link_to post_path(@random) do %>
+              <i class="fa fa-random fa-lg"></i> Random
+            <% end %>
+          </li>
+          <li>
             <%= link_to favorite_posts_user_path(current_user) do %>
               <i class="fa fa-star fa-lg"></i> Mires
             <% end %>
@@ -64,6 +69,11 @@
           <li>
             <%= link_to posts_path do %>
               <i class="fa fa-home fa-lg"></i> Posts
+            <% end %>
+          </li>
+          <li>
+            <%= link_to post_path(@random) do %>
+              <i class="fa fa-random fa-lg"></i> Random
             <% end %>
           </li>
           <li>
