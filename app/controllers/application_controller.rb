@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_filter :expire_hsts
+  before_action :expire_hsts
+  before_action :random_workout
   
   include PublicActivity::StoreController
   
@@ -20,6 +21,10 @@ class ApplicationController < ActionController::Base
     
     def expire_hsts
       response.headers["Strict-Transport-Security"] = 'max-age=0'
+    end
+
+    def random_workout
+      @random = Post.unscoped.order("RANDOM()").first
     end
   
 end
