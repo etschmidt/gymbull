@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     if !logged_in?
-      flash.now[:info] = "Log in to see all Users, Gyms, and other content"
+      flash.now[:info] = "Log in to see all users, gyms, and other content"
     end
     if params[:tag]
       @posts = @user.posts.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 15)
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   def update
     @user = User.friendly.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash.now[:success] = "Profile updated"
       redirect_to @user
     else
       render 'edit'
@@ -91,26 +91,23 @@ class UsersController < ApplicationController
   def favorite_posts
     @title = "Mires"
     @user = User.friendly.find(params[:id])
-    @posts = @user.favorite_posts
+    @posts = Post.unscoped
+            .joins('INNER JOIN favorites ON posts.id = favorites.favorited_id')
+            .select('posts.*').where('favorites.user_id = ?', @user.id)
+            .group('posts.id').order('favorites.created_at asc')
+    render 'favorite_posts/show'
+  end
+
+  def reverse_mires
+    @title = "Mires - Reverse"
+    @user = User.friendly.find(params[:id])
+    @posts = Post.unscoped
+            .joins('INNER JOIN favorites ON posts.id = favorites.favorited_id')
+            .select('posts.*').where('favorites.user_id = ?', @user.id)
+            .group('posts.id').order('favorites.created_at desc')
     render 'favorite_posts/show'
   end
   
-  def reverse_mires
-    @title = "Reverse Mires"
-    @user = User.friendly.find(params[:id])
-    @posts = @user.favorite_posts.reverse
-    render 'favorite_posts/show'
-  end
-
-=begin
-  def recent_mires
-    @title = "Recent Mires"
-    @user = User.friendly.find(params[:id])
-    @posts = Favorite.where(user_id: current_user.id)
-    render 'favorite_posts/show'
-  end
-=end
-
   private
     
     def user_params
@@ -157,13 +154,10 @@ class UsersController < ApplicationController
     end
     
     def top_posters
-      
-      User.joins('left join posts on users.id = posts.user_id').select('users.*, count(posts.id) as posts_count'). group('users.id').order('posts_count desc')
-    
+      User.joins('left join posts on users.id = posts.user_id').select('users.*, count(posts.id) as posts_count').group('users.id').order('posts_count desc')
     end
 
     def suggestions
-      
       following_ids = "SELECT followed_id FROM relationships
                     WHERE  follower_id = (#{current_user.id})"
 

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get  '/survey',  to: 'static_pages#survey' 
   get  '/alltags',  to: 'static_pages#alltags'
   get  '/sample',  to: 'static_pages#sample' 
+  get  '/top_mires',  to: 'static_pages#top_mires' 
   get  '/terms',  to: 'static_pages#terms' 
   
   get  '/signup',  to: 'users#new'
@@ -43,7 +44,7 @@ Rails.application.routes.draw do
       get :following, :followers
       get :favorite_posts
       get '/reverse_mires', to: 'users#reverse_mires'
-      get '/recent_mires', to: 'users#recent_mires'
+      #get '/recent_mires', to: 'users#recent_mires'
     end
   end
 

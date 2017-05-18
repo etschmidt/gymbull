@@ -125,6 +125,15 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
   
+  # returns 
+  def recent_mires
+    recent_mires_id = "SELECT posts.id FROM posts
+                      INNER JOIN favorites ON favorites.favorited_id = posts.id
+                      WHERE posts.user_id = :user_id
+                      ORDER BY favorites.created_at DESC"
+    Post.where("id IN (#{recent_mires_id})", user_id: id)
+  end 
+  
   private
   
     def downcase_email

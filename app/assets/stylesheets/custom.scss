@@ -79,7 +79,7 @@ p {
   }
 }
 
-.alert.alert-top{
+.alert.alert-top {
   text-align: center;
   font-size: 16px;
   font-weight: bold;
@@ -88,7 +88,11 @@ p {
   margin-bottom: 15px !important;
   padding-bottom: 15px !important;
   border: none;
+}
 
+.alert.alert-mires {
+  text-align: center;
+  margin-bottom: 5px !important;
 }
 
 /* miscellaneous */

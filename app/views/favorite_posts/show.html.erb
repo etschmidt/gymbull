@@ -5,11 +5,17 @@
   <div class="col-md-9">
 
     <div class="title-bar bar">
-      <h1>Mires <span class="badge"><%= @user.favorite_posts.count %></span></h1>
-      <%= link_to "Default", favorite_posts_user_path(current_user), 
-        :class => 'btn btn-default btn-lg all_toggle' %>
-      <%= link_to "Reverse", reverse_mires_user_path(current_user), 
-        :class => 'btn btn-default btn-lg all_toggle' %>
+      <% if logged_in? %>
+        <h1><%= render inline: @title %></h1>
+        <%= link_to "Top 12", top_mires_path, 
+          :class => 'btn btn-default btn-lg all_toggle' %>
+        <%= link_to "My Mires", favorite_posts_user_path(current_user), 
+          :class => 'btn btn-default btn-lg all_toggle' %>
+        <%= link_to "Reverse", reverse_mires_user_path(current_user), 
+          :class => 'btn btn-default btn-lg all_toggle' %>
+      <% else %>
+        <h1><%= render inline: @title %></h1>
+      <% end %>
     </div>
     
     <% if @posts.any? %>

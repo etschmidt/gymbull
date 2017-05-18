@@ -212,6 +212,7 @@ input {
   }
 }
 
+/* Users lists */
 .users {
   list-style: none;
   padding: 0;
@@ -223,7 +224,6 @@ input {
     padding: 10px 7px 5px 7px;
     border: 1px solid #ddd;
     .name-line {
-
       img {
         border-style: solid;
         border-width: 1px;
@@ -232,7 +232,7 @@ input {
         margin-bottom: 10px;
       }
       a.username {
-        font-size: 1.8em;
+        font-size: 24px;
       }
       
       #follow_form {
@@ -244,3 +244,15 @@ input {
   }
 }
 
+.users.suggestions {
+  li {  
+    padding-top: 5px;
+    padding-bottom: 3px;
+    a.username {
+      font-size: 20px !important;
+    }
+    .tag-info {
+      font-size: 12px;
+    }
+  }
+}
