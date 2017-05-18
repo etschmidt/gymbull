@@ -93,7 +93,7 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     @posts = Post.unscoped
             .joins('INNER JOIN favorites ON posts.id = favorites.favorited_id')
-            .select('posts.*').where(:favorites => {:user_id => @user.id})
+            .select('posts.*').where(:favorites => {:user_id => @user.id}).load
             .group('posts.id').order('favorites.created_at asc')
     render 'favorite_posts/show'
   end
@@ -103,7 +103,7 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     @posts = Post.unscoped
             .joins('INNER JOIN favorites ON posts.id = favorites.favorited_id')
-            .select('posts.*').where(:favorites => {:user_id => @user.id})
+            .select('posts.*').where(:favorites => {:user_id => @user.id}).load
             .group('posts.id').order('favorites.created_at desc')
     render 'favorite_posts/show'
   end
