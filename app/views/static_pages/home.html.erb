@@ -4,20 +4,24 @@
   <div class="row">
     
     <% if logged_in? %>
-      <aside class="col-md-3 panel panel-default">
-        <section class="user_info">
-          <span><%= profile_picture_for(current_user, size: :profile) %></span>
-          <h1><%= current_user.name %></h1>
-          <div class="stats">
-            <%= render 'shared/stats' %>
+      <aside class="col-md-3">
+        <div class="panel panel-default">
+          <section class="user_info panel-body">
+            <span><%= profile_picture_for(current_user, size: :profile) %></span>
+            <h1><%= current_user.name %></h1>
+            <div class="stats">
+              <%= render 'shared/stats' %>
+            </div>
+            <span>
+              <%= link_to "View my profile", current_user, :class => 'btn btn-default btn-md' %>
+              <%= link_to "Post something", root_path(:anchor => "postanchor"), :class => 'btn btn-default btn-md mobile' %>
+            </span>
+          </section>
+        </div>
+        <div class="panel panel-default">
+          <div id="activityfeed" class="panel-body">
+            <%= render 'activities/user_activities' %>
           </div>
-          <span>
-            <%= link_to "View my profile", current_user, :class => 'btn btn-default btn-md' %>
-            <%= link_to "Post something", root_path(:anchor => "postanchor"), :class => 'btn btn-default btn-md mobile' %>
-          </span>
-        </section>
-        <div id="activityfeed">
-          <%= render 'activities/user_activities' %>
         </div>
       </aside>
       
@@ -65,21 +69,24 @@
         <% end %>
       </div>
       
-      <div class="col-md-3 panel panel-default" id="postanchor">
-   
-        <section class="post_form ">
-          <%= render 'shared/post_form' %>
-        </section>
-  
-        <div id="tag_cloud">
-          <h4>Trending Tags</h4>
-          <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
-            <%= link_to tag.name.downcase, tag_path(tag.name), class: css_class %>
-          <% end %></br>
+      <aside class="col-md-3" id="postanchor">
+        <div class="panel panel-default">
+          <section class="post_form panel-body">
+            <%= render 'shared/post_form' %>
+          </section>
         </div>
-        <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
+   
+        <div class="panel panel-default">
+          <div id="tag_cloud" class="panel-body">
+            <h4><b>Trending Tags:</b></h4>
+            <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
+              <%= link_to tag.name.downcase, tag_path(tag.name), class: css_class %>
+            <% end %></br>
+            <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
+          </div>
+        </div>
   
-      </div>
+      </aside>
   
     <% else %>
       <div class="col-md-3 panel panel-default intro">

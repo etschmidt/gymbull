@@ -48,7 +48,10 @@ $gray-medium-light: #eaeaea;
 }
 
 .panel.panel-default {
-  padding-bottom: 10px;
+  margin-bottom: 15px;
+  #activityfeed, #tag_cloud {
+    padding-top: 0px;
+  }
 }
 
 .bar {
@@ -84,7 +87,7 @@ $gray-medium-light: #eaeaea;
 // for mobile //
 @media (max-width: 767px) {
   .panel.panel-default {
-     margin: 0px 14px 0px 14px;
+     margin: 0px 14px 15px 14px;
   }
   div.panel.intro {
     img {
