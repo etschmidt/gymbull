@@ -1,82 +1,72 @@
 <div class="container">
 	<div class="row">
   
-  <% if logged_in? %>
-    <aside class="col-md-3 panel panel-default">
-  	  <%= render 'shared/search_posts' %>
+    <aside class="col-md-3">
+      <div class="panel panel-default">
+        <section class="panel-body top-panel">
+  	     <%= render 'shared/search_posts' %>
+        </section>
+      </div>
     </aside>
     
     <div class="col-md-6">
+      <% if logged_in? %>
       
-      <div class="title-bar bar">
-        
-        <h1>All Posts</h1>
-          <%= link_to "Show Bullpen", root_path, 
-            :class => 'btn btn-default btn-lg all_toggle' %>
-      </div>
-        
-      <% if @posts.any? %>
-        <ol class="posts">
-          <%= render @posts %>
-        </ol>
-        
-        <%= will_paginate @posts %>
-        
-      <% else %>
-        <div class="startinfo panel panel-default">
-          <h3>Sorry, nothing matched your search...</h3>
+        <div class="title-bar bar">
+          
+          <h1>All Posts</h1>
+            <%= link_to "Show Bullpen", root_path, 
+              :class => 'btn btn-default btn-lg all_toggle' %>
         </div>
+          
+        <% if @posts.any? %>
+          <ol class="posts">
+            <%= render @posts %>
+          </ol>
+          
+          <%= will_paginate @posts %>
+          
+        <% else %>
+          <div class="startinfo panel panel-default">
+            <h3>Sorry, nothing matched your search...</h3>
+          </div>
+        <% end %>
+
+      <% else %>
+
+        <div class="title-bar bar">
+          <h1>All Posts</h1>
+        </div>
+          
+        <% if @posts.any? %>
+          <ol class="posts">
+            <%= render @posts %>
+          </ol>
+          
+          <%= will_paginate @posts %>
+          
+        <% else %>
+          <div class="startinfo panel panel-default">
+            <h3>Nothing else here, buddy,</br>
+            try logging in to see more content</h3>
+          </div>
+        <% end %>
+
       <% end %>
-      
+
     </div>
-    	<div class="col-md-3 panel panel-default">
-  	    <div id="tag_cloud">
-  	      <h4>Trending Tags</h4>
-  	      <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
-  	        <%= link_to tag.name.downcase, tag_path(tag.name), class: css_class %>
-  	      <% end %></br>
-  	    </div>
-  	    <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
-  		</div>
-  
-    </div>
-  <% else %>
-  
-    <aside class="col-md-3 panel panel-default">
-  	  <%= render 'shared/search_posts' %>
+    
+    <aside class="col-md-3">
+      <div class="panel panel-default">
+        <div id="tag_cloud" class="panel-body top-panel">
+          <h4><b>Trending Tags:</b></h4>
+          <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
+            <%= link_to tag.name.downcase, tag_path(tag.name), class: css_class %>
+          <% end %></br>
+          <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
+        </div>
+      </div>
     </aside>
-  
-    <div class="col-md-6">
-      
-      <div class="title-bar bar">
-        <h1>All Posts</h1>
-      </div>
-        
-      <% if @posts.any? %>
-        <ol class="posts">
-          <%= render @posts %>
-        </ol>
-        
-        <%= will_paginate @posts %>
-        
-      <% else %>
-        <div class="startinfo panel panel-default">
-          <h3>Nothing else here, buddy,</br>
-          try logging in to see more content</h3>
-        </div>
-      <% end %>
-    </div>
-  
-    <div class="col-md-3 panel panel-default" id="searchanchor">
-      <div id="tag_cloud">
-        <h4>Trending Tags</h4>
-        <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
-          <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-        <% end %></br>
-      </div>
-      <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
-    </div>
-  
-  <% end %>
-</div>
+
+  </div>
 </div>

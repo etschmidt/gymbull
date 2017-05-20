@@ -3,133 +3,89 @@
   
   <div class="row">
     
-    <% if logged_in? %>
-      <aside class="col-md-3">
-        <div class="panel panel-default">
-          <section class="user_info panel-body">
-            <span><%= profile_picture_for(current_user, size: :profile) %></span>
-            <h1><%= current_user.name %></h1>
-            <div class="stats">
-              <%= render 'shared/stats' %>
-            </div>
-            <span>
-              <%= link_to "View my profile", current_user, :class => 'btn btn-default btn-md' %>
-              <%= link_to "Post something", root_path(:anchor => "postanchor"), :class => 'btn btn-default btn-md mobile' %>
-            </span>
-          </section>
-        </div>
-        <div class="panel panel-default">
-          <div id="activityfeed" class="panel-body">
-            <%= render 'activities/user_activities' %>
+    <aside class="col-md-3">
+      <div class="panel panel-default">
+        <section class="user_info panel-body">
+          <span><%= profile_picture_for(current_user, size: :profile) %></span>
+          <h1><%= current_user.name %></h1>
+          <div class="stats">
+            <%= render 'shared/stats' %>
           </div>
-        </div>
-      </aside>
-      
-      <div class="col-md-6">
-        
-        <div class="title-bar bar">
-          
-          <h1>Bullpen</h1>
-          <%= link_to "Search All Posts", posts_path, 
-            :class => 'btn btn-default btn-lg all_toggle' %>
-        </div>
-          
-        <% if current_user.following.any? %>
-          <ol class="posts">
-            <%= render @feed_items %>
-          </ol>
-          
-          <%= will_paginate @feed_items %>
-          
-        <% else %>
-          <div class="startinfo panel panel-default">
-            <div class="center">
-              <h3>Welcome to GymBull</br>here's how to get started</h3>
-            </div>
-  
-            <ul>
-              <li>Below is a sample of the most recent content on GymBull</li>
-              <li>Once you find other <%= link_to 'users', users_path %> to follow, 
-              only their content will apear in this feed</li> 
-              <li>You will always be able to find all GymBull content by using the 
-              <%= link_to "Search posts", posts_path, :class => 'btn btn-default btn-sm all_toggle' %> button above</li>
-              <li>Use the trending <%= link_to 'tags', alltags_path %> or search for other content</li>
-              <li>If you mire a post by clicking the <span class="glyphicon glyphicon-star-empty"></span>
-              you'll save that content to your <%= link_to 'Mires', favorite_posts_path %> page</li>
-              <li>The <span class="glyphicon glyphicon-fullscreen"></span> icon will expand the 
-              post and show the comments</li>
-              <li>Here in the Bullpen you can post a new workout, meal, or anything else!</li>
-            </ul>
-          </div>
-          
-          <ol class="posts">
-            <%= render @posts %>
-          </ol>
-          
-        <% end %>
+          <span>
+            <%= link_to "View my profile", current_user, :class => 'btn btn-default btn-md' %>
+            <%= link_to "Post something", root_path(:anchor => "postanchor"), :class => 'btn btn-default btn-md mobile' %>
+          </span>
+        </section>
       </div>
-      
-      <aside class="col-md-3" id="postanchor">
-        <div class="panel panel-default">
-          <section class="post_form panel-body">
-            <%= render 'shared/post_form' %>
-          </section>
+      <div class="panel panel-default">
+        <div id="activityfeed" class="panel-body top-panel">
+          <%= render 'activities/user_activities' %>
         </div>
-   
-        <div class="panel panel-default">
-          <div id="tag_cloud" class="panel-body">
-            <h4><b>Trending Tags:</b></h4>
-            <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
-              <%= link_to tag.name.downcase, tag_path(tag.name), class: css_class %>
-            <% end %></br>
-            <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
-          </div>
-        </div>
-  
-      </aside>
-  
-    <% else %>
-      <div class="col-md-3 panel panel-default intro">
-        <div class="center">
-          <h1>GymBull</h1>
-          <h3>A Culture of Fitness Without the Bullshit</h3>
-          <%= image_tag "barbell-clipart.jpg" %>
-        </div>
-        <%= render 'sessions/login' %>
-        <%= link_to "Jump to search", root_path(:anchor => "searchanchor"), :class => 'btn btn-default btn-md mobile' %>
       </div>
-      
-      <div class="col-md-6">
-        <div class="title-bar">
-          <h2>Search, browse, and save exercise and nutrition information from all around the world</h2>
-        </div>
-        
-        <% if @feed_items.any? %>
-          <ol class="posts">
-            <%= render @feed_items %>
-          </ol>
-          
-          <%= will_paginate @feed_items %>
-          
-        <% else %>
-          <div class="startinfo panel panel-default">
-            <h3>Nothing else here, buddy,</br>
-            try logging in to see more content</h3>
-          </div>
-        <% end %>
-      </div>
+    </aside>
     
-      <div class="col-md-3 panel panel-default" id="searchanchor">
-        <div id="tag_cloud">
-          <h4>Trending Tags</h4>
-          <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
-            <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-          <% end %></br>
-        </div>
-        <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
-  	    <%= render 'shared/search_posts' %>
+    <div class="col-md-6">
+      
+      <div class="title-bar bar">
+        
+        <h1>Bullpen</h1>
+        <%= link_to "Search All Posts", posts_path, 
+          :class => 'btn btn-default btn-lg all_toggle' %>
       </div>
-  
-    <% end %>
+        
+      <% if current_user.following.any? %>
+        <ol class="posts">
+          <%= render @feed_items %>
+        </ol>
+        
+        <%= will_paginate @feed_items %>
+        
+      <% else %>
+        <div class="startinfo panel panel-default">
+          <div class="center">
+            <h3>Welcome to GymBull</br>here's how to get started</h3>
+          </div>
+
+          <ul>
+            <li>Below is a sample of the most recent content on GymBull</li>
+            <li>Once you find other <%= link_to 'users', users_path %> to follow, 
+            only their content will apear in this feed</li> 
+            <li>You will always be able to find all GymBull content by using the 
+            <%= link_to "Search posts", posts_path, :class => 'btn btn-default btn-sm all_toggle' %> button above</li>
+            <li>Use the trending <%= link_to 'tags', alltags_path %> or search for other content</li>
+            <li>If you mire a post by clicking the <span class="glyphicon glyphicon-star-empty"></span>
+            you'll save that content to your <%= link_to 'Mires', favorite_posts_path %> page</li>
+            <li>The <span class="glyphicon glyphicon-fullscreen"></span> icon will expand the 
+            post and show the comments</li>
+            <li>Here in the Bullpen you can post a new workout, meal, or anything else!</li>
+          </ul>
+        </div>
+        
+        <ol class="posts">
+          <%= render @posts %>
+        </ol>
+        
+      <% end %>
+    </div>
+    
+    <aside class="col-md-3" id="postanchor">
+      <div class="panel panel-default">
+        <section class="post_form panel-body">
+          <%= render 'shared/post_form' %>
+        </section>
+      </div>
+ 
+      <div class="panel panel-default">
+        <div id="tag_cloud" class="panel-body top-panel">
+          <h4><b>Trending Tags:</b></h4>
+          <% tag_cloud Post.tag_counts.most_used(25), %w[s m l] do |tag, css_class| %>
+            <%= link_to tag.name.downcase, tag_path(tag.name), class: css_class %>
+          <% end %></br>
+          <%= link_to "All Tags", alltags_path, class: "btn btn-default btn-sm" %>
+        </div>
+      </div>
+
+    </aside>
+    
   </div>
 </div>
