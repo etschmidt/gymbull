@@ -47,10 +47,10 @@ class PostsController < ApplicationController
       @posts = @search.result.paginate(page: params[:page], per_page: 15)
     elsif params[:q].blank?
       @search = Post.search(params[:q])
-      @posts = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 100)
+      @posts = @search.result(distinct: true).includes(:tags).all.paginate(page: params[:page], per_page: 50)
     else 
       @search = Post.search(params[:q])
-      @posts = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 100)
+      @posts = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 50)
       
     end
   end
