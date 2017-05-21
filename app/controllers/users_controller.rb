@@ -31,8 +31,10 @@ class UsersController < ApplicationController
       @posts = @user.posts.includes(:tags).all.paginate(page: params[:page], per_page: 15)
     end
     
-    @suggestions = suggestions.limit(3)
-    
+    if logged_in?
+      @suggestions = suggestions.limit(3)
+    end
+      
   end
 
   def new

@@ -87,97 +87,72 @@
       </div>
     </aside>
     
-  <div class="col-md-6">
-    <span class="desktop-follow">
-      <%= render 'follow_form' if logged_in? %>
-    </span>
-    
-      <div class="title-bar bar">
-        <h1>
-          <% if current_user?(@user) %>My <% end %>Log
-        </h1>  
-        <%= link_to "Show Bullpen", root_path, 
-            :class => 'btn btn-default btn-lg all_toggle' %>
-        
-      </div>
+    <div class="col-md-6">
+      <span class="desktop-follow">
+        <%= render 'follow_form' if logged_in? %>
+      </span>
       
-      <% if @user.posts.any? %>
-        <ol class="posts">
-          <%= render @posts %>
-        </ol>
-        <%= will_paginate @posts %>
-      
-      <% else %> <!-- If user hasn't posted anything yet -->
-      
-        <div class="startinfo panel panel-default">
-          <% if current_user?(@user) %>
-            <div class="center">
-              <h3>Hey, you haven't posted anything yet<br>Here are a few suggestions:</h3>
-            </div>
-  
-            <ul>
-              <li>What's the one workout you do when you only have 20 minutes at the gym?</li>
-              <li>What's your go-to meal to maximize gains?</li> 
-              <li>Or, how about this: Just post a picture of yourself at the start of your fitness journey</li>
-            </ul>
-      
-          <% else %>
-          
-            <div class="center">
-              <h3>This user hasn't posted anything yet...</br>But here are some who have:</h3>
-            </div>
-            
-            <ul class="users suggestions">
-              <%= render @suggestions %>
-            </ul>
-            
-          <% end %>
+        <div class="title-bar bar">
+          <h1>
+            <% if current_user?(@user) %>My <% end %>Log
+          </h1>  
+          <%= link_to "Show Bullpen", root_path, 
+              :class => 'btn btn-default btn-lg all_toggle' %>
           
         </div>
-      
-      <% end %>
-      
-  </div>
-  
-  <div class="col-md-3 panel panel-default ">
-      <div id="tag_cloud">
-        <h4><%= @user.name %>'s Tags:</h4>
-        <% tag_cloud @posts.tag_counts.limit(15), %w[s m l] do |tag, css_class| %>
-          <%= link_to tag.name.downcase, "/users/#{@user.id}/tags/#{tag.name}", class: css_class %>
+        
+        <% if @user.posts.any? %>
+          <ol class="posts">
+            <%= render @posts %>
+          </ol>
+          <%= will_paginate @posts %>
+        
+        <% else %> <!-- If user hasn't posted anything yet -->
+        
+          <div class="startinfo panel panel-default">
+            <% if current_user?(@user) %>
+              <div class="center">
+                <h3>Hey, you haven't posted anything yet<br>Here are a few suggestions:</h3>
+              </div>
+    
+              <ul>
+                <li>What's the one workout you do when you only have 20 minutes at the gym?</li>
+                <li>What's your go-to meal to maximize gains?</li> 
+                <li>Or, how about this: Just post a picture of yourself at the start of your fitness journey</li>
+              </ul>
+        
+            <% else %>
+            
+              <div class="center">
+                <h3>This user hasn't posted anything yet...</h3>
+                  <% if logged_in? %>
+                    <br><h3>But here are some who have:</h3>
+                  <% end %>
+              </div>
+                
+                <% if logged_in? %>
+                  <ul class="users suggestions">
+                    <%= render @suggestions %>
+                  </ul>
+                <% end %>
+                  
+            <% end %>
+            
+          </div>
+        
         <% end %>
+        
+    </div>
+    
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div id="tag_cloud" class="panel-body top-panel">
+          <h4><%= @user.name %>'s Tags:</h4>
+          <% tag_cloud @posts.tag_counts.limit(15), %w[s m l] do |tag, css_class| %>
+            <%= link_to tag.name.downcase, "/users/#{@user.id}/tags/#{tag.name}", class: css_class %>
+          <% end %>
+        </div>
       </div>
-
+    </div>
   </div>
 </div>
-</div>
-
-<script>
-$(document).ready(function(){
-
-  $("#all-toggle").click(function(){
-      $(".post").show();
-      $(".workout").show();
-      $(".meal").show();
-      $("#post-toggle, #workout-toggle, #meal-toggle, #all-toggle").addClass("active");
-  });
-
-  $("#post-toggle").click(function(){
-      $(".post").toggle();
-      $("#post-toggle").toggleClass("active");
-      $("#all-toggle").removeClass("active");
-  });
-  
-  $("#workout-toggle").click(function(){
-      $(".workout").toggle();
-      $("#workout-toggle").toggleClass("active");
-      $("#all-toggle").removeClass("active");
-  });
-  
-  $("#meal-toggle").click(function(){
-      $(".meal").toggle();
-      $("#meal-toggle").toggleClass("active");
-      $("#all-toggle").removeClass("active");
-  });
-  
-});
-</script>
