@@ -2,21 +2,25 @@
 <div class="container">
 	<div class="row">
 	
-	<aside class="col-md-3 panel panel-default">
-		<h2>Say hello to the newest GymBull members!</h2>
-	</aside>
-	
-	<div class="col-md-6">
-    <div class="title-bar bar">
-      <h1>Just Joined</h1>
-      <%= link_to "Search Users", users_path, 
-          :class => 'btn btn-default btn-lg all_toggle' %>
-    </div>
+		<aside class="col-md-3">
+			<div class="panel panel-default">
+				<div class="panel-body top-panel">
+					<h2>Say hello to the newest GymBull members!</h2>
+				</div>
+			</div>
+		</aside>
 		
-		<ul class="users">
-		  <%= render @users %>
-		</ul>
-		
+		<div class="col-md-6">
+	    <div class="title-bar bar">
+	      <h1>Just Joined</h1>
+	      <%= link_to "Search Users", users_path, 
+	          :class => 'btn btn-default btn-lg all_toggle' %>
+	    </div>
+			
+			<ul class="users">
+			  <%= render @users %>
+			</ul>
+			
+		</div>
 	</div>
-</div>
 </div>

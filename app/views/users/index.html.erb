@@ -2,23 +2,25 @@
 <div class="container">
 	<div class="row">
 	
-	<aside class="col-md-3 panel panel-default">
-		<div class="search">
-			<%= render 'search_user' %>
+		<aside class="col-md-3">
+			<div class="panel panel-default">
+				<div class="search panel-body">
+					<%= render 'search_user' %>
+				</div>
+			</div>
+		</aside>
+		
+		<div class="col-md-6">
+	    <div class="title-bar bar">
+	      <h1>Users & Gyms</h1>
+	      <%= link_to "New Users", justjoined_path, 
+	          :class => 'btn btn-default btn-lg all_toggle' %>
+	    </div>
+			
+			<ul class="users">
+			  <%= render @users %>
+			</ul>
+			
 		</div>
-	</aside>
-	
-	<div class="col-md-6">
-    <div class="title-bar bar">
-      <h1>Users & Gyms</h1>
-      <%= link_to "New Users", justjoined_path, 
-          :class => 'btn btn-default btn-lg all_toggle' %>
-    </div>
-		
-		<ul class="users">
-		  <%= render @users %>
-		</ul>
-		
 	</div>
-</div>
 </div>
