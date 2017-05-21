@@ -41,16 +41,16 @@ class PostsController < ApplicationController
     end
   end
   
-  def index
+  def index #this needs to be fixed so that Posts can paginate properly
     if params[:tag]
       @search = Post.tagged_with(params[:tag]).search(params[:q])
       @posts = @search.result.paginate(page: params[:page], per_page: 15)
     elsif params[:q].blank?
       @search = Post.search(params[:q])
-      @posts = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 500)
+      @posts = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 100)
     else 
       @search = Post.search(params[:q])
-      @posts = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 500)
+      @posts = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 100)
       
     end
   end
