@@ -7,7 +7,7 @@ gem 'faker',                   '1.7.1'   #making seed data
 gem 'carrierwave',             '0.11.2'  #image uploader
 gem 'mini_magick',             '4.5.1'   #image manipulation
 gem 'fog',                     '1.38.0'  #image upload
-gem 'will_paginate',           '3.1.5'   #pagination
+gem 'will_paginate',            github: 'jonatack/will_paginate'   #pagination
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bootstrap-sass',          '3.3.6'
 gem 'puma',                    '3.4.0'
@@ -18,7 +18,7 @@ gem 'jquery-rails',            '4.1.1'
 gem 'turbolinks',              '5.0.1'
 gem 'jbuilder',                '2.4.1'
 gem 'acts-as-taggable-on',     '~> 4.0'  #taggings
-gem 'ransack',                 '1.8.2'   #searching
+gem 'ransack', github: 'activerecord-hackery/ransack'   #searching
 gem 'friendly_id',             '~> 5.1'  #URL helpers
 gem 'public_activity',         '~> 1.5'  #activity feed
 gem 'youtube_addy',            '~> 1.0'  #youtube url parser

@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
     @comments = Comment.where(post_id: @post.id).order("created_at ASC")
   end
   
@@ -43,14 +43,14 @@ class PostsController < ApplicationController
   
   def index #this needs to be fixed so that Posts can paginate properly
     if params[:tag]
-      @search = Post.tagged_with(params[:tag]).search(params[:q])
-      @posts = @search.result.paginate(page: params[:page], per_page: 15)
+      @q = Post.tagged_with(params[:tag]).ransack(params[:q])
+      @posts = @q.result.paginate(page: params[:page], per_page: 15)
     elsif params[:q].blank?
-      @search = Post.search(params[:q])
-      @posts = @search.result(distinct: true).includes(:tags).all.paginate(page: params[:page], per_page: 50)
+      @q = Post.ransack(params[:q])
+      @posts = @q.result(distinct: true).includes(:tags).all.paginate(page: params[:page], per_page: 15)
     else 
-      @search = Post.search(params[:q])
-      @posts = @search.result.includes(:tags).all.paginate(page: params[:page], per_page: 50)
+      @q = Post.ransack(params[:q])
+      @posts = @q.result.includes(:tags).all.paginate(page: params[:page], per_page: 15)
       
     end
   end

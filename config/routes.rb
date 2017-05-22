@@ -53,9 +53,9 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :posts do
-    collection do
-      match 'search' => 'posts#index', via: [:get, :post], as: :search
-    end
+   # collection do
+   #   match 'search' => 'posts#index', via: [:get, :post], as: :search
+   # end
     
     resources :comments
   end
