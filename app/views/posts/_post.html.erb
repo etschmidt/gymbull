@@ -114,31 +114,23 @@
       
 <!-- should probably be a partial; but didn't work when refactored out -->
       <% if logged_in? %>
-  <!-- this didn't fix the problem; it just patched the leak: still cannot
-  mire a post from the return of a search-->
-        <% if params[:q].blank? %>
-          <% unless current_user.favorite_posts.exists?(id: post.id) %>
-            <%= link_to favorite_posts_path(post_id: post), 
-                            method: :post,
-                            :id => 'mire',
-                            :remote => true do %>
-              <i class="fa fa-star-o"></i>
-            <% end %>
-          <% else %>
-            <%= link_to favorite_post_path(post), 
-                            method: :delete,
-                            :id => 'unmire',
-                            :remote => true do %>
-              <i class="fa fa-star"></i>
-            <% end %>
+
+        <% unless current_user.favorite_posts.exists?(id: post.id) %>
+          <%= link_to favorite_posts_path(post_id: post), 
+                          method: :post,
+                          :id => 'mire',
+                          :remote => true do %>
+            <i class="fa fa-star-o"></i>
           <% end %>
         <% else %>
-          <% unless current_user.favorite_posts.exists?(id: post.id) %>
-            <i class="fa fa-star-o"></i>
-          <% else %>
+          <%= link_to favorite_post_path(post), 
+                          method: :delete,
+                          :id => 'unmire',
+                          :remote => true do %>
             <i class="fa fa-star"></i>
           <% end %>
         <% end %>
+
   <!-- this is for the post if a user isn't logged in
   also helps to showcase features-->
       <% else %>
