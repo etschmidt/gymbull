@@ -405,6 +405,7 @@ DEPENDENCIES
   coffee-rails (= 4.2.1)
   faker (= 1.7.1)
   fog (= 1.38.0)
+  fog-vsphere (= 1.9.2)
   friendly_id (~> 5.1)
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)

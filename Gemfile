@@ -7,6 +7,7 @@ gem 'faker',                   '1.7.1'   #making seed data
 gem 'carrierwave',             '0.11.2'  #image uploader
 gem 'mini_magick',             '4.5.1'   #image manipulation
 gem 'fog',                     '1.38.0'  #image upload
+gem 'fog-vsphere',             '1.9.2'
 gem 'will_paginate',            github: 'jonatack/will_paginate'   #pagination
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bootstrap-sass',          '3.3.6'
