@@ -46,19 +46,6 @@ section.user_info {
     margin-bottom: 3px;
     margin-top: 0px;
   }
-  div.details {
-    text-align: left;
-    margin-top: 5px;
-    div.flexbox {
-      display: flex;
-      i {
-        margin-right: 10px;
-      }
-      .loctxt {
-        padding-top: 2px;
-      }
-    }
-  }
   img {
     border-style: solid;
     border-width: 2px;
@@ -88,6 +75,23 @@ section.user_info {
     strong {
       display: block;
     }
+  }
+}
+div.details {
+  text-align: left;
+  margin-top: 5px;
+  div.flexbox {
+    display: flex;
+    i {
+      margin-right: 10px;
+    }
+    .loctxt {
+      padding-top: 2px;
+      padding-bottom: 10px;
+    }
+  }
+  a.btn.btn-danger.btn-xs {
+    margin-bottom: 5px;
   }
 }
 

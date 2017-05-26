@@ -73,6 +73,9 @@
                 <%= link_to "delete", @user, method: :delete,
                                             data: { confirm: "You sure?" }, 
                                             :class => "btn btn-danger btn-xs"  %>
+                <% if @user.activated? %>
+                  <i class="fa fa-check-circle"></i>
+                <% end %>
               <% end %>
             <% end %>
             
