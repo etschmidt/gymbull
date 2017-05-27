@@ -1,7 +1,13 @@
 <h4><b>Gymbro Ticker:</b></h4>
 
-<% @activities.each do |activity| %>
-	<div class="user-activities">
-		<%= render_activity activity %>
+<% if @activities.any? %>
+	<% @activities.each do |activity| %>
+		<div class="user-activities">
+			<%= render_activity activity %>
+		</div>
+	<% end %>
+<% else %>
+	<div class="user-activities center">
+		<p>Follow other users to find out what they're up to and it'll dhow up here</p>
 	</div>
 <% end %>
