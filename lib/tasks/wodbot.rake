@@ -41,7 +41,7 @@ namespace :ppl do
 							 body_parts: ppl.muscles,
 							 duration: 45,
 							 content: ppl.print_ppl, 
-							 tag_list: ppl.title)	
+							 tag_list: ppl.tags)	
 		post.save
 	end
 	

@@ -5,6 +5,7 @@ class Ppl < ApplicationRecord
 		@title = title
 		@abs1 = ABS.first
 		@abs2 = ABS.last
+		@tags = tags
 	end
 	
 	CHEST = ["Dumbbell Floor Press", "Cable Crossovers (mid chest)", "Cable Crossovers (bent over)", "Wide Reverse Grip Bench Press", "Decline Bench Press",
@@ -70,6 +71,24 @@ class Ppl < ApplicationRecord
 		end 
 	end
 	
+	def tags
+		if @day == "Monday"
+			return "Push"
+		elsif @day == "Tuesday"
+   		return "Pull"
+		elsif @day == "Wednesday"
+			return "Legs"
+		elsif @day == "Thursday"
+			return "Push"
+		elsif @day == "Friday"
+			return "Pull"
+		elsif @day == "Saturday"
+			return "Legs"
+		else #Sunday
+			return "Rest"
+		end 
+	end
+
 	def muscles
 		if @day == "Monday" or @day == "Thursday"
 			return "Chest, Shoulders & Triceps"
