@@ -34,8 +34,8 @@ namespace :ppl do
 		ppl.compounds
 		ppl.muscles
 		
-		post = Post.new(user_id: 2,
-							 #user_id: 131,
+		post = Post.new(	 #user_id: 2,
+							 user_id: 131,
 							 post_type: "workout",
 							 title: ppl.title,
 							 body_parts: ppl.muscles,
