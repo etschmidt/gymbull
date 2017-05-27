@@ -12,18 +12,17 @@
 			</div>			
 		</fieldset>
 		
-		<%= f.label :content_cont %>
-		<%= f.search_field :content_cont %>
+		<div class="post_searches">
+			<%= f.label "Content" %>
+			<%= f.search_field :content_cont %>
 		
-		<div class="workout">
-			<%= f.label :equipment_cont %>
+			<%= f.label "Equipment" %>
 			<%= f.search_field :equipment_cont %>
-			<%= f.label "Muscules used contain" %>
-			<%= f.search_field :body_parts_cont %>
-		</div>
 		
-		<div class="meal">
-			<%= f.label "Ingredients contain" %>
+			<%= f.label "Body Parts" %>
+			<%= f.search_field :body_parts_cont %>
+		
+			<%= f.label "Ingredients" %>
 			<%= f.search_field :ingredients_cont %>
 		</div>
 		
