@@ -46,6 +46,9 @@ $gray-medium-light: #eaeaea;
     .content {
       display: block;
       margin-left: 2.2em;
+      .post-title {
+        font-size: 16px;
+      }
       .post-id {
         display: none;
       }

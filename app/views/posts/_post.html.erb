@@ -37,9 +37,9 @@
     <% elsif workout?(post) %>
     
       <% if post.title? %>
-        <b><%= post.title %><span class="post-id"> - <%= post.post_type.titlecase()%></span></b></br>
+        <span class="post-title"><b><%= post.title %></span><span class="post-id"> - <%= post.post_type.titlecase()%></span></b></br>
       <% else %>
-        <b><%= post.created_at.to_date.to_formatted_s(:rfc822) %><span class="post-id"> - <%= post.post_type.titlecase()%></b></span>
+        <span class="post-title"><b><%= post.created_at.to_date.to_formatted_s(:rfc822) %></span><span class="post-id"> - <%= post.post_type.titlecase()%></b></span>
       <% end %>
       
       <div class="full-option">
@@ -71,9 +71,10 @@
     <% elsif meal?(post) %>
       
       <% if post.title? %>
-        <b><%= post.title %><span class="post-id"> - <%= post.post_type.titlecase()%></span></b></br>
+      <% if post.title? %>
+        <span class="post-title"><b><%= post.title %></span><span class="post-id"> - <%= post.post_type.titlecase()%></span></b></br>
       <% else %>
-        <span class="post-id"><b><%= post.id %> - <%= post.post_type.titlecase() %></b></span>
+        <span class="post-title"><b><%= post.id %></span><span class="post-id"> - <%= post.post_type.titlecase()%></b></span>
       <% end %>
       
       <div class="full-option">
