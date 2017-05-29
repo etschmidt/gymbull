@@ -71,7 +71,6 @@
     <% elsif meal?(post) %>
       
       <% if post.title? %>
-      <% if post.title? %>
         <span class="post-title"><b><%= post.title %></span><span class="post-id"> - <%= post.post_type.titlecase()%></span></b></br>
       <% else %>
         <span class="post-title"><b><%= post.id %></span><span class="post-id"> - <%= post.post_type.titlecase()%></b></span>
