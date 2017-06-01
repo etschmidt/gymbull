@@ -96,7 +96,7 @@
           <span class="full-option">
             <%= image_tag post.picture.url(:post) if post.picture? %>
             <% if post.youtube_url? %>
-              <iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.youtube_url) %>" 
+              <iframe id="ytplayer" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.youtube_url) %>" 
               allowfullscreen="allowfullscreen"></iframe>
             <% end %>
           </span>

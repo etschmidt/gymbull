@@ -75,10 +75,7 @@ $gray-medium-light: #eaeaea;
         }
         iframe {
           display: block;
-          width: 90%;
-          height: 90%;
-          margin-left: 0%;
-          margin-right: 5%;
+          max-width: 100%;
         }
       }
       .fa {
@@ -112,6 +109,14 @@ $gray-medium-light: #eaeaea;
   }
 }
 
+@media (max-width: 766px) {
+  .posts li div.content {
+    span.post_type {
+      display: none;
+    }
+  }
+}
+
 @media (min-width: 767px) {
   .posts li div.content {
     div.full-option {
@@ -128,16 +133,42 @@ $gray-medium-light: #eaeaea;
     }
   }
 }
+/* Youtube iframe */
 
-@media (max-width: 766px) {
-  .posts li div.content {
-    span.post_type {
-      display: none;
-    }
+@media (max-width: 375px) and (max-width: 424px) {
+  iframe {
+    margin-left: -5%;
   }
 }
 
+@media (max-width: 4px) {
+  iframe {
+    margin-left: 0;
+  }
+}
 
+@media (min-width: 426px) and (max-width: 768px) {
+  iframe {
+    height: 270px;
+    width: 480px;
+    margin-left: 10%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  iframe {
+    height: 270px;
+    width: 480px;
+    margin-left: -5%;
+  }
+}
+
+@media (min-width: 1024px)  {
+  iframe {
+    height: 270px;
+    width: 480px;
+  }
+}
 
 /* Mobile */
 
