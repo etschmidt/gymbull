@@ -54,11 +54,11 @@ section.user_info {
     max-width: 95%
   }
   .stats {
-    width: 75%;
-    margin-left: 16%;
-    overflow: auto;
-    margin-top: 0;
+    width: 100%;
+    margin: 0 auto;
     padding: 0;
+    display: flex; //FLEXBOX that shit!
+    justify-content: center;
     a {
       float: left;
       padding: 0 10px;
