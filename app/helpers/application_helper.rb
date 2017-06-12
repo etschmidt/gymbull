@@ -22,7 +22,7 @@ module ApplicationHelper
     end
   end
 
-  def twitter_pic(page_pic ='')
+  def meta_pic(page_pic ='')
     base_pic = "https://www.gymbull.com/assets/BullsHead2-300px-40eb7585a95ae04d8582f8a6335d8418673f2de31f699e4f37aa6af50f4537a7.png"
 
     if page_pic.empty?
