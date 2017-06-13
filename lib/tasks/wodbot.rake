@@ -34,7 +34,7 @@ namespace :ppl do
 		ppl.compounds
 		ppl.muscles
 		
-		post = Post.new(	 #user_id: 2,
+		post = Post.new(	 #user_id: 181,
 							 user_id: 131,
 							 post_type: "workout",
 							 title: ppl.title,
@@ -47,3 +47,31 @@ namespace :ppl do
 	
 end
 
+namespace :power do
+
+	task :test => :environment do
+		power = Power.new
+		power.muscles
+		power.reps
+
+		print power.print_power
+	end
+
+	task :post => :environment do
+		power = Power.new
+		power.muscles
+		power.reps
+
+		post = Post.new(	 user_id: 181,
+							 #user_id: ,
+							 post_type: "workout",
+							 title: power.title,
+							 body_parts: power.muscles,
+							 duration: 60,
+							 content: power.print_power, 
+							 tag_list: power.tags)	
+		post.save
+
+	end
+
+end
