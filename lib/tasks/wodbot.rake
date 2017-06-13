@@ -9,7 +9,7 @@ namespace :wod do
 	task :post => :environment do
 		wod = Wod.new
 		
-		post = Post.new(user_id: 128,
+		post = Post.new(user_id: 128, #CrossFitLeonidas
 							 post_type: "workout", 
 							 content: wod.print_ss + wod.print_wod, 
 							 tag_list: "wod")	
@@ -35,7 +35,7 @@ namespace :ppl do
 		ppl.muscles
 		
 		post = Post.new(	 #user_id: 181,
-							 user_id: 131,
+							 user_id: 131, #PhillyTraining
 							 post_type: "workout",
 							 title: ppl.title,
 							 body_parts: ppl.muscles,
@@ -62,8 +62,8 @@ namespace :power do
 		power.muscles
 		power.reps
 
-		post = Post.new(	 user_id: 181,
-							 #user_id: ,
+		post = Post.new(	 #user_id: 181,
+							 user_id: 175, #PowerliftingBadgers
 							 post_type: "workout",
 							 title: power.title,
 							 body_parts: power.muscles,
