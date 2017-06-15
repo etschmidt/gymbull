@@ -18,6 +18,3 @@
 
 # Ignore uploaded test images.
 /public/uploads
-
-#ignore secrets
-/config/secrets.yml
