@@ -18,3 +18,6 @@
 
 # Ignore uploaded test images.
 /public/uploads
+
+#local variables
+/config/local_env.yml
