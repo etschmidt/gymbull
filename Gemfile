@@ -36,6 +36,7 @@ group :development do
   gem 'spring',                '1.7.2'
   gem 'spring-watcher-listen', '2.0.0'
   gem 'rails_real_favicon'
+  gem 'rails_db'
 end
 
 group :test do
