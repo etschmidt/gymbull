@@ -10,7 +10,7 @@ development:
   database: postgres
   pool: 5
   username: postgres
-  password: Eagles69
+  password: password
   timeout: 5000
   host: 127.0.0.1
  
@@ -41,6 +41,6 @@ test:
   database: postgres
   pool: 5
   username: postgres
-  password: Eagles69
+  password: password
   timeout: 5000
   host: 127.0.0.1
