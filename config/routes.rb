@@ -29,13 +29,7 @@ Rails.application.routes.draw do
   get 'users/:id/tags/:tag', to: 'users#show'
   get 'justjoined', to: 'users#justjoined'
 
-# this is for letsencrypt to find and verify the site www.gymbull.com
-  get '/.well-known/acme-challenge/vPm1E8Lk1tr2pU0kSVhDnWnB5JIrmuYQx17pbsKEwxI' ,   to: 'static_pages#letsencrypt1'
-  
-# this is for letsencrypt to find and verify the site gymbull.com
-  get '/.well-known/acme-challenge/RQ5SDEpnhY0aY29Y5Dh55NanB1Zv_SEqKhkyMkGpR3E' ,   to: 'static_pages#letsencrypt2'
-
-  resources :users do
+  resources :users, :path => 'u' do
     collection do
       match 'search' => 'users#index', via: [:get, :post], as: :search
     end
